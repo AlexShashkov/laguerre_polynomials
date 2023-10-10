@@ -19,7 +19,7 @@ void laguer(VecComplex_I &a, Complex &x){
     Complex dx, x1, b, d, f, g, h, sq, gp, gm, g2;
     double err, abx, abp, abm;
     int m = a.size() - 1;
-    complex a_m = a[m];
+    Complex a_m = a[m];
     for(int iter=1; iter<=80; iter++){
         // loop over iterations up to allowed maximum
         b = a_m;
