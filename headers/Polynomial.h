@@ -57,6 +57,13 @@ public:
         setCoeffs(std::vector<T>{args...});
     }
 
+    Polynomial& operator=(const Polynomial& other) {
+        if (this != &other) {
+            this->coeffs = other.coeffs;
+        }
+        return *this;
+    }
+
     Polynomial operator*(const Polynomial& other) {
         int n = coeffs.size();
         int m = other.coeffs.size();
@@ -76,8 +83,17 @@ public:
         return *this;
     }
 
-    std::vector<T> diff(int deg){
-
+    Polynomial diff(int deg=1){
+        Polynomial<T> diff_poly = this;
+        for(int j = 0; j < deg; ++j){
+            for (int i = 1; i < coeffs.size(); ++i) {
+                diff_poly.coeffs[i] *= i;
+            }
+            if (!diff_poly.coeffs.empty()) {
+                diff_poly.coeffs.erase(coeffs.begin());
+            }
+            else break;
+        }
     }
 
     void print() {

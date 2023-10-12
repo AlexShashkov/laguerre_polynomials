@@ -9,6 +9,8 @@ int main(){
     test.print();
     Laguerre::Polynomial<float> genRoots = Laguerre::Generators<float>::createFromRoots(1., 2., 3.);
     genRoots.print();
+    std::cout << "Diff res: ";
+    genRoots.diff().print(); 
     try{
         test.setRoots(2, 2, 8, 9);
         test.setCoeffs();
