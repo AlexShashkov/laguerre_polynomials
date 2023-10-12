@@ -2,17 +2,27 @@
 #define POLYNOMIAL_H
 
 #include <vector>
+#include <complex>
 #include <iostream>
 
-namespace PolyGen {
+#include "Polynomial.h"
+
+namespace Laguerre{
 
 template<typename T>
 class Polynomial{
-private:
-    std::vector<T> roots;
+protected:
+    std::vector<std::complex<T>> roots;
     std::vector<T> coeffs;
     int degree = 0;
 public:
+    using complex = std::complex<T>;
+
+    Polynomial(std::vector<T> _coeffs, std::vector<complex> _roots){
+        setCoeffs(_coeffs);
+        setRoots(_roots);
+    }
+
     Polynomial(std::vector<T> args){
         setCoeffs(args);
     }
@@ -22,17 +32,17 @@ public:
         setCoeffs(args...);
     }
 
-    void setRoots(std::vector<T> args){
+    void setRoots(std::vector<complex> args){
         size_t count = args.size();
-        if(args.size() != degree)
+        if(count != degree)
             throw std::invalid_argument("Count of given roots is different from given polynomial degree. (" 
                     + std::to_string(count) + " vs " + std::to_string(degree) + ")\n");
         roots = args;
-        }
+    }
 
     template<typename... Args>
     void setRoots(Args...args){
-        setRoots(std::vector<T>{args...});
+        setRoots(std::vector<complex>{args...});
     }
 
     void setCoeffs(std::vector<T> args){
@@ -47,6 +57,25 @@ public:
         setCoeffs(std::vector<T>{args...});
     }
 
+    Polynomial operator*(const Polynomial& other) {
+        int n = coeffs.size();
+        int m = other.coeffs.size();
+        std::vector<T> result(n + m - 1, 0);
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                result[i + j] += coeffs[i] * other.coeffs[j];
+            }
+        }
+        return Polynomial(result);
+    }
+
+    Polynomial& operator*=(const Polynomial& other) {
+        *this = *this * other;
+        this->roots.clear();
+        return *this;
+    }
+
     std::vector<T> diff(int deg){
 
     }
@@ -54,21 +83,19 @@ public:
     void print() {
         if(!degree){
             std::cout << "This polynomial object doesnt contain any coefficient.\n";
-            return;
         }
-        int deg = degree;
-        for(int i = 0; i < coeffs.size(); ++i, --deg) {
-            std::cout << "(" << coeffs[i] << ")";
-            if(deg > 0){
-                std::cout << "x^" << deg;
-                if(i != coeffs.size() - 1) {
+        else{
+            for(int i = degree; i >= 0; --i){
+                std::cout << "(" << coeffs[i] << ")";
+                std::cout << "x^" << i;
+                if(i != 0) {
                     std::cout << " + ";
                 }
             }
+            std::cout << ". Degree: " << degree << '\n';
         }
-        std::cout << ". Degree: " << degree << '\n';
-    }
+    }       
 };
-}
+};
 
 #endif

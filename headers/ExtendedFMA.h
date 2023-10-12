@@ -11,7 +11,7 @@
 
 using namespace std::complex_literals;
 
-namespace implementations{
+namespace Laguerre{
 	using std::complex;
 	using std::vector;
 	using std::fma;
