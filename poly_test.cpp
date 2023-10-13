@@ -1,4 +1,5 @@
 #include "headers/Polynomial.h"
+#include "headers/ExtendedFunctions.h"
 #include "headers/PolynomialGenerator.h"
 
 int main(){
@@ -10,7 +11,7 @@ int main(){
     Laguerre::Polynomial<float> genRoots = Laguerre::Generators<float>::createFromRoots(1., 2., 3.);
     genRoots.print();
     std::cout << "Diff res: ";
-    genRoots.diff().print(); 
+    Laguerre::printVec(genRoots.diff()); 
     try{
         test.setRoots(2, 2, 8, 9);
         test.setCoeffs();

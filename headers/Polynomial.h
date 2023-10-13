@@ -57,14 +57,7 @@ public:
         setCoeffs(std::vector<T>{args...});
     }
 
-    Polynomial& operator=(const Polynomial& other) {
-        if (this != &other) {
-            this->coeffs = other.coeffs;
-        }
-        return *this;
-    }
-
-    Polynomial operator*(const Polynomial& other) {
+    Polynomial operator*(const Polynomial& other){
         int n = coeffs.size();
         int m = other.coeffs.size();
         std::vector<T> result(n + m - 1, 0);
@@ -77,26 +70,34 @@ public:
         return Polynomial(result);
     }
 
-    Polynomial& operator*=(const Polynomial& other) {
+    Polynomial& operator*=(const Polynomial& other){
         *this = *this * other;
         this->roots.clear();
         return *this;
     }
 
-    Polynomial diff(int deg=1){
-        Polynomial<T> diff_poly = this;
+    Polynomial& operator=(const Polynomial& other){
+        if (this != &other) {
+            this->setCoeffs(other.coeffs);
+        }
+        return *this;
+    }
+
+    std::vector<T> diff(int deg=1){
+        std::vector ret = coeffs;
         for(int j = 0; j < deg; ++j){
-            for (int i = 1; i < coeffs.size(); ++i) {
-                diff_poly.coeffs[i] *= i;
+            for (int i = 1; i < ret.size(); ++i) {
+                ret[i] *= static_cast<T>(i);
             }
-            if (!diff_poly.coeffs.empty()) {
-                diff_poly.coeffs.erase(coeffs.begin());
+            if (!ret.size()) {
+                ret.erase(ret.begin());
             }
             else break;
         }
+        return ret;
     }
 
-    void print() {
+    void print(){
         if(!degree){
             std::cout << "This polynomial object doesnt contain any coefficient.\n";
         }
