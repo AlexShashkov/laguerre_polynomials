@@ -7,7 +7,6 @@
 // Ваша функция здесь
 
 int main() {
-    // Тест 1: Полином x^2 - 1 = 0
     std::vector<std::complex<double>> poly1 = {std::complex<double>(1,0), std::complex<double>(1,0), std::complex<double>(1,0),std::complex<double>(1,0), std::complex<double>(1,0),std::complex<double>(1,0), std::complex<double>(1,0),std::complex<double>(1,0) };
     int deg1 = 7;
     std::vector<std::complex<double>> roots1(deg1);
