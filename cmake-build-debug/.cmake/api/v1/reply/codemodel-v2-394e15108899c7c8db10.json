@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "laguerre_polynomials",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "laguerre_polynomials::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-laguerre_polynomials-Debug-ca19631a1e5e16b8cb07.json",
+					"name" : "laguerre_polynomials",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_fpml::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_fpml-Debug-0371eed3a32e511ec58d.json",
+					"name" : "test_fpml",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_roots_poly::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_roots_poly-Debug-07eb505e8e3fbc2fb121.json",
+					"name" : "test_roots_poly",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/axelsingleton/CLionProjects/laguerre_polynomials/cmake-build-debug",
+		"source" : "/home/axelsingleton/CLionProjects/laguerre_polynomials"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
