@@ -1,94 +1,119 @@
-#include<complex>
-#include<vector>
-#include<limits>
+#include <complex>
+#include <vector>
+#include <limits>
 #include "ExtendedFMA.h"
 
-using namespace std;
+template <typename T>
+using VecT = std::vector<T>;
 
-typedef complex<double> Complex;
-typedef vector<complex<double>> VecComplex_I;
-typedef vector<complex<double>> VecComplex, VecComplex_O;
-typedef vector<complex<double>>::size_type SizeType;
+// Global EPS (epsilon) for convergence
+const double EPS = std::numeric_limits<double>::epsilon();
 
-constexpr double EPS=numeric_limits<double>::epsilon();
-
-
-void laguer(VecComplex_I &a, Complex &x){
+/**
+ * Laguerre's method to find a root of a polynomial.
+ *
+ * @param a   Coefficients of the polynomial.
+ * @param x   Initial guess for the root.
+ */
+template <typename T>
+void laguer(const VecT<std::complex<T>>& a, std::complex<T>& x) {
     const int MT = 10;
-    static const double frac[9] = {0.0,0.5,0.25,0.75,0.13,0.38,0.62,0.88,1.0};
-    Complex dx, x1, b, d, f, g, h, sq, gp, gm, g2;
-    double err, abx, abp, abm;
+    static const double frac[9] = {0.0, 0.5, 0.25, 0.75, 0.13, 0.38, 0.62, 0.88, 1.0};
+    std::complex<T> dx, x1, b, d, f, g, h, sq, gp, gm, g2;
+    T err, abx, abp, abm;
     int m = a.size() - 1;
-    Complex a_m = a[m];
-    for(int iter=1; iter<=80; iter++){
-        // loop over iterations up to allowed maximum
+    std::complex<T> a_m = a[m];
+
+    for (int iter = 1; iter <= 80; iter++) {
         b = a_m;
-        err = abs(b);
-        d = f = 0.0;
-        abx = abs(x);
-        for(int j=m-1; j>=0; j--){
-            // efficient computation of the polynomial and
-            // its first two derivatives. f stores P''/2
+        err = std::abs(b);
+        d = f = std::complex<T>(0.0, 0.0);
+        abx = std::abs(x);
+
+        for (int j = m - 1; j >= 0; j--) {
             f = implementations::fma(x, f, d);
             d = implementations::fma(x, d, b);
             b = implementations::fma(x, b, a[j]);
-            err = fma(err, abx, abs(b));
+            err = fma(err, abx, std::abs(b));
         }
-        // estimate of roundoff error in evaluating 
-        // polynomial
-        if(abs(b) <= err*EPS) return; // we are on the root
-        // the generic case: use Laguerre's formula
-        g = d/b; 
-        g2 = pow(g, 2);
-        h = implementations::fma(f/b,-static_cast<double>(2), g2);
-        sq = sqrt(((double) m-1)*(implementations::fma(h,((double) m),-g2)));
+
+        if (std::abs(b) <= err * EPS)
+            return;  // We are on the root.
+
+        g = d / b;
+        g2 = g * g;
+        h = implementations::fma(f / b, -static_cast<T>(2), g2);
+        sq = std::sqrt(static_cast<T>(m - 1) * (implementations::fma(h, static_cast<T>(m), -g2)));
         gp = g + sq;
         gm = g - sq;
-        abp = abs(gp);
-        abm = abs(gm);
-        if (abp < abm) gp = gm;
-        dx = max(abp, abm) > 0.0 ? ((double) m)/gp : polar(1+abx, (double) iter);
+        abp = std::abs(gp);
+        abm = std::abs(gm);
+
+        if (abp < abm)
+            gp = gm;
+
+        dx = (std::max(abp, abm) > static_cast<T>(0.0)) ? (static_cast<T>(m) / gp) : std::polar(static_cast<T>(1) + abx, static_cast<T>(iter));
         x1 = x - dx;
-        if(x == x1) return; // converged
-        // every so often we take a fractional step, 
-        // to break any limit cicle (itself a rare 
-        // occurrence)
-        iter % MT != 0 ? x = x1 : x = implementations::fma(x, -frac[iter/MT], dx);
+
+        if (x == x1)
+            return;  // Converged.
+
+        if (iter % MT != 0)
+            x = x1;
+        else
+            x = implementations::fma(x, -frac[iter / MT], dx);
     }
-    throw("too many iterations in laguer");
-    // very unusual: can occurr only for complex roots.
-    // try a different starting guess.
+    throw "Too many iterations in laguer";
 }
 
-void zroots(VecComplex_I &a, VecComplex_O &roots, const bool polish) {
-    Complex x, _b, _c;
+/**
+ * Find all roots of a polynomial using the ZROOTS method.
+ *
+ * @param a      Coefficients of the polynomial.
+ * @param roots  Output vector to store the roots.
+ * @param polish Whether to polish the roots.
+ * @param _frac  Array of fractional values for iteration (provided to avoid repeated initialization).
+ */
+template <typename T>
+void zroots(const VecT<std::complex<T>>& a, VecT<std::complex<T>>& roots, const bool polish, const double* _frac) {
+    std::complex<T> x, _b, _c;
     int m = a.size() - 1;
-    VecComplex ad(m+1);
-    // copy of coefs. for successive deflation
-    for(int j=0;j<=m;j++) ad[j] = a[j];  
-    for(int j=m-1;j>=0;j--){
-        x = 0.0; // start at zero to favor convergence to
-        // smallest remaining root, and return the root.
-        VecComplex ad_v(ad.cbegin(), ad.cbegin()+j+2); //for(int jj=0; jj<j+2; jj++) ad_v[jj] = ad[jj];
+    VecT<std::complex<T>> ad(m + 1);
+
+    // Copy of coefficients for successive deflation.
+    ad = a;
+
+    for (int j = m - 1; j >= 0; j--) {
+        x = std::complex<T>(0.0, 0.0);
+
+        // Start at zero to favor convergence to the smallest remaining root.
+        std::vector<std::complex<T>> ad_v(ad.cbegin(), ad.cbegin() + j + 2);
         laguer(ad_v, x);
-        if(fabs(imag(x)) <= fabs(real(x))*EPS) x.imag(0);
+
+        if (std::abs(imag(x)) <= std::abs(real(x)) * EPS)
+            x.imag(static_cast<T>(0));
+
         roots[j] = x;
-        _b = ad[j+1];
-        for(int jj=j; jj>=0; jj--){
+        _b = ad[j + 1];
+
+        for (int jj = j; jj >= 0; jj--) {
             _c = ad[jj];
             ad[jj] = _b;
             _b = implementations::fma(x, _b, _c);
         }
     }
-    if (polish){
-        int i;
-        for(int j=1; j<m; j++){
+
+    if (polish) {
+        for (int j = 1; j < m; j++) {
             x = roots[j];
-            for(i=j-1; j<m; j++){
-                if(real(roots[i]) <= real(x)) break;
-                roots[i+j] = roots[i];
+            int i;
+
+            for (i = j - 1; j < m; j++) {
+                if (real(roots[i]) <= real(x))
+                    break;
+                roots[i + j] = roots[i];
             }
-            roots[i+j] = x;
+            roots[i + j] = x;
         }
     }
 }
