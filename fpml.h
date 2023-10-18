@@ -273,7 +273,9 @@ void laguerre(std::vector<std::complex<double>>& poly, int deg, std::vector<std:
     if (alpha[deg] < small) {
         std::cout << "Warning: leading coefficient too small." << std::endl;
         return;
-    } else if (deg == 1) {
+    } 
+    /*
+    else if (deg == 1) {
         roots[0] = -poly[0] / poly[1];
         conv[0] = 1;
         berr[0] = 0.0;
@@ -291,7 +293,7 @@ void laguerre(std::vector<std::complex<double>>& poly, int deg, std::vector<std:
         cond[0] = (alpha[0] + alpha[1] * abs(roots[0]) + alpha[2] * pow(abs(roots[0]), 2)) / (abs(roots[0]) * abs(poly[1] + 2.0 * poly[2] * roots[0]));
         cond[1] = (alpha[0] + alpha[1] * abs(roots[1]) + alpha[2] * pow(abs(roots[1]), 2)) / (abs(roots[1]) * abs(poly[1] + 2.0 * poly[2] * roots[1]));
         return;
-    }
+    }*/
 
     // Initial estimates
     conv.assign(deg, 0);
