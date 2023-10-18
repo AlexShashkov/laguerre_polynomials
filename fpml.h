@@ -264,7 +264,7 @@ void laguerre(std::vector<std::complex<double>>& poly, int deg, std::vector<std:
     int i, j, nz;
     double r;
     std::vector<double> alpha(deg + 1);
-    std::complex<double> b = 1.0, c = 1.0, z = 1.0;
+    std::complex<double> b, c, z;
 
     // Precheck
     for (i = 0; i <= deg; i++)
