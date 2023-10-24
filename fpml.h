@@ -19,8 +19,13 @@ const double small = std::numeric_limits<double>::min();
  * @return double Determinant between two points.
  */
 double cross(std::vector<int>& h, std::vector<double>& a, int c, int i) {
-    return (a[i] - a[h[c - 1]]) * (h[c] - h[c - 1]) - (a[h[c]] - a[h[c - 1]]) * (i - h[c - 1]);
-}
+        // determinant
+        int h_c = h[c];
+        int h_c1 = h[c-1];
+        double a_hc = a[h_c1];
+        double det = implementations::fms(a[i]-a_hc, (double)(h_c-h_c1), a[h_c]-a_hc, (double)(i-h_c1));
+        return det;
+    }
 
 /**
  * @brief Calculate the convex hull of a set of points.
