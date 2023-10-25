@@ -6,19 +6,21 @@
 #include <iostream>
 
 #include "Polynomial.h"
+#include "ExtendedFunctions.h"
 
 namespace Laguerre{
 
 template<typename T>
 class Polynomial{
 protected:
-    std::vector<std::complex<T>> roots;
+    std::vector<T> roots;
     std::vector<T> coeffs;
     int degree = 0;
 public:
     using complex = std::complex<T>;
 
-    Polynomial(std::vector<T> _coeffs, std::vector<complex> _roots){
+    // For roots of one type. We need to everload this constructor for complex types!
+    Polynomial(std::vector<T> _coeffs, std::vector<T> _roots){
         setCoeffs(_coeffs);
         setRoots(_roots);
     }
@@ -32,7 +34,7 @@ public:
         setCoeffs(args...);
     }
 
-    void setRoots(std::vector<complex> args){
+    void setRoots(std::vector<T> args){
         size_t count = args.size();
         if(count != degree)
             throw std::invalid_argument("Count of given roots is different from given polynomial degree. (" 
@@ -42,7 +44,7 @@ public:
 
     template<typename... Args>
     void setRoots(Args...args){
-        setRoots(std::vector<complex>{args...});
+        setRoots(std::vector<T>{args...});
     }
 
     void setCoeffs(std::vector<T> args){
@@ -99,7 +101,7 @@ public:
 
     void print(){
         if(!degree){
-            std::cout << "This polynomial object doesnt contain any coefficient.\n";
+            std::cout << "This polynomial object doesnt contain any coefficients.\n";
         }
         else{
             for(int i = degree; i >= 0; --i){
@@ -110,6 +112,8 @@ public:
                 }
             }
             std::cout << ". Degree: " << degree << '\n';
+            std::cout << "Roots: " << roots.size() <<  "; ";
+            printVec(roots);
         }
     }       
 };

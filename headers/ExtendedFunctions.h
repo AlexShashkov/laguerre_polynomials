@@ -93,12 +93,21 @@ namespace Laguerre{
 	}
 
 	/** \brief Print out vector
-	 * 	\return a*b+c
 	*/
 	template <typename number>
 	inline void printVec(vector<number> vec){
         for (number i: vec) std::cout << i << " ";
         std::cout << "\n";
+    } 
+
+	/** \brief Convert vector<T> to vector<number>
+     * \return new vector of template type <number>
+	*/
+	template <typename number, typename T>
+	inline vector<number> castVec(vector<T> vec){
+        vector<number> res;
+        for (T i: vec) res.push_back(static_cast<number>(i));
+        return res;
     } 
 }
 #endif
