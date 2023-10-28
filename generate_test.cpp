@@ -11,6 +11,9 @@ int main(){
         genRoots.print();
         Polynomial<number> genRoots2 = Laguerre::Generator<number>::gen(4);
         genRoots2.print();
+        std::cout << genRoots2[2] << "\n";
+        genRoots2[2] = 0.0001;
+        std::cout << genRoots2[2] << "\n";
     }
     catch (const std::invalid_argument &exc)
     {

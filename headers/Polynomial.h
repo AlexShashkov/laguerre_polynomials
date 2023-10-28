@@ -15,7 +15,6 @@ class Polynomial{
 protected:
     std::vector<T> roots;
     std::vector<T> coeffs;
-    int degree = 0;
 public:
     using complex = std::complex<T>;
 
@@ -34,11 +33,16 @@ public:
         setCoeffs(args...);
     }
 
+    int degree(){
+        int size = coeffs.size();
+        return size > 0 ? size - 1 : 0;
+    }
+
     void setRoots(std::vector<T> args){
         size_t count = args.size();
-        if(count != degree)
+        if(count != degree())
             throw std::invalid_argument("Count of given roots is different from given polynomial degree. (" 
-                    + std::to_string(count) + " vs " + std::to_string(degree) + ")\n");
+                    + std::to_string(count) + " vs " + std::to_string(degree()) + ")\n");
         roots = args;
     }
 
@@ -50,8 +54,6 @@ public:
     void setCoeffs(std::vector<T> args){
         coeffs = args;
         roots.clear();
-        int size = coeffs.size();
-        degree = size > 0 ? size - 1 : 0;
     }
 
     template<typename... Args>
@@ -85,6 +87,14 @@ public:
         return *this;
     }
 
+    T operator[](int i) const{
+        return coeffs[i];
+    }
+
+    T& operator [](int i){
+        return coeffs[i];
+    }
+
     std::vector<T> diff(int deg=1){
         std::vector ret = coeffs;
         for(int j = 0; j < deg; ++j){
@@ -100,18 +110,19 @@ public:
     }
 
     void print(){
-        if(!degree){
+        int _degree = degree();
+        if(!_degree){
             std::cout << "This polynomial object doesnt contain any coefficients.\n";
         }
         else{
-            for(int i = degree; i >= 0; --i){
+            for(int i = _degree; i >= 0; --i){
                 std::cout << "(" << coeffs[i] << ")";
                 std::cout << "x^" << i;
                 if(i != 0) {
                     std::cout << " + ";
                 }
             }
-            std::cout << ". Degree: " << degree << '\n';
+            std::cout << ". Degree: " << _degree << '\n';
             std::cout << "Roots: " << roots.size() <<  "; ";
             printVec(roots);
         }
