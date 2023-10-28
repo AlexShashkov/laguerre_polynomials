@@ -24,6 +24,15 @@ namespace Laguerre{
 		return ((!std::isfinite(t)) || ...);
 	}
 
+	/** \brief Check if a complex number contains NaN or Inf values.
+	*/
+	template <typename T>
+    bool complexnotfinite(complex<T> a, T big){
+        T re_a = real(a);
+        T im_a = imag(a);
+        return !std::isfinite(re_a) || !std::isfinite(im_a) || (fabs(re_a) > big) || (fabs(im_a) > big);
+    }
+
 	/** \brief Sign
 	*/
 	template <typename number>
