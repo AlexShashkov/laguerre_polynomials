@@ -58,7 +58,7 @@ namespace Laguerre{
 		};
 	}
 
-	/** \brief Fused multiply-substract for complex numbers
+	/** \brief Fused multiply-add for complex numbers
 	 * 	\return a*b+c
 	*/
 	template<typename number>

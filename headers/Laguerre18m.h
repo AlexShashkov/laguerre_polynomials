@@ -140,7 +140,6 @@ private:
         complex<T> a, zz, zz2;
 
         // Evaluate polynomial and derivatives
-        // TODO: proper complex casting
         zz = complex<T>(1, 0) / z;
         rr = static_cast<T>(1) / r;
         a = p[0];
@@ -187,7 +186,7 @@ private:
          * \param berr Output backward error.
          * \param cond Output condition number.
      */
-    void check_lag(Polynomial<T>& p, std::vector<T>& alpha, int deg, std::complex<T>& b, std::complex<T>& c, std::complex<T> z, T r, int& conv, T& berr, T& cond) {
+    inline void check_lag(Polynomial<T>& p, std::vector<T>& alpha, int deg, std::complex<T>& b, std::complex<T>& c, std::complex<T> z, T r, int& conv, T& berr, T& cond) {
         int k;
         std::complex<T> a;
 
@@ -207,7 +206,7 @@ private:
         // Laguerre correction/ backward error and condition
         if (abs(a) > eps * berr) {
             b = b / a;
-            c = fma(std::complex<T>(-2, 0), c/a, pow(b, 2));
+            c = fms(b, b, std::complex<T>(2, 0), c/a);
 
             if (complexnotfinite(b, big) || complexnotfinite(c, big))
                 conv = -1;
@@ -245,7 +244,7 @@ private:
         }
 
         // Laguerre correction
-        t = sqrt(fma(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c), - pow(b, 2)));
+        t = sqrt(fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  b, b));
         c = b + t;
         b -= t;
         std::complex<T> degc(deg, 0);
@@ -287,7 +286,7 @@ public:
         estimates(alpha, deg, roots, conv, nz);
 
         for (i = 0; i <= deg; ++i)
-            alpha[i] *= (static_cast<T>(3.8) * static_cast<T>(i) + static_cast<T>(1));
+            alpha[i] *= fma(static_cast<T>(3.8), static_cast<T>(i), static_cast<T>(1));
         // Main loop
         for (i = 1; i <= itmax; ++i)
         for (j = 0; j < deg; ++j) {
@@ -302,7 +301,7 @@ public:
 
                 if (conv[j] == 0) {
                     modify_lag(deg, b, c, z, j, roots);
-                    roots[j] = roots[j] - c;
+                    roots[j] -= c;
                 } 
                 else {
                     nz++;
@@ -331,7 +330,7 @@ public:
                                         berr[j] = fma(r, berr[j], alpha[i]);
                                     }
 
-                                    cond[j] = berr[j] / fabs((T)deg * b - z * c);
+                                    cond[j] = berr[j] / fabs(fms(complex<T>(deg, 0), b, z, c));
                                     berr[j] = fabs(b) / berr[j];
                                 }
                                 else {
