@@ -16,33 +16,33 @@ template<typename T>
 class Generator{
 protected:
     // Pointer to a coeff generator function
-    typedef Polynomial<T> (*coeffGeneratorPtr)(std::vector<T>);
+    typedef Polynomial<T> (*coeffGeneratorPtr)(std::vector<std::complex<T>>);
     static coeffGeneratorPtr coeffGenerator;
 
     // Pointer to a roots generator function
-    typedef std::vector<T> (*rootsGeneratorPtr)(int, T, T, T);
+    typedef std::vector<std::complex<T>> (*rootsGeneratorPtr)(int, T, T, T);
     static rootsGeneratorPtr rootsGenerator;
 
-    static Polynomial<T> basicCoeffsGeneration(std::vector<T> roots){
+    static Polynomial<T> basicCoeffsGeneration(std::vector<std::complex<T>> roots){
         int count = roots.size();
         if(count == 1){
-            return Polynomial<T>(-roots[0], static_cast<T>(1));
+            return Polynomial<T>(-roots[0].real(), static_cast<T>(1));
         }
         else{
             int mid = count / 2;
             auto mid_begin = roots.begin() + mid;
             auto end = roots.end();
-            Polynomial left_poly = basicCoeffsGeneration(std::vector<T>(mid_begin -mid, mid_begin));
-            Polynomial right_poly = basicCoeffsGeneration(std::vector<T>(mid_begin, end));
+            Polynomial left_poly = basicCoeffsGeneration(std::vector<std::complex<T>>(mid_begin -mid, mid_begin));
+            Polynomial right_poly = basicCoeffsGeneration(std::vector<std::complex<T>>(mid_begin, end));
             return left_poly*right_poly;
         }
     }
 
-    static std::vector<T> basicRootGeneration(int count = 3, T from = 0, T to = 1, T delta=1){
+    static std::vector<std::complex<T>> basicRootGeneration(int count = 3, T from = 0, T to = 1, T delta=1){
         std::uniform_real_distribution<double> distribution(from, to);
         std::random_device rd;
         std::default_random_engine generator(rd());
-        std::vector<T> roots;
+        std::vector<std::complex<T>> roots;
         for(int i = 0; i < count; ++i)
             roots.push_back(distribution(generator)*delta);
         return roots;
@@ -77,7 +77,7 @@ public:
         return currentRootsGenerator()(count, from, to, delta);
     }
 
-    static Polynomial<T> createFromRoots(std::vector<T> args){
+    static Polynomial<T> createFromRoots(std::vector<std::complex<T>> args){
         if(!args.size())
             throw std::invalid_argument("Cant create polynomial from zero given roots.");
         auto res = currentCoeffGenerator()(args);
@@ -87,11 +87,11 @@ public:
 
     template<typename... Args>
     static Polynomial<T> createFromRoots(Args...args){
-        return createFromRoots(std::vector<T>{args...});
+        return createFromRoots(std::vector<std::complex<T>>{args...});
     }
 
     static Polynomial<T> gen(int count = 3, T from = 1, T to = 3, T delta=1){
-        std::vector<T> roots = currentRootsGenerator()(count, from, to, delta);
+        std::vector<std::complex<T>> roots = currentRootsGenerator()(count, from, to, delta);
         Polynomial<T> res = createFromRoots(roots);
         res.setRoots(roots);
         return res;

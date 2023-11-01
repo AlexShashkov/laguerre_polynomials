@@ -6,20 +6,20 @@
 #include <iostream>
 
 #include "Polynomial.h"
+#include "BaseSolver.h"
 #include "ExtendedFunctions.h"
 
 namespace Laguerre{
-
 template<typename T>
 class Polynomial{
 protected:
-    std::vector<T> roots;
+    std::vector<std::complex<T>> roots;
     std::vector<T> coeffs;
-public:
-    using complex = std::complex<T>;
 
-    // For roots of one type. We need to everload this constructor for complex types!
-    Polynomial(std::vector<T> _coeffs, std::vector<T> _roots){
+    // Pointer to a base solver class
+    BaseSolver<T>* Solver;
+public:
+    Polynomial(std::vector<T> _coeffs, std::vector<std::complex<T>> _roots){
         setCoeffs(_coeffs);
         setRoots(_roots);
     }
@@ -38,7 +38,7 @@ public:
         return size > 0 ? size - 1 : 0;
     }
 
-    void setRoots(std::vector<T> args){
+    void setRoots(std::vector<std::complex<T>> args){
         size_t count = args.size();
         if(count != degree())
             throw std::invalid_argument("Count of given roots is different from given polynomial degree. (" 
@@ -48,7 +48,7 @@ public:
 
     template<typename... Args>
     void setRoots(Args...args){
-        setRoots(std::vector<T>{args...});
+        setRoots(std::vector<std::complex<T>>{args...});
     }
 
     void setCoeffs(std::vector<T> args){
@@ -61,13 +61,23 @@ public:
         setCoeffs(std::vector<T>{args...});
     }
 
+    void setSolver(BaseSolver<T>* solver) {
+        Solver = solver;
+    }
+
+    void solve(std::vector<std::complex<T>>& roots, std::vector<int>& conv, int maxiter=80){
+        if(Solver) {
+            (*Solver)(coeffs, roots, conv, 80);
+        }
+    }
+
     Polynomial operator*(const Polynomial& other){
         int n = coeffs.size();
         int m = other.coeffs.size();
         std::vector<T> result(n + m - 1, 0);
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
                 result[i + j] += coeffs[i] * other.coeffs[j];
             }
         }

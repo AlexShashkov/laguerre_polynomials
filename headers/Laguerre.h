@@ -8,7 +8,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include "Polynomial.h"
+#include "BaseSolver.h"
 #include "ExtendedFunctions.h"
 
 namespace Laguerre{
@@ -16,7 +16,7 @@ using std::complex;
 using std::vector;
 
 template<typename T>
-class Original{
+class Original : public BaseSolver<T>{
 private:
     //
     static constexpr T eps   = std::numeric_limits<T>::epsilon();
@@ -88,12 +88,12 @@ public:
          * \param poly Polynomial object.
          * \param roots Vector to store the roots.
          * \param conv Vector to store convergence status of each root.
-         * \param polish Whether to polish the roots.
          * \param itmax Maximum number of iterations.
      */
-    void operator()(Polynomial<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, bool polish, int itmax=80){
-       std::complex<T> x, _b, _c;
-        int m = poly.degree();
+    void operator()(std::vector<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax=80) override{
+        bool polish = false;
+        std::complex<T> x, _b, _c;
+        int m = poly.size() - 1;
         bool conv_status = true;
         std::vector<std::complex<T>> ad(m + 1);
 
@@ -107,7 +107,13 @@ public:
             // Start at zero to favor convergence to the smallest remaining root.
             std::vector<std::complex<T>> ad_v(ad.cbegin(), ad.cbegin() + j + 2);
             laguer(ad_v, x, conv_status, m, itmax);
-            conv[j] = conv_status ? 1 : -1;
+            if(conv_status){
+                conv[j] = 1;
+            }
+            else{
+                polish = true;
+                conv[j] = -1;
+            }
 
             if (std::abs(imag(x)) <= std::abs(real(x)) * eps)
                 x.imag(static_cast<T>(0));

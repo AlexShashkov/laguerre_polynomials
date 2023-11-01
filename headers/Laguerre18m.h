@@ -8,7 +8,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include "Polynomial.h"
+#include "BaseSolver.h"
 #include "ExtendedFunctions.h"
 
 namespace Laguerre{
@@ -17,7 +17,7 @@ using std::vector;
 using std::fma;
 
 template<typename T>
-class ModifiedLaguerre18{
+class ModifiedLaguerre18 : public BaseSolver<T>{
 private:
     //
     static constexpr T eps   = std::numeric_limits<T>::epsilon();
@@ -134,7 +134,7 @@ private:
          * \param berr Output backward error.
          * \param cond Output condition number.
      */
-    inline void rcheck_lag(Polynomial<T>& p, vector<T>& alpha, int deg, complex<T>& b, complex<T>& c, complex<T> z, T r, int& conv, T& berr, T& cond) {
+    inline void rcheck_lag(std::vector<T>& p, vector<T>& alpha, int deg, complex<T>& b, complex<T>& c, complex<T> z, T r, int& conv, T& berr, T& cond) {
         int k;
         T rr;
         complex<T> a, zz, zz2;
@@ -186,7 +186,7 @@ private:
          * \param berr Output backward error.
          * \param cond Output condition number.
      */
-    inline void check_lag(Polynomial<T>& p, std::vector<T>& alpha, int deg, std::complex<T>& b, std::complex<T>& c, std::complex<T> z, T r, int& conv, T& berr, T& cond) {
+    inline void check_lag(std::vector<T>& p, std::vector<T>& alpha, int deg, std::complex<T>& b, std::complex<T>& c, std::complex<T> z, T r, int& conv, T& berr, T& cond) {
         int k;
         std::complex<T> a;
 
@@ -260,13 +260,13 @@ public:
      * \brief Find the roots of a polynomial using Laguerre's method.
          * \param poly Polynomial object.
          * \param roots Vector to store the roots.
-         * \param berr Vector to store the backward errors.
-         * \param cond Vector to store the condition numbers.
          * \param conv Vector to store convergence status of each root.
          * \param itmax Maximum number of iterations.
      */
-    void operator()(Polynomial<T>& poly, std::vector<std::complex<T>>& roots, std::vector<T>& berr, std::vector<T>& cond, std::vector<int>& conv, int itmax){
-        int deg = poly.degree();
+    void operator()(std::vector<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax) override{
+        int deg = poly.size() - 1;
+        std::vector<T> berr(deg); // Vector to store the backward errors.
+        std::vector<T> cond(deg); // Vector to store the condition numbers.
         int i, j, nz;
         T r;
         std::vector<T> alpha(deg + 1);
@@ -277,6 +277,7 @@ public:
             alpha[i] = abs(poly[i]);
 
         if (alpha[deg] < small) {
+            // TODO: exception?
             std::cout << "Warning: leading coefficient is too small." << std::endl;
             return;
         } 
