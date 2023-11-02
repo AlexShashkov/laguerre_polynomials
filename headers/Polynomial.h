@@ -19,25 +19,47 @@ protected:
     // Pointer to a base solver class
     BaseSolver<T>* Solver;
 public:
+
+    /**
+     * \brief Create polynomial object from given vectors of coefficients and roots.
+         * \param _coeffs Vector of coefficients.
+         * \param _roots Vector of roots.
+     */
     Polynomial(std::vector<T> _coeffs, std::vector<std::complex<T>> _roots){
         setCoeffs(_coeffs);
         setRoots(_roots);
     }
 
+    /**
+     * \brief Create polynomial object from given vector of coefficients.
+         * \param args Vector of coefficients.
+    */
     Polynomial(std::vector<T> args){
         setCoeffs(args);
     }
 
+    /**
+     * \brief Create polynomial object from given coefficients.
+         * \param args Coefficients.
+    */
     template<typename... Args>
     Polynomial(Args...args){
         setCoeffs(args...);
     }
 
+    /**
+     * \brief Get polynomials degree.
+         * \returns Degree of the polynomial.
+    */
     int degree(){
         int size = coeffs.size();
         return size > 0 ? size - 1 : 0;
     }
 
+    /**
+     * \brief Set roots for this polynomial.
+         * \param args Vector of roots.
+     */
     void setRoots(std::vector<std::complex<T>> args){
         size_t count = args.size();
         if(count != degree())
@@ -46,28 +68,53 @@ public:
         roots = args;
     }
 
+    /**
+     * \brief Set roots for this polynomial.
+         * \param args Given roots.
+     */
     template<typename... Args>
     void setRoots(Args...args){
         setRoots(std::vector<std::complex<T>>{args...});
     }
 
+    /**
+     * \brief Set coefficients for this polynomial.
+         * \param args Vector of coefficients.
+     */
     void setCoeffs(std::vector<T> args){
         coeffs = args;
         roots.clear();
     }
 
+    /**
+     * \brief Set coefficients for this polynomial.
+         * \param args Given coefficients.
+     */
     template<typename... Args>
     void setCoeffs(Args...args){
         setCoeffs(std::vector<T>{args...});
     }
 
+    /**
+     * \brief Set solver for this polynomial.
+         * \param solver Pointer to a Solver object.
+     */
     void setSolver(BaseSolver<T>* solver) {
         Solver = solver;
     }
 
+    /**
+     * \brief Find the roots of this polynomial.
+         * \param roots Vector to store the roots.
+         * \param conv Vector to store convergence status of each root.
+         * \param itmax Maximum number of iterations.
+     */
     void solve(std::vector<std::complex<T>>& roots, std::vector<int>& conv, int maxiter=80){
         if(Solver) {
             (*Solver)(coeffs, roots, conv, 80);
+        }
+        else{
+            throw std::invalid_argument("Solver wasnt set!\n");
         }
     }
 

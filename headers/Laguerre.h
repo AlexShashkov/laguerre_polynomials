@@ -19,6 +19,7 @@ template<typename T>
 class Original : public BaseSolver<T>{
 private:
     //
+    static constexpr T frac[9] = {0.0, 0.5, 0.25, 0.75, 0.13, 0.38, 0.62, 0.88, 1.0};
     static constexpr T eps   = std::numeric_limits<T>::epsilon();
     static const int MT = 10;
 
@@ -28,7 +29,6 @@ private:
         * \param x   Initial guess for the root.
      */
     inline void laguer(const std::vector<std::complex<T>>& a, std::complex<T>& x, bool& converged, int m, int itmax){
-        static const T frac[9] = {0.0, 0.5, 0.25, 0.75, 0.13, 0.38, 0.62, 0.88, 1.0};
         converged = 1;
         std::complex<T> dx, x1, b, d, f, g, h, sq, gp, gm, g2;
         T err, abx, abp, abm;
