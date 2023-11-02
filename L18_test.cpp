@@ -37,6 +37,14 @@ int main(){
         Laguerre::printVec(conv2);
         std::cout << "2018 LAGUERRE MODIFICATION:\n";
 
+        deg = genRoots.degree(); 
+        roots = std::vector<std::complex<double>>(deg);
+        conv = std::vector<int>(deg);
+
+        deg = genRoots2.degree(); 
+        roots2 = std::vector<std::complex<double>>(deg);
+        conv2 = std::vector<int>(deg);
+
         genRoots.print();
         genRoots.setSolver(solver18);
         genRoots.solve(roots, conv, 80);

@@ -101,7 +101,7 @@ public:
         for (int i = 0; i <= m; i++)
             ad[i] = poly[i];
 
-        for (int j = m - 1; j >= 0; j--) {
+        for (int j = m - 1; j >= 0; --j) {
             x = std::complex<T>(0.0, 0.0);
 
             // Start at zero to favor convergence to the smallest remaining root.
@@ -129,16 +129,15 @@ public:
         }
 
         if (polish) {
-            for (int j = 1; j < m; j++) {
+            int i;
+            for (int j = 1; j < m; ++j) {
                 x = roots[j];
-                int i;
-
-                for (i = j - 1; j < m; j++) {
+                for (i = j - 1; i>=0; --i) {
                     if (real(roots[i]) <= real(x))
                         break;
-                    roots[i + j] = roots[i];
+                    roots[i + 1] = roots[i];
                 }
-                roots[i + j] = x;
+                roots[i + 1] = x;
             }
         }
     }
