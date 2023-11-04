@@ -141,6 +141,7 @@ private:
 
         // Evaluate polynomial and derivatives
         zz = complex<T>(1, 0) / z;
+        zz2 = zz*zz;
         rr = static_cast<T>(1) / r;
         a = p[0];
         b = 0;
@@ -157,17 +158,13 @@ private:
         // Laguerre correction/ backward error and condition
         if (fabs(a) > eps * berr) {
             b = b / a;
-            c = complex<T>(2.0, 0) * (c / a);
-            // TODO: FMA
-            c = pow(zz, 2) * (
-                static_cast<T>(deg) - 2.0 * zz * b + pow(zz, 2) * (pow(b, 2) - c)
-            );
-            b = zz * (static_cast<T>(deg) - zz * b);
+            c = fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b));
+            b = fms(zz, complex<T>(deg, 0) , zz2, b);
 
             if (complexnotfinite(b, big) || complexnotfinite(c, big))
                 conv = -1;
         } else {
-            cond = berr / fabs((T)deg * a - zz * b);
+            cond = berr / fabs(fms(complex<T>(deg, 0),  a, zz, b));
             berr = fabs(a) / berr;
             conv = 1;
         }
@@ -234,13 +231,13 @@ private:
         for (int k = 0; k < j - 1; ++k) {
             t = 1.0 / (z - roots[k]);
             b -= t;
-            c -= pow(t, 2);
+            c = fma(-t, t, c);
         }
         // k != j
         for (int k = j + 1; k <= deg; ++k) {
             t = 1.0 / (z - roots[k]);
             b -= t;
-            c -= pow(t, 2);
+            c = fma(-t, t, c);
         }
 
         // Laguerre correction
