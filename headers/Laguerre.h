@@ -28,14 +28,14 @@ private:
         * \param a   Polynomial object.
         * \param x   Initial guess for the root.
      */
-    inline void laguer(const std::vector<std::complex<T>>& a, std::complex<T>& x, bool& converged, int m, int itmax){
+    inline void laguer(const std::vector<std::complex<T>>& a, std::complex<T>& x, int& converged, int itmax){        
         converged = 1;
         std::complex<T> dx, x1, b, d, f, g, h, sq, gp, gm, g2;
         T err, abx, abp, abm;
-        std::complex<T> a_m = a[m];
+        int m = a.size() - 1;
 
         for (int iter = 1; iter <= itmax; iter++) {
-            b = a_m;
+            b = std::complex<T>(1.0, 0.0);
             err = std::abs(b);
             d = f = std::complex<T>(0.0, 0.0);
             abx = std::abs(x);
@@ -59,19 +59,13 @@ private:
             abp = std::abs(gp);
             abm = std::abs(gm);
 
-            if (abp < abm)
-                gp = gm;
-
+            gp = abp < abm ? gm : gp;
             dx = (std::max(abp, abm) > static_cast<T>(0.0)) ? (static_cast<T>(m) / gp) : std::polar(static_cast<T>(1) + abx, static_cast<T>(iter));
             x1 = x - dx;
-
             if (x == x1)
                 return;  // Converged.
-
-            if (iter % MT != 0)
-                x = x1;
-            else
-                x = fma(x, -frac[iter / MT], dx);
+            x = iter % MT != 0 ? x1: x1;//fma(dx, -frac[iter / MT], x);
+        
         }
         converged = -1;
         // throw "Too many iterations!";
@@ -91,44 +85,40 @@ public:
          * \param itmax Maximum number of iterations.
      */
     void operator()(std::vector<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax=80) override{
-        bool polish = false;
         std::complex<T> x, _b, _c;
         int m = poly.size() - 1;
-        bool conv_status = true;
         std::vector<std::complex<T>> ad(m + 1);
 
         // Copy of coefficients for successive deflation.
         for (int i = 0; i <= m; i++)
             ad[i] = poly[i];
 
-        for (int j = m - 1; j >= 0; --j) {
+        std::vector<std::complex<T>> ad_v;
+        for (int j = m - 1; j > 0; --j) {
             x = std::complex<T>(0.0, 0.0);
 
             // Start at zero to favor convergence to the smallest remaining root.
-            std::vector<std::complex<T>> ad_v(ad.cbegin(), ad.cbegin() + j + 2);
-            laguer(ad_v, x, conv_status, m, itmax);
-            if(conv_status){
-                conv[j] = 1;
-            }
-            else{
-                polish = true;
-                conv[j] = -1;
-            }
+            ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
+            laguer(ad_v, x, conv[j], itmax);
 
             if (std::abs(imag(x)) <= std::abs(real(x)) * eps)
                 x.imag(static_cast<T>(0));
 
             roots[j] = x;
             _b = ad[j + 1];
-
             for (int jj = j; jj >= 0; jj--) {
                 _c = ad[jj];
                 ad[jj] = _b;
                 _b = fma(x, _b, _c);
             }
         }
-
-        if (polish) {
+        roots[0] = -ad[0];
+        conv[0] = conv[1];
+        
+        // Polishing
+        if (anycomplex(roots)) {
+            std::cout << "Lmao has complex :-)))))))))))))\n";
+            return;
             int i;
             for (int j = 1; j < m; ++j) {
                 x = roots[j];
