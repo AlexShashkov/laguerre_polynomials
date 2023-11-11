@@ -64,7 +64,7 @@ private:
             x1 = x - dx;
             if (x == x1)
                 return;  // Converged.
-            x = iter % MT != 0 ? x1: x1;//fma(dx, -frac[iter / MT], x);
+            x = iter % MT != 0 ? x1: fma(dx, -frac[iter / MT], x);
         
         }
         converged = -1;
