@@ -101,8 +101,8 @@ public:
             ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
             laguer(ad_v, x, conv[j], itmax);
 
-            if (std::abs(imag(x)) <= std::abs(real(x)) * eps)
-                x.imag(static_cast<T>(0));
+
+            x.imag(std::abs(imag(x)) <= std::abs(real(x)) * eps ? static_cast<T>(0) : x.imag());
 
             roots[j] = x;
             _b = ad[j + 1];
@@ -117,7 +117,7 @@ public:
         
         // Polishing
         if (anycomplex(roots)) {
-            std::cout << "Lmao has complex :-)))))))))))))\n";
+            std::cout << "has complex!\n";
             return;
             int i;
             for (int j = 1; j < m; ++j) {

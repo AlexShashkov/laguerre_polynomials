@@ -51,7 +51,7 @@ public:
      * \brief Get polynomials degree.
          * \returns Degree of the polynomial.
     */
-    int degree(){
+    int degree() const {
         int size = coeffs.size();
         return size > 0 ? size - 1 : 0;
     }
@@ -118,6 +118,32 @@ public:
         }
     }
 
+    Polynomial operator+(Polynomial& rhs){
+        std::vector<T> result_coeffs(std::max(this->degree(), rhs.degree()) + 1, 0);
+        for (int i = 0; i <= this->degree(); ++i) {
+            result_coeffs[i] += this->coeffs[i];
+        }
+
+        for (int i = 0; i <= rhs.degree(); ++i) {
+            result_coeffs[i] += rhs.coeffs[i];
+        }
+
+        return Polynomial<T>(result_coeffs);
+    }
+
+    Polynomial operator-(const Polynomial& rhs) const {
+        std::vector<T> result_coeffs(std::max(this->degree(), rhs.degree()) + 1, 0);
+        for (int i = 0; i <= this->degree(); ++i) {
+            result_coeffs[i] += this->coeffs[i];
+        }
+        for (int i = 0; i <= rhs.degree(); ++i) {
+            result_coeffs[i] -= rhs.coeffs[i];
+        }
+        return Polynomial<T>(result_coeffs);
+    }
+
+
+
     Polynomial operator*(const Polynomial& other){
         int n = coeffs.size();
         int m = other.coeffs.size();
@@ -129,6 +155,67 @@ public:
             }
         }
         return Polynomial(result);
+    }
+
+    Polynomial operator/(Polynomial& divisor) {
+        if (divisor.degree() > this->degree()) {
+            throw std::invalid_argument("The degree of the divisor is greater than the dividend");
+        }
+
+        Polynomial<T> dividend = *this;
+        std::vector<T> quotient_coeffs(this->degree() - divisor.degree() + 1, 0);
+        Polynomial<T> tmp(std::vector<T>(this->degree() + 1, 0));
+
+        while (dividend.degree() >= divisor.degree()) {
+            int degree_diff = dividend.degree() - divisor.degree();
+            T coeff = dividend.coeffs.back() / divisor.coeffs.back();
+
+            // Update the temporary polynomial for subtraction
+            tmp.coeffs[degree_diff] = coeff;
+
+            // Subtract and update the dividend
+            for (int i = 0; i <= divisor.degree(); ++i) {
+                dividend.coeffs[i + degree_diff] -= coeff * divisor.coeffs[i];
+            }
+            dividend.coeffs.pop_back();
+
+            // Update the quotient
+            quotient_coeffs[degree_diff] = coeff;
+        }
+
+        return Polynomial<T>(quotient_coeffs);
+    }
+
+
+    void divide(Polynomial& divisor, Polynomial& quotient, Polynomial& remainder) {
+        if (divisor.degree() > this->degree()) {
+            throw std::invalid_argument("The degree of the divisor is greater than the dividend");
+        }
+
+        Polynomial<T> dividend = *this;
+        std::vector<T> quotient_coeffs(this->degree() - divisor.degree() + 1, 0);
+        Polynomial<T> tmp;
+
+        while (dividend.degree() >= divisor.degree()) {
+            int degree_diff = dividend.degree() - divisor.degree();
+            T coeff = dividend.coeffs.back() / divisor.coeffs.back();
+
+            // Update the temporary polynomial for subtraction
+            tmp.coeffs = std::vector<T>(degree_diff + 1, 0);
+            tmp.coeffs.back() = coeff;
+
+            // Subtract and update the dividend
+            for (int i = 0; i <= divisor.degree(); ++i) {
+                dividend.coeffs[i + degree_diff] -= coeff * divisor.coeffs[i];
+            }
+            dividend.coeffs.pop_back();
+
+            // Update the quotient
+            quotient_coeffs[degree_diff] = coeff;
+        }
+
+        quotient = Polynomial<T>(quotient_coeffs);
+        remainder = dividend;
     }
 
     Polynomial& operator*=(const Polynomial& other){

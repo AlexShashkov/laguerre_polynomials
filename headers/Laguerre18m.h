@@ -156,6 +156,19 @@ private:
         }
 
         // Laguerre correction/ backward error and condition
+        bool condition = abs(a) > eps * berr;
+        b = (!condition)*b + condition*(b / a);
+        c = (!condition)*c + condition*fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b));
+        b = (!condition)*b + condition*fms(zz, complex<T>(deg, 0) , zz2, b);
+
+        cond = (!condition)*(berr / fabs(fms(complex<T>(deg, 0),  a, zz, b))) + (condition)*cond;
+        berr = (!condition)*(fabs(a) / berr) + (condition)*berr;
+
+        conv = condition ? 
+        (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
+        : 1;
+
+        /*
         if (fabs(a) > eps * berr) {
             b = b / a;
             c = fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b));
@@ -168,6 +181,7 @@ private:
             berr = fabs(a) / berr;
             conv = 1;
         }
+        */
     }
 
     /**
@@ -201,6 +215,18 @@ private:
         }
 
         // Laguerre correction/ backward error and condition
+        bool condition = abs(a) > eps * berr;
+        b = (!condition)*b + condition*(b / a);
+        c = (!condition)*c + condition*fms(b, b, std::complex<T>(2, 0), c/a);
+
+        cond = (!condition)*(berr / (r * fabs(b))) + (condition)*cond;
+        berr = (!condition)*(fabs(a) / berr) + (condition)*berr;
+
+        conv = condition ? 
+        (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
+        : 1;
+
+        /*
         if (abs(a) > eps * berr) {
             b = b / a;
             c = fms(b, b, std::complex<T>(2, 0), c/a);
@@ -212,6 +238,7 @@ private:
             berr = fabs(a) / berr;
             conv = 1;
         }
+        */
     }
 
 
