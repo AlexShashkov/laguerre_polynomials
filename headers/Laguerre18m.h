@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <limits>
-#include <numbers>
+#include <numbers> // std::numbers::pi_v<fp_t>, requires -std=c++20
 #include <complex>
 #include <iostream>
 #include <algorithm>
