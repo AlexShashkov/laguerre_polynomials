@@ -157,9 +157,9 @@ private:
 
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > eps * berr;
-        b = (!condition)*b + condition*(b / a);
-        c = (!condition)*c + condition*fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b));
-        b = (!condition)*b + condition*fms(zz, complex<T>(deg, 0) , zz2, b);
+        b = condition ? b/a : b;
+        c = condition ? fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b)) : c;
+        b = condition ? fms(zz, complex<T>(deg, 0) , zz2, b) : b;
 
         cond = (!condition)*(berr / fabs(fms(complex<T>(deg, 0),  a, zz, b))) + (condition)*cond;
         berr = (!condition)*(fabs(a) / berr) + (condition)*berr;
@@ -216,8 +216,8 @@ private:
 
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > eps * berr;
-        b = (!condition)*b + condition*(b / a);
-        c = (!condition)*c + condition*fms(b, b, std::complex<T>(2, 0), c/a);
+        b = condition ? b/a : b;
+        c = condition ? fms(b, b, std::complex<T>(2, 0), c/a) : c;
 
         cond = (!condition)*(berr / (r * fabs(b))) + (condition)*cond;
         berr = (!condition)*(fabs(a) / berr) + (condition)*berr;
