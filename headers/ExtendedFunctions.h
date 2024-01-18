@@ -33,6 +33,23 @@ namespace Laguerre{
         return !std::isfinite(re_a) || !std::isfinite(im_a) || (fabs(re_a) > big) || (fabs(im_a) > big);
     }
 
+	/** \brief Check if at least one complex number has imaginary part
+	*/
+	template<typename ... T>
+	inline bool anycomplex(T && ... t)
+	{
+		return ((t.imag() > 0) || ...);
+	}
+
+	/** \brief Check if at least one number in complex vector has imaginary part
+	*/
+	template<typename T>
+	inline bool anycomplex(vector<complex<T>> vec)
+	{
+		return std::any_of(vec.begin(), vec.end(), [](complex<T> t){return t.imag() > 0;});
+	}
+
+
 	/** \brief Sign
 	*/
 	template <typename number>
