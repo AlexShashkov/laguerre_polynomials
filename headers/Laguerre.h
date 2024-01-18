@@ -19,9 +19,7 @@ template<typename T>
 class Original : public BaseSolver<T>{
 private:
     //
-    static constexpr T frac[9] = {0.0, 0.5, 0.25, 0.75, 0.13, 0.38, 0.62, 0.88, 1.0};
     static constexpr T eps   = std::numeric_limits<T>::epsilon();
-    static const int MT = 10;
 
     /**
      * \brief Laguerre's method to find a root of a polynomial.
@@ -64,8 +62,7 @@ private:
             x1 = x - dx;
             if (x == x1)
                 return;  // Converged.
-            x = iter % MT != 0 ? x1: fma(dx, -frac[iter / MT], x);
-        
+            x = x1;      
         }
         converged = -1;
         // throw "Too many iterations!";
