@@ -15,13 +15,15 @@ int main(){
     Laguerre::ModifiedLaguerre18<double>* solver18 = new Laguerre::ModifiedLaguerre18<double>();
     try{
         // Generator stuff
-        int l = 3, cnt = 100;
+        int l = 4, cnt = 100;
         std::vector<double> roots(l, 0.0);
         std::vector<double> a(l+1, 0.0);
-
         for(int i=0; i < cnt; ++i){
             std::cout << "ITER #" << i << "\n";
             generate_polynomial(l, 0, 3, 0, 1.0, 0.0, 20.0, roots, a);
+            std::cout << "GENERATED POLY & ROOTS:\n";
+            Laguerre::printVec(a);
+            Laguerre::printVec(roots);
             Polynomial<number> pol(a);
             pol.print();
             Laguerre::printVec(roots);
@@ -43,8 +45,12 @@ int main(){
 
             pol.setSolver(solver18);
             pol.solve(roots2, conv, 80);
+            std::cout << "Modification solved!\n";
             Laguerre::printVec(roots2);
             std::cout << "=======================\n";
+
+            std::fill(roots.begin(), roots.end(), 0);
+            std::fill(a.begin(), a.end(), 0);
         }
         std::cout << "DONE!\n";
     }

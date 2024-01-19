@@ -135,5 +135,57 @@ namespace Laguerre{
         for (T i: vec) res.push_back(static_cast<number>(i));
         return res;
     } 
+
+	/** \brief Diff vector
+     * \return new vector of template type <T>
+	*/
+	template <typename T>
+	inline vector<T> diff(vector<T> coeffs, int deg=1){
+        std::vector ret = coeffs;
+        for(int j = 0; j < deg; ++j){
+            for (int i = 1; i < ret.size(); ++i) {
+                ret[i] *= static_cast<T>(i);
+            }
+            if (ret.size()) {
+                ret.erase(ret.begin());
+            }
+            else break;
+        }
+        return ret;
+    } 
+
+	/** \brief Divide vectors (coefficients of polynomials)
+	*/
+	template <typename T>
+	inline void divide(vector<T> dividend, vector<T> divisor,
+					vector<T>& quotient, vector<T>& remainder) {
+		if (divisor.size() > dividend.size()) {
+            throw std::invalid_argument("The degree of the divisor is greater than the dividend");
+        }
+
+		std::vector<T> quotient_coeffs(dividend.size() - divisor.size() + 1, 0);
+        std::vector<T> tmp;
+
+        while (dividend.size() >= divisor.size()) {
+            int degree_diff = dividend.size() - divisor.size();
+            T coeff = dividend.back() / divisor.back();
+
+            // Update the temporary polynomial for subtraction
+            tmp = std::vector<T>(degree_diff + 1, 0);
+            tmp.back() = coeff;
+
+            // Subtract and update the dividend
+            for (int i = 0; i <= divisor.size()-1; ++i) {
+                dividend[i + degree_diff] -= coeff * divisor[i];
+            }
+            dividend.pop_back();
+
+            // Update the quotient
+            quotient_coeffs[degree_diff] = coeff;
+        }
+
+        quotient = quotient_coeffs;
+        remainder = dividend;
+	} 
 }
 #endif

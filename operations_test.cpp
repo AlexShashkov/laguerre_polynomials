@@ -22,6 +22,19 @@ int main(){
         divident.divide(divisor, quotient, remainder);
         quotient.print();
         remainder.print();
+
+        std::cout << "VECTOR:";
+        std::vector<number> divident2 = {1.f, 4.f, 2.f, -3.f, 1.f};
+        std::vector<number> divisor2 = {-2.f, 0.f, 1.f};
+        std::vector<number> quotient2, remainder2;
+        Laguerre::divide(divident2, divisor2, quotient2, remainder2);
+
+        std::cout << "Qoutient and remainder:\n";
+        Laguerre::printVec(quotient2);
+        Laguerre::printVec(remainder2);
+        std::cout << "Diff operation:\n";
+        auto diff = Laguerre::diff(divident2, 1);
+        Laguerre::printVec(diff);
     }
     catch (const std::invalid_argument &exc)
     {
