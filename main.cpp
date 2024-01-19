@@ -15,7 +15,7 @@ int main(){
     Laguerre::ModifiedLaguerre18<double>* solver18 = new Laguerre::ModifiedLaguerre18<double>();
     try{
         // Generator stuff
-        int l = 4, cnt = 100;
+        int l = 3, cnt = 1000;
         std::vector<double> roots(l, 0.0);
         std::vector<double> a(l+1, 0.0);
         for(int i=0; i < cnt; ++i){
@@ -32,7 +32,7 @@ int main(){
 
             pol.setSolver(solver);
             auto deg = pol.degree();
-            std::vector<std::complex<double>> roots2(deg);
+            std::vector<std::complex<double>> roots2(deg+1);
             std::vector<int> conv(deg);
 
             std::cout << "CREATED original - " << deg << " roots\n";

@@ -112,6 +112,7 @@ public:
     void solve(std::vector<std::complex<T>>& roots, std::vector<int>& conv, int maxiter=80){
         if(Solver) {
             (*Solver)(coeffs, roots, conv, 80);
+            std::cout << "solved, exiting";
         }
         else{
             throw std::invalid_argument("Solver wasnt set!\n");
