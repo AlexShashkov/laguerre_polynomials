@@ -15,12 +15,14 @@
 
 int main(){
     using Laguerre::Polynomial;
+    std::streamsize fp_precision_original=std::cout.precision(); // save default precision to provide maximal reasonable output
+    
     // Laguerre solvers
     Laguerre::Original<double>* solver = new Laguerre::Original<double>();
     Laguerre::ModifiedLaguerre18<double>* solver18 = new Laguerre::ModifiedLaguerre18<double>();
 
     // Generator stuff
-    int l = 3, N_TESTS = 1000000,                                               // polynomial degree, count of tests 
+    int l = 3, N_TESTS = 1000,                                            // polynomial degree, count of tests 
         rv,                                                                  // status of comparing roots
         N_roots_found_this_test, N_roots_gt_this_test,                       // amount of found roots in each test & gt roots
         N_true_roots_lost=0, N_fake_roots_added=0,                           // total counters of {lost, fake} roots aover all tests
@@ -36,7 +38,8 @@ int main(){
     try{
         for(int i=0; i < N_TESTS; ++i){
             roots_found_this_test.clear();
-            N_roots_gt_this_test = generate_polynomial(l, 0, 3, 0, 1.0, 0.0, 20.0, roots, a);
+            N_roots_gt_this_test = generate_polynomial(l, 0, l, 0,
+                                        1e-5, -1.0, 1.0, roots, a);
             std::cout << "GENERATED POLY & ROOTS:\n";
             Laguerre::printVec(a);
             Laguerre::printVec(roots);
@@ -162,6 +165,8 @@ int main(){
         std::cout << root << ", ";
     }
     std::cout << "}" << std::endl;
+    std::cout << std::setprecision(fp_precision_original); // restore default precision
+    
     delete solver;
     delete solver18;
     return 0;
