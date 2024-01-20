@@ -27,8 +27,7 @@ private:
         * \param a   Polynomial object.
         * \param x   Initial guess for the root.
      */
-     inline void laguer13(const std::vector<std::complex<T>>& a, std::complex<T>& x, int& converged, int& lam){
-        converged = 1;
+     inline void laguer13(const std::vector<std::complex<T>>& a, std::complex<T>& x, int& lam){
         std::complex<T> dx, x1, b, d, f, g, h, sq, gp, gm, g2;
         T err, abx, abp, abm;
         int m = a.size() - 1;
@@ -109,12 +108,13 @@ public:
 
             // Start at zero to favor convergence to the smallest remaining root.
             ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
-            laguer13(ad_v, x, conv[j], lambda);
+            laguer13(ad_v, x, lambda);
             if (std::abs(imag(x)) <= std::abs(real(x)) * eps)
                 x.imag(static_cast<T>(0));
 
             for (int k = 0; k < lambda/2; ++k){
                 roots[j] = x;
+                conv[j] = 1;
                 _b = ad[j + 1];
                 for (int jj = j; jj >= 0; jj--) {
                     _c = ad[jj];
