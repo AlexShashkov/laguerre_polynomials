@@ -82,8 +82,8 @@ public:
             ad[i] = poly[i];
         
         auto diff = Laguerre::diff(poly, 1);
-        std::vector<T> quotient, remainder;
-        Laguerre::divide(poly, diff, quotient, remainder);
+        std::vector<T> remainder;
+        Laguerre::getRemainder(poly, diff, remainder);
 
         bool zeros = std::all_of(remainder.begin(), remainder.end(), [](int i) { return i==0; });
         if (zeros)
@@ -93,11 +93,11 @@ public:
         }
         else
         {
-            std::vector<T> quotient1, remainder1;
-            Laguerre::divide(diff, remainder, quotient1, remainder1);
+            std::vector<T> remainder1;
+            Laguerre::getRemainder(diff, remainder, remainder1);
             zeros = std::all_of(remainder1.begin(), remainder1.end(), [](int i) { return i==0; });
             if (zeros){
-                m1 = m - remainder.size()+1;
+                m1 = m - remainder.size() + 1;
                 lambda = 2*m/m1;
             } 
         }
