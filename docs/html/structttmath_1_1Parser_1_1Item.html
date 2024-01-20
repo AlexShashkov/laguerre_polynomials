@@ -89,12 +89,58 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structttmath_1_1Parser_1_1Item-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ttmath::Parser&lt; ValueType &gt;::Item Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="ttmathparser_8h_source.html">ttmathparser.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aed1224ebc2b393a4869a6bdedc9a4e6e" id="r_aed1224ebc2b393a4869a6bdedc9a4e6e"><td class="memItemLeft" align="right" valign="top"><a id="aed1224ebc2b393a4869a6bdedc9a4e6e" name="aed1224ebc2b393a4869a6bdedc9a4e6e"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> { <br />
+&#160;&#160;<b>none</b>
+, <b>numerical_value</b>
+, <b>mat_operator</b>
+, <b>first_bracket</b>
+, <br />
+&#160;&#160;<b>last_bracket</b>
+, <b>variable</b>
+, <b>semicolon</b>
+<br />
+ }</td></tr>
+<tr class="separator:aed1224ebc2b393a4869a6bdedc9a4e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3faa7c3e20aa9c2b9483d739b6434ce1" id="r_a3faa7c3e20aa9c2b9483d739b6434ce1"><td class="memItemLeft" align="right" valign="top"><a id="a3faa7c3e20aa9c2b9483d739b6434ce1" name="a3faa7c3e20aa9c2b9483d739b6434ce1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr>
+<tr class="separator:a3faa7c3e20aa9c2b9483d739b6434ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:acef51c91fbaa488ed39256e69bd45282" id="r_acef51c91fbaa488ed39256e69bd45282"><td class="memItemLeft" align="right" valign="top"><a id="acef51c91fbaa488ed39256e69bd45282" name="acef51c91fbaa488ed39256e69bd45282"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="separator:acef51c91fbaa488ed39256e69bd45282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a0385e3f33c2d1e302711bd0dc3b85" id="r_a10a0385e3f33c2d1e302711bd0dc3b85"><td class="memItemLeft" align="right" valign="top"><a id="a10a0385e3f33c2d1e302711bd0dc3b85" name="a10a0385e3f33c2d1e302711bd0dc3b85"></a>
+ValueType&#160;</td><td class="memItemRight" valign="bottom"><b>value</b></td></tr>
+<tr class="separator:a10a0385e3f33c2d1e302711bd0dc3b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a838e74effe0277a3f495bdae971d2236" id="r_a838e74effe0277a3f495bdae971d2236"><td class="memItemLeft" align="right" valign="top"><a id="a838e74effe0277a3f495bdae971d2236" name="a838e74effe0277a3f495bdae971d2236"></a>
+<a class="el" href="classttmath_1_1Parser_1_1MatOperator.html">MatOperator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>moperator</b></td></tr>
+<tr class="separator:a838e74effe0277a3f495bdae971d2236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae54d6540ebd7e2b4a9bafcd9cd4400c3" id="r_ae54d6540ebd7e2b4a9bafcd9cd4400c3"><td class="memItemLeft" align="right" valign="top"><a id="ae54d6540ebd7e2b4a9bafcd9cd4400c3" name="ae54d6540ebd7e2b4a9bafcd9cd4400c3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>function</b></td></tr>
+<tr class="separator:ae54d6540ebd7e2b4a9bafcd9cd4400c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7b63c9cb8d46de83e7f8bfa1c7fdf0" id="r_a4b7b63c9cb8d46de83e7f8bfa1c7fdf0"><td class="memItemLeft" align="right" valign="top"><a id="a4b7b63c9cb8d46de83e7f8bfa1c7fdf0" name="a4b7b63c9cb8d46de83e7f8bfa1c7fdf0"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>function_name</b></td></tr>
+<tr class="separator:a4b7b63c9cb8d46de83e7f8bfa1c7fdf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d0ea767d0b920419817c9390c10b587" id="r_a1d0ea767d0b920419817c9390c10b587"><td class="memItemLeft" align="right" valign="top"><a id="a1d0ea767d0b920419817c9390c10b587" name="a1d0ea767d0b920419817c9390c10b587"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>sign</b></td></tr>
+<tr class="separator:a1d0ea767d0b920419817c9390c10b587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class ValueType&gt;<br />
 struct ttmath::Parser&lt; ValueType &gt;::Item</div><p><a class="el" href="classttmath_1_1Objects.html">Objects</a> of type '<a class="el" href="structttmath_1_1Parser_1_1Item.html">Item</a>' we are keeping on our stack </p>

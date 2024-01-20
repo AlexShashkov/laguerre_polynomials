@@ -61,20 +61,84 @@ namespace \mbox{\hyperlink{namespacettmath}{ttmath}}
 \#define \mbox{\hyperlink{ttmathtypes_8h_a778d79adcd3e74d5e26708e7cbdcf244}{TTMATH\+\_\+\+GAMMA\+\_\+\+BOUNDARY}}~2000
 \item 
 \#define \mbox{\hyperlink{ttmathtypes_8h_aa3f5e440e9fef3a6267d24d881d00084}{TTMATH\+\_\+\+REFERENCE\+\_\+\+ASSERT}}(expression)
+\item 
+\Hypertarget{ttmathtypes_8h_aab92b8471379b141e76268df4398bfca}\label{ttmathtypes_8h_aab92b8471379b141e76268df4398bfca} 
+\#define {\bfseries TTMATH\+\_\+\+ASSERT}(expression)
+\item 
+\Hypertarget{ttmathtypes_8h_a1fa9140ad2502ae69d1d1ab4127d123f}\label{ttmathtypes_8h_a1fa9140ad2502ae69d1d1ab4127d123f} 
+\#define {\bfseries TTMATH\+\_\+\+LOG}(msg)
+\item 
+\Hypertarget{ttmathtypes_8h_a47660063c4dcc32c826ee2ff38a008b5}\label{ttmathtypes_8h_a47660063c4dcc32c826ee2ff38a008b5} 
+\#define {\bfseries TTMATH\+\_\+\+LOGC}(msg,  carry)
+\item 
+\Hypertarget{ttmathtypes_8h_aebf47b07371fdde8ced43a740ae16814}\label{ttmathtypes_8h_aebf47b07371fdde8ced43a740ae16814} 
+\#define {\bfseries TTMATH\+\_\+\+VECTOR\+\_\+\+LOG}(msg,  vector,  len)
+\item 
+\Hypertarget{ttmathtypes_8h_a20f2bda1b7ed5379b03615bf1c859413}\label{ttmathtypes_8h_a20f2bda1b7ed5379b03615bf1c859413} 
+\#define {\bfseries TTMATH\+\_\+\+VECTOR\+\_\+\+LOGC}(msg,  carry,  vector,  len)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 typedef unsigned int \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{ttmath\+::uint}}
 \item 
+\Hypertarget{namespacettmath_a300d86e7599787a118808c8c5972670f}\label{namespacettmath_a300d86e7599787a118808c8c5972670f} 
+typedef signed int {\bfseries ttmath\+::sint}
+\item 
 typedef uint64\+\_\+t \mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ttmath\+::ulint}}
+\item 
+\Hypertarget{namespacettmath_a095c3f861cf4072eafed3278cb991d71}\label{namespacettmath_a095c3f861cf4072eafed3278cb991d71} 
+typedef int64\+\_\+t {\bfseries ttmath\+::slint}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{ttmath\+::\+Lib\+Type\+Code}} 
+enum \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{ttmath\+::\+Lib\+Type\+Code}} \{ \newline
+{\bfseries asm\+\_\+vc\+\_\+32} = 0
+, {\bfseries asm\+\_\+gcc\+\_\+32}
+, {\bfseries asm\+\_\+vc\+\_\+64}
+, {\bfseries asm\+\_\+gcc\+\_\+64}
+, \newline
+{\bfseries no\+\_\+asm\+\_\+32}
+, {\bfseries no\+\_\+asm\+\_\+64}
+ \}
 \item 
-enum \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ttmath\+::\+Error\+Code}} 
+enum \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ttmath\+::\+Error\+Code}} \{ \newline
+{\bfseries err\+\_\+ok} = 0
+, {\bfseries err\+\_\+nothing\+\_\+has\+\_\+read}
+, {\bfseries err\+\_\+unknown\+\_\+character}
+, {\bfseries err\+\_\+unexpected\+\_\+final\+\_\+bracket}
+, \newline
+{\bfseries err\+\_\+stack\+\_\+not\+\_\+clear}
+, {\bfseries err\+\_\+unknown\+\_\+variable}
+, {\bfseries err\+\_\+division\+\_\+by\+\_\+zero}
+, {\bfseries err\+\_\+interrupt}
+, \newline
+{\bfseries err\+\_\+overflow}
+, {\bfseries err\+\_\+unknown\+\_\+function}
+, {\bfseries err\+\_\+unknown\+\_\+operator}
+, {\bfseries err\+\_\+unexpected\+\_\+semicolon\+\_\+operator}
+, \newline
+{\bfseries err\+\_\+improper\+\_\+amount\+\_\+of\+\_\+arguments}
+, {\bfseries err\+\_\+improper\+\_\+argument}
+, {\bfseries err\+\_\+unexpected\+\_\+end}
+, {\bfseries err\+\_\+internal\+\_\+error}
+, \newline
+{\bfseries err\+\_\+incorrect\+\_\+name}
+, {\bfseries err\+\_\+incorrect\+\_\+value}
+, {\bfseries err\+\_\+variable\+\_\+exists}
+, {\bfseries err\+\_\+variable\+\_\+loop}
+, \newline
+{\bfseries err\+\_\+functions\+\_\+loop}
+, {\bfseries err\+\_\+must\+\_\+be\+\_\+only\+\_\+one\+\_\+value}
+, {\bfseries err\+\_\+object\+\_\+exists}
+, {\bfseries err\+\_\+unknown\+\_\+object}
+, \newline
+{\bfseries err\+\_\+still\+\_\+calculating}
+, {\bfseries err\+\_\+in\+\_\+short\+\_\+form\+\_\+used\+\_\+function}
+, {\bfseries err\+\_\+percent\+\_\+from}
+, {\bfseries err\+\_\+assignment\+\_\+requires\+\_\+variable}
+ \}
 \end{DoxyCompactItemize}
 
 

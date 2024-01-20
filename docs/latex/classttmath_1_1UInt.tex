@@ -92,7 +92,13 @@ void \mbox{\hyperlink{classttmath_1_1UInt_a9147e767c1f90666a21c581343854c7a}{Mul
 \item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_aadcfa312adce5e4c9f59eb7bb67ee925}{Div\+Int}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} divisor, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}remainder=0)
 \item 
+\Hypertarget{classttmath_1_1UInt_a7da0becbd05fdb18aef340a10fdaa981}\label{classttmath_1_1UInt_a7da0becbd05fdb18aef340a10fdaa981} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Div\+Int} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} divisor, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&remainder)
+\item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a66ed2921ae082f9694afb330ec67d05d}{Div}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder=0, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} algorithm=3)
+\item 
+\Hypertarget{classttmath_1_1UInt_a1d9c05ea20c070265b33342c0f76b2f9}\label{classttmath_1_1UInt_a1d9c05ea20c070265b33342c0f76b2f9} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Div} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&remainder, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} algorithm=3)
 \item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_ae71bf44fb6746f7633b2c485bc6ae082}{Div1}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder=0)
 \item 
@@ -194,6 +200,15 @@ bool \mbox{\hyperlink{classttmath_1_1UInt_abd1c336e927429ad0aa43d26cfd57eaf}{Are
 \item 
 void \mbox{\hyperlink{classttmath_1_1UInt_abdff04e00cfba4c49a63688eeec3f14b}{To\+String}} (std\+::string \&result, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10) const
 \item 
+\Hypertarget{classttmath_1_1UInt_a9b724bb5cf26107c7a810d9d0cdf7ca3}\label{classttmath_1_1UInt_a9b724bb5cf26107c7a810d9d0cdf7ca3} 
+std\+::string {\bfseries To\+String} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a2103bf8a7aab63308d06d283782b0cea}\label{classttmath_1_1UInt_a2103bf8a7aab63308d06d283782b0cea} 
+void {\bfseries To\+String} (std\+::wstring \&result, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ad4c4ce6fcc01f6bc9f3bd4663aefd906}\label{classttmath_1_1UInt_ad4c4ce6fcc01f6bc9f3bd4663aefd906} 
+std\+::wstring {\bfseries To\+WString} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10) const
+\item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a57b749c77692b8d753b475a576d4d906}{From\+String}} (const char \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}after\+\_\+source=0, bool \texorpdfstring{$\ast$}{*}value\+\_\+read=0)
 \item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a8a9d1f8d1670b843c662c0d68bfae8ef}{From\+String}} (const std\+::string \&s, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10)
@@ -220,13 +235,109 @@ bool \mbox{\hyperlink{classttmath_1_1UInt_adb25ff6d1b7e1dca07c22678b047e237}{Cmp
 \item 
 bool \mbox{\hyperlink{classttmath_1_1UInt_a834bea52c5400450f6213aadce4cadd3}{Cmp\+Bigger\+Equal}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l, sint index=-\/1) const
 \item 
+\Hypertarget{classttmath_1_1UInt_aef349143cab8808e8cc5004943ddbd82}\label{classttmath_1_1UInt_aef349143cab8808e8cc5004943ddbd82} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_af8d417f101417974cafedc71848b3605}\label{classttmath_1_1UInt_af8d417f101417974cafedc71848b3605} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ac55ef58149dc52cc7b004568ea675762}\label{classttmath_1_1UInt_ac55ef58149dc52cc7b004568ea675762} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_abb1141c9cb23425b43c78bca16a4a17f}\label{classttmath_1_1UInt_abb1141c9cb23425b43c78bca16a4a17f} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a76f3db7371fc91694c29bd10f8bb6e8c}\label{classttmath_1_1UInt_a76f3db7371fc91694c29bd10f8bb6e8c} 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ae37fa22b9bf72f6f0fc3df9e167cdeb6}\label{classttmath_1_1UInt_ae37fa22b9bf72f6f0fc3df9e167cdeb6} 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
 \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt_afa00ba92a05e074de24e6cdda7990bc7}{operator-\/}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a69166e833bed518083be8c1511607cde}\label{classttmath_1_1UInt_a69166e833bed518083be8c1511607cde} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator-\/=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_ad325927589d231090bf856016cc4b3e6}\label{classttmath_1_1UInt_ad325927589d231090bf856016cc4b3e6} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator+} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_adcbdf6b41f8003c9a319f88d90fe9ad1}\label{classttmath_1_1UInt_adcbdf6b41f8003c9a319f88d90fe9ad1} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator+=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_adba7de63604701ddea5c387d254c9ad6}\label{classttmath_1_1UInt_adba7de63604701ddea5c387d254c9ad6} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\texorpdfstring{$\ast$}{*}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ab92ef92d811f5a43c67c6fce2226184a}\label{classttmath_1_1UInt_ab92ef92d811f5a43c67c6fce2226184a} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\texorpdfstring{$\ast$}{*}=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_adcad0fb567509e96cea659b33a7a6392}\label{classttmath_1_1UInt_adcad0fb567509e96cea659b33a7a6392} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator/} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a0e0c2602da48c8b4fbc5a2d6fa9c8487}\label{classttmath_1_1UInt_a0e0c2602da48c8b4fbc5a2d6fa9c8487} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator/=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_ac39b130d4b731f5f60e1edfe0e4e6626}\label{classttmath_1_1UInt_ac39b130d4b731f5f60e1edfe0e4e6626} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\%} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_afd2981d85c540df2f4a4d9afeff127c5}\label{classttmath_1_1UInt_afd2981d85c540df2f4a4d9afeff127c5} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\%=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
 \item 
 \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a30c3bfbecfb89ace23d4becd9c6894a9}{operator++}} ()
 \item 
 \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt_a6c542692a8bc7f57927029e7a82e2280}{operator++}} (int)
 \item 
+\Hypertarget{classttmath_1_1UInt_a52b7900d372f206c4a7dccf54e09f110}\label{classttmath_1_1UInt_a52b7900d372f206c4a7dccf54e09f110} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator-\/-\/} ()
+\item 
+\Hypertarget{classttmath_1_1UInt_afdbe14c5b7b286291da50a214e8ab016}\label{classttmath_1_1UInt_afdbe14c5b7b286291da50a214e8ab016} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator-\/-\/} (int)
+\item 
 \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt_aa95218ad020c1e2802bae3e1f8e5ace1}{operator\texorpdfstring{$\sim$}{\string~}}} () const
+\item 
+\Hypertarget{classttmath_1_1UInt_a5926b5441f3261b96ff8b20233346118}\label{classttmath_1_1UInt_a5926b5441f3261b96ff8b20233346118} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\&} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ad9af4a6ad8e1d3f4ed4c0c8a9bf1c102}\label{classttmath_1_1UInt_ad9af4a6ad8e1d3f4ed4c0c8a9bf1c102} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\&=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_a612fcda3605793d10c7ac0b37e22ece9}\label{classttmath_1_1UInt_a612fcda3605793d10c7ac0b37e22ece9} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\texorpdfstring{$\vert$}{|}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ab8910f60aa649c82509cfff75b51fb9e}\label{classttmath_1_1UInt_ab8910f60aa649c82509cfff75b51fb9e} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\texorpdfstring{$\vert$}{|}=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_a91ad647efc443010991f883d45992a0c}\label{classttmath_1_1UInt_a91ad647efc443010991f883d45992a0c} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\texorpdfstring{$^\wedge$}{\string^}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a60349ebfc8eab54497d21bfb82d77c0e}\label{classttmath_1_1UInt_a60349ebfc8eab54497d21bfb82d77c0e} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\texorpdfstring{$^\wedge$}{\string^}=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_a337a0e36ce10b0b328b06f60047d3f9e}\label{classttmath_1_1UInt_a337a0e36ce10b0b328b06f60047d3f9e} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator$>$$>$} (int move) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a471f585bb8b44032b583d4349e6c0d1b}\label{classttmath_1_1UInt_a471f585bb8b44032b583d4349e6c0d1b} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator$>$$>$=} (int move)
+\item 
+\Hypertarget{classttmath_1_1UInt_adc451adcb837422460a52a637f73a72a}\label{classttmath_1_1UInt_adc451adcb837422460a52a637f73a72a} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator$<$$<$} (int move) const
+\item 
+\Hypertarget{classttmath_1_1UInt_aab9d2c68007dd29da09ccbfb153bcfea}\label{classttmath_1_1UInt_aab9d2c68007dd29da09ccbfb153bcfea} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator$<$$<$=} (int move)
+\item 
+\Hypertarget{classttmath_1_1UInt_af69f4f1a71948175abc653a82a728665}\label{classttmath_1_1UInt_af69f4f1a71948175abc653a82a728665} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c=0)
+\item 
+\Hypertarget{classttmath_1_1UInt_af4234f162487dbde47c9319f49b2d7af}\label{classttmath_1_1UInt_af4234f162487dbde47c9319f49b2d7af} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add\+Int} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} index=0)
+\item 
+\Hypertarget{classttmath_1_1UInt_aba79aa3cdad513d1c41f4caa3758faab}\label{classttmath_1_1UInt_aba79aa3cdad513d1c41f4caa3758faab} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add\+Two\+Ints} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x1, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} index)
+\item 
+\Hypertarget{classttmath_1_1UInt_a62de1450c61299cdbbda5632b85386c8}\label{classttmath_1_1UInt_a62de1450c61299cdbbda5632b85386c8} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Sub} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c=0)
+\item 
+\Hypertarget{classttmath_1_1UInt_abe3a0a22636f905e536aaacf960d962b}\label{classttmath_1_1UInt_abe3a0a22636f905e536aaacf960d962b} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Sub\+Int} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} index=0)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -234,6 +345,39 @@ bool \mbox{\hyperlink{classttmath_1_1UInt_a834bea52c5400450f6213aadce4cadd3}{Cmp
 {\footnotesize template$<$class char\+\_\+type , class ostream\+\_\+type $>$ }\\static void \mbox{\hyperlink{classttmath_1_1UInt_aa05536ad0b4ff594bb3f6b9afc7aa3d8}{Print\+Vector\+Log}} (const char\+\_\+type \texorpdfstring{$\ast$}{*}msg, ostream\+\_\+type \&output, const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}vector, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} vector\+\_\+len)
 \item 
 {\footnotesize template$<$class char\+\_\+type , class ostream\+\_\+type $>$ }\\static void \mbox{\hyperlink{classttmath_1_1UInt_abc701dece8f6d0e9d38310d936b2b065}{Print\+Vector\+Log}} (const char\+\_\+type \texorpdfstring{$\ast$}{*}msg, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} carry, ostream\+\_\+type \&output, const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}vector, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} vector\+\_\+len)
+\item 
+\Hypertarget{classttmath_1_1UInt_ad8773b87be5ce9346232dc64540b816a}\label{classttmath_1_1UInt_ad8773b87be5ce9346232dc64540b816a} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add\+Two\+Words} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} a, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} carry, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{classttmath_1_1UInt_a8f61c05cf6f5fef6dfe70911531ac39d}\label{classttmath_1_1UInt_a8f61c05cf6f5fef6dfe70911531ac39d} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Sub\+Two\+Words} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} a, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} carry, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{classttmath_1_1UInt_a4fba41ee601aa3aacb8f94670ea94408}\label{classttmath_1_1UInt_a4fba41ee601aa3aacb8f94670ea94408} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries Lib\+Type\+Str} ()
+\item 
+\Hypertarget{classttmath_1_1UInt_a93a9987a235ebaeeffa1824fee7d30f0}\label{classttmath_1_1UInt_a93a9987a235ebaeeffa1824fee7d30f0} 
+static \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{Lib\+Type\+Code}} {\bfseries Lib\+Type} ()
+\item 
+\Hypertarget{classttmath_1_1UInt_a70b08646a481057b2eaaa1e960fdb850}\label{classttmath_1_1UInt_a70b08646a481057b2eaaa1e960fdb850} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add\+Vector} (const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}ss1, const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss1\+\_\+size, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss2\+\_\+size, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{classttmath_1_1UInt_a21c36a8951d8191fe563664afc2d9842}\label{classttmath_1_1UInt_a21c36a8951d8191fe563664afc2d9842} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Sub\+Vector} (const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}ss1, const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss1\+\_\+size, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss2\+\_\+size, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{classttmath_1_1UInt_a48fa33b2511b8b153589c2c84f3a0309}\label{classttmath_1_1UInt_a48fa33b2511b8b153589c2c84f3a0309} 
+static sint {\bfseries Find\+Leading\+Bit\+In\+Word} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x)
+\item 
+\Hypertarget{classttmath_1_1UInt_aa50ac818f3b827cbf5117e2b1d96ebb9}\label{classttmath_1_1UInt_aa50ac818f3b827cbf5117e2b1d96ebb9} 
+static sint {\bfseries Find\+Lowest\+Bit\+In\+Word} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x)
+\item 
+\Hypertarget{classttmath_1_1UInt_ae50b571f0b9eb4f1f0ccdee3dc6b12a2}\label{classttmath_1_1UInt_ae50b571f0b9eb4f1f0ccdee3dc6b12a2} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Set\+Bit\+In\+Word} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&value, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bit)
+\item 
+\Hypertarget{classttmath_1_1UInt_a725e31c2fbe12368c18c5c308da7239f}\label{classttmath_1_1UInt_a725e31c2fbe12368c18c5c308da7239f} 
+static void {\bfseries Mul\+Two\+Words} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} a, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result\+\_\+high, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result\+\_\+low)
+\item 
+\Hypertarget{classttmath_1_1UInt_aa5e5fcf1bccc940c90896362908bc88a}\label{classttmath_1_1UInt_aa5e5fcf1bccc940c90896362908bc88a} 
+static void {\bfseries Div\+Two\+Words} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} a, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}r, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}rest)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -266,6 +410,12 @@ void \mbox{\hyperlink{classttmath_1_1UInt_a80f1363e9c0e57e23aec43f1e524c908}{Rcr
 \item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a5a092100176db7fd1cdc8b0def30cedf}{Div\+\_\+\+Calculating\+Size}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&v, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&m, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&n)
 \item 
+\Hypertarget{classttmath_1_1UInt_a0ac29e5a626d6bf8bc2cf5adf20a116e}\label{classttmath_1_1UInt_a0ac29e5a626d6bf8bc2cf5adf20a116e} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Div1\+\_\+\+Calculate} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&rest)
+\item 
+\Hypertarget{classttmath_1_1UInt_a825303a95f47ec9828beb4357163595d}\label{classttmath_1_1UInt_a825303a95f47ec9828beb4357163595d} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Div1\+\_\+\+Calculate\+Ref} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&rest)
+\item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a8e888e0fba51a3424fd18552ebca05c4}{Div2\+Ref}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder=0)
 \item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a4a40e7e2beb73f939f4bce60db3779c2}{Div2\+\_\+\+Calculate}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&bits\+\_\+diff)
@@ -276,11 +426,41 @@ bool \mbox{\hyperlink{classttmath_1_1UInt_a52d0d804d84b6919318f17de15ff8c27}{Div
 \item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a7243d05c7dff82862c2b266110c057a2}{Div3\+Ref}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&v, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder=0)
 \item 
+\Hypertarget{classttmath_1_1UInt_af9eee75e1a560f11f0e30b4bfe3315cb}\label{classttmath_1_1UInt_af9eee75e1a560f11f0e30b4bfe3315cb} 
+void {\bfseries Div3\+\_\+\+Division} (\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ v, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} m, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} n)
+\item 
+\Hypertarget{classttmath_1_1UInt_ad68dac57a4b19b8a16c774b9eaa6aa7c}\label{classttmath_1_1UInt_ad68dac57a4b19b8a16c774b9eaa6aa7c} 
+void {\bfseries Div3\+\_\+\+Make\+NewU} (\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size+1 $>$ \&uu, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} j, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} n, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} u\+\_\+max)
+\item 
+\Hypertarget{classttmath_1_1UInt_adb834ba729529a2b4e7a14e9270ff421}\label{classttmath_1_1UInt_adb834ba729529a2b4e7a14e9270ff421} 
+void {\bfseries Div3\+\_\+\+Copy\+NewU} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size+1 $>$ \&uu, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} j, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} n)
+\item 
 void \mbox{\hyperlink{classttmath_1_1UInt_a82c984e8d2b20b8675ad113009954e67}{Div3\+\_\+\+Make\+BiggerV}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&v, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size+1 $>$ \&vv)
 \item 
 \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_aeb26b32c69cdcaf0632bc8e5b17908df}{Div3\+\_\+\+Normalize}} (\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&v, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} n, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&d)
 \item 
+\Hypertarget{classttmath_1_1UInt_a3727a7b44a06da11fe1aa7662864bab2}\label{classttmath_1_1UInt_a3727a7b44a06da11fe1aa7662864bab2} 
+void {\bfseries Div3\+\_\+\+Unnormalize} (\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} n, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} d)
+\item 
+\Hypertarget{classttmath_1_1UInt_a3d902d6bc31af04401870e02baac908a}\label{classttmath_1_1UInt_a3d902d6bc31af04401870e02baac908a} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Div3\+\_\+\+Calculate} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} u2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} u1, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} u0, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} v1, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} v0)
+\item 
+\Hypertarget{classttmath_1_1UInt_a58e6cff38ec511d815e8d916f3e3b64c}\label{classttmath_1_1UInt_a58e6cff38ec511d815e8d916f3e3b64c} 
+void {\bfseries Div3\+\_\+\+Multiply\+Subtract} (\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size+1 $>$ \&uu, const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size+1 $>$ \&vv, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&qp)
+\item 
 {\footnotesize template$<$class char\+\_\+type $>$ }\\\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a202a2fb5604fc73427d58302d520cb1f}{From\+String\+Base}} (const char\+\_\+type \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10, const char\+\_\+type \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}after\+\_\+source=0, bool \texorpdfstring{$\ast$}{*}value\+\_\+read=0)
+\item 
+\Hypertarget{classttmath_1_1UInt_a39f150667041125066719f0df22d871f}\label{classttmath_1_1UInt_a39f150667041125066719f0df22d871f} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Rcl2\+\_\+one} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c)
+\item 
+\Hypertarget{classttmath_1_1UInt_a934d5a8860cae28065c4143787387838}\label{classttmath_1_1UInt_a934d5a8860cae28065c4143787387838} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Rcr2\+\_\+one} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c)
+\item 
+\Hypertarget{classttmath_1_1UInt_a3897df7586754634974ea9c48cfb3234}\label{classttmath_1_1UInt_a3897df7586754634974ea9c48cfb3234} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Rcl2} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bits, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c)
+\item 
+\Hypertarget{classttmath_1_1UInt_a79bf54e4b4277097a4fa195b281c9c4a}\label{classttmath_1_1UInt_a79bf54e4b4277097a4fa195b281c9c4a} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Rcr2} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bits, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}

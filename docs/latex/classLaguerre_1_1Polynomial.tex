@@ -23,10 +23,49 @@ void \mbox{\hyperlink{classLaguerre_1_1Polynomial_a4eb571a238115491750d0efbfe41d
 \begin{DoxyCompactList}\small\item\em Set solver for this polynomial. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classLaguerre_1_1Polynomial_a61aeac4163fac1fd4869fd2fde5eb2bf}{solve}} (std\+::vector$<$ std\+::complex$<$ T $>$ $>$ \&roots, std\+::vector$<$ int $>$ \&conv, int maxiter=80)
 \begin{DoxyCompactList}\small\item\em Find the roots of this polynomial. \end{DoxyCompactList}\item 
+\Hypertarget{classLaguerre_1_1Polynomial_aa28db6aacc7684354cec83d640781bf2}\label{classLaguerre_1_1Polynomial_aa28db6aacc7684354cec83d640781bf2} 
+\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} {\bfseries operator+} (\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&rhs)
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_a610b29bf876d3102ddead8e62f242fb2}\label{classLaguerre_1_1Polynomial_a610b29bf876d3102ddead8e62f242fb2} 
+\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} {\bfseries operator-\/} (const \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&rhs) const
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_a2ec1b044f1970e0583a846db07e3375b}\label{classLaguerre_1_1Polynomial_a2ec1b044f1970e0583a846db07e3375b} 
+\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} {\bfseries operator\texorpdfstring{$\ast$}{*}} (const \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&other)
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_aeb9937e4f0d214755c04075d0166ab6f}\label{classLaguerre_1_1Polynomial_aeb9937e4f0d214755c04075d0166ab6f} 
+\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} {\bfseries operator/} (\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&divisor)
+\item 
 void \mbox{\hyperlink{classLaguerre_1_1Polynomial_a3f8068994370bba3184d9f662607c33f}{divide}} (\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&divisor, \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&quotient, \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&remainder)
 \begin{DoxyCompactList}\small\item\em Divides one polynomial by another. \end{DoxyCompactList}\item 
+\Hypertarget{classLaguerre_1_1Polynomial_a9919db563656cb918b042dc5dfd41efa}\label{classLaguerre_1_1Polynomial_a9919db563656cb918b042dc5dfd41efa} 
+\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \& {\bfseries operator\texorpdfstring{$\ast$}{*}=} (const \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&other)
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_a84e2453a1cfaf113bee8b818a66bffff}\label{classLaguerre_1_1Polynomial_a84e2453a1cfaf113bee8b818a66bffff} 
+\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \& {\bfseries operator=} (const \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}} \&other)
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_a70a65d05bf14bbd765d8d5efb5c0002a}\label{classLaguerre_1_1Polynomial_a70a65d05bf14bbd765d8d5efb5c0002a} 
+T {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i) const
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_adbb4151a4bb1d4e9e3c041902dc8f361}\label{classLaguerre_1_1Polynomial_adbb4151a4bb1d4e9e3c041902dc8f361} 
+T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
 std\+::vector$<$ T $>$ \mbox{\hyperlink{classLaguerre_1_1Polynomial_af2d6ce0cd2101f6819b1829b4beb264f}{diff}} (int deg=1)
-\begin{DoxyCompactList}\small\item\em Calculates the derivative of a \doxylink{classLaguerre_1_1Polynomial}{Polynomial} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the derivative of a \doxylink{classLaguerre_1_1Polynomial}{Polynomial} object. \end{DoxyCompactList}\item 
+\Hypertarget{classLaguerre_1_1Polynomial_a3136fc86831c51f7d5a5db627401ac71}\label{classLaguerre_1_1Polynomial_a3136fc86831c51f7d5a5db627401ac71} 
+void {\bfseries print} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_aa76367923e79041df2b60f0fb6c960c0}\label{classLaguerre_1_1Polynomial_aa76367923e79041df2b60f0fb6c960c0} 
+std\+::vector$<$ std\+::complex$<$ T $>$ $>$ {\bfseries roots}
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_a480b831b8efd78393c82bab96d213847}\label{classLaguerre_1_1Polynomial_a480b831b8efd78393c82bab96d213847} 
+std\+::vector$<$ T $>$ {\bfseries coeffs}
+\item 
+\Hypertarget{classLaguerre_1_1Polynomial_a3eecfe715737a0ecc63eb8c23d594386}\label{classLaguerre_1_1Polynomial_a3eecfe715737a0ecc63eb8c23d594386} 
+\mbox{\hyperlink{classBaseSolver}{Base\+Solver}}$<$ T $>$ \texorpdfstring{$\ast$}{*} {\bfseries Solver}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}

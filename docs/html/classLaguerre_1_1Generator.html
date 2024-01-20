@@ -89,10 +89,70 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classLaguerre_1_1Generator-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Laguerre::Generator&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3f34fda488832d89015b5928b4a76185" id="r_a3f34fda488832d89015b5928b4a76185"><td class="memItemLeft" align="right" valign="top"><a id="a3f34fda488832d89015b5928b4a76185" name="a3f34fda488832d89015b5928b4a76185"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCoeffGenerator</b> (coeffGeneratorPtr func)</td></tr>
+<tr class="separator:a3f34fda488832d89015b5928b4a76185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6635b15abcb9196e1a4984ccb26ccd03" id="r_a6635b15abcb9196e1a4984ccb26ccd03"><td class="memItemLeft" align="right" valign="top"><a id="a6635b15abcb9196e1a4984ccb26ccd03" name="a6635b15abcb9196e1a4984ccb26ccd03"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>setRootsGenerator</b> (rootsGeneratorPtr func)</td></tr>
+<tr class="separator:a6635b15abcb9196e1a4984ccb26ccd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fa7df5cd71812eecf6beeb3ac540328" id="r_a3fa7df5cd71812eecf6beeb3ac540328"><td class="memItemLeft" align="right" valign="top"><a id="a3fa7df5cd71812eecf6beeb3ac540328" name="a3fa7df5cd71812eecf6beeb3ac540328"></a>
+static std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>generateRoots</b> (int count=3, T from=0, T to=1, T delta=1)</td></tr>
+<tr class="separator:a3fa7df5cd71812eecf6beeb3ac540328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cf9ab02e4585d5b2503a7bfe3b98090" id="r_a7cf9ab02e4585d5b2503a7bfe3b98090"><td class="memItemLeft" align="right" valign="top"><a id="a7cf9ab02e4585d5b2503a7bfe3b98090" name="a7cf9ab02e4585d5b2503a7bfe3b98090"></a>
+static <a class="el" href="classLaguerre_1_1Polynomial.html">Polynomial</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>createFromRoots</b> (std::vector&lt; std::complex&lt; T &gt; &gt; args)</td></tr>
+<tr class="separator:a7cf9ab02e4585d5b2503a7bfe3b98090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e354ee8081c3c5b86c6fcfd9d3e311" id="r_a58e354ee8081c3c5b86c6fcfd9d3e311"><td class="memTemplParams" colspan="2"><a id="a58e354ee8081c3c5b86c6fcfd9d3e311" name="a58e354ee8081c3c5b86c6fcfd9d3e311"></a>
+template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a58e354ee8081c3c5b86c6fcfd9d3e311"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classLaguerre_1_1Polynomial.html">Polynomial</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createFromRoots</b> (Args...args)</td></tr>
+<tr class="separator:a58e354ee8081c3c5b86c6fcfd9d3e311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33b3781d5d70ad69107541a3ea686211" id="r_a33b3781d5d70ad69107541a3ea686211"><td class="memItemLeft" align="right" valign="top"><a id="a33b3781d5d70ad69107541a3ea686211" name="a33b3781d5d70ad69107541a3ea686211"></a>
+static <a class="el" href="classLaguerre_1_1Polynomial.html">Polynomial</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>gen</b> (int count=3, T from=1, T to=3, T delta=1)</td></tr>
+<tr class="separator:a33b3781d5d70ad69107541a3ea686211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a6af21949878ed56fa10285bc2e03c679" id="r_a6af21949878ed56fa10285bc2e03c679"><td class="memItemLeft" align="right" valign="top"><a id="a6af21949878ed56fa10285bc2e03c679" name="a6af21949878ed56fa10285bc2e03c679"></a>
+typedef <a class="el" href="classLaguerre_1_1Polynomial.html">Polynomial</a>&lt; T &gt;(*&#160;</td><td class="memItemRight" valign="bottom"><b>coeffGeneratorPtr</b>) (std::vector&lt; std::complex&lt; T &gt; &gt;)</td></tr>
+<tr class="separator:a6af21949878ed56fa10285bc2e03c679"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28928188456d7e16e7e13c799a806cd6" id="r_a28928188456d7e16e7e13c799a806cd6"><td class="memItemLeft" align="right" valign="top"><a id="a28928188456d7e16e7e13c799a806cd6" name="a28928188456d7e16e7e13c799a806cd6"></a>
+typedef std::vector&lt; std::complex&lt; T &gt; &gt;(*&#160;</td><td class="memItemRight" valign="bottom"><b>rootsGeneratorPtr</b>) (int, T, T, T)</td></tr>
+<tr class="separator:a28928188456d7e16e7e13c799a806cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a724c97fbcda54b563aa2f4ce913584f6" id="r_a724c97fbcda54b563aa2f4ce913584f6"><td class="memItemLeft" align="right" valign="top"><a id="a724c97fbcda54b563aa2f4ce913584f6" name="a724c97fbcda54b563aa2f4ce913584f6"></a>
+static <a class="el" href="classLaguerre_1_1Polynomial.html">Polynomial</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>basicCoeffsGeneration</b> (std::vector&lt; std::complex&lt; T &gt; &gt; roots)</td></tr>
+<tr class="separator:a724c97fbcda54b563aa2f4ce913584f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a928073e7b45bb78adcc8212a0b08e69b" id="r_a928073e7b45bb78adcc8212a0b08e69b"><td class="memItemLeft" align="right" valign="top"><a id="a928073e7b45bb78adcc8212a0b08e69b" name="a928073e7b45bb78adcc8212a0b08e69b"></a>
+static std::vector&lt; std::complex&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>basicRootGeneration</b> (int count=3, T from=0, T to=1, T delta=1)</td></tr>
+<tr class="separator:a928073e7b45bb78adcc8212a0b08e69b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40b1ca3889bc8d1d0bd3e2ecd36a0b33" id="r_a40b1ca3889bc8d1d0bd3e2ecd36a0b33"><td class="memItemLeft" align="right" valign="top"><a id="a40b1ca3889bc8d1d0bd3e2ecd36a0b33" name="a40b1ca3889bc8d1d0bd3e2ecd36a0b33"></a>
+static coeffGeneratorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>currentCoeffGenerator</b> ()</td></tr>
+<tr class="separator:a40b1ca3889bc8d1d0bd3e2ecd36a0b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0732f923ee222410dbb029677cb09ca2" id="r_a0732f923ee222410dbb029677cb09ca2"><td class="memItemLeft" align="right" valign="top"><a id="a0732f923ee222410dbb029677cb09ca2" name="a0732f923ee222410dbb029677cb09ca2"></a>
+static rootsGeneratorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>currentRootsGenerator</b> ()</td></tr>
+<tr class="separator:a0732f923ee222410dbb029677cb09ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:ae2a8896d091a14d97745759d105d2545" id="r_ae2a8896d091a14d97745759d105d2545"><td class="memItemLeft" align="right" valign="top"><a id="ae2a8896d091a14d97745759d105d2545" name="ae2a8896d091a14d97745759d105d2545"></a>
+static coeffGeneratorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>coeffGenerator</b> = nullptr</td></tr>
+<tr class="separator:ae2a8896d091a14d97745759d105d2545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6892c2e64a2fc2602f850fad81c7b0a8" id="r_a6892c2e64a2fc2602f850fad81c7b0a8"><td class="memItemLeft" align="right" valign="top"><a id="a6892c2e64a2fc2602f850fad81c7b0a8" name="a6892c2e64a2fc2602f850fad81c7b0a8"></a>
+static rootsGeneratorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>rootsGenerator</b> = nullptr</td></tr>
+<tr class="separator:a6892c2e64a2fc2602f850fad81c7b0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>headers/<a class="el" href="PolynomialGenerator_8h_source.html">PolynomialGenerator.h</a></li>
 </ul>

@@ -89,12 +89,20 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classttmath_1_1StopCalculating-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ttmath::StopCalculating Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="ttmathtypes_8h_source.html">ttmathtypes.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a456b5aec8b4d299c87799751b8a0e27e" id="r_a456b5aec8b4d299c87799751b8a0e27e"><td class="memItemLeft" align="right" valign="top"><a id="a456b5aec8b4d299c87799751b8a0e27e" name="a456b5aec8b4d299c87799751b8a0e27e"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>WasStopSignal</b> () const volatile</td></tr>
+<tr class="separator:a456b5aec8b4d299c87799751b8a0e27e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>this simple class can be used in multithreading model (you can write your own class derived from this one)</p>
 <p>for example: in some functions like <a class="el" href="namespacettmath.html#ae0a248c8618c9ac4e3edf6095fe31f92">Factorial()</a> /at the moment only Factorial/ you can give a pointer to the 'stop object', if the method WasStopSignal() of this object returns true that means we should break the calculating and return </p>

@@ -145,14 +145,65 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a9897e861179132b64f0e2640dde9d7b7" id="r_a9897e861179132b64f0e2640dde9d7b7"><td class="memItemLeft" align="right" valign="top">typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9897e861179132b64f0e2640dde9d7b7">uint</a></td></tr>
 <tr class="separator:a9897e861179132b64f0e2640dde9d7b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a300d86e7599787a118808c8c5972670f" id="r_a300d86e7599787a118808c8c5972670f"><td class="memItemLeft" align="right" valign="top"><a id="a300d86e7599787a118808c8c5972670f" name="a300d86e7599787a118808c8c5972670f"></a>
+typedef signed int&#160;</td><td class="memItemRight" valign="bottom"><b>sint</b></td></tr>
+<tr class="separator:a300d86e7599787a118808c8c5972670f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ce40c9d465ab13366ef3784286e6d8" id="r_a91ce40c9d465ab13366ef3784286e6d8"><td class="memItemLeft" align="right" valign="top">typedef uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91ce40c9d465ab13366ef3784286e6d8">ulint</a></td></tr>
 <tr class="separator:a91ce40c9d465ab13366ef3784286e6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a095c3f861cf4072eafed3278cb991d71" id="r_a095c3f861cf4072eafed3278cb991d71"><td class="memItemLeft" align="right" valign="top"><a id="a095c3f861cf4072eafed3278cb991d71" name="a095c3f861cf4072eafed3278cb991d71"></a>
+typedef int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>slint</b></td></tr>
+<tr class="separator:a095c3f861cf4072eafed3278cb991d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a5c3bd12cd3d050852a60e022e5e12799" id="r_a5c3bd12cd3d050852a60e022e5e12799"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c3bd12cd3d050852a60e022e5e12799">LibTypeCode</a> </td></tr>
+<tr class="memitem:a5c3bd12cd3d050852a60e022e5e12799" id="r_a5c3bd12cd3d050852a60e022e5e12799"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c3bd12cd3d050852a60e022e5e12799">LibTypeCode</a> { <br />
+&#160;&#160;<b>asm_vc_32</b> = 0
+, <b>asm_gcc_32</b>
+, <b>asm_vc_64</b>
+, <b>asm_gcc_64</b>
+, <br />
+&#160;&#160;<b>no_asm_32</b>
+, <b>no_asm_64</b>
+<br />
+ }</td></tr>
 <tr class="separator:a5c3bd12cd3d050852a60e022e5e12799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af99599ccaf4dc05cc3a74277f9579942" id="r_af99599ccaf4dc05cc3a74277f9579942"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af99599ccaf4dc05cc3a74277f9579942">ErrorCode</a> </td></tr>
+<tr class="memitem:af99599ccaf4dc05cc3a74277f9579942" id="r_af99599ccaf4dc05cc3a74277f9579942"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af99599ccaf4dc05cc3a74277f9579942">ErrorCode</a> { <br />
+&#160;&#160;<b>err_ok</b> = 0
+, <b>err_nothing_has_read</b>
+, <b>err_unknown_character</b>
+, <b>err_unexpected_final_bracket</b>
+, <br />
+&#160;&#160;<b>err_stack_not_clear</b>
+, <b>err_unknown_variable</b>
+, <b>err_division_by_zero</b>
+, <b>err_interrupt</b>
+, <br />
+&#160;&#160;<b>err_overflow</b>
+, <b>err_unknown_function</b>
+, <b>err_unknown_operator</b>
+, <b>err_unexpected_semicolon_operator</b>
+, <br />
+&#160;&#160;<b>err_improper_amount_of_arguments</b>
+, <b>err_improper_argument</b>
+, <b>err_unexpected_end</b>
+, <b>err_internal_error</b>
+, <br />
+&#160;&#160;<b>err_incorrect_name</b>
+, <b>err_incorrect_value</b>
+, <b>err_variable_exists</b>
+, <b>err_variable_loop</b>
+, <br />
+&#160;&#160;<b>err_functions_loop</b>
+, <b>err_must_be_only_one_value</b>
+, <b>err_object_exists</b>
+, <b>err_unknown_object</b>
+, <br />
+&#160;&#160;<b>err_still_calculating</b>
+, <b>err_in_short_form_used_function</b>
+, <b>err_percent_from</b>
+, <b>err_assignment_requires_variable</b>
+<br />
+ }</td></tr>
 <tr class="separator:af99599ccaf4dc05cc3a74277f9579942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
