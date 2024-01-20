@@ -16,7 +16,7 @@ using std::complex;
 using std::vector;
 
 template<typename T>
-class Laguerre13 : public BaseSolver<T>{
+class ModifiedLaguerre13 : public BaseSolver<T>{
 private:
     //
     static constexpr T eps   = std::numeric_limits<T>::epsilon();
@@ -59,7 +59,7 @@ private:
 
 
 public:
-    Laguerre13(){
+    ModifiedLaguerre13(){
         // 
     }
 
