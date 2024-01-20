@@ -15,6 +15,9 @@
 #define PR_AT_LEAST_ONE_ROOT_IS_FAKE -2
 #define PR_2_INFINITE_ROOTS          -3
 
+constexpr int exponent = 2; // Exponent for big number notation
+constexpr int mantissa = 4; // Mantissa for big number notation
+
 int main(){
     using Laguerre::Polynomial;
     std::streamsize fp_precision_original=std::cout.precision(); // save default precision to provide maximal reasonable output
@@ -41,7 +44,7 @@ int main(){
     try{
         for(int i=0; i < N_TESTS; ++i){
             roots_found_this_test.clear();
-            N_roots_gt_this_test = generate_polynomial(l, 0, l, 0,
+            N_roots_gt_this_test = generate_polynomial<double, exponent, mantissa>(l, 0, l, 0,
                                         1e-5, -1.0, 1.0, roots, a);
             std::cout << "GENERATED POLY & ROOTS:\n";
             Laguerre::printVec(a);
@@ -57,7 +60,7 @@ int main(){
 
             std::cout << "2018 LAGUERRE MODIFICATION:\n";
             pol.setSolver(solver18);
-            pol.solve(solved_roots, conv, 80);
+            // pol.solve(solved_roots, conv, 80);
             // (*solver18)(a, solved_roots, conv, 80);
             // laguerre(a, l, solved_roots, conv, 80);
 
