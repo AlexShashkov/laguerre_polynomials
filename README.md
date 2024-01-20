@@ -4,6 +4,8 @@ This project uses various Laguerre methods to solve polynomials.
 
 КМБО-03-20: Александр Шашков, Вячеслав Иванов, Глеб Дорошенко, Дмитрий Балашов, Роман Охотников, Шахин Гаджиев
 
+[Documentation](https://alexshashkov.github.io/laguerre_polynomials/html/annotated.html)
+
 ## MakeFile Variables
 
 - `SOLVER`: The solver to use. Default is `0`. Options are:
