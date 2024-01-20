@@ -8,79 +8,109 @@
 #include "headers/Laguerre18m.h"
 // #include "headers/L18_or.h"
 
-#define number double
-
 #define PR_NUMBERS_OF_ROOTS_EQUAL     0
 #define PR_AT_LEAST_ONE_ROOT_LOST    -1
 #define PR_AT_LEAST_ONE_ROOT_IS_FAKE -2
 #define PR_2_INFINITE_ROOTS          -3
 
-constexpr int exponent = 2; // Exponent for big number notation
-constexpr int mantissa = 4; // Mantissa for big number notation
+#ifndef NUMBER
+    #define NUMBER double
+#endif
+#ifndef EXPONENT
+    #define EXPONENT 2 // Exponent for big NUMBER notation
+#endif
+#ifndef MANTISSA
+    #define MANTISSA 4 // Mantissa for big NUMBER notation
+#endif
+#ifndef DEGREE
+    #define DEGREE 10 // polynomial degree
+#endif
+#ifndef N_TESTS
+    #define N_TESTS 1000 // count of tests 
+#endif
+// Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
+#ifndef N_PAIRS_OF_COMPLEX_ROOTS
+    #define N_PAIRS_OF_COMPLEX_ROOTS 0
+#endif
+#ifndef N_CLUSTERED_ROOTS
+    #define N_CLUSTERED_ROOTS DEGREE
+#endif
+#ifndef N_MULTIPLE_ROOTS
+    #define N_MULTIPLE_ROOTS 0
+#endif
+// Used only for clustered roots
+#ifndef MAX_DISTANCE_BETWEEN_CLUSTERED
+    #define MAX_DISTANCE_BETWEEN_CLUSTERED 1e-5
+#endif
+#ifndef ROOT_SWEEP_LOW
+    #define ROOT_SWEEP_LOW -1.0
+#endif
+#ifndef ROOT_SWEEP_HIGH
+    #define ROOT_SWEEP_HIGH 1.0
+#endif
+#ifndef TRIES
+    #define TRIES 80 // For how many iterations Laguerre should trying to solve polynomial
+#endif
 
 int main(){
     using Laguerre::Polynomial;
     std::streamsize fp_precision_original=std::cout.precision(); // save default precision to provide maximal reasonable output
     
     // Laguerre solvers
-    Laguerre::Original<double>* solver = new Laguerre::Original<double>();
-    Laguerre::ModifiedLaguerre13<double>* solver13 = new Laguerre::ModifiedLaguerre13<double>();
-    Laguerre::ModifiedLaguerre18<double>* solver18 = new Laguerre::ModifiedLaguerre18<double>();
+    #if SOLVER == Original
+        Laguerre::Original<double>* solver = new Laguerre::Original<double>();
+    #elif SOLVER == ModifiedLaguerre13
+        Laguerre::ModifiedLaguerre13<double>* solver = new Laguerre::ModifiedLaguerre13<double>();
+    #elif SOLVER == ModifiedLaguerre18
+        Laguerre::ModifiedLaguerre18<double>* solver = new Laguerre::ModifiedLaguerre18<double>();
+    #endif
 
     // Generator stuff
-    int l = 5, N_TESTS = 1000,                                               // polynomial degree, count of tests 
-        rv,                                                                  // status of comparing roots
+    int rv,                                                                  // status of comparing roots
         N_roots_found_this_test, N_roots_gt_this_test,                       // amount of found roots in each test & gt roots
         N_true_roots_lost=0, N_fake_roots_added=0,                           // total counters of {lost, fake} roots aover all tests
-        N_roots_gt_all_tests_ae_worst=0, N_roots_found_all_tests_ae_worst=0, // {ground truth, found} number of roots of the worst polynomial for absolute error
-        N_roots_gt_all_tests_re_worst=0, N_roots_found_all_tests_re_worst=0; // {ground truth, found} number of roots of the worst polynomial for relative error
+        N_roots_gt_all_tests_ae_worst=0, N_roots_found_all_tests_ae_worst=0, // {ground truth, found} NUMBER of roots of the worst polynomial for absolute error
+        N_roots_gt_all_tests_re_worst=0, N_roots_found_all_tests_re_worst=0; // {ground truth, found} NUMBER of roots of the worst polynomial for relative error
 
-    std::vector<number> roots(l, 0.0), roots_found_this_test(l), a(l+1, 0.0),                                       // current polynomial
-        roots_gt_all_tests_ae_worst(l), roots_found_all_tests_ae_worst(l), coefficients_all_tests_ae_worst(l+1),    // {gt roots, found roots, coefficients} of the worst polynomial for absolute error
-        roots_gt_all_tests_re_worst(l), roots_found_all_tests_re_worst(l), coefficients_all_tests_re_worst(l+1);    // {gt roots, found roots, coefficients} of the worst polynomial for relative error
+    std::vector<NUMBER> roots(DEGREE, 0.0), roots_found_this_test(DEGREE), a(DEGREE+1, 0.0),                                       // current polynomial
+        roots_gt_all_tests_ae_worst(DEGREE), roots_found_all_tests_ae_worst(DEGREE), coefficients_all_tests_ae_worst(DEGREE+1),    // {gt roots, found roots, coefficients} of the worst polynomial for absolute error
+        roots_gt_all_tests_re_worst(DEGREE), roots_found_all_tests_re_worst(DEGREE), coefficients_all_tests_re_worst(DEGREE+1);    // {gt roots, found roots, coefficients} of the worst polynomial for relative error
 
-    number ae_this_test_worst, ae_all_tests_worst=static_cast<number>(-1.0L),   // absolute error: an impossible value that will be updated for sure
-           re_this_test_worst, re_all_tests_worst=static_cast<number>(-1.0L);   // relative error: an impossible value that will be updated for sure
+    NUMBER ae_this_test_worst, ae_all_tests_worst=static_cast<NUMBER>(-1.0L),   // absolute error: an impossible value that will be updated for sure
+           re_this_test_worst, re_all_tests_worst=static_cast<NUMBER>(-1.0L);   // relative error: an impossible value that will be updated for sure
     try{
         for(int i=0; i < N_TESTS; ++i){
             roots_found_this_test.clear();
-            N_roots_gt_this_test = generate_polynomial<double, exponent, mantissa>(l, 0, l, 0,
-                                        1e-5, -1.0, 1.0, roots, a);
+            N_roots_gt_this_test = generate_polynomial<double, EXPONENT, MANTISSA>(DEGREE, N_PAIRS_OF_COMPLEX_ROOTS, N_CLUSTERED_ROOTS,
+                N_MULTIPLE_ROOTS, MAX_DISTANCE_BETWEEN_CLUSTERED, ROOT_SWEEP_LOW, ROOT_SWEEP_HIGH, roots, a);
             std::cout << "GENERATED POLY & ROOTS:\n";
             Laguerre::printVec(a);
             Laguerre::printVec(roots);
-            Polynomial<number> pol(a);
+            Polynomial<NUMBER> pol(a);
 
-            std::vector<std::complex<double>> solved_roots(l);
-            std::vector<int> conv(l);
+            std::vector<std::complex<double>> solved_roots(DEGREE);
+            std::vector<int> conv(DEGREE);
 
-            // std::cout << "ORIGINAL LAGUERRE:\n";
-            // pol.setSolver(solver);
-            // pol.solve(solved_roots, conv, 80);
+            pol.setSolver(solver);
+            pol.solve(solved_roots, conv, TRIES);
 
-            std::cout << "2018 LAGUERRE MODIFICATION:\n";
-            pol.setSolver(solver18);
-            // pol.solve(solved_roots, conv, 80);
-            // (*solver18)(a, solved_roots, conv, 80);
-            // laguerre(a, l, solved_roots, conv, 80);
-
-            std::for_each(solved_roots.begin(), solved_roots.end(), [&roots_found_this_test](std::complex<number> x){ // solved_roots = b_roots
+            std::for_each(solved_roots.begin(), solved_roots.end(), [&roots_found_this_test](std::complex<NUMBER> x){ // solved_roots = b_roots
                 std::cout << x.real() << "; ";
                 roots_found_this_test.push_back(x.real());
             });
 
             N_roots_found_this_test = roots_found_this_test.size();
 
-            rv=compare_roots<number>(N_roots_found_this_test, N_roots_gt_this_test, roots_found_this_test, roots,
+            rv=compare_roots<NUMBER>(N_roots_found_this_test, N_roots_gt_this_test, roots_found_this_test, roots,
                                                                                     ae_this_test_worst, re_this_test_worst);
 
 
-            std::cout << std::endl << "P=" << l << ", test No " << i << " out of " << N_TESTS << std::endl
+            std::cout << std::endl << "P=" << DEGREE << ", test No " << i << " out of " << N_TESTS << std::endl
                 << "comparison return value=" << (rv==PR_NUMBERS_OF_ROOTS_EQUAL ? "PR_NUMBERS_OF_ROOTS_EQUAL" :
                 (rv==PR_AT_LEAST_ONE_ROOT_LOST ? "PR_AT_LEAST_ONE_ROOT_LOST" : 
                 (rv==PR_AT_LEAST_ONE_ROOT_IS_FAKE ? "PR_AT_LEAST_ONE_ROOT_IS_FAKE" : "UNKNOWN VALUE")))
                 << ", N_roots_gt_this_test=" << N_roots_gt_this_test << ", N_roots_found_this_test=" << N_roots_found_this_test
-                << ", N_roots_verified_this_test=" << l
+                << ", N_roots_verified_this_test=" << DEGREE
                 << "ae_this_test_worst=" << ae_this_test_worst
                 << ", re_this_test_worst=" << re_this_test_worst << " ------------------------------" << std::endl;
             
@@ -114,13 +144,8 @@ int main(){
     }
     std::cout << "DONE!\n";
     std::cout << std::endl << "--------------- settings ----------------" << std::endl
-        << "P=" << l << ", N_tests=" << N_TESTS; // << ", N_pairs_of_complex_roots=" << N_pairs_of_complex_roots
-        // << ", N_clustered_roots=" << N_clustered_roots << ", N_multiple_roots=" << N_multiple_roots << std::endl
-        // << "max_distance_between_clustered_roots=" << max_distance_between_clustered_roots
-        // << ", root_sweep=[" << root_sweep_low << "..." << root_sweep_high << "]\ncomplex_value_tolerance=" << complex_value_tolerance
-        // << ", value_at_root_tolerance=" << value_at_root_tolerance << ", exclude_lost_root_cases_from_statistics=" << exclude_lost_root_cases_from_statistics << std::endl
-        //<< "pr_lost_roots_saving_1=" << pr_lost_roots_saving_1 << ", pr_lost_roots_saving_2=" << pr_lost_roots_saving_2;
-    // output total statistics
+        << "P=" << DEGREE << ", N_tests=" << N_TESTS; 
+        
     std::cout << std::endl << std::endl << "--------------- statistics ----------------" << std::endl
         << "N_true_roots_lost=" << N_true_roots_lost << ", N_fake_roots_added=" << N_fake_roots_added
         << std::endl;
@@ -166,6 +191,5 @@ int main(){
     std::cout << std::setprecision(fp_precision_original); // restore default precision
     
     delete solver;
-    delete solver18;
     return 0;
 }
