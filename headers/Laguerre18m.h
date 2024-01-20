@@ -65,6 +65,7 @@ private:
     /**
      * \brief Estimate roots of a polynomial.
          * \param alpha Polynomial object.
+         * \param deg Degree of the polynomial.
          * \param roots Vector to store the estimated roots.
          * \param conv Vector to store convergence status of each root.
          * \param nz Number of zeros.
@@ -94,9 +95,10 @@ private:
                 // r is too small
                 r = 0.0;
                 nz += nzeros;
-                for (j = k; j < k + nzeros; ++j)
+                for (j = k; j < k + nzeros; ++j){
                     conv[j] = -1;
                     roots[j] = {0.0, 0.0};
+                }
             }
             else{
                 T sigma_thh = fma(th, h[i], static_cast<T>(0.7));
@@ -165,8 +167,8 @@ private:
         berr = (!condition)*(fabs(a) / berr) + (condition)*berr;
 
         conv = condition ? 
-        (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
-        : 1;
+            (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
+            : 1;
 
         /*
         if (fabs(a) > eps * berr) {

@@ -4,7 +4,9 @@
 #include "headers/PolynomialGenerator.h"
 
 #include "headers/Laguerre.h"
+#include "headers/Laguerre13m.h"
 #include "headers/Laguerre18m.h"
+// #include "headers/L18_or.h"
 
 #define number double
 
@@ -19,10 +21,11 @@ int main(){
     
     // Laguerre solvers
     Laguerre::Original<double>* solver = new Laguerre::Original<double>();
+    Laguerre::ModifiedLaguerre13<double>* solver13 = new Laguerre::ModifiedLaguerre13<double>();
     Laguerre::ModifiedLaguerre18<double>* solver18 = new Laguerre::ModifiedLaguerre18<double>();
 
     // Generator stuff
-    int l = 10, N_TESTS = 10000,                                               // polynomial degree, count of tests 
+    int l = 5, N_TESTS = 1000,                                               // polynomial degree, count of tests 
         rv,                                                                  // status of comparing roots
         N_roots_found_this_test, N_roots_gt_this_test,                       // amount of found roots in each test & gt roots
         N_true_roots_lost=0, N_fake_roots_added=0,                           // total counters of {lost, fake} roots aover all tests
@@ -45,33 +48,21 @@ int main(){
             Laguerre::printVec(roots);
             Polynomial<number> pol(a);
 
-            // Очень странная штука - в цикле внезапно может оказаться, что вектор
-            // для корней размером n крашится, хотя проверено, что нигде за массив не записывает;
-            // повторить вне цикла не получается - те же коэффициенты спокойно решаются
-            // с тем же правильным размером вектора n, причем сам последний элемент n+1 НЕ ТРОГАЕТ;
-            // костыль, но откуда копать причину ошибки пока не знаю, просто "free(): invalid pointer"
-            // по завершению функции случайно. Конечно же необходимо исправить, лишнее место ни к чему
-            // ================
-            // большая часть проблемы исправлена, но все-еще могут быть проблемы, тогда добавь +1
             std::vector<std::complex<double>> solved_roots(l);
             std::vector<int> conv(l);
 
-            std::cout << "ORIGINAL LAGUERRE:\n";
-            pol.setSolver(solver);
-            pol.solve(solved_roots, conv, 80);
-            Laguerre::printVec(solved_roots);
-
-            // FIXME
-            // std::cout << "2018 LAGUERRE MODIFICATION:\n";
-            // pol.setSolver(solver18);
+            // std::cout << "ORIGINAL LAGUERRE:\n";
+            // pol.setSolver(solver);
             // pol.solve(solved_roots, conv, 80);
-            // Laguerre::printVec(solved_roots);
 
-            std::cout << "=======================\n";
+            std::cout << "2018 LAGUERRE MODIFICATION:\n";
+            pol.setSolver(solver18);
+            pol.solve(solved_roots, conv, 80);
+            // (*solver18)(a, solved_roots, conv, 80);
+            // laguerre(a, l, solved_roots, conv, 80);
 
-            //                                                   ! убрать -1 когда будет найдено решение ошибки с roots
-            //                                                   ! добавить +1 если ошибка, описанная выше
             std::for_each(solved_roots.begin(), solved_roots.end(), [&roots_found_this_test](std::complex<number> x){ // solved_roots = b_roots
+                std::cout << x.real() << "; ";
                 roots_found_this_test.push_back(x.real());
             });
 
@@ -106,6 +97,7 @@ int main(){
             }
             std::fill(roots.begin(), roots.end(), 0.0);
             std::fill(a.begin(), a.end(), 0.0);
+            std::cout << "\n=======================\n";
         }
 
     }
