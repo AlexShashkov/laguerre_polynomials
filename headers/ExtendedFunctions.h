@@ -187,5 +187,31 @@ namespace Laguerre{
         quotient = quotient_coeffs;
         remainder = dividend;
 	} 
+
+	/** \brief Divide vectors (coefficients of polynomials)
+	*/
+	template <typename T>
+	inline void getRemainder(vector<T> dividend, vector<T> divisor, vector<T>& remainder) {
+		if (divisor.size() > dividend.size()) {
+            throw std::invalid_argument("The degree of the divisor is greater than the dividend");
+        }
+
+        std::vector<T> tmp;
+        while (dividend.size() >= divisor.size()) {
+            int degree_diff = dividend.size() - divisor.size();
+            T coeff = dividend.back() / divisor.back();
+
+            // Update the temporary polynomial for subtraction
+            tmp = std::vector<T>(degree_diff + 1, 0);
+            tmp.back() = coeff;
+
+            // Subtract and update the dividend
+            for (int i = 0; i <= divisor.size()-1; ++i) {
+                dividend[i + degree_diff] -= coeff * divisor[i];
+            }
+            dividend.pop_back();
+        }
+        remainder = dividend;
+	} 
 }
 #endif
