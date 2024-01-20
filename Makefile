@@ -1,10 +1,10 @@
 # Makefile
 
 # Default solver
-SOLVER = Original
-# Original - Original Laguerre
-# ModifiedLaguerre13 - 2013 modification
-# ModifiedLaguerre18 - 2018 modification
+SOLVER = 0
+# 0 - Original Laguerre
+# 1 - 2013 modification
+# 2 - 2018 modification
 
 # Number type
 NUMBER = double

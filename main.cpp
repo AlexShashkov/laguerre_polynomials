@@ -13,6 +13,12 @@
 #define PR_AT_LEAST_ONE_ROOT_IS_FAKE -2
 #define PR_2_INFINITE_ROOTS          -3
 
+#ifndef SOLVER
+    #define SOLVER 0
+    // 0 - Original
+    // 1 - 2013 mod
+    // 2 - 2018 mod
+#endif
 #ifndef NUMBER
     #define NUMBER double
 #endif
@@ -26,7 +32,7 @@
     #define DEGREE 10 // polynomial degree
 #endif
 #ifndef N_TESTS
-    #define N_TESTS 1000 // count of tests 
+    #define N_TESTS 10 // count of tests 
 #endif
 // Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
 #ifndef N_PAIRS_OF_COMPLEX_ROOTS
@@ -57,12 +63,15 @@ int main(){
     std::streamsize fp_precision_original=std::cout.precision(); // save default precision to provide maximal reasonable output
     
     // Laguerre solvers
-    #if SOLVER == Original
-        Laguerre::Original<double>* solver = new Laguerre::Original<double>();
-    #elif SOLVER == ModifiedLaguerre13
-        Laguerre::ModifiedLaguerre13<double>* solver = new Laguerre::ModifiedLaguerre13<double>();
-    #elif SOLVER == ModifiedLaguerre18
-        Laguerre::ModifiedLaguerre18<double>* solver = new Laguerre::ModifiedLaguerre18<double>();
+    #if SOLVER == 0
+        std::cout << "Using original version of Laguerre\n";
+        Laguerre::Original<NUMBER>* solver = new Laguerre::Original<NUMBER>();
+    #elif SOLVER == 1
+        std::cout << "Using modified version of Laguerre, 2013\n";
+        Laguerre::ModifiedLaguerre13<NUMBER>* solver = new Laguerre::ModifiedLaguerre13<NUMBER>();
+    #elif SOLVER == 2
+        std::cout << "Using modified version of Laguerre, 2018\n";
+        Laguerre::ModifiedLaguerre18<NUMBER>* solver = new Laguerre::ModifiedLaguerre18<NUMBER>();
     #endif
 
     // Generator stuff
@@ -81,14 +90,14 @@ int main(){
     try{
         for(int i=0; i < N_TESTS; ++i){
             roots_found_this_test.clear();
-            N_roots_gt_this_test = generate_polynomial<double, EXPONENT, MANTISSA>(DEGREE, N_PAIRS_OF_COMPLEX_ROOTS, N_CLUSTERED_ROOTS,
+            N_roots_gt_this_test = generate_polynomial<NUMBER, EXPONENT, MANTISSA>(DEGREE, N_PAIRS_OF_COMPLEX_ROOTS, N_CLUSTERED_ROOTS,
                 N_MULTIPLE_ROOTS, MAX_DISTANCE_BETWEEN_CLUSTERED, ROOT_SWEEP_LOW, ROOT_SWEEP_HIGH, roots, a);
             std::cout << "GENERATED POLY & ROOTS:\n";
             Laguerre::printVec(a);
             Laguerre::printVec(roots);
             Polynomial<NUMBER> pol(a);
 
-            std::vector<std::complex<double>> solved_roots(DEGREE);
+            std::vector<std::complex<NUMBER>> solved_roots(DEGREE);
             std::vector<int> conv(DEGREE);
 
             pol.setSolver(solver);

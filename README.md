@@ -4,11 +4,11 @@ This project uses various Laguerre methods to solve polynomials.
 
 ## MakeFile Variables
 
-- `SOLVER`: The solver to use. Default is `Original`. Options are:
+- `SOLVER`: The solver to use. Default is `0`. Options are:
 
-  - `Original`: Original Laguerre
-  - `ModifiedLaguerre13`: 2013 modification
-  - `ModifiedLaguerre18`: 2018 modification
+  - `0`: Original Laguerre
+  - `1`: 2013 modification
+  - `2`: 2018 modification
 - `NUMBER`: The number type to use. Default is `double`.
 - `EXPONENT` and `MANTISSA`: Used for root generator with degree greater than 4. Default values are `2` and `4` respectively.
 - `DEGREE`: The degree of the polynomials. Default is `10`.
@@ -24,4 +24,4 @@ To compile the program, run `make`.
 
 To clean up the compiled files, run `make clean`.
 
-For example, to run modified version of Laguerre with float type of polynomials degree of 15 run `make SOLVER=ModifiedLaguerre13 NUMBER=float DEGREE=15`
+You can find simple example of using solvers in main.cpp.

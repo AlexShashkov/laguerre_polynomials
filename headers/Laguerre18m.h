@@ -258,13 +258,13 @@ private:
 
         // Aberth correction terms
         for (int k = 0; k < j - 1; ++k) {
-            t = 1.0 / (z - roots[k]);
+            t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
         }
         // k != j
         for (int k = j + 1; k <= deg; ++k) {
-            t = 1.0 / (z - roots[k]);
+            t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
         }
@@ -345,8 +345,8 @@ public:
                                 r = abs(z);
 
                                 if (r > 1.0) {
-                                    z = 1.0 / z;
-                                    r = 1.0 / r;
+                                    z = static_cast<T>(1.0) / z;
+                                    r = static_cast<T>(1.0) / r;
                                     c = 0;
                                     b = poly[0];
                                     berr[j] = alpha[0];
