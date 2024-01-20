@@ -24,4 +24,4 @@ To compile the program, run `make`.
 
 To clean up the compiled files, run `make clean`.
 
-You can find simple example of using solvers in main.cpp.
+For example, to run modified version of Laguerre with float type for polynomials degree of 15: `make SOLVER=1 NUMBER=float DEGREE=15`
