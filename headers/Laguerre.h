@@ -1,3 +1,5 @@
+// Александр, Дмитрий
+
 #ifndef LAGUERRE
 #define LAGUERRE
 
@@ -84,6 +86,7 @@ public:
     void operator()(std::vector<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax=80) override{
         std::complex<T> x, _b, _c;
         int m = poly.size() - 1;
+        // std::cout << "M SIZE " << m << "\n";
         std::vector<std::complex<T>> ad(m + 1);
 
         // Copy of coefficients for successive deflation.
@@ -92,15 +95,14 @@ public:
 
         std::vector<std::complex<T>> ad_v;
         for (int j = m - 1; j > 0; --j) {
+            // std::cout << "j:" << j << "\n";
             x = std::complex<T>(0.0, 0.0);
 
             // Start at zero to favor convergence to the smallest remaining root.
             ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
             laguer(ad_v, x, conv[j], itmax);
 
-
             x.imag(std::abs(imag(x)) <= std::abs(real(x)) * eps ? static_cast<T>(0) : x.imag());
-
             roots[j] = x;
             _b = ad[j + 1];
             for (int jj = j; jj >= 0; jj--) {
@@ -127,6 +129,7 @@ public:
                 roots[i + 1] = x;
             }
         }
+        // std::cout << "SOLVED EVERYTHING\n";
     }
 
 };

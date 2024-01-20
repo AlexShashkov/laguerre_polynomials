@@ -1,3 +1,5 @@
+// Александр, Дмитрий
+
 #ifndef LAGUERRE13
 #define LAGUERRE13
 

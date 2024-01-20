@@ -20,7 +20,7 @@
     // 2 - 2018 mod
 #endif
 #ifndef NUMBER
-    #define NUMBER double
+    #define NUMBER float
 #endif
 #ifndef EXPONENT
     #define EXPONENT 2 // Exponent for big NUMBER notation
@@ -29,10 +29,10 @@
     #define MANTISSA 4 // Mantissa for big NUMBER notation
 #endif
 #ifndef DEGREE
-    #define DEGREE 5 // polynomial degree
+    #define DEGREE 10 // polynomial degree
 #endif
 #ifndef N_TESTS
-    #define N_TESTS 1000 // count of tests 
+    #define N_TESTS 10000 // count of tests 
 #endif
 // Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
 #ifndef N_PAIRS_OF_COMPLEX_ROOTS

@@ -57,7 +57,7 @@ namespace Laguerre{
 		return (number(0) < val) - (val < number(0));
 	}
 
-	/** \brief Fused multiply-substract
+	/** \brief Fused multiply-substract a*b+(-d*c)+d*c+(-d*c)
 	*/
 	template <typename number>
 	inline number fms(number a, number b, number c, number d) {

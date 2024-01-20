@@ -1,3 +1,5 @@
+// Александр, Дмитрий
+
 #ifndef LAGUERRE18
 #define LAGUERRE18
 
@@ -118,7 +120,7 @@ private:
                         conv[j] = -1;
                 } 
                 else{
-                    // r is ok
+                    // r is ok :big-finger-emoji:
                     r = a1 / a2;
                 }
                 ang = pi2 / static_cast<T>(nzeros);

@@ -1,3 +1,5 @@
+// Александр, Дмитрий
+
 #ifndef POLYNOMIAL_H
 #define POLYNOMIAL_H
 
@@ -188,6 +190,16 @@ public:
     }
 
 
+    /**
+     * \brief Divides one polynomial by another.
+     * 
+     * This function performs polynomial division. Given a divisor and a dividend (the instance calling the function),
+     * it calculates the quotient and the remainder of the division.
+     * 
+     * \param divisor The polynomial to divide by.
+     * \param quotient The result of the division.
+     * \param remainder The remainder after division.
+     */
     void divide(Polynomial& divisor, Polynomial& quotient, Polynomial& remainder) {
         if (divisor.degree() > this->degree()) {
             throw std::invalid_argument("The degree of the divisor is greater than the dividend");
@@ -240,6 +252,18 @@ public:
         return coeffs[i];
     }
 
+    /**
+     * \brief Calculates the derivative of a Polynomial object.
+     * 
+     * This function calculates the derivative of a given degree of the Polynomial object. 
+     * The default degree of the derivative is 1, which means it calculates the first derivative if no degree is specified.
+     * 
+     * \tparam T The data type of the Polynomial coefficients.
+     * 
+     * \param deg The degree of the derivative. Default is 1.
+     * 
+     * \return A vector of coefficients representing the derivative of the Polynomial.
+     */
     std::vector<T> diff(int deg=1){
         std::vector ret = coeffs;
         for(int j = 0; j < deg; ++j){
