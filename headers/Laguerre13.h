@@ -27,45 +27,34 @@ private:
         * \param a   Polynomial object.
         * \param x   Initial guess for the root.
      */
-     inline void laguer13(const std::vector<std::complex<T>>& a, std::complex<T>& x, int& converged, int itmax, int& lam){
+     inline void laguer13(const std::vector<std::complex<T>>& a, std::complex<T>& x, int& converged, int& lam){
         converged = 1;
         std::complex<T> dx, x1, b, d, f, g, h, sq, gp, gm, g2;
         T err, abx, abp, abm;
         int m = a.size() - 1;
 
-        
+        b = std::complex<T>(1.0, 0.0);
+        err = std::abs(b);
+        d = f = std::complex<T>(0.0, 0.0);
+        abx = std::abs(x);
 
-        for (int iter = 1; iter <= 1; iter++) {
-            b = std::complex<T>(1.0, 0.0);
-            err = std::abs(b);
-            d = f = std::complex<T>(0.0, 0.0);
-            abx = std::abs(x);
-
-            for (int j = m - 1; j >= 0; j--) {
-                f = fma(x, f, d);
-                d = fma(x, d, b);
-                b = fma(x, b, a[j]);
-                err = fma(err, abx, std::abs(b));
-            }
-
-            if (std::abs(b) <= err * eps)
-                return;  // We are on the root.
-
-            g = static_cast<T>(lam)* b / d; 
-            h = static_cast<T>(2)*f / d;
-            sq = std::sqrt(fma(-g, h, static_cast<T>(lam - 1)));
-            gp = static_cast<T>(1) + sq;
-            abp = std::abs(gp);
-            
-           
-            dx =g / gp;
-            x1 = x - dx;
-            std::cout<<x1<<"\n";
-            if (x == x1)
-                return;  // Converged.
-            x = x1;
-            
+        for (int j = m - 1; j >= 0; j--) {
+            f = fma(x, f, d);
+            d = fma(x, d, b);
+            b = fma(x, b, a[j]);
+            err = fma(err, abx, std::abs(b));
         }
+
+        if (std::abs(b) <= err * eps)
+            return;  // We are on the root.
+
+        g = static_cast<T>(lam)* b / d; 
+        h = static_cast<T>(2)*f / d;
+        sq = std::sqrt(fma(-g, h, static_cast<T>(lam - 1)));
+        dx = g/std::abs(static_cast<T>(1) + sq);          
+        x -= dx;
+        return;  
+            
     }
 
 
@@ -114,15 +103,13 @@ public:
             } 
         }
 
- 
-
         int j = m - 1;
         for (int i = 0; i < m1; ++i){
             x = std::complex<T>(0.0, 0.0);
 
             // Start at zero to favor convergence to the smallest remaining root.
             ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
-            laguer13(ad_v, x, conv[j], itmax, lambda);
+            laguer13(ad_v, x, conv[j], lambda);
             if (std::abs(imag(x)) <= std::abs(real(x)) * eps)
                 x.imag(static_cast<T>(0));
 
@@ -134,8 +121,7 @@ public:
                     ad[jj] = _b;
                     _b = fma(x, _b, _c);
                 }
-                --j;
-                
+                --j;    
             }     
         }
  }
