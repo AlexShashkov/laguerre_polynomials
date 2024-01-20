@@ -91,6 +91,14 @@ private:
             a1 = pow(alpha[h[i + 1]], one_div_nzeros);
             a2 = pow(alpha[h[i]], one_div_nzeros);
 
+            // Help :)
+            /*
+            std::cout << "\nalpha[h[i]]: " << alpha[h[i]];
+            std::cout << "\nnzeros: " << nzeros;
+            std::cout << "\nonedivzeros: " << one_div_nzeros;
+            std::cout << "\na2: " << a2 << "\n";
+            */
+
             if (a1 <= a2 * small){
                 // r is too small
                 r = 0.0;
@@ -301,7 +309,7 @@ public:
 
         // Precheck
         for (i = 0; i <= deg; i++)
-            alpha[i] = abs(poly[i]);
+            alpha[i] = fabs(poly[i]);
 
         if (alpha[deg] < small) {
             std::cout << "Warning: leading coefficient is too small." << std::endl;
