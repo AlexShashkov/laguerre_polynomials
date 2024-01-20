@@ -78,7 +78,7 @@ private:
 
         // Andrews starting position
         for (i = 0; i < deg + 1; ++i)
-            a[i] = alpha[i] > 0 ? log(alpha[i]) : small;
+            a[i] = alpha[i] > 0 ? log(alpha[i]) : -big;
         conv_hull(deg + 1, a, h, c);
 
         k = 0;
@@ -219,6 +219,7 @@ private:
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > eps * berr;
         b = condition ? b/a : b;
+        // b^2 + (-{2,0}*c/a)+{2,0}*c/a+(-{2,0}*c/a)
         c = condition ? fms(b, b, std::complex<T>(2, 0), c/a) : c;
 
         cond = (!condition)*(berr / (r * fabs(b))) + (condition)*cond;
@@ -273,8 +274,8 @@ private:
         t = sqrt(fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  b, b));
         c = b + t;
         b -= t;
-        std::complex<T> degc(deg, 0);
-        c = abs(b) > abs(c) ? degc / b : degc / c;
+        // std::complex<T> degc(deg, 0);
+        c = abs(b) > abs(c) ? static_cast<T>(deg) / b : static_cast<T>(deg) / c;
     }
 
 public:
@@ -290,7 +291,7 @@ public:
          * \param itmax Maximum number of iterations.
      */
     void operator()(std::vector<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax) override{
-        int deg = poly.size() - 1;
+        int deg = roots.size();
         std::vector<T> berr(deg); // Vector to store the backward errors.
         std::vector<T> cond(deg); // Vector to store the condition numbers.
         int i, j, nz;
@@ -303,11 +304,11 @@ public:
             alpha[i] = abs(poly[i]);
 
         if (alpha[deg] < small) {
-            // TODO: exception?
             std::cout << "Warning: leading coefficient is too small." << std::endl;
             return;
         } 
 
+        // Initial estimates
         conv.assign(deg, 0);
         nz = 0;
         estimates(alpha, deg, roots, conv, nz);
@@ -315,6 +316,7 @@ public:
         for (i = 0; i <= deg; ++i)
             alpha[i] *= fma(static_cast<T>(3.8), static_cast<T>(i), static_cast<T>(1));
         // Main loop
+        
         for (i = 1; i <= itmax; ++i)
         for (j = 0; j < deg; ++j) {
             if (conv[j] == 0) {

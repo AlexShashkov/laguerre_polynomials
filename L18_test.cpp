@@ -2,7 +2,9 @@
 #include "headers/PolynomialGenerator.h"
 
 #include "headers/Laguerre18m.h"
+#include "headers/L18_or.h"
 #include "headers/Laguerre.h"
+#include "framework/framework.h"
 
 #define number double
 
@@ -12,7 +14,9 @@ int main(){
     Laguerre::ModifiedLaguerre18<double>* solver18 = new Laguerre::ModifiedLaguerre18<double>();
     try{
         std::cout << "ORIGINAL LAGUERRE:\n";
-        Polynomial<number> genRoots = Laguerre::Generator<number>::createFromRoots(1.f, 2.f, 3.f);
+        // Polynomial<number> genRoots = Laguerre::Generator<number>::createFromRoots(0.666082, 0.666085, 0.666077);
+        Polynomial<number> genRoots = Laguerre::Generator<number>::createFromRoots(-0.663831, -0.663821, -0.663818);
+        std::vector<number> coeffs = {0.292521, 1.32198, 1.99147, 1};
         genRoots.print();
         int deg = genRoots.degree();
         std::vector<std::complex<double>> roots(deg);
@@ -24,26 +28,11 @@ int main(){
         Laguerre::printVec(roots);
         Laguerre::printVec(conv);
 
-        Polynomial<number> genRoots2 = Laguerre::Generator<number>::gen(4);
-        genRoots2.print();
-        genRoots2.setSolver(solver);
-
-        deg = genRoots2.degree();
-        std::vector<std::complex<double>> roots2(deg);
-        std::vector<int> conv2(deg);
-
-        genRoots2.solve(roots2, conv2, 80);
-        Laguerre::printVec(roots2);
-        Laguerre::printVec(conv2);
         std::cout << "2018 LAGUERRE MODIFICATION:\n";
 
         deg = genRoots.degree(); 
         roots = std::vector<std::complex<double>>(deg);
         conv = std::vector<int>(deg);
-
-        deg = genRoots2.degree(); 
-        roots2 = std::vector<std::complex<double>>(deg);
-        conv2 = std::vector<int>(deg);
 
         genRoots.print();
         genRoots.setSolver(solver18);
@@ -51,11 +40,18 @@ int main(){
         Laguerre::printVec(roots);
         Laguerre::printVec(conv);
 
-        genRoots2.print();
-        genRoots2.setSolver(solver18);
-        genRoots2.solve(roots2, conv2, 80);
-        Laguerre::printVec(roots2);
-        Laguerre::printVec(conv2);
+        std::cout << "2018 LAGUERRE BAD MODIFICATION:\n";
+
+        deg = genRoots.degree(); 
+        roots = std::vector<std::complex<double>>(deg);
+        conv = std::vector<int>(deg);
+
+        genRoots.print();
+        genRoots.setSolver(solver18);
+        laguerre(coeffs, deg, roots, conv, 80);
+        Laguerre::printVec(roots);
+        Laguerre::printVec(conv);
+
     }
     catch (const std::invalid_argument &exc)
     {
