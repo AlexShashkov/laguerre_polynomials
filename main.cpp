@@ -29,10 +29,10 @@
     #define MANTISSA 4 // Mantissa for big NUMBER notation
 #endif
 #ifndef DEGREE
-    #define DEGREE 10 // polynomial degree
+    #define DEGREE 5 // polynomial degree
 #endif
 #ifndef N_TESTS
-    #define N_TESTS 10 // count of tests 
+    #define N_TESTS 1000 // count of tests 
 #endif
 // Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
 #ifndef N_PAIRS_OF_COMPLEX_ROOTS
@@ -103,6 +103,7 @@ int main(){
             pol.setSolver(solver);
             pol.solve(solved_roots, conv, TRIES);
 
+            std::cout << "found roots: ";
             std::for_each(solved_roots.begin(), solved_roots.end(), [&roots_found_this_test](std::complex<NUMBER> x){ // solved_roots = b_roots
                 std::cout << x.real() << "; ";
                 roots_found_this_test.push_back(x.real());
