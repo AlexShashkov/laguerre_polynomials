@@ -1,6 +1,51 @@
 #ifndef POLYNOMIALGENERATOR_H
 #define POLYNOMIALGENERATOR_H
 
+
+
+
+
+
+
+
+
+
+
+/*
+
+OBSOLETE, DONT USE!
+USE framework.h INSTEAD!
+OBSOLETE, DONT USE!
+USE framework.h INSTEAD!
+OBSOLETE, DONT USE!
+USE framework.h INSTEAD!
+OBSOLETE, DONT USE!
+USE framework.h INSTEAD!
+OBSOLETE, DONT USE!
+USE framework.h INSTEAD!
+OBSOLETE, DONT USE!
+USE framework.h INSTEAD!
+OBSOLETE, DONT USE!
+USE framework.h INSTEAD!
+OBSOLETE, DONT USE!
+USE framework.h INSTEAD!
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <random>
 #include <chrono>
 
