@@ -7,5 +7,7 @@ var searchData=
   ['ensureplaceonstack_4',['EnsurePlaceOnStack',['../classttmath_1_1Parser.html#a3e22506cf1bb5af1e7af0aa138914eaa',1,'ttmath::Parser']]],
   ['equalwithoutsign_5',['EqualWithoutSign',['../classttmath_1_1Big.html#af74a3fa21ce1e4a4fb308a34340fb5b0',1,'ttmath::Big']]],
   ['error_6',['Error',['../classttmath_1_1Parser.html#a287b438ea218cec334a0ce0ad45a095c',1,'ttmath::Parser']]],
-  ['exp_7',['Exp',['../classttmath_1_1Big.html#a2c2c7de54743b12c05f1bfea7b153eba',1,'ttmath::Big::Exp()'],['../namespacettmath.html#ad2f2347d11b3124a6d4c12b97b87f9b1',1,'ttmath::Exp()']]]
+  ['estimates_7',['estimates',['../classLaguerre_1_1ModifiedLaguerre18.html#aa27007c553d2e5692ac0fab2407fd24f',1,'Laguerre::ModifiedLaguerre18']]],
+  ['exp_8',['Exp',['../classttmath_1_1Big.html#a2c2c7de54743b12c05f1bfea7b153eba',1,'ttmath::Big::Exp()'],['../namespacettmath.html#ad2f2347d11b3124a6d4c12b97b87f9b1',1,'ttmath::Exp()']]],
+  ['expsurrounding0_9',['ExpSurrounding0',['../classttmath_1_1Big.html#a4c57d905ba44c691e1ed532753423e66',1,'ttmath::Big']]]
 ];

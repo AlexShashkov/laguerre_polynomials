@@ -12,5 +12,6 @@ var searchData=
   ['operatorpercentage_9',['OperatorPercentage',['../classttmath_1_1Parser.html#af4448a43025c9183b50bd7b4de5ee42a',1,'ttmath::Parser']]],
   ['operatorstable_10',['OperatorsTable',['../classttmath_1_1Parser.html#a3aa951b13304a470d17476760dbb6608',1,'ttmath::Parser']]],
   ['operator_7e_11',['operator~',['../classttmath_1_1UInt.html#aa95218ad020c1e2802bae3e1f8e5ace1',1,'ttmath::UInt']]],
-  ['original_12',['Original',['../classLaguerre_1_1Original.html',1,'Laguerre']]]
+  ['original_12',['Original',['../classLaguerre_1_1Original.html',1,'Laguerre']]],
+  ['outputtostream_13',['OutputToStream',['../classttmath_1_1Big.html#a8c5a0685717f6e4fb500a610fc17030a',1,'ttmath::Big::OutputToStream()'],['../classttmath_1_1Int.html#a7c024e7f027a5b6f143dbbc50c82f812',1,'ttmath::Int::OutputToStream()'],['../classttmath_1_1UInt.html#a121d7a984736ee2891ba0467dc791e9d',1,'ttmath::UInt::OutputToStream()']]]
 ];

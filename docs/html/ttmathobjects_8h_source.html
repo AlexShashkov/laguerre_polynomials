@@ -639,15 +639,17 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen00605" data-start="{" data-end="};">
 <div class="line"><a id="l00605" name="l00605"></a><span class="lineno"><a class="line" href="classttmath_1_1History.html">  605</a></span><span class="keyword">class </span><a class="code hl_class" href="classttmath_1_1History.html">History</a></div>
 <div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>{</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>    <span class="keyword">struct </span>Item</div>
+<div class="foldopen" id="foldopen00611" data-start="{" data-end="};">
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno"><a class="line" href="structttmath_1_1History_1_1Item.html">  611</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structttmath_1_1History_1_1Item.html">Item</a></div>
 <div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>    {</div>
 <div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>        ValueType key, value;</div>
 <div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>        <a class="code hl_enumeration" href="namespacettmath.html#af99599ccaf4dc05cc3a74277f9579942">ErrorCode</a> err;</div>
 <div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>    };</div>
+</div>
 <div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span> </div>
 <div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span> </div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>    <span class="keyword">typedef</span> std::list&lt;Item&gt; buffer_type;</div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>    buffer_type buffer;</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno"><a class="line" href="classttmath_1_1History.html#ac34bfdab0e1a4b141b2e6f8559626b50">  624</a></span>    <span class="keyword">typedef</span> std::list&lt;Item&gt; <a class="code hl_typedef" href="classttmath_1_1History.html#ac34bfdab0e1a4b141b2e6f8559626b50">buffer_type</a>;</div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>    <a class="code hl_typedef" href="classttmath_1_1History.html#ac34bfdab0e1a4b141b2e6f8559626b50">buffer_type</a> buffer;</div>
 <div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>    <span class="keyword">typename</span> buffer_type::size_type buffer_max_size;</div>
 <div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span> </div>
 <div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span><span class="keyword">public</span>:</div>
@@ -671,7 +673,7 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen00655" data-start="{" data-end="}">
 <div class="line"><a id="l00655" name="l00655"></a><span class="lineno"><a class="line" href="classttmath_1_1History.html#a1bf4725865cfb4f9cd5df86e0bcacd38">  655</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classttmath_1_1History.html#a1bf4725865cfb4f9cd5df86e0bcacd38">Add</a>(<span class="keyword">const</span> ValueType &amp; key, <span class="keyword">const</span> ValueType &amp; value, <a class="code hl_enumeration" href="namespacettmath.html#af99599ccaf4dc05cc3a74277f9579942">ErrorCode</a> err)</div>
 <div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>    {</div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>        Item item;</div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>        <a class="code hl_struct" href="structttmath_1_1History_1_1Item.html">Item</a> item;</div>
 <div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>        item.key   = key;</div>
 <div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>        item.value = value;</div>
 <div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>        item.err   = err;</div>
@@ -757,6 +759,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassttmath_1_1History_html_a25f0a380eb1133ef7b9446dbd0a75299"><div class="ttname"><a href="classttmath_1_1History.html#a25f0a380eb1133ef7b9446dbd0a75299">ttmath::History::History</a></div><div class="ttdeci">History()</div><div class="ttdef"><b>Definition</b> ttmathobjects.h:634</div></div>
 <div class="ttc" id="aclassttmath_1_1History_html_a3e39816d5a57a0f510aa01fc0cf4bc7e"><div class="ttname"><a href="classttmath_1_1History.html#a3e39816d5a57a0f510aa01fc0cf4bc7e">ttmath::History::Get</a></div><div class="ttdeci">bool Get(const ValueType &amp;key, ValueType &amp;value, ErrorCode &amp;err)</div><div class="ttdef"><b>Definition</b> ttmathobjects.h:676</div></div>
 <div class="ttc" id="aclassttmath_1_1History_html_a6c4276c2b03be7f6e05dd2fe4edab737"><div class="ttname"><a href="classttmath_1_1History.html#a6c4276c2b03be7f6e05dd2fe4edab737">ttmath::History::History</a></div><div class="ttdeci">History(typename buffer_type::size_type new_size)</div><div class="ttdef"><b>Definition</b> ttmathobjects.h:644</div></div>
+<div class="ttc" id="aclassttmath_1_1History_html_ac34bfdab0e1a4b141b2e6f8559626b50"><div class="ttname"><a href="classttmath_1_1History.html#ac34bfdab0e1a4b141b2e6f8559626b50">ttmath::History::buffer_type</a></div><div class="ttdeci">std::list&lt; Item &gt; buffer_type</div><div class="ttdef"><b>Definition</b> ttmathobjects.h:624</div></div>
 <div class="ttc" id="aclassttmath_1_1History_html_adfcd26d5a29b9d3f7a77b333419db57c"><div class="ttname"><a href="classttmath_1_1History.html#adfcd26d5a29b9d3f7a77b333419db57c">ttmath::History::Remove</a></div><div class="ttdeci">bool Remove(const ValueType &amp;key)</div><div class="ttdef"><b>Definition</b> ttmathobjects.h:700</div></div>
 <div class="ttc" id="aclassttmath_1_1Misc_html_a77a225d405c1f54c28dfca566c486232"><div class="ttname"><a href="classttmath_1_1Misc.html#a77a225d405c1f54c28dfca566c486232">ttmath::Misc::AssignString</a></div><div class="ttdeci">static void AssignString(std::string &amp;result, const char *str)</div><div class="ttdef"><b>Definition</b> ttmathmisc.h:72</div></div>
 <div class="ttc" id="aclassttmath_1_1Objects_html"><div class="ttname"><a href="classttmath_1_1Objects.html">ttmath::Objects</a></div><div class="ttdef"><b>Definition</b> ttmathobjects.h:66</div></div>
@@ -792,6 +795,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="astructttmath_1_1CGamma_html_a32625db73df913efb0603f0e50d3855f"><div class="ttname"><a href="structttmath_1_1CGamma.html#a32625db73df913efb0603f0e50d3855f">ttmath::CGamma::history</a></div><div class="ttdeci">History&lt; ValueType &gt; history</div><div class="ttdef"><b>Definition</b> ttmathobjects.h:782</div></div>
 <div class="ttc" id="astructttmath_1_1CGamma_html_a672ed255c427f3077dea7a2e2ea0967d"><div class="ttname"><a href="structttmath_1_1CGamma.html#a672ed255c427f3077dea7a2e2ea0967d">ttmath::CGamma::bern</a></div><div class="ttdeci">std::vector&lt; ValueType &gt; bern</div><div class="ttdef"><b>Definition</b> ttmathobjects.h:773</div></div>
 <div class="ttc" id="astructttmath_1_1CGamma_html_abb96b3bc0addd45bb851081908f6f865"><div class="ttname"><a href="structttmath_1_1CGamma.html#abb96b3bc0addd45bb851081908f6f865">ttmath::CGamma::fact</a></div><div class="ttdeci">std::vector&lt; ValueType &gt; fact</div><div class="ttdef"><b>Definition</b> ttmathobjects.h:755</div></div>
+<div class="ttc" id="astructttmath_1_1History_1_1Item_html"><div class="ttname"><a href="structttmath_1_1History_1_1Item.html">ttmath::History::Item</a></div><div class="ttdef"><b>Definition</b> ttmathobjects.h:612</div></div>
 <div class="ttc" id="astructttmath_1_1Objects_1_1Item_html"><div class="ttname"><a href="structttmath_1_1Objects_1_1Item.html">ttmath::Objects::Item</a></div><div class="ttdef"><b>Definition</b> ttmathobjects.h:75</div></div>
 <div class="ttc" id="attmathmisc_8h_html"><div class="ttname"><a href="ttmathmisc_8h.html">ttmathmisc.h</a></div><div class="ttdoc">some helpful functions</div></div>
 <div class="ttc" id="attmathtypes_8h_html"><div class="ttname"><a href="ttmathtypes_8h.html">ttmathtypes.h</a></div><div class="ttdoc">constants used in the library</div></div>

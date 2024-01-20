@@ -11,5 +11,6 @@ var searchData=
   ['bitnot_8',['BitNot',['../classttmath_1_1UInt.html#a323201eabc966dc24349d965fae7f9cd',1,'ttmath::UInt']]],
   ['bitnot2_9',['BitNot2',['../classttmath_1_1UInt.html#a9710bb273fcf635ed8bb055aa17a7467',1,'ttmath::UInt']]],
   ['bitor_10',['BitOr',['../classttmath_1_1Big.html#ae050abccee92058b55a9a890350eb23d',1,'ttmath::Big::BitOr()'],['../classttmath_1_1UInt.html#ab254e021f626e59b5e32e0b8e02ce9be',1,'ttmath::UInt::BitOr()']]],
-  ['bitxor_11',['BitXor',['../classttmath_1_1Big.html#a7d291abddb1d43ca4784ba152cdd6d25',1,'ttmath::Big::BitXor()'],['../classttmath_1_1UInt.html#a82d9a7e2147c21a09bd7480d5d046336',1,'ttmath::UInt::BitXor()']]]
+  ['bitxor_11',['BitXor',['../classttmath_1_1Big.html#a7d291abddb1d43ca4784ba152cdd6d25',1,'ttmath::Big::BitXor()'],['../classttmath_1_1UInt.html#a82d9a7e2147c21a09bd7480d5d046336',1,'ttmath::UInt::BitXor()']]],
+  ['buffer_5ftype_12',['buffer_type',['../classttmath_1_1History.html#ac34bfdab0e1a4b141b2e6f8559626b50',1,'ttmath::History']]]
 ];

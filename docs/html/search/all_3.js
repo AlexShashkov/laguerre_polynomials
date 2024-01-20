@@ -13,7 +13,17 @@ var searchData=
   ['div_10',['Div',['../classttmath_1_1Big.html#a57fa951410244551c3449910fe129d64',1,'ttmath::Big::Div()'],['../classttmath_1_1Int.html#a2bc659d2f8aa94cf17ee5650d06119f2',1,'ttmath::Int::Div()'],['../classttmath_1_1UInt.html#a66ed2921ae082f9694afb330ec67d05d',1,'ttmath::UInt::Div(const UInt&lt; value_size &gt; &amp;divisor, UInt&lt; value_size &gt; *remainder=0, uint algorithm=3)']]],
   ['div1_11',['Div1',['../classttmath_1_1UInt.html#ae71bf44fb6746f7633b2c485bc6ae082',1,'ttmath::UInt::Div1(const UInt&lt; value_size &gt; &amp;divisor, UInt&lt; value_size &gt; *remainder=0)'],['../classttmath_1_1UInt.html#a523890a408a7102429ce720df3dc50dc',1,'ttmath::UInt::Div1(const UInt&lt; value_size &gt; &amp;divisor, UInt&lt; value_size &gt; &amp;remainder)']]],
   ['div2_12',['Div2',['../classttmath_1_1UInt.html#acad855eb4debd1fba0a49336849df210',1,'ttmath::UInt::Div2(const UInt&lt; value_size &gt; &amp;divisor, UInt&lt; value_size &gt; *remainder=0)'],['../classttmath_1_1UInt.html#a60c05b01f4bad1bef8561e2d54ea0702',1,'ttmath::UInt::Div2(const UInt&lt; value_size &gt; &amp;divisor, UInt&lt; value_size &gt; &amp;remainder)']]],
-  ['div3_13',['Div3',['../classttmath_1_1UInt.html#acff57af28e5b4d65f0bf5fd0de5b455b',1,'ttmath::UInt::Div3(const UInt&lt; value_size &gt; &amp;ss2, UInt&lt; value_size &gt; *remainder=0)'],['../classttmath_1_1UInt.html#a43f983c5363cce698955c5ab3c11741e',1,'ttmath::UInt::Div3(const UInt&lt; value_size &gt; &amp;ss2, UInt&lt; value_size &gt; &amp;remainder)']]],
-  ['divide_14',['divide',['../classLaguerre_1_1Polynomial.html#a3f8068994370bba3184d9f662607c33f',1,'Laguerre::Polynomial']]],
-  ['divint_15',['DivInt',['../classttmath_1_1Int.html#a6d81ced6d4f5183287a316a9d45d3198',1,'ttmath::Int::DivInt()'],['../classttmath_1_1UInt.html#aadcfa312adce5e4c9f59eb7bb67ee925',1,'ttmath::UInt::DivInt()']]]
+  ['div2_5fcalculate_13',['Div2_Calculate',['../classttmath_1_1UInt.html#a4a40e7e2beb73f939f4bce60db3779c2',1,'ttmath::UInt']]],
+  ['div2_5fdivisorgreaterorequal_14',['Div2_DivisorGreaterOrEqual',['../classttmath_1_1UInt.html#a52d0d804d84b6919318f17de15ff8c27',1,'ttmath::UInt']]],
+  ['div2_5ffindleadingbitsandcheck_15',['Div2_FindLeadingBitsAndCheck',['../classttmath_1_1UInt.html#ae8edf3d593767be4316aab8f2aefaa4c',1,'ttmath::UInt']]],
+  ['div2ref_16',['Div2Ref',['../classttmath_1_1UInt.html#a8e888e0fba51a3424fd18552ebca05c4',1,'ttmath::UInt']]],
+  ['div3_17',['Div3',['../classttmath_1_1UInt.html#acff57af28e5b4d65f0bf5fd0de5b455b',1,'ttmath::UInt::Div3(const UInt&lt; value_size &gt; &amp;ss2, UInt&lt; value_size &gt; *remainder=0)'],['../classttmath_1_1UInt.html#a43f983c5363cce698955c5ab3c11741e',1,'ttmath::UInt::Div3(const UInt&lt; value_size &gt; &amp;ss2, UInt&lt; value_size &gt; &amp;remainder)']]],
+  ['div3_5fmakebiggerv_18',['Div3_MakeBiggerV',['../classttmath_1_1UInt.html#a82c984e8d2b20b8675ad113009954e67',1,'ttmath::UInt']]],
+  ['div3_5fnormalize_19',['Div3_Normalize',['../classttmath_1_1UInt.html#aeb26b32c69cdcaf0632bc8e5b17908df',1,'ttmath::UInt']]],
+  ['div3ref_20',['Div3Ref',['../classttmath_1_1UInt.html#a7243d05c7dff82862c2b266110c057a2',1,'ttmath::UInt']]],
+  ['div_5fcalculatingsize_21',['Div_CalculatingSize',['../classttmath_1_1UInt.html#a5a092100176db7fd1cdc8b0def30cedf',1,'ttmath::UInt']]],
+  ['div_5fstandardtest_22',['Div_StandardTest',['../classttmath_1_1UInt.html#ae6a3169009cd34969d8a019b826592cf',1,'ttmath::UInt']]],
+  ['divide_23',['divide',['../classLaguerre_1_1Polynomial.html#a3f8068994370bba3184d9f662607c33f',1,'Laguerre::Polynomial']]],
+  ['divint_24',['DivInt',['../classttmath_1_1Int.html#a6d81ced6d4f5183287a316a9d45d3198',1,'ttmath::Int::DivInt()'],['../classttmath_1_1UInt.html#aadcfa312adce5e4c9f59eb7bb67ee925',1,'ttmath::UInt::DivInt()']]],
+  ['divref_25',['DivRef',['../classttmath_1_1Big.html#a658b13e9fc6efbf7a06ca2263bcc6524',1,'ttmath::Big']]]
 ];

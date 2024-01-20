@@ -235,7 +235,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> CorrectCarryAfterAdding(<span class="keywordtype">bool</span> p1_is_sign, <span class="keywordtype">bool</span> p2_is_sign)</div>
+<div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a5310a13af17741dd25fcbedc939e0796">  187</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#a5310a13af17741dd25fcbedc939e0796">CorrectCarryAfterAdding</a>(<span class="keywordtype">bool</span> p1_is_sign, <span class="keywordtype">bool</span> p2_is_sign)</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    {</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">if</span>( !p1_is_sign &amp;&amp; !p2_is_sign )</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        {</div>
@@ -245,12 +246,13 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">if</span>( p1_is_sign &amp;&amp; p2_is_sign )</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        {   </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keywordflow">if</span>( ! <a class="code hl_function" href="classttmath_1_1UInt.html#a2421734423858544d65515584fa4683c">UInt&lt;value_size&gt;::IsTheHighestBitSet</a>() )</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            <span class="keywordflow">if</span>( ! <a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::IsTheHighestBitSet</a>() )</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        }</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
+</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">public</span>:</div>
@@ -263,7 +265,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::Add</a>(ss2);     </div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">return</span> CorrectCarryAfterAdding(p1_is_sign, p2_is_sign);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a5310a13af17741dd25fcbedc939e0796">CorrectCarryAfterAdding</a>(p1_is_sign, p2_is_sign);</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    }</div>
 </div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
@@ -275,7 +277,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::AddInt</a>(value, index);     </div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordflow">return</span> CorrectCarryAfterAdding(p1_is_sign, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a5310a13af17741dd25fcbedc939e0796">CorrectCarryAfterAdding</a>(p1_is_sign, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    }</div>
 </div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
@@ -287,7 +289,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::AddTwoInts</a>(x2, x1, index);        </div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keywordflow">return</span> CorrectCarryAfterAdding(p1_is_sign, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a5310a13af17741dd25fcbedc939e0796">CorrectCarryAfterAdding</a>(p1_is_sign, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    }</div>
 </div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
@@ -344,7 +346,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <a class="code hl_function" href="classttmath_1_1UInt.html#aaa62dbe97d8e2ceb434c5c3cac9cd0e1">UInt&lt;value_size&gt;::AddOne</a>();     </div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <span class="keywordflow">return</span> CorrectCarryAfterAdding(p1_is_sign, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a5310a13af17741dd25fcbedc939e0796">CorrectCarryAfterAdding</a>(p1_is_sign, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    }</div>
 </div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
@@ -551,7 +553,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span> </div>
 <div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span> </div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> Pow2(<span class="keyword">const</span> Int&lt;value_size&gt; &amp; pow)</div>
+<div class="foldopen" id="foldopen00577" data-start="{" data-end="}">
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#aa722d069df6974e9a8a26d9ed353596b">  577</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#aa722d069df6974e9a8a26d9ed353596b">Pow2</a>(<span class="keyword">const</span> Int&lt;value_size&gt; &amp; pow)</div>
 <div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>    {</div>
 <div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>        <span class="keywordtype">bool</span> was_sign = <a class="code hl_function" href="classttmath_1_1Int.html#af91fdc65105f7ceb071c2a8a98d0cbfb">IsSign</a>();</div>
 <div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>        <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> c = 0;</div>
@@ -569,6 +572,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span> </div>
 <div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    <span class="keywordflow">return</span> (c==0)? 0 : 1;</div>
 <div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>    }</div>
+</div>
 <div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span> </div>
 <div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span> </div>
 <div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span><span class="keyword">public</span>:</div>
@@ -578,7 +582,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00608" name="l00608"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a6e523cc29589e77186b02236aa3538de">  608</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#a6e523cc29589e77186b02236aa3538de">Pow</a>(Int&lt;value_size&gt; pow)</div>
 <div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>    {</div>
 <div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>        <span class="keywordflow">if</span>( !pow.IsSign() )</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>            <span class="keywordflow">return</span> Pow2(pow);</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#aa722d069df6974e9a8a26d9ed353596b">Pow2</a>(pow);</div>
 <div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span> </div>
 <div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>        <span class="keywordflow">if</span>( <a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::IsZero</a>() )</div>
 <div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>            <span class="comment">// if &#39;pow&#39; is negative then</span></div>
@@ -607,7 +611,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span> </div>
 <div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span> </div>
 <div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>    <span class="keyword">template</span>&lt;u<span class="keywordtype">int</span> argument_size&gt;</div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> FromUIntOrInt(<span class="keyword">const</span> UInt&lt;argument_size&gt; &amp; p, <span class="keywordtype">bool</span> UInt_type)</div>
+<div class="foldopen" id="foldopen00647" data-start="{" data-end="}">
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a16b4cca6f4f9e3c3860441c2a98d2e2c">  647</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#a16b4cca6f4f9e3c3860441c2a98d2e2c">FromUIntOrInt</a>(<span class="keyword">const</span> UInt&lt;argument_size&gt; &amp; p, <span class="keywordtype">bool</span> UInt_type)</div>
 <div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>    {</div>
 <div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>        <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> min_size = (value_size &lt; argument_size)? value_size : argument_size;</div>
 <div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>        <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> i;</div>
@@ -632,7 +637,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>        }</div>
 <div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>        {</div>
-<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>            <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> test = (<a class="code hl_variable" href="classttmath_1_1UInt.html#a54c67e2e3d1a4d6ea96e828d15c4443a">UInt&lt;value_size&gt;::table</a>[value_size-1] &amp; <a class="code hl_define" href="ttmathtypes_8h.html#a0ccaf279c13b1d747ef8c4690d84b5dd">TTMATH_UINT_HIGHEST_BIT</a>)?</div>
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>            <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> test = (<a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::table</a>[value_size-1] &amp; <a class="code hl_define" href="ttmathtypes_8h.html#a0ccaf279c13b1d747ef8c4690d84b5dd">TTMATH_UINT_HIGHEST_BIT</a>)?</div>
 <div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>                                                                <a class="code hl_define" href="ttmathtypes_8h.html#a3af4b841f70a529a150c820780e1eb40">TTMATH_UINT_MAX_VALUE</a> : 0;</div>
 <div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span> </div>
 <div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>            <span class="keywordflow">if</span>( UInt_type &amp;&amp; test!=0 )</div>
@@ -645,6 +650,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span> </div>
 <div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>    }</div>
+</div>
 <div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span> </div>
 <div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
@@ -652,7 +658,7 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen00697" data-start="{" data-end="}">
 <div class="line"><a id="l00697" name="l00697"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a9114adb3f73a64079005a5deaaf08d8f">  697</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#a9114adb3f73a64079005a5deaaf08d8f">FromInt</a>(<span class="keyword">const</span> Int&lt;argument_size&gt; &amp; p)</div>
 <div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>    {</div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>        <span class="keywordflow">return</span> FromUIntOrInt(p, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a16b4cca6f4f9e3c3860441c2a98d2e2c">FromUIntOrInt</a>(p, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>    }</div>
 </div>
 <div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span> </div>
@@ -677,7 +683,7 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen00724" data-start="{" data-end="}">
 <div class="line"><a id="l00724" name="l00724"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#afa430b83b581bc863949facde3165103">  724</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#afa430b83b581bc863949facde3165103">FromUInt</a>(<span class="keyword">const</span> UInt&lt;argument_size&gt; &amp; p)</div>
 <div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>    {</div>
-<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        <span class="keywordflow">return</span> FromUIntOrInt(p, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a16b4cca6f4f9e3c3860441c2a98d2e2c">FromUIntOrInt</a>(p, <span class="keyword">true</span>);</div>
 <div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>    }</div>
 </div>
 <div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span> </div>
@@ -686,7 +692,7 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen00734" data-start="{" data-end="}">
 <div class="line"><a id="l00734" name="l00734"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a5a9bb53359d6a20d3f9fbf66b7afe4ca">  734</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#a5a9bb53359d6a20d3f9fbf66b7afe4ca">FromInt</a>(<span class="keyword">const</span> UInt&lt;argument_size&gt; &amp; p)</div>
 <div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>    {</div>
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        <span class="keywordflow">return</span> FromUIntOrInt(p, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a16b4cca6f4f9e3c3860441c2a98d2e2c">FromUIntOrInt</a>(p, <span class="keyword">true</span>);</div>
 <div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>    }</div>
 </div>
 <div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span> </div>
@@ -1161,7 +1167,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01307" name="l01307"></a><span class="lineno"> 1307</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l01308" name="l01308"></a><span class="lineno"> 1308</span> </div>
 <div class="line"><a id="l01312" name="l01312"></a><span class="lineno"> 1312</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">string</span>_type&gt;</div>
-<div class="line"><a id="l01313" name="l01313"></a><span class="lineno"> 1313</span>    <span class="keywordtype">void</span> ToStringBase(string_type &amp; result, <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10)<span class="keyword"> const</span></div>
+<div class="foldopen" id="foldopen01313" data-start="{" data-end="}">
+<div class="line"><a id="l01313" name="l01313"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a1f3d400368e646ec3bd1d286b5b9f7e5"> 1313</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classttmath_1_1Int.html#a1f3d400368e646ec3bd1d286b5b9f7e5">ToStringBase</a>(string_type &amp; result, <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10)<span class="keyword"> const</span></div>
 <div class="line"><a id="l01314" name="l01314"></a><span class="lineno"> 1314</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l01315" name="l01315"></a><span class="lineno"> 1315</span>        <span class="keywordflow">if</span>( <a class="code hl_function" href="classttmath_1_1Int.html#af91fdc65105f7ceb071c2a8a98d0cbfb">IsSign</a>() )</div>
 <div class="line"><a id="l01316" name="l01316"></a><span class="lineno"> 1316</span>        {</div>
@@ -1174,13 +1181,14 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01323" name="l01323"></a><span class="lineno"> 1323</span>            <a class="code hl_function" href="classttmath_1_1UInt.html#a08ef836b2bbcc7acaad88ea4284332d5">UInt&lt;value_size&gt;::ToStringBase</a>(result, b, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l01324" name="l01324"></a><span class="lineno"> 1324</span>        }</div>
 <div class="line"><a id="l01325" name="l01325"></a><span class="lineno"> 1325</span>    }</div>
+</div>
 <div class="line"><a id="l01326" name="l01326"></a><span class="lineno"> 1326</span> </div>
 <div class="line"><a id="l01327" name="l01327"></a><span class="lineno"> 1327</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l01328" name="l01328"></a><span class="lineno"> 1328</span> </div>
 <div class="foldopen" id="foldopen01332" data-start="{" data-end="}">
 <div class="line"><a id="l01332" name="l01332"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a1a66925d9072d8822db12ecb6e05727c"> 1332</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classttmath_1_1Int.html#a1a66925d9072d8822db12ecb6e05727c">ToString</a>(std::string &amp; result, <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10)<span class="keyword"> const</span></div>
 <div class="line"><a id="l01333" name="l01333"></a><span class="lineno"> 1333</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l01334" name="l01334"></a><span class="lineno"> 1334</span>        <span class="keywordflow">return</span> ToStringBase(result, b);</div>
+<div class="line"><a id="l01334" name="l01334"></a><span class="lineno"> 1334</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a1f3d400368e646ec3bd1d286b5b9f7e5">ToStringBase</a>(result, b);</div>
 <div class="line"><a id="l01335" name="l01335"></a><span class="lineno"> 1335</span>    }</div>
 </div>
 <div class="line"><a id="l01336" name="l01336"></a><span class="lineno"> 1336</span> </div>
@@ -1189,7 +1197,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01341" name="l01341"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a66f05e64f49505e7f16130883765ce7a"> 1341</a></span>    std::string <a class="code hl_function" href="classttmath_1_1Int.html#a66f05e64f49505e7f16130883765ce7a">ToString</a>(<a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10)<span class="keyword"> const</span></div>
 <div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span>        std::string result;</div>
-<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span>        ToStringBase(result, b);</div>
+<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"> 1344</span>        <a class="code hl_function" href="classttmath_1_1Int.html#a1f3d400368e646ec3bd1d286b5b9f7e5">ToStringBase</a>(result, b);</div>
 <div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span> </div>
 <div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span>    }</div>
@@ -1201,7 +1209,7 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen01355" data-start="{" data-end="}">
 <div class="line"><a id="l01355" name="l01355"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a08a1be509e91e5489eb7c00cebfa60aa"> 1355</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classttmath_1_1Int.html#a08a1be509e91e5489eb7c00cebfa60aa">ToString</a>(std::wstring &amp; result, <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10)<span class="keyword"> const</span></div>
 <div class="line"><a id="l01356" name="l01356"></a><span class="lineno"> 1356</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l01357" name="l01357"></a><span class="lineno"> 1357</span>        <span class="keywordflow">return</span> ToStringBase(result, b);</div>
+<div class="line"><a id="l01357" name="l01357"></a><span class="lineno"> 1357</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#a1f3d400368e646ec3bd1d286b5b9f7e5">ToStringBase</a>(result, b);</div>
 <div class="line"><a id="l01358" name="l01358"></a><span class="lineno"> 1358</span>    }</div>
 </div>
 <div class="line"><a id="l01359" name="l01359"></a><span class="lineno"> 1359</span> </div>
@@ -1210,7 +1218,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01364" name="l01364"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#aaf0b1c00f8b0b8e2f47007a35426f0ab"> 1364</a></span>    std::wstring <a class="code hl_function" href="classttmath_1_1Int.html#aaf0b1c00f8b0b8e2f47007a35426f0ab">ToWString</a>(<a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10)<span class="keyword"> const</span></div>
 <div class="line"><a id="l01365" name="l01365"></a><span class="lineno"> 1365</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l01366" name="l01366"></a><span class="lineno"> 1366</span>        std::wstring result;</div>
-<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span>        ToStringBase(result, b);</div>
+<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span>        <a class="code hl_function" href="classttmath_1_1Int.html#a1f3d400368e646ec3bd1d286b5b9f7e5">ToStringBase</a>(result, b);</div>
 <div class="line"><a id="l01368" name="l01368"></a><span class="lineno"> 1368</span> </div>
 <div class="line"><a id="l01369" name="l01369"></a><span class="lineno"> 1369</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l01370" name="l01370"></a><span class="lineno"> 1370</span>    }</div>
@@ -1223,7 +1231,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01376" name="l01376"></a><span class="lineno"> 1376</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l01377" name="l01377"></a><span class="lineno"> 1377</span> </div>
 <div class="line"><a id="l01381" name="l01381"></a><span class="lineno"> 1381</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="keywordtype">char</span>_type&gt;</div>
-<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> FromStringBase(<span class="keyword">const</span> char_type * s, <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10, <span class="keyword">const</span> char_type ** after_source = 0, <span class="keywordtype">bool</span> * value_read = 0)</div>
+<div class="foldopen" id="foldopen01382" data-start="{" data-end="}">
+<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#ad0a49dd12631db283ffc04e2d1e464e2"> 1382</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#ad0a49dd12631db283ffc04e2d1e464e2">FromStringBase</a>(<span class="keyword">const</span> char_type * s, <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10, <span class="keyword">const</span> char_type ** after_source = 0, <span class="keywordtype">bool</span> * value_read = 0)</div>
 <div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span>    {</div>
 <div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span>    <span class="keywordtype">bool</span> is_sign = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l01385" name="l01385"></a><span class="lineno"> 1385</span>    </div>
@@ -1240,7 +1249,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01396" name="l01396"></a><span class="lineno"> 1396</span>            Misc::SkipWhiteCharacters(++s);</div>
 <div class="line"><a id="l01397" name="l01397"></a><span class="lineno"> 1397</span>        }</div>
 <div class="line"><a id="l01398" name="l01398"></a><span class="lineno"> 1398</span> </div>
-<div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span>        <span class="keywordflow">if</span>( <a class="code hl_function" href="classttmath_1_1UInt.html#a57b749c77692b8d753b475a576d4d906">UInt&lt;value_size&gt;::FromString</a>(s,b,after_source,value_read) )</div>
+<div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span>        <span class="keywordflow">if</span>( <a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::FromString</a>(s,b,after_source,value_read) )</div>
 <div class="line"><a id="l01400" name="l01400"></a><span class="lineno"> 1400</span>            <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span> </div>
 <div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span>        <span class="keywordflow">if</span>( is_sign )</div>
@@ -1254,7 +1263,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01410" name="l01410"></a><span class="lineno"> 1410</span><span class="comment">                to UInt type</span></div>
 <div class="line"><a id="l01411" name="l01411"></a><span class="lineno"> 1411</span><span class="comment">                (this value can be equal mmin -- look at a description in ChangeSign())</span></div>
 <div class="line"><a id="l01412" name="l01412"></a><span class="lineno"> 1412</span><span class="comment">            */</span></div>
-<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span>            <span class="keywordflow">if</span>( UInt&lt;value_size&gt;::operator&gt;( mmin ) )</div>
+<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span>            <span class="keywordflow">if</span>( <a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::operator</a>&gt;( mmin ) )</div>
 <div class="line"><a id="l01414" name="l01414"></a><span class="lineno"> 1414</span>                <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span> </div>
 <div class="line"><a id="l01416" name="l01416"></a><span class="lineno"> 1416</span>            <span class="comment">/*</span></div>
@@ -1268,12 +1277,13 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01424" name="l01424"></a><span class="lineno"> 1424</span> </div>
 <div class="line"><a id="l01425" name="l01425"></a><span class="lineno"> 1425</span>            mmax.SetMax();</div>
 <div class="line"><a id="l01426" name="l01426"></a><span class="lineno"> 1426</span> </div>
-<div class="line"><a id="l01427" name="l01427"></a><span class="lineno"> 1427</span>            <span class="keywordflow">if</span>( UInt&lt;value_size&gt;::operator&gt;( mmax ) )</div>
+<div class="line"><a id="l01427" name="l01427"></a><span class="lineno"> 1427</span>            <span class="keywordflow">if</span>( <a class="code hl_class" href="classttmath_1_1UInt.html">UInt&lt;value_size&gt;::operator</a>&gt;( mmax ) )</div>
 <div class="line"><a id="l01428" name="l01428"></a><span class="lineno"> 1428</span>                    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a id="l01429" name="l01429"></a><span class="lineno"> 1429</span>        }</div>
 <div class="line"><a id="l01430" name="l01430"></a><span class="lineno"> 1430</span> </div>
 <div class="line"><a id="l01431" name="l01431"></a><span class="lineno"> 1431</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l01432" name="l01432"></a><span class="lineno"> 1432</span>    }</div>
+</div>
 <div class="line"><a id="l01433" name="l01433"></a><span class="lineno"> 1433</span> </div>
 <div class="line"><a id="l01434" name="l01434"></a><span class="lineno"> 1434</span> </div>
 <div class="line"><a id="l01435" name="l01435"></a><span class="lineno"> 1435</span><span class="keyword">public</span>:</div>
@@ -1281,7 +1291,7 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen01453" data-start="{" data-end="}">
 <div class="line"><a id="l01453" name="l01453"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a650f84b24d9283af60c1c1127772af2c"> 1453</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#a650f84b24d9283af60c1c1127772af2c">FromString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> * s, <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10, <span class="keyword">const</span> <span class="keywordtype">char</span> ** after_source = 0, <span class="keywordtype">bool</span> * value_read = 0)</div>
 <div class="line"><a id="l01454" name="l01454"></a><span class="lineno"> 1454</span>    {</div>
-<div class="line"><a id="l01455" name="l01455"></a><span class="lineno"> 1455</span>        <span class="keywordflow">return</span> FromStringBase(s, b, after_source, value_read);</div>
+<div class="line"><a id="l01455" name="l01455"></a><span class="lineno"> 1455</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#ad0a49dd12631db283ffc04e2d1e464e2">FromStringBase</a>(s, b, after_source, value_read);</div>
 <div class="line"><a id="l01456" name="l01456"></a><span class="lineno"> 1456</span>    }</div>
 </div>
 <div class="line"><a id="l01457" name="l01457"></a><span class="lineno"> 1457</span> </div>
@@ -1289,7 +1299,7 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen01462" data-start="{" data-end="}">
 <div class="line"><a id="l01462" name="l01462"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a9447d45a7cb8b731f2c22e5014eaf504"> 1462</a></span>    <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="code hl_function" href="classttmath_1_1Int.html#a9447d45a7cb8b731f2c22e5014eaf504">FromString</a>(<span class="keyword">const</span> <span class="keywordtype">wchar_t</span> * s, <a class="code hl_typedef" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b = 10, <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> ** after_source = 0, <span class="keywordtype">bool</span> * value_read = 0)</div>
 <div class="line"><a id="l01463" name="l01463"></a><span class="lineno"> 1463</span>    {</div>
-<div class="line"><a id="l01464" name="l01464"></a><span class="lineno"> 1464</span>        <span class="keywordflow">return</span> FromStringBase(s, b, after_source, value_read);</div>
+<div class="line"><a id="l01464" name="l01464"></a><span class="lineno"> 1464</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="classttmath_1_1Int.html#ad0a49dd12631db283ffc04e2d1e464e2">FromStringBase</a>(s, b, after_source, value_read);</div>
 <div class="line"><a id="l01465" name="l01465"></a><span class="lineno"> 1465</span>    }</div>
 </div>
 <div class="line"><a id="l01466" name="l01466"></a><span class="lineno"> 1466</span> </div>
@@ -1611,7 +1621,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01813" name="l01813"></a><span class="lineno"> 1813</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l01814" name="l01814"></a><span class="lineno"> 1814</span> </div>
 <div class="line"><a id="l01818" name="l01818"></a><span class="lineno"> 1818</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> ostream_type, <span class="keyword">class</span> <span class="keywordtype">string</span>_type&gt;</div>
-<div class="line"><a id="l01819" name="l01819"></a><span class="lineno"> 1819</span>    <span class="keyword">static</span> ostream_type &amp; OutputToStream(ostream_type &amp; s, <span class="keyword">const</span> Int&lt;value_size&gt; &amp; l)</div>
+<div class="foldopen" id="foldopen01819" data-start="{" data-end="}">
+<div class="line"><a id="l01819" name="l01819"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a7c024e7f027a5b6f143dbbc50c82f812"> 1819</a></span>    <span class="keyword">static</span> ostream_type &amp; <a class="code hl_function" href="classttmath_1_1Int.html#a7c024e7f027a5b6f143dbbc50c82f812">OutputToStream</a>(ostream_type &amp; s, <span class="keyword">const</span> Int&lt;value_size&gt; &amp; l)</div>
 <div class="line"><a id="l01820" name="l01820"></a><span class="lineno"> 1820</span>    {</div>
 <div class="line"><a id="l01821" name="l01821"></a><span class="lineno"> 1821</span>    string_type ss;</div>
 <div class="line"><a id="l01822" name="l01822"></a><span class="lineno"> 1822</span> </div>
@@ -1620,6 +1631,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01825" name="l01825"></a><span class="lineno"> 1825</span> </div>
 <div class="line"><a id="l01826" name="l01826"></a><span class="lineno"> 1826</span>    <span class="keywordflow">return</span> s;</div>
 <div class="line"><a id="l01827" name="l01827"></a><span class="lineno"> 1827</span>    }</div>
+</div>
 <div class="line"><a id="l01828" name="l01828"></a><span class="lineno"> 1828</span> </div>
 <div class="line"><a id="l01829" name="l01829"></a><span class="lineno"> 1829</span> </div>
 <div class="line"><a id="l01830" name="l01830"></a><span class="lineno"> 1830</span> </div>
@@ -1650,7 +1662,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01857" name="l01857"></a><span class="lineno"> 1857</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l01858" name="l01858"></a><span class="lineno"> 1858</span> </div>
 <div class="line"><a id="l01862" name="l01862"></a><span class="lineno"> 1862</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> istream_type, <span class="keyword">class</span> <span class="keywordtype">string</span>_type, <span class="keyword">class</span> <span class="keywordtype">char</span>_type&gt;</div>
-<div class="line"><a id="l01863" name="l01863"></a><span class="lineno"> 1863</span>    <span class="keyword">static</span> istream_type &amp; InputFromStream(istream_type &amp; s, Int&lt;value_size&gt; &amp; l)</div>
+<div class="foldopen" id="foldopen01863" data-start="{" data-end="}">
+<div class="line"><a id="l01863" name="l01863"></a><span class="lineno"><a class="line" href="classttmath_1_1Int.html#a1de694c7a7d82ae42dfd7252dc40cf2e"> 1863</a></span>    <span class="keyword">static</span> istream_type &amp; <a class="code hl_function" href="classttmath_1_1Int.html#a1de694c7a7d82ae42dfd7252dc40cf2e">InputFromStream</a>(istream_type &amp; s, Int&lt;value_size&gt; &amp; l)</div>
 <div class="line"><a id="l01864" name="l01864"></a><span class="lineno"> 1864</span>    {</div>
 <div class="line"><a id="l01865" name="l01865"></a><span class="lineno"> 1865</span>    string_type ss;</div>
 <div class="line"><a id="l01866" name="l01866"></a><span class="lineno"> 1866</span>    </div>
@@ -1681,6 +1694,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01891" name="l01891"></a><span class="lineno"> 1891</span> </div>
 <div class="line"><a id="l01892" name="l01892"></a><span class="lineno"> 1892</span>    <span class="keywordflow">return</span> s;</div>
 <div class="line"><a id="l01893" name="l01893"></a><span class="lineno"> 1893</span>    }</div>
+</div>
 <div class="line"><a id="l01894" name="l01894"></a><span class="lineno"> 1894</span> </div>
 <div class="line"><a id="l01895" name="l01895"></a><span class="lineno"> 1895</span> </div>
 <div class="line"><a id="l01896" name="l01896"></a><span class="lineno"> 1896</span><span class="keyword">public</span>:</div>
@@ -1718,9 +1732,12 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassttmath_1_1Int_html_a0f5c58240ff03ea8cdd85e7a80731612"><div class="ttname"><a href="classttmath_1_1Int.html#a0f5c58240ff03ea8cdd85e7a80731612">ttmath::Int::operator=</a></div><div class="ttdeci">Int&lt; value_size &gt; &amp; operator=(const char *s)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1481</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a106d1da7168ddd9833203179ecccdde4"><div class="ttname"><a href="classttmath_1_1Int.html#a106d1da7168ddd9833203179ecccdde4">ttmath::Int::Int</a></div><div class="ttdeci">Int(const char *s)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1071</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a1459d8f91899c87e26a59ccbf9ed3f00"><div class="ttname"><a href="classttmath_1_1Int.html#a1459d8f91899c87e26a59ccbf9ed3f00">ttmath::Int::ChangeSign</a></div><div class="ttdeci">uint ChangeSign()</div><div class="ttdef"><b>Definition</b> ttmathint.h:105</div></div>
+<div class="ttc" id="aclassttmath_1_1Int_html_a16b4cca6f4f9e3c3860441c2a98d2e2c"><div class="ttname"><a href="classttmath_1_1Int.html#a16b4cca6f4f9e3c3860441c2a98d2e2c">ttmath::Int::FromUIntOrInt</a></div><div class="ttdeci">uint FromUIntOrInt(const UInt&lt; argument_size &gt; &amp;p, bool UInt_type)</div><div class="ttdef"><b>Definition</b> ttmathint.h:647</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a18d04761dd2de32639b96dd651915e53"><div class="ttname"><a href="classttmath_1_1Int.html#a18d04761dd2de32639b96dd651915e53">ttmath::Int::FromUInt</a></div><div class="ttdeci">uint FromUInt(uint value)</div><div class="ttdef"><b>Definition</b> ttmathint.h:743</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a1988d656495b09a5d357cb42f080baf5"><div class="ttname"><a href="classttmath_1_1Int.html#a1988d656495b09a5d357cb42f080baf5">ttmath::Int::AddInt</a></div><div class="ttdeci">uint AddInt(uint value, uint index=0)</div><div class="ttdef"><b>Definition</b> ttmathint.h:237</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a1a66925d9072d8822db12ecb6e05727c"><div class="ttname"><a href="classttmath_1_1Int.html#a1a66925d9072d8822db12ecb6e05727c">ttmath::Int::ToString</a></div><div class="ttdeci">void ToString(std::string &amp;result, uint b=10) const</div><div class="ttdef"><b>Definition</b> ttmathint.h:1332</div></div>
+<div class="ttc" id="aclassttmath_1_1Int_html_a1de694c7a7d82ae42dfd7252dc40cf2e"><div class="ttname"><a href="classttmath_1_1Int.html#a1de694c7a7d82ae42dfd7252dc40cf2e">ttmath::Int::InputFromStream</a></div><div class="ttdeci">static istream_type &amp; InputFromStream(istream_type &amp;s, Int&lt; value_size &gt; &amp;l)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1863</div></div>
+<div class="ttc" id="aclassttmath_1_1Int_html_a1f3d400368e646ec3bd1d286b5b9f7e5"><div class="ttname"><a href="classttmath_1_1Int.html#a1f3d400368e646ec3bd1d286b5b9f7e5">ttmath::Int::ToStringBase</a></div><div class="ttdeci">void ToStringBase(string_type &amp;result, uint b=10) const</div><div class="ttdef"><b>Definition</b> ttmathint.h:1313</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a262f2280e53e6aaa542ae478780164ef"><div class="ttname"><a href="classttmath_1_1Int.html#a262f2280e53e6aaa542ae478780164ef">ttmath::Int::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;s, const Int&lt; value_size &gt; &amp;l)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1837</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a2bc659d2f8aa94cf17ee5650d06119f2"><div class="ttname"><a href="classttmath_1_1Int.html#a2bc659d2f8aa94cf17ee5650d06119f2">ttmath::Int::Div</a></div><div class="ttdeci">uint Div(Int&lt; value_size &gt; ss2, Int&lt; value_size &gt; *remainder=0)</div><div class="ttdef"><b>Definition</b> ttmathint.h:480</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a2c02f27928e10b6c570e11e0575bd8d0"><div class="ttname"><a href="classttmath_1_1Int.html#a2c02f27928e10b6c570e11e0575bd8d0">ttmath::Int::Int</a></div><div class="ttdeci">Int(const wchar_t *s)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1091</div></div>
@@ -1729,6 +1746,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassttmath_1_1Int_html_a35172ee73aaced6217e8b4d810e2740f"><div class="ttname"><a href="classttmath_1_1Int.html#a35172ee73aaced6217e8b4d810e2740f">ttmath::Int::ToInt</a></div><div class="ttdeci">uint ToInt(uint &amp;result) const</div><div class="ttdef"><b>Definition</b> ttmathint.h:1157</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a401e1c4c951131c14acadbe241e55ffe"><div class="ttname"><a href="classttmath_1_1Int.html#a401e1c4c951131c14acadbe241e55ffe">ttmath::Int::Int</a></div><div class="ttdeci">Int(const std::string &amp;s)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1080</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a4bbce5ac608389edb143a6123cac28a9"><div class="ttname"><a href="classttmath_1_1Int.html#a4bbce5ac608389edb143a6123cac28a9">ttmath::Int::operator++</a></div><div class="ttdeci">UInt&lt; value_size &gt; operator++(int)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1778</div></div>
+<div class="ttc" id="aclassttmath_1_1Int_html_a5310a13af17741dd25fcbedc939e0796"><div class="ttname"><a href="classttmath_1_1Int.html#a5310a13af17741dd25fcbedc939e0796">ttmath::Int::CorrectCarryAfterAdding</a></div><div class="ttdeci">uint CorrectCarryAfterAdding(bool p1_is_sign, bool p2_is_sign)</div><div class="ttdef"><b>Definition</b> ttmathint.h:187</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a5969b824a40d631c318dd027755028fd"><div class="ttname"><a href="classttmath_1_1Int.html#a5969b824a40d631c318dd027755028fd">ttmath::Int::SetMax</a></div><div class="ttdeci">void SetMax()</div><div class="ttdef"><b>Definition</b> ttmathint.h:71</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a5a9bb53359d6a20d3f9fbf66b7afe4ca"><div class="ttname"><a href="classttmath_1_1Int.html#a5a9bb53359d6a20d3f9fbf66b7afe4ca">ttmath::Int::FromInt</a></div><div class="ttdeci">uint FromInt(const UInt&lt; argument_size &gt; &amp;p)</div><div class="ttdef"><b>Definition</b> ttmathint.h:734</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a5ecc131f271cc1339b4a801e0e5b4312"><div class="ttname"><a href="classttmath_1_1Int.html#a5ecc131f271cc1339b4a801e0e5b4312">ttmath::Int::Int</a></div><div class="ttdeci">Int(const UInt&lt; argument_size &gt; &amp;u)</div><div class="ttdef"><b>Definition</b> ttmathint.h:872</div></div>
@@ -1738,6 +1756,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassttmath_1_1Int_html_a6d81ced6d4f5183287a316a9d45d3198"><div class="ttname"><a href="classttmath_1_1Int.html#a6d81ced6d4f5183287a316a9d45d3198">ttmath::Int::DivInt</a></div><div class="ttdeci">uint DivInt(sint ss2, sint *remainder=0)</div><div class="ttdef"><b>Definition</b> ttmathint.h:524</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a6e523cc29589e77186b02236aa3538de"><div class="ttname"><a href="classttmath_1_1Int.html#a6e523cc29589e77186b02236aa3538de">ttmath::Int::Pow</a></div><div class="ttdeci">uint Pow(Int&lt; value_size &gt; pow)</div><div class="ttdef"><b>Definition</b> ttmathint.h:608</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a7ae76136a3f4b572e1f053e2cbbf2fe3"><div class="ttname"><a href="classttmath_1_1Int.html#a7ae76136a3f4b572e1f053e2cbbf2fe3">ttmath::Int::Int</a></div><div class="ttdeci">Int(uint i)</div><div class="ttdef"><b>Definition</b> ttmathint.h:862</div></div>
+<div class="ttc" id="aclassttmath_1_1Int_html_a7c024e7f027a5b6f143dbbc50c82f812"><div class="ttname"><a href="classttmath_1_1Int.html#a7c024e7f027a5b6f143dbbc50c82f812">ttmath::Int::OutputToStream</a></div><div class="ttdeci">static ostream_type &amp; OutputToStream(ostream_type &amp;s, const Int&lt; value_size &gt; &amp;l)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1819</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a7dc1abb1164116790898c5a0545083fd"><div class="ttname"><a href="classttmath_1_1Int.html#a7dc1abb1164116790898c5a0545083fd">ttmath::Int::ToInt</a></div><div class="ttdeci">uint ToInt(slint &amp;result) const</div><div class="ttdef"><b>Definition</b> ttmathint.h:1220</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a82e2aa2c171051e55cd1f198402c3ffa"><div class="ttname"><a href="classttmath_1_1Int.html#a82e2aa2c171051e55cd1f198402c3ffa">ttmath::Int::operator=</a></div><div class="ttdeci">Int&lt; value_size &gt; &amp; operator=(const std::wstring &amp;s)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1516</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a847e9d33ebf71b4701c19b0d98e9197f"><div class="ttname"><a href="classttmath_1_1Int.html#a847e9d33ebf71b4701c19b0d98e9197f">ttmath::Int::FromInt</a></div><div class="ttdeci">uint FromInt(ulint n)</div><div class="ttdef"><b>Definition</b> ttmathint.h:908</div></div>
@@ -1755,6 +1774,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassttmath_1_1Int_html_a9c7098d61e92508c4543092097eb130b"><div class="ttname"><a href="classttmath_1_1Int.html#a9c7098d61e92508c4543092097eb130b">ttmath::Int::Int</a></div><div class="ttdeci">Int(const Int&lt; value_size &gt; &amp;u)</div><div class="ttdef"><b>Definition</b> ttmathint.h:816</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a9d5f89116e1ea6c624978e7905823a80"><div class="ttname"><a href="classttmath_1_1Int.html#a9d5f89116e1ea6c624978e7905823a80">ttmath::Int::SubInt</a></div><div class="ttdeci">uint SubInt(uint value, uint index=0)</div><div class="ttdef"><b>Definition</b> ttmathint.h:314</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_a9e3240db4bd4ab6ba8b116b05505b74b"><div class="ttname"><a href="classttmath_1_1Int.html#a9e3240db4bd4ab6ba8b116b05505b74b">ttmath::Int::operator=</a></div><div class="ttdeci">Int&lt; value_size &gt; &amp; operator=(const Int&lt; value_size &gt; &amp;p)</div><div class="ttdef"><b>Definition</b> ttmathint.h:771</div></div>
+<div class="ttc" id="aclassttmath_1_1Int_html_aa722d069df6974e9a8a26d9ed353596b"><div class="ttname"><a href="classttmath_1_1Int.html#aa722d069df6974e9a8a26d9ed353596b">ttmath::Int::Pow2</a></div><div class="ttdeci">uint Pow2(const Int&lt; value_size &gt; &amp;pow)</div><div class="ttdef"><b>Definition</b> ttmathint.h:577</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_aaad0fa44f125f735287c20cc00cadadf"><div class="ttname"><a href="classttmath_1_1Int.html#aaad0fa44f125f735287c20cc00cadadf">ttmath::Int::operator&lt;&lt;</a></div><div class="ttdeci">friend std::wostream &amp; operator&lt;&lt;(std::wostream &amp;s, const Int&lt; value_size &gt; &amp;l)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1848</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_aaf0b1c00f8b0b8e2f47007a35426f0ab"><div class="ttname"><a href="classttmath_1_1Int.html#aaf0b1c00f8b0b8e2f47007a35426f0ab">ttmath::Int::ToWString</a></div><div class="ttdeci">std::wstring ToWString(uint b=10) const</div><div class="ttdef"><b>Definition</b> ttmathint.h:1364</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_ab46339e71ac07f2c8717fcfb3e6f20e7"><div class="ttname"><a href="classttmath_1_1Int.html#ab46339e71ac07f2c8717fcfb3e6f20e7">ttmath::Int::SubOne</a></div><div class="ttdeci">uint SubOne()</div><div class="ttdef"><b>Definition</b> ttmathint.h:340</div></div>
@@ -1767,6 +1787,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassttmath_1_1Int_html_ac6b9785610e95320f3843025804d195b"><div class="ttname"><a href="classttmath_1_1Int.html#ac6b9785610e95320f3843025804d195b">ttmath::Int::SetSignOne</a></div><div class="ttdeci">void SetSignOne()</div><div class="ttdef"><b>Definition</b> ttmathint.h:93</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_aca2f80cb446bfb0a1c9a3e4ff09ebd00"><div class="ttname"><a href="classttmath_1_1Int.html#aca2f80cb446bfb0a1c9a3e4ff09ebd00">ttmath::Int::~Int</a></div><div class="ttdeci">~Int()</div><div class="ttdef"><b>Definition</b> ttmathint.h:1121</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_acc953742bcb2e6af7a7bc7744d898c40"><div class="ttname"><a href="classttmath_1_1Int.html#acc953742bcb2e6af7a7bc7744d898c40">ttmath::Int::Int</a></div><div class="ttdeci">Int(const std::wstring &amp;s)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1100</div></div>
+<div class="ttc" id="aclassttmath_1_1Int_html_ad0a49dd12631db283ffc04e2d1e464e2"><div class="ttname"><a href="classttmath_1_1Int.html#ad0a49dd12631db283ffc04e2d1e464e2">ttmath::Int::FromStringBase</a></div><div class="ttdeci">uint FromStringBase(const char_type *s, uint b=10, const char_type **after_source=0, bool *value_read=0)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1382</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_ad199a7775bb59066a82c05934d54ccca"><div class="ttname"><a href="classttmath_1_1Int.html#ad199a7775bb59066a82c05934d54ccca">ttmath::Int::Int</a></div><div class="ttdeci">Int(ulint n)</div><div class="ttdef"><b>Definition</b> ttmathint.h:957</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_ad7c39b4dc421c9b6586feb430a2d7b07"><div class="ttname"><a href="classttmath_1_1Int.html#ad7c39b4dc421c9b6586feb430a2d7b07">ttmath::Int::operator=</a></div><div class="ttdeci">Int&lt; value_size &gt; &amp; operator=(const wchar_t *s)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1505</div></div>
 <div class="ttc" id="aclassttmath_1_1Int_html_ad9194e38f7b45a30fefbb8624f1283cf"><div class="ttname"><a href="classttmath_1_1Int.html#ad9194e38f7b45a30fefbb8624f1283cf">ttmath::Int::operator&gt;&gt;</a></div><div class="ttdeci">friend std::wistream &amp; operator&gt;&gt;(std::wistream &amp;s, Int&lt; value_size &gt; &amp;l)</div><div class="ttdef"><b>Definition</b> ttmathint.h:1912</div></div>
@@ -1793,7 +1814,6 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassttmath_1_1UInt_html_a403da6805149cdfb8a69f39a15cdf505"><div class="ttname"><a href="classttmath_1_1UInt.html#a403da6805149cdfb8a69f39a15cdf505">ttmath::UInt::ToUInt</a></div><div class="ttdeci">uint ToUInt() const</div><div class="ttdef"><b>Definition</b> ttmathuint.h:3103</div></div>
 <div class="ttc" id="aclassttmath_1_1UInt_html_a47b57350163b4dc79e480995fc044ad7"><div class="ttname"><a href="classttmath_1_1UInt.html#a47b57350163b4dc79e480995fc044ad7">ttmath::UInt::MulInt</a></div><div class="ttdeci">uint MulInt(uint ss2)</div><div class="ttdef"><b>Definition</b> ttmathuint.h:835</div></div>
 <div class="ttc" id="aclassttmath_1_1UInt_html_a54c67e2e3d1a4d6ea96e828d15c4443a"><div class="ttname"><a href="classttmath_1_1UInt.html#a54c67e2e3d1a4d6ea96e828d15c4443a">ttmath::UInt::table</a></div><div class="ttdeci">uint table[value_size]</div><div class="ttdef"><b>Definition</b> ttmathuint.h:81</div></div>
-<div class="ttc" id="aclassttmath_1_1UInt_html_a57b749c77692b8d753b475a576d4d906"><div class="ttname"><a href="classttmath_1_1UInt.html#a57b749c77692b8d753b475a576d4d906">ttmath::UInt::FromString</a></div><div class="ttdeci">uint FromString(const char *s, uint b=10, const char **after_source=0, bool *value_read=0)</div><div class="ttdef"><b>Definition</b> ttmathuint.h:3474</div></div>
 <div class="ttc" id="aclassttmath_1_1UInt_html_a66ed2921ae082f9694afb330ec67d05d"><div class="ttname"><a href="classttmath_1_1UInt.html#a66ed2921ae082f9694afb330ec67d05d">ttmath::UInt::Div</a></div><div class="ttdeci">uint Div(const UInt&lt; value_size &gt; &amp;divisor, UInt&lt; value_size &gt; *remainder=0, uint algorithm=3)</div><div class="ttdef"><b>Definition</b> ttmathuint.h:1626</div></div>
 <div class="ttc" id="aclassttmath_1_1UInt_html_a7a35fd5a272f1623617cc638d3a92cfb"><div class="ttname"><a href="classttmath_1_1UInt.html#a7a35fd5a272f1623617cc638d3a92cfb">ttmath::UInt::FromUInt</a></div><div class="ttdeci">uint FromUInt(const UInt&lt; argument_size &gt; &amp;p)</div><div class="ttdef"><b>Definition</b> ttmathuint.h:2657</div></div>
 <div class="ttc" id="aclassttmath_1_1UInt_html_a7fdeb0ac1b5fdd397f03fcfc9080488d"><div class="ttname"><a href="classttmath_1_1UInt.html#a7fdeb0ac1b5fdd397f03fcfc9080488d">ttmath::UInt::SetMax</a></div><div class="ttdeci">void SetMax()</div><div class="ttdef"><b>Definition</b> ttmathuint.h:215</div></div>

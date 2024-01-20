@@ -90,6 +90,7 @@ $(function(){ initResizable(false); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classLaguerre_1_1Original-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Laguerre::Original&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -109,8 +110,64 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a03169c891eccb0b2af5be5e274a25770" id="r_a03169c891eccb0b2af5be5e274a25770"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03169c891eccb0b2af5be5e274a25770">operator()</a> (std::vector&lt; T &gt; &amp;poly, std::vector&lt; std::complex&lt; T &gt; &gt; &amp;roots, std::vector&lt; int &gt; &amp;conv, int itmax=80) override</td></tr>
 <tr class="memdesc:a03169c891eccb0b2af5be5e274a25770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the roots of a polynomial using Laguerre's method.  <br /></td></tr>
 <tr class="separator:a03169c891eccb0b2af5be5e274a25770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa36a248c344f0a7f4b1ea95988ad605a" id="r_aa36a248c344f0a7f4b1ea95988ad605a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa36a248c344f0a7f4b1ea95988ad605a">laguer</a> (const std::vector&lt; std::complex&lt; T &gt; &gt; &amp;a, std::complex&lt; T &gt; &amp;x, int &amp;converged, int itmax)</td></tr>
+<tr class="memdesc:aa36a248c344f0a7f4b1ea95988ad605a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Laguerre's method to find a root of a polynomial.  <br /></td></tr>
+<tr class="separator:aa36a248c344f0a7f4b1ea95988ad605a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa36a248c344f0a7f4b1ea95988ad605a" name="aa36a248c344f0a7f4b1ea95988ad605a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa36a248c344f0a7f4b1ea95988ad605a">&#9670;&#160;</a></span>laguer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classLaguerre_1_1Original.html">Laguerre::Original</a>&lt; T &gt;::laguer </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::complex&lt; T &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::complex&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>converged</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>itmax</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Laguerre's method to find a root of a polynomial. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><a class="el" href="classLaguerre_1_1Polynomial.html">Polynomial</a> object. </td></tr>
+    <tr><td class="paramname">x</td><td>Initial guess for the root. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a03169c891eccb0b2af5be5e274a25770" name="a03169c891eccb0b2af5be5e274a25770"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03169c891eccb0b2af5be5e274a25770">&#9670;&#160;</a></span>operator()()</h2>
 

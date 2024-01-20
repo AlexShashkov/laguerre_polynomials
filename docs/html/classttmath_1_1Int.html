@@ -90,6 +90,8 @@ $(function(){ initResizable(false); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classttmath_1_1Int-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ttmath::Int&lt; value_size &gt; Class Template Reference</div></div>
@@ -146,14 +148,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae28324f4f8a73446301bdd5e27749755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bc659d2f8aa94cf17ee5650d06119f2" id="r_a2bc659d2f8aa94cf17ee5650d06119f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bc659d2f8aa94cf17ee5650d06119f2">Div</a> (<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; ss2, <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; *remainder=0)</td></tr>
 <tr class="separator:a2bc659d2f8aa94cf17ee5650d06119f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1e8be4bd0e62094aadfecc755be47b5" id="r_ae1e8be4bd0e62094aadfecc755be47b5"><td class="memItemLeft" align="right" valign="top"><a id="ae1e8be4bd0e62094aadfecc755be47b5" name="ae1e8be4bd0e62094aadfecc755be47b5"></a>
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Div</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;ss2, <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;remainder)</td></tr>
-<tr class="separator:ae1e8be4bd0e62094aadfecc755be47b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d81ced6d4f5183287a316a9d45d3198" id="r_a6d81ced6d4f5183287a316a9d45d3198"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d81ced6d4f5183287a316a9d45d3198">DivInt</a> (sint ss2, sint *remainder=0)</td></tr>
 <tr class="separator:a6d81ced6d4f5183287a316a9d45d3198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa98b88b6171b92524dc90394cf22f953" id="r_aa98b88b6171b92524dc90394cf22f953"><td class="memItemLeft" align="right" valign="top"><a id="aa98b88b6171b92524dc90394cf22f953" name="aa98b88b6171b92524dc90394cf22f953"></a>
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DivInt</b> (sint ss2, sint &amp;remainder)</td></tr>
-<tr class="separator:aa98b88b6171b92524dc90394cf22f953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e523cc29589e77186b02236aa3538de" id="r_a6e523cc29589e77186b02236aa3538de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e523cc29589e77186b02236aa3538de">Pow</a> (<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; pow)</td></tr>
 <tr class="separator:a6e523cc29589e77186b02236aa3538de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9114adb3f73a64079005a5deaaf08d8f" id="r_a9114adb3f73a64079005a5deaaf08d8f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> argument_size&gt; </td></tr>
@@ -261,63 +257,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6080c737821578177c58815297f23fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af40d35b5098fbd5c729250fc817c6f56" id="r_af40d35b5098fbd5c729250fc817c6f56"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af40d35b5098fbd5c729250fc817c6f56">operator==</a> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;l) const</td></tr>
 <tr class="separator:af40d35b5098fbd5c729250fc817c6f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e22ab0dce722b11e50e1af9d8b837e4" id="r_a7e22ab0dce722b11e50e1af9d8b837e4"><td class="memItemLeft" align="right" valign="top"><a id="a7e22ab0dce722b11e50e1af9d8b837e4" name="a7e22ab0dce722b11e50e1af9d8b837e4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:a7e22ab0dce722b11e50e1af9d8b837e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8e9cbe4b3625af003c8e7aa7eb5ee22" id="r_af8e9cbe4b3625af003c8e7aa7eb5ee22"><td class="memItemLeft" align="right" valign="top"><a id="af8e9cbe4b3625af003c8e7aa7eb5ee22" name="af8e9cbe4b3625af003c8e7aa7eb5ee22"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:af8e9cbe4b3625af003c8e7aa7eb5ee22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e1d98627d14ff062238dcb53d307955" id="r_a6e1d98627d14ff062238dcb53d307955"><td class="memItemLeft" align="right" valign="top"><a id="a6e1d98627d14ff062238dcb53d307955" name="a6e1d98627d14ff062238dcb53d307955"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:a6e1d98627d14ff062238dcb53d307955"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4bbf450c508de3cc06cae5d5146825" id="r_a0f4bbf450c508de3cc06cae5d5146825"><td class="memItemLeft" align="right" valign="top"><a id="a0f4bbf450c508de3cc06cae5d5146825" name="a0f4bbf450c508de3cc06cae5d5146825"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:a0f4bbf450c508de3cc06cae5d5146825"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1d86b31092b20b6f086c53344f051b1" id="r_ac1d86b31092b20b6f086c53344f051b1"><td class="memItemLeft" align="right" valign="top"><a id="ac1d86b31092b20b6f086c53344f051b1" name="ac1d86b31092b20b6f086c53344f051b1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:ac1d86b31092b20b6f086c53344f051b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5a72abf85427ded65ff9033fecb8cf2" id="r_ab5a72abf85427ded65ff9033fecb8cf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5a72abf85427ded65ff9033fecb8cf2">operator-</a> () const</td></tr>
 <tr class="separator:ab5a72abf85427ded65ff9033fecb8cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86e4de938d735e7d6cfd8a6690a6aadd" id="r_a86e4de938d735e7d6cfd8a6690a6aadd"><td class="memItemLeft" align="right" valign="top"><a id="a86e4de938d735e7d6cfd8a6690a6aadd" name="a86e4de938d735e7d6cfd8a6690a6aadd"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:a86e4de938d735e7d6cfd8a6690a6aadd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ff089ec31a1754a1841f4dc8035c246" id="r_a1ff089ec31a1754a1841f4dc8035c246"><td class="memItemLeft" align="right" valign="top"><a id="a1ff089ec31a1754a1841f4dc8035c246" name="a1ff089ec31a1754a1841f4dc8035c246"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:a1ff089ec31a1754a1841f4dc8035c246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6e6908ce345bdf5bfb78e90e3ea26ed" id="r_af6e6908ce345bdf5bfb78e90e3ea26ed"><td class="memItemLeft" align="right" valign="top"><a id="af6e6908ce345bdf5bfb78e90e3ea26ed" name="af6e6908ce345bdf5bfb78e90e3ea26ed"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:af6e6908ce345bdf5bfb78e90e3ea26ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a73f5d0c39010faa1c9e179878cca4a" id="r_a2a73f5d0c39010faa1c9e179878cca4a"><td class="memItemLeft" align="right" valign="top"><a id="a2a73f5d0c39010faa1c9e179878cca4a" name="a2a73f5d0c39010faa1c9e179878cca4a"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:a2a73f5d0c39010faa1c9e179878cca4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa56fb774f3787e1baf618a1562fa2687" id="r_aa56fb774f3787e1baf618a1562fa2687"><td class="memItemLeft" align="right" valign="top"><a id="aa56fb774f3787e1baf618a1562fa2687" name="aa56fb774f3787e1baf618a1562fa2687"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:aa56fb774f3787e1baf618a1562fa2687"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac16cb5cbafbbf6a947bfe21746b980f6" id="r_ac16cb5cbafbbf6a947bfe21746b980f6"><td class="memItemLeft" align="right" valign="top"><a id="ac16cb5cbafbbf6a947bfe21746b980f6" name="ac16cb5cbafbbf6a947bfe21746b980f6"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:ac16cb5cbafbbf6a947bfe21746b980f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add64bf58a554772aa6e526192b552811" id="r_add64bf58a554772aa6e526192b552811"><td class="memItemLeft" align="right" valign="top"><a id="add64bf58a554772aa6e526192b552811" name="add64bf58a554772aa6e526192b552811"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:add64bf58a554772aa6e526192b552811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a397ad0dfb5a5d84ba82ab54246bd14" id="r_a2a397ad0dfb5a5d84ba82ab54246bd14"><td class="memItemLeft" align="right" valign="top"><a id="a2a397ad0dfb5a5d84ba82ab54246bd14" name="a2a397ad0dfb5a5d84ba82ab54246bd14"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:a2a397ad0dfb5a5d84ba82ab54246bd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab952558128250320e4f375ab15d1116" id="r_aab952558128250320e4f375ab15d1116"><td class="memItemLeft" align="right" valign="top"><a id="aab952558128250320e4f375ab15d1116" name="aab952558128250320e4f375ab15d1116"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator%</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:aab952558128250320e4f375ab15d1116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadf1e23148c1604308a989dc8f7bd802" id="r_aadf1e23148c1604308a989dc8f7bd802"><td class="memItemLeft" align="right" valign="top"><a id="aadf1e23148c1604308a989dc8f7bd802" name="aadf1e23148c1604308a989dc8f7bd802"></a>
-<a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator%=</b> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:aadf1e23148c1604308a989dc8f7bd802"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0727e725ca8f127b74dbcfcc0415099" id="r_ae0727e725ca8f127b74dbcfcc0415099"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0727e725ca8f127b74dbcfcc0415099">operator++</a> ()</td></tr>
 <tr class="separator:ae0727e725ca8f127b74dbcfcc0415099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bbce5ac608389edb143a6123cac28a9" id="r_a4bbce5ac608389edb143a6123cac28a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bbce5ac608389edb143a6123cac28a9">operator++</a> (int)</td></tr>
 <tr class="separator:a4bbce5ac608389edb143a6123cac28a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ec2a182c8d4506fb6a98fa9638ee57" id="r_a48ec2a182c8d4506fb6a98fa9638ee57"><td class="memItemLeft" align="right" valign="top"><a id="a48ec2a182c8d4506fb6a98fa9638ee57" name="a48ec2a182c8d4506fb6a98fa9638ee57"></a>
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator--</b> ()</td></tr>
-<tr class="separator:a48ec2a182c8d4506fb6a98fa9638ee57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa159b429cfe00a963fec2a2a3a94347f" id="r_aa159b429cfe00a963fec2a2a3a94347f"><td class="memItemLeft" align="right" valign="top"><a id="aa159b429cfe00a963fec2a2a3a94347f" name="aa159b429cfe00a963fec2a2a3a94347f"></a>
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator--</b> (int)</td></tr>
-<tr class="separator:aa159b429cfe00a963fec2a2a3a94347f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classttmath_1_1UInt"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classttmath_1_1UInt')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classttmath_1_1UInt.html">ttmath::UInt&lt; value_size &gt;</a></td></tr>
 <tr class="memitem:a230d0a0fe82951e2c73d93d87a03652d inherit pub_methods_classttmath_1_1UInt" id="r_a230d0a0fe82951e2c73d93d87a03652d"><td class="memTemplParams" colspan="2">template&lt;class ostream_type &gt; </td></tr>
 <tr class="memitem:a230d0a0fe82951e2c73d93d87a03652d inherit pub_methods_classttmath_1_1UInt"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a230d0a0fe82951e2c73d93d87a03652d">PrintTable</a> (ostream_type &amp;output) const</td></tr>
@@ -397,14 +342,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (co
 <tr class="separator:a9147e767c1f90666a21c581343854c7a inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadcfa312adce5e4c9f59eb7bb67ee925 inherit pub_methods_classttmath_1_1UInt" id="r_aadcfa312adce5e4c9f59eb7bb67ee925"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#aadcfa312adce5e4c9f59eb7bb67ee925">DivInt</a> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> divisor, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *remainder=0)</td></tr>
 <tr class="separator:aadcfa312adce5e4c9f59eb7bb67ee925 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7da0becbd05fdb18aef340a10fdaa981 inherit pub_methods_classttmath_1_1UInt" id="r_a7da0becbd05fdb18aef340a10fdaa981"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DivInt</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> divisor, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> &amp;remainder)</td></tr>
-<tr class="separator:a7da0becbd05fdb18aef340a10fdaa981 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66ed2921ae082f9694afb330ec67d05d inherit pub_methods_classttmath_1_1UInt" id="r_a66ed2921ae082f9694afb330ec67d05d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a66ed2921ae082f9694afb330ec67d05d">Div</a> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;divisor, <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; *remainder=0, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> algorithm=3)</td></tr>
 <tr class="separator:a66ed2921ae082f9694afb330ec67d05d inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d9c05ea20c070265b33342c0f76b2f9 inherit pub_methods_classttmath_1_1UInt" id="r_a1d9c05ea20c070265b33342c0f76b2f9"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Div</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;divisor, <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;remainder, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> algorithm=3)</td></tr>
-<tr class="separator:a1d9c05ea20c070265b33342c0f76b2f9 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae71bf44fb6746f7633b2c485bc6ae082 inherit pub_methods_classttmath_1_1UInt" id="r_ae71bf44fb6746f7633b2c485bc6ae082"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#ae71bf44fb6746f7633b2c485bc6ae082">Div1</a> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;divisor, <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; *remainder=0)</td></tr>
 <tr class="separator:ae71bf44fb6746f7633b2c485bc6ae082 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a523890a408a7102429ce720df3dc50dc inherit pub_methods_classttmath_1_1UInt" id="r_a523890a408a7102429ce720df3dc50dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a523890a408a7102429ce720df3dc50dc">Div1</a> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;divisor, <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;remainder)</td></tr>
@@ -510,15 +449,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (co
 <tr class="separator:a08ef836b2bbcc7acaad88ea4284332d5 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdff04e00cfba4c49a63688eeec3f14b inherit pub_methods_classttmath_1_1UInt" id="r_abdff04e00cfba4c49a63688eeec3f14b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#abdff04e00cfba4c49a63688eeec3f14b">ToString</a> (std::string &amp;result, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b=10) const</td></tr>
 <tr class="separator:abdff04e00cfba4c49a63688eeec3f14b inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b724bb5cf26107c7a810d9d0cdf7ca3 inherit pub_methods_classttmath_1_1UInt" id="r_a9b724bb5cf26107c7a810d9d0cdf7ca3"><td class="memItemLeft" align="right" valign="top">
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ToString</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b=10) const</td></tr>
-<tr class="separator:a9b724bb5cf26107c7a810d9d0cdf7ca3 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2103bf8a7aab63308d06d283782b0cea inherit pub_methods_classttmath_1_1UInt" id="r_a2103bf8a7aab63308d06d283782b0cea"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ToString</b> (std::wstring &amp;result, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b=10) const</td></tr>
-<tr class="separator:a2103bf8a7aab63308d06d283782b0cea inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4c4ce6fcc01f6bc9f3bd4663aefd906 inherit pub_methods_classttmath_1_1UInt" id="r_ad4c4ce6fcc01f6bc9f3bd4663aefd906"><td class="memItemLeft" align="right" valign="top">
-std::wstring&#160;</td><td class="memItemRight" valign="bottom"><b>ToWString</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b=10) const</td></tr>
-<tr class="separator:ad4c4ce6fcc01f6bc9f3bd4663aefd906 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57b749c77692b8d753b475a576d4d906 inherit pub_methods_classttmath_1_1UInt" id="r_a57b749c77692b8d753b475a576d4d906"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a57b749c77692b8d753b475a576d4d906">FromString</a> (const char *s, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b=10, const char **after_source=0, bool *value_read=0)</td></tr>
 <tr class="separator:a57b749c77692b8d753b475a576d4d906 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a9d1f8d1670b843c662c0d68bfae8ef inherit pub_methods_classttmath_1_1UInt" id="r_a8a9d1f8d1670b843c662c0d68bfae8ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a8a9d1f8d1670b843c662c0d68bfae8ef">FromString</a> (const std::string &amp;s, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b=10)</td></tr>
@@ -545,110 +475,39 @@ std::wstring&#160;</td><td class="memItemRight" valign="bottom"><b>ToWString</b>
 <tr class="separator:adb25ff6d1b7e1dca07c22678b047e237 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a834bea52c5400450f6213aadce4cadd3 inherit pub_methods_classttmath_1_1UInt" id="r_a834bea52c5400450f6213aadce4cadd3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a834bea52c5400450f6213aadce4cadd3">CmpBiggerEqual</a> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;l, sint index=-1) const</td></tr>
 <tr class="separator:a834bea52c5400450f6213aadce4cadd3 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef349143cab8808e8cc5004943ddbd82 inherit pub_methods_classttmath_1_1UInt" id="r_aef349143cab8808e8cc5004943ddbd82"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:aef349143cab8808e8cc5004943ddbd82 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8d417f101417974cafedc71848b3605 inherit pub_methods_classttmath_1_1UInt" id="r_af8d417f101417974cafedc71848b3605"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:af8d417f101417974cafedc71848b3605 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac55ef58149dc52cc7b004568ea675762 inherit pub_methods_classttmath_1_1UInt" id="r_ac55ef58149dc52cc7b004568ea675762"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:ac55ef58149dc52cc7b004568ea675762 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb1141c9cb23425b43c78bca16a4a17f inherit pub_methods_classttmath_1_1UInt" id="r_abb1141c9cb23425b43c78bca16a4a17f"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:abb1141c9cb23425b43c78bca16a4a17f inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76f3db7371fc91694c29bd10f8bb6e8c inherit pub_methods_classttmath_1_1UInt" id="r_a76f3db7371fc91694c29bd10f8bb6e8c"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:a76f3db7371fc91694c29bd10f8bb6e8c inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae37fa22b9bf72f6f0fc3df9e167cdeb6 inherit pub_methods_classttmath_1_1UInt" id="r_ae37fa22b9bf72f6f0fc3df9e167cdeb6"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;l) const</td></tr>
-<tr class="separator:ae37fa22b9bf72f6f0fc3df9e167cdeb6 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa00ba92a05e074de24e6cdda7990bc7 inherit pub_methods_classttmath_1_1UInt" id="r_afa00ba92a05e074de24e6cdda7990bc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#afa00ba92a05e074de24e6cdda7990bc7">operator-</a> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2) const</td></tr>
 <tr class="separator:afa00ba92a05e074de24e6cdda7990bc7 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69166e833bed518083be8c1511607cde inherit pub_methods_classttmath_1_1UInt" id="r_a69166e833bed518083be8c1511607cde"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:a69166e833bed518083be8c1511607cde inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad325927589d231090bf856016cc4b3e6 inherit pub_methods_classttmath_1_1UInt" id="r_ad325927589d231090bf856016cc4b3e6"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:ad325927589d231090bf856016cc4b3e6 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcbdf6b41f8003c9a319f88d90fe9ad1 inherit pub_methods_classttmath_1_1UInt" id="r_adcbdf6b41f8003c9a319f88d90fe9ad1"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:adcbdf6b41f8003c9a319f88d90fe9ad1 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adba7de63604701ddea5c387d254c9ad6 inherit pub_methods_classttmath_1_1UInt" id="r_adba7de63604701ddea5c387d254c9ad6"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:adba7de63604701ddea5c387d254c9ad6 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab92ef92d811f5a43c67c6fce2226184a inherit pub_methods_classttmath_1_1UInt" id="r_ab92ef92d811f5a43c67c6fce2226184a"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:ab92ef92d811f5a43c67c6fce2226184a inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcad0fb567509e96cea659b33a7a6392 inherit pub_methods_classttmath_1_1UInt" id="r_adcad0fb567509e96cea659b33a7a6392"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:adcad0fb567509e96cea659b33a7a6392 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e0c2602da48c8b4fbc5a2d6fa9c8487 inherit pub_methods_classttmath_1_1UInt" id="r_a0e0c2602da48c8b4fbc5a2d6fa9c8487"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:a0e0c2602da48c8b4fbc5a2d6fa9c8487 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac39b130d4b731f5f60e1edfe0e4e6626 inherit pub_methods_classttmath_1_1UInt" id="r_ac39b130d4b731f5f60e1edfe0e4e6626"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator%</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:ac39b130d4b731f5f60e1edfe0e4e6626 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd2981d85c540df2f4a4d9afeff127c5 inherit pub_methods_classttmath_1_1UInt" id="r_afd2981d85c540df2f4a4d9afeff127c5"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator%=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:afd2981d85c540df2f4a4d9afeff127c5 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30c3bfbecfb89ace23d4becd9c6894a9 inherit pub_methods_classttmath_1_1UInt" id="r_a30c3bfbecfb89ace23d4becd9c6894a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a30c3bfbecfb89ace23d4becd9c6894a9">operator++</a> ()</td></tr>
 <tr class="separator:a30c3bfbecfb89ace23d4becd9c6894a9 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c542692a8bc7f57927029e7a82e2280 inherit pub_methods_classttmath_1_1UInt" id="r_a6c542692a8bc7f57927029e7a82e2280"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a6c542692a8bc7f57927029e7a82e2280">operator++</a> (int)</td></tr>
 <tr class="separator:a6c542692a8bc7f57927029e7a82e2280 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52b7900d372f206c4a7dccf54e09f110 inherit pub_methods_classttmath_1_1UInt" id="r_a52b7900d372f206c4a7dccf54e09f110"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator--</b> ()</td></tr>
-<tr class="separator:a52b7900d372f206c4a7dccf54e09f110 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdbe14c5b7b286291da50a214e8ab016 inherit pub_methods_classttmath_1_1UInt" id="r_afdbe14c5b7b286291da50a214e8ab016"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator--</b> (int)</td></tr>
-<tr class="separator:afdbe14c5b7b286291da50a214e8ab016 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa95218ad020c1e2802bae3e1f8e5ace1 inherit pub_methods_classttmath_1_1UInt" id="r_aa95218ad020c1e2802bae3e1f8e5ace1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#aa95218ad020c1e2802bae3e1f8e5ace1">operator~</a> () const</td></tr>
 <tr class="separator:aa95218ad020c1e2802bae3e1f8e5ace1 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5926b5441f3261b96ff8b20233346118 inherit pub_methods_classttmath_1_1UInt" id="r_a5926b5441f3261b96ff8b20233346118"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&amp;</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:a5926b5441f3261b96ff8b20233346118 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9af4a6ad8e1d3f4ed4c0c8a9bf1c102 inherit pub_methods_classttmath_1_1UInt" id="r_ad9af4a6ad8e1d3f4ed4c0c8a9bf1c102"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&amp;=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:ad9af4a6ad8e1d3f4ed4c0c8a9bf1c102 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a612fcda3605793d10c7ac0b37e22ece9 inherit pub_methods_classttmath_1_1UInt" id="r_a612fcda3605793d10c7ac0b37e22ece9"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator|</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:a612fcda3605793d10c7ac0b37e22ece9 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8910f60aa649c82509cfff75b51fb9e inherit pub_methods_classttmath_1_1UInt" id="r_ab8910f60aa649c82509cfff75b51fb9e"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator|=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:ab8910f60aa649c82509cfff75b51fb9e inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91ad647efc443010991f883d45992a0c inherit pub_methods_classttmath_1_1UInt" id="r_a91ad647efc443010991f883d45992a0c"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator^</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2) const</td></tr>
-<tr class="separator:a91ad647efc443010991f883d45992a0c inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60349ebfc8eab54497d21bfb82d77c0e inherit pub_methods_classttmath_1_1UInt" id="r_a60349ebfc8eab54497d21bfb82d77c0e"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator^=</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;p2)</td></tr>
-<tr class="separator:a60349ebfc8eab54497d21bfb82d77c0e inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a337a0e36ce10b0b328b06f60047d3f9e inherit pub_methods_classttmath_1_1UInt" id="r_a337a0e36ce10b0b328b06f60047d3f9e"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;</b> (int move) const</td></tr>
-<tr class="separator:a337a0e36ce10b0b328b06f60047d3f9e inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a471f585bb8b44032b583d4349e6c0d1b inherit pub_methods_classttmath_1_1UInt" id="r_a471f585bb8b44032b583d4349e6c0d1b"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;=</b> (int move)</td></tr>
-<tr class="separator:a471f585bb8b44032b583d4349e6c0d1b inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc451adcb837422460a52a637f73a72a inherit pub_methods_classttmath_1_1UInt" id="r_adc451adcb837422460a52a637f73a72a"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (int move) const</td></tr>
-<tr class="separator:adc451adcb837422460a52a637f73a72a inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab9d2c68007dd29da09ccbfb153bcfea inherit pub_methods_classttmath_1_1UInt" id="r_aab9d2c68007dd29da09ccbfb153bcfea"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;=</b> (int move)</td></tr>
-<tr class="separator:aab9d2c68007dd29da09ccbfb153bcfea inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af69f4f1a71948175abc653a82a728665 inherit pub_methods_classttmath_1_1UInt" id="r_af69f4f1a71948175abc653a82a728665"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Add</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;ss2, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> c=0)</td></tr>
-<tr class="separator:af69f4f1a71948175abc653a82a728665 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4234f162487dbde47c9319f49b2d7af inherit pub_methods_classttmath_1_1UInt" id="r_af4234f162487dbde47c9319f49b2d7af"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AddInt</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> index=0)</td></tr>
-<tr class="separator:af4234f162487dbde47c9319f49b2d7af inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba79aa3cdad513d1c41f4caa3758faab inherit pub_methods_classttmath_1_1UInt" id="r_aba79aa3cdad513d1c41f4caa3758faab"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AddTwoInts</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> x2, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> x1, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> index)</td></tr>
-<tr class="separator:aba79aa3cdad513d1c41f4caa3758faab inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62de1450c61299cdbbda5632b85386c8 inherit pub_methods_classttmath_1_1UInt" id="r_a62de1450c61299cdbbda5632b85386c8"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Sub</b> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; value_size &gt; &amp;ss2, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> c=0)</td></tr>
-<tr class="separator:a62de1450c61299cdbbda5632b85386c8 inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe3a0a22636f905e536aaacf960d962b inherit pub_methods_classttmath_1_1UInt" id="r_abe3a0a22636f905e536aaacf960d962b"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SubInt</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> index=0)</td></tr>
-<tr class="separator:abe3a0a22636f905e536aaacf960d962b inherit pub_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5310a13af17741dd25fcbedc939e0796" id="r_a5310a13af17741dd25fcbedc939e0796"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5310a13af17741dd25fcbedc939e0796">CorrectCarryAfterAdding</a> (bool p1_is_sign, bool p2_is_sign)</td></tr>
+<tr class="separator:a5310a13af17741dd25fcbedc939e0796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa722d069df6974e9a8a26d9ed353596b" id="r_aa722d069df6974e9a8a26d9ed353596b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa722d069df6974e9a8a26d9ed353596b">Pow2</a> (const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;pow)</td></tr>
+<tr class="separator:aa722d069df6974e9a8a26d9ed353596b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b4cca6f4f9e3c3860441c2a98d2e2c" id="r_a16b4cca6f4f9e3c3860441c2a98d2e2c"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> argument_size&gt; </td></tr>
+<tr class="memitem:a16b4cca6f4f9e3c3860441c2a98d2e2c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a16b4cca6f4f9e3c3860441c2a98d2e2c">FromUIntOrInt</a> (const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; argument_size &gt; &amp;p, bool UInt_type)</td></tr>
+<tr class="separator:a16b4cca6f4f9e3c3860441c2a98d2e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f3d400368e646ec3bd1d286b5b9f7e5" id="r_a1f3d400368e646ec3bd1d286b5b9f7e5"><td class="memTemplParams" colspan="2">template&lt;class string_type &gt; </td></tr>
+<tr class="memitem:a1f3d400368e646ec3bd1d286b5b9f7e5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1f3d400368e646ec3bd1d286b5b9f7e5">ToStringBase</a> (string_type &amp;result, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b=10) const</td></tr>
+<tr class="separator:a1f3d400368e646ec3bd1d286b5b9f7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0a49dd12631db283ffc04e2d1e464e2" id="r_ad0a49dd12631db283ffc04e2d1e464e2"><td class="memTemplParams" colspan="2">template&lt;class char_type &gt; </td></tr>
+<tr class="memitem:ad0a49dd12631db283ffc04e2d1e464e2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad0a49dd12631db283ffc04e2d1e464e2">FromStringBase</a> (const char_type *s, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b=10, const char_type **after_source=0, bool *value_read=0)</td></tr>
+<tr class="separator:ad0a49dd12631db283ffc04e2d1e464e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a7c024e7f027a5b6f143dbbc50c82f812" id="r_a7c024e7f027a5b6f143dbbc50c82f812"><td class="memTemplParams" colspan="2">template&lt;class ostream_type , class string_type &gt; </td></tr>
+<tr class="memitem:a7c024e7f027a5b6f143dbbc50c82f812"><td class="memTemplItemLeft" align="right" valign="top">static ostream_type &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7c024e7f027a5b6f143dbbc50c82f812">OutputToStream</a> (ostream_type &amp;s, const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;l)</td></tr>
+<tr class="separator:a7c024e7f027a5b6f143dbbc50c82f812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1de694c7a7d82ae42dfd7252dc40cf2e" id="r_a1de694c7a7d82ae42dfd7252dc40cf2e"><td class="memTemplParams" colspan="2">template&lt;class istream_type , class string_type , class char_type &gt; </td></tr>
+<tr class="memitem:a1de694c7a7d82ae42dfd7252dc40cf2e"><td class="memTemplItemLeft" align="right" valign="top">static istream_type &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1de694c7a7d82ae42dfd7252dc40cf2e">InputFromStream</a> (istream_type &amp;s, <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;l)</td></tr>
+<tr class="separator:a1de694c7a7d82ae42dfd7252dc40cf2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -670,39 +529,6 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:abc701dece8f6d0e9d38310d936b2b065 inherit pub_static_methods_classttmath_1_1UInt" id="r_abc701dece8f6d0e9d38310d936b2b065"><td class="memTemplParams" colspan="2">template&lt;class char_type , class ostream_type &gt; </td></tr>
 <tr class="memitem:abc701dece8f6d0e9d38310d936b2b065 inherit pub_static_methods_classttmath_1_1UInt"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#abc701dece8f6d0e9d38310d936b2b065">PrintVectorLog</a> (const char_type *msg, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> carry, ostream_type &amp;output, const <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *vector, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> vector_len)</td></tr>
 <tr class="separator:abc701dece8f6d0e9d38310d936b2b065 inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8773b87be5ce9346232dc64540b816a inherit pub_static_methods_classttmath_1_1UInt" id="r_ad8773b87be5ce9346232dc64540b816a"><td class="memItemLeft" align="right" valign="top">
-static <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AddTwoWords</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> a, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> carry, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *result)</td></tr>
-<tr class="separator:ad8773b87be5ce9346232dc64540b816a inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f61c05cf6f5fef6dfe70911531ac39d inherit pub_static_methods_classttmath_1_1UInt" id="r_a8f61c05cf6f5fef6dfe70911531ac39d"><td class="memItemLeft" align="right" valign="top">
-static <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SubTwoWords</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> a, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> carry, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *result)</td></tr>
-<tr class="separator:a8f61c05cf6f5fef6dfe70911531ac39d inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fba41ee601aa3aacb8f94670ea94408 inherit pub_static_methods_classttmath_1_1UInt" id="r_a4fba41ee601aa3aacb8f94670ea94408"><td class="memItemLeft" align="right" valign="top">
-static const char *&#160;</td><td class="memItemRight" valign="bottom"><b>LibTypeStr</b> ()</td></tr>
-<tr class="separator:a4fba41ee601aa3aacb8f94670ea94408 inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a9987a235ebaeeffa1824fee7d30f0 inherit pub_static_methods_classttmath_1_1UInt" id="r_a93a9987a235ebaeeffa1824fee7d30f0"><td class="memItemLeft" align="right" valign="top">
-static <a class="el" href="namespacettmath.html#a5c3bd12cd3d050852a60e022e5e12799">LibTypeCode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LibType</b> ()</td></tr>
-<tr class="separator:a93a9987a235ebaeeffa1824fee7d30f0 inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b08646a481057b2eaaa1e960fdb850 inherit pub_static_methods_classttmath_1_1UInt" id="r_a70b08646a481057b2eaaa1e960fdb850"><td class="memItemLeft" align="right" valign="top">
-static <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>AddVector</b> (const <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *ss1, const <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *ss2, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> ss1_size, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> ss2_size, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *result)</td></tr>
-<tr class="separator:a70b08646a481057b2eaaa1e960fdb850 inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21c36a8951d8191fe563664afc2d9842 inherit pub_static_methods_classttmath_1_1UInt" id="r_a21c36a8951d8191fe563664afc2d9842"><td class="memItemLeft" align="right" valign="top">
-static <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SubVector</b> (const <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *ss1, const <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *ss2, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> ss1_size, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> ss2_size, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *result)</td></tr>
-<tr class="separator:a21c36a8951d8191fe563664afc2d9842 inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48fa33b2511b8b153589c2c84f3a0309 inherit pub_static_methods_classttmath_1_1UInt" id="r_a48fa33b2511b8b153589c2c84f3a0309"><td class="memItemLeft" align="right" valign="top">
-static sint&#160;</td><td class="memItemRight" valign="bottom"><b>FindLeadingBitInWord</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> x)</td></tr>
-<tr class="separator:a48fa33b2511b8b153589c2c84f3a0309 inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa50ac818f3b827cbf5117e2b1d96ebb9 inherit pub_static_methods_classttmath_1_1UInt" id="r_aa50ac818f3b827cbf5117e2b1d96ebb9"><td class="memItemLeft" align="right" valign="top">
-static sint&#160;</td><td class="memItemRight" valign="bottom"><b>FindLowestBitInWord</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> x)</td></tr>
-<tr class="separator:aa50ac818f3b827cbf5117e2b1d96ebb9 inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae50b571f0b9eb4f1f0ccdee3dc6b12a2 inherit pub_static_methods_classttmath_1_1UInt" id="r_ae50b571f0b9eb4f1f0ccdee3dc6b12a2"><td class="memItemLeft" align="right" valign="top">
-static <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SetBitInWord</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> &amp;value, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> bit)</td></tr>
-<tr class="separator:ae50b571f0b9eb4f1f0ccdee3dc6b12a2 inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a725e31c2fbe12368c18c5c308da7239f inherit pub_static_methods_classttmath_1_1UInt" id="r_a725e31c2fbe12368c18c5c308da7239f"><td class="memItemLeft" align="right" valign="top">
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>MulTwoWords</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> a, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *result_high, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *result_low)</td></tr>
-<tr class="separator:a725e31c2fbe12368c18c5c308da7239f inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5e5fcf1bccc940c90896362908bc88a inherit pub_static_methods_classttmath_1_1UInt" id="r_aa5e5fcf1bccc940c90896362908bc88a"><td class="memItemLeft" align="right" valign="top">
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>DivTwoWords</b> (<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> a, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> b, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> c, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *r, <a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> *rest)</td></tr>
-<tr class="separator:aa5e5fcf1bccc940c90896362908bc88a inherit pub_static_methods_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classttmath_1_1UInt"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_classttmath_1_1UInt')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classttmath_1_1UInt.html">ttmath::UInt&lt; value_size &gt;</a></td></tr>
 <tr class="memitem:a54c67e2e3d1a4d6ea96e828d15c4443a inherit pub_attribs_classttmath_1_1UInt" id="r_a54c67e2e3d1a4d6ea96e828d15c4443a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttmath_1_1UInt.html#a54c67e2e3d1a4d6ea96e828d15c4443a">table</a> [value_size]</td></tr>
 <tr class="separator:a54c67e2e3d1a4d6ea96e828d15c4443a inherit pub_attribs_classttmath_1_1UInt"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1277,6 +1103,38 @@ template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dd
 
 </div>
 </div>
+<a id="a5310a13af17741dd25fcbedc939e0796" name="a5310a13af17741dd25fcbedc939e0796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5310a13af17741dd25fcbedc939e0796">&#9670;&#160;</a></span>CorrectCarryAfterAdding()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value_size&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="el" href="classttmath_1_1Int.html">ttmath::Int</a>&lt; value_size &gt;::CorrectCarryAfterAdding </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>p1_is_sign</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>p2_is_sign</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>basic mathematic functions </p>
+
+</div>
+</div>
 <a id="a2bc659d2f8aa94cf17ee5650d06119f2" name="a2bc659d2f8aa94cf17ee5650d06119f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2bc659d2f8aa94cf17ee5650d06119f2">&#9670;&#160;</a></span>Div()</h2>
 
@@ -1687,6 +1545,50 @@ template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dd
 
 </div>
 </div>
+<a id="ad0a49dd12631db283ffc04e2d1e464e2" name="ad0a49dd12631db283ffc04e2d1e464e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0a49dd12631db283ffc04e2d1e464e2">&#9670;&#160;</a></span>FromStringBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value_size&gt; </div>
+<div class="memtemplate">
+template&lt;class char_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="el" href="classttmath_1_1Int.html">ttmath::Int</a>&lt; value_size &gt;::FromStringBase </td>
+          <td>(</td>
+          <td class="paramtype">const char_type *</td>          <td class="paramname"><span class="paramname"><em>s</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a></td>          <td class="paramname"><span class="paramname"><em>b</em><span class="paramdefsep"> = </span><span class="paramdefval">10</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char_type **</td>          <td class="paramname"><span class="paramname"><em>after_source</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>value_read</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>an auxiliary method for converting from a string </p>
+
+</div>
+</div>
 <a id="afa430b83b581bc863949facde3165103" name="afa430b83b581bc863949facde3165103"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa430b83b581bc863949facde3165103">&#9670;&#160;</a></span>FromUInt() <span class="overload">[1/3]</span></h2>
 
@@ -1770,6 +1672,75 @@ template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dd
 </table>
 </div><div class="memdoc">
 <p>this method converts unsigned 64 bit int type to this class this method is created only on a 32bit platform*** </p>
+
+</div>
+</div>
+<a id="a16b4cca6f4f9e3c3860441c2a98d2e2c" name="a16b4cca6f4f9e3c3860441c2a98d2e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b4cca6f4f9e3c3860441c2a98d2e2c">&#9670;&#160;</a></span>FromUIntOrInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value_size&gt; </div>
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> argument_size&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="el" href="classttmath_1_1Int.html">ttmath::Int</a>&lt; value_size &gt;::FromUIntOrInt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classttmath_1_1UInt.html">UInt</a>&lt; argument_size &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>UInt_type</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>convertion methods</p>
+<p>an auxiliary method for converting both from <a class="el" href="classttmath_1_1UInt.html" title="UInt implements a big integer value without a sign.">UInt</a> and <a class="el" href="classttmath_1_1Int.html" title="Int implements a big integer value with a sign.">Int</a> </p>
+
+</div>
+</div>
+<a id="a1de694c7a7d82ae42dfd7252dc40cf2e" name="a1de694c7a7d82ae42dfd7252dc40cf2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1de694c7a7d82ae42dfd7252dc40cf2e">&#9670;&#160;</a></span>InputFromStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value_size&gt; </div>
+<div class="memtemplate">
+template&lt;class istream_type , class string_type , class char_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static istream_type &amp; <a class="el" href="classttmath_1_1Int.html">ttmath::Int</a>&lt; value_size &gt;::InputFromStream </td>
+          <td>(</td>
+          <td class="paramtype">istream_type &amp;</td>          <td class="paramname"><span class="paramname"><em>s</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>l</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>an auxiliary method for converting from a string </p>
 
 </div>
 </div>
@@ -2288,6 +2259,41 @@ template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dd
 
 </div>
 </div>
+<a id="a7c024e7f027a5b6f143dbbc50c82f812" name="a7c024e7f027a5b6f143dbbc50c82f812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c024e7f027a5b6f143dbbc50c82f812">&#9670;&#160;</a></span>OutputToStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value_size&gt; </div>
+<div class="memtemplate">
+template&lt;class ostream_type , class string_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ostream_type &amp; <a class="el" href="classttmath_1_1Int.html">ttmath::Int</a>&lt; value_size &gt;::OutputToStream </td>
+          <td>(</td>
+          <td class="paramtype">ostream_type &amp;</td>          <td class="paramname"><span class="paramname"><em>s</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>l</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>input/output operators for standard streams</p>
+<p>an auxiliary method for outputing to standard streams </p>
+
+</div>
+</div>
 <a id="a6e523cc29589e77186b02236aa3538de" name="a6e523cc29589e77186b02236aa3538de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e523cc29589e77186b02236aa3538de">&#9670;&#160;</a></span>Pow()</h2>
 
@@ -2318,6 +2324,34 @@ template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dd
 <li>1 - carry</li>
 <li>2 - incorrect arguments 0^0 or 0^(-something) </li>
 </ul>
+
+</div>
+</div>
+<a id="aa722d069df6974e9a8a26d9ed353596b" name="aa722d069df6974e9a8a26d9ed353596b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa722d069df6974e9a8a26d9ed353596b">&#9670;&#160;</a></span>Pow2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value_size&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> <a class="el" href="classttmath_1_1Int.html">ttmath::Int</a>&lt; value_size &gt;::Pow2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classttmath_1_1Int.html">Int</a>&lt; value_size &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pow</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>power this = this ^ pow this can be negative pow is &gt;= 0 </p>
 
 </div>
 </div>
@@ -2764,6 +2798,40 @@ template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dd
 </table>
 </div><div class="memdoc">
 <p>this method converts the value to a string with a base equal 'b' </p>
+
+</div>
+</div>
+<a id="a1f3d400368e646ec3bd1d286b5b9f7e5" name="a1f3d400368e646ec3bd1d286b5b9f7e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f3d400368e646ec3bd1d286b5b9f7e5">&#9670;&#160;</a></span>ToStringBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a> value_size&gt; </div>
+<div class="memtemplate">
+template&lt;class string_type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classttmath_1_1Int.html">ttmath::Int</a>&lt; value_size &gt;::ToStringBase </td>
+          <td>(</td>
+          <td class="paramtype">string_type &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7">uint</a></td>          <td class="paramname"><span class="paramname"><em>b</em><span class="paramdefsep"> = </span><span class="paramdefval">10</span></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>an auxiliary method for converting to a string </p>
 
 </div>
 </div>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['variablestable_0',['VariablesTable',['../classttmath_1_1Parser.html#a6083f87b779289c18f378642b53833ca',1,'ttmath::Parser']]]
+  ['uint_0',['uint',['../namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7',1,'ttmath']]],
+  ['ulint_1',['ulint',['../namespacettmath.html#a91ce40c9d465ab13366ef3784286e6d8',1,'ttmath']]]
 ];

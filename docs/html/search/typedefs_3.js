@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['uint_0',['uint',['../namespacettmath.html#a9897e861179132b64f0e2640dde9d7b7',1,'ttmath']]],
-  ['ulint_1',['ulint',['../namespacettmath.html#a91ce40c9d465ab13366ef3784286e6d8',1,'ttmath']]]
+  ['pfunction_0',['pfunction',['../classttmath_1_1Parser.html#a018577c3b2ff6a90b4e35ecce3a89044',1,'ttmath::Parser']]],
+  ['pfunction_5fvar_1',['pfunction_var',['../classttmath_1_1Parser.html#a4359c79a148bbac45a4c123094d1769c',1,'ttmath::Parser']]]
 ];

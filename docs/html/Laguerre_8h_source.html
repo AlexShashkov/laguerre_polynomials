@@ -117,7 +117,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">//</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> T eps   = std::numeric_limits&lt;T&gt;::epsilon();</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> laguer(<span class="keyword">const</span> std::vector&lt;std::complex&lt;T&gt;&gt;&amp; a, std::complex&lt;T&gt;&amp; x, <span class="keywordtype">int</span>&amp; converged, <span class="keywordtype">int</span> itmax){        </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classLaguerre_1_1Original.html#aa36a248c344f0a7f4b1ea95988ad605a">   31</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classLaguerre_1_1Original.html#aa36a248c344f0a7f4b1ea95988ad605a">laguer</a>(<span class="keyword">const</span> std::vector&lt;std::complex&lt;T&gt;&gt;&amp; a, std::complex&lt;T&gt;&amp; x, <span class="keywordtype">int</span>&amp; converged, <span class="keywordtype">int</span> itmax){        </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        converged = 1;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        std::complex&lt;T&gt; dx, x1, b, d, f, g, h, sq, gp, gm, g2;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        T err, abx, abp, abm;</div>
@@ -158,6 +159,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        converged = -1;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="comment">// throw &quot;Too many iterations!&quot;;</span></div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">public</span>:</div>
@@ -183,7 +185,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="comment">// Start at zero to favor convergence to the smallest remaining root.</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            ad_v = std::vector&lt;std::complex&lt;T&gt;&gt;(ad.cbegin(), ad.cbegin() + j + 2);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            laguer(ad_v, x, conv[j], itmax);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <a class="code hl_function" href="classLaguerre_1_1Original.html#aa36a248c344f0a7f4b1ea95988ad605a">laguer</a>(ad_v, x, conv[j], itmax);</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            x.imag(std::abs(imag(x)) &lt;= std::abs(real(x)) * eps ? <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0) : x.imag());</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            roots[j] = x;</div>
@@ -224,6 +226,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassBaseSolver_html"><div class="ttname"><a href="classBaseSolver.html">BaseSolver</a></div><div class="ttdef"><b>Definition</b> BaseSolver.h:7</div></div>
 <div class="ttc" id="aclassLaguerre_1_1Original_html"><div class="ttname"><a href="classLaguerre_1_1Original.html">Laguerre::Original</a></div><div class="ttdef"><b>Definition</b> Laguerre.h:21</div></div>
 <div class="ttc" id="aclassLaguerre_1_1Original_html_a03169c891eccb0b2af5be5e274a25770"><div class="ttname"><a href="classLaguerre_1_1Original.html#a03169c891eccb0b2af5be5e274a25770">Laguerre::Original::operator()</a></div><div class="ttdeci">void operator()(std::vector&lt; T &gt; &amp;poly, std::vector&lt; std::complex&lt; T &gt; &gt; &amp;roots, std::vector&lt; int &gt; &amp;conv, int itmax=80) override</div><div class="ttdoc">Find the roots of a polynomial using Laguerre's method.</div><div class="ttdef"><b>Definition</b> Laguerre.h:86</div></div>
+<div class="ttc" id="aclassLaguerre_1_1Original_html_aa36a248c344f0a7f4b1ea95988ad605a"><div class="ttname"><a href="classLaguerre_1_1Original.html#aa36a248c344f0a7f4b1ea95988ad605a">Laguerre::Original::laguer</a></div><div class="ttdeci">void laguer(const std::vector&lt; std::complex&lt; T &gt; &gt; &amp;a, std::complex&lt; T &gt; &amp;x, int &amp;converged, int itmax)</div><div class="ttdoc">Laguerre's method to find a root of a polynomial.</div><div class="ttdef"><b>Definition</b> Laguerre.h:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

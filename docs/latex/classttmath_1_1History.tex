@@ -4,6 +4,11 @@
 
 {\ttfamily \#include $<$ttmathobjects.\+h$>$}
 
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttmath_1_1History_1_1Item}{Item}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -17,6 +22,11 @@ bool \mbox{\hyperlink{classttmath_1_1History_a3e39816d5a57a0f510aa01fc0cf4bc7e}{
 \item 
 bool \mbox{\hyperlink{classttmath_1_1History_adfcd26d5a29b9d3f7a77b333419db57c}{Remove}} (const Value\+Type \&key)
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::list$<$ \mbox{\hyperlink{structttmath_1_1History_1_1Item}{Item}} $>$ \mbox{\hyperlink{classttmath_1_1History_ac34bfdab0e1a4b141b2e6f8559626b50}{buffer\+\_\+type}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -25,6 +35,16 @@ class ttmath\+::\+History$<$ Value\+Type $>$}
 objects of the class \doxylink{classttmath_1_1History}{History} are used to keep values in functions which take a lot of time during calculating, for instance in the function Factorial(x)
 
 it means that when we\textquotesingle{}re calculating e.\+g. Factorial(1000) and the Factorial finds that we have calculated it before, the value (result) is taken from the history 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classttmath_1_1History_ac34bfdab0e1a4b141b2e6f8559626b50}\label{classttmath_1_1History_ac34bfdab0e1a4b141b2e6f8559626b50} 
+\index{ttmath::History$<$ ValueType $>$@{ttmath::History$<$ ValueType $>$}!buffer\_type@{buffer\_type}}
+\index{buffer\_type@{buffer\_type}!ttmath::History$<$ ValueType $>$@{ttmath::History$<$ ValueType $>$}}
+\doxysubsubsection{\texorpdfstring{buffer\_type}{buffer\_type}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+typedef std\+::list$<$\mbox{\hyperlink{structttmath_1_1History_1_1Item}{Item}}$>$ \mbox{\hyperlink{classttmath_1_1History}{ttmath\+::\+History}}$<$ Value\+Type $>$\+::buffer\+\_\+type\hspace{0.3cm}{\ttfamily [private]}}
+
+we use std\+::list for simply deleting the first item but because we\textquotesingle{}re searching through the whole container (in the method Get) the container should not be too big (linear time of searching) 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classttmath_1_1History_a25f0a380eb1133ef7b9446dbd0a75299}\label{classttmath_1_1History_a25f0a380eb1133ef7b9446dbd0a75299} 

@@ -11,9 +11,32 @@ Inheritance diagram for Laguerre\+::Original\texorpdfstring{$<$}{<} T \texorpdfs
 \item 
 void \mbox{\hyperlink{classLaguerre_1_1Original_a03169c891eccb0b2af5be5e274a25770}{operator()}} (std\+::vector$<$ T $>$ \&poly, std\+::vector$<$ std\+::complex$<$ T $>$ $>$ \&roots, std\+::vector$<$ int $>$ \&conv, int itmax=80) override
 \begin{DoxyCompactList}\small\item\em Find the roots of a polynomial using Laguerre\textquotesingle{}s method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLaguerre_1_1Original_aa36a248c344f0a7f4b1ea95988ad605a}{laguer}} (const std\+::vector$<$ std\+::complex$<$ T $>$ $>$ \&a, std\+::complex$<$ T $>$ \&x, int \&converged, int itmax)
+\begin{DoxyCompactList}\small\item\em Laguerre\textquotesingle{}s method to find a root of a polynomial. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classLaguerre_1_1Original_aa36a248c344f0a7f4b1ea95988ad605a}\label{classLaguerre_1_1Original_aa36a248c344f0a7f4b1ea95988ad605a} 
+\index{Laguerre::Original$<$ T $>$@{Laguerre::Original$<$ T $>$}!laguer@{laguer}}
+\index{laguer@{laguer}!Laguerre::Original$<$ T $>$@{Laguerre::Original$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{laguer()}{laguer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classLaguerre_1_1Original}{Laguerre\+::\+Original}}$<$ T $>$\+::laguer (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::complex$<$ T $>$ $>$ \&}]{a,  }\item[{std\+::complex$<$ T $>$ \&}]{x,  }\item[{int \&}]{converged,  }\item[{int}]{itmax }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Laguerre\textquotesingle{}s method to find a root of a polynomial. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxylink{classLaguerre_1_1Polynomial}{Polynomial} object. \\
+\hline
+{\em x} & Initial guess for the root. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classLaguerre_1_1Original_a03169c891eccb0b2af5be5e274a25770}\label{classLaguerre_1_1Original_a03169c891eccb0b2af5be5e274a25770} 
 \index{Laguerre::Original$<$ T $>$@{Laguerre::Original$<$ T $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!Laguerre::Original$<$ T $>$@{Laguerre::Original$<$ T $>$}}

@@ -131,7 +131,7 @@
 \DoxyCodeLine{00178\ }
 \DoxyCodeLine{00185\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00186\ }
-\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ CorrectCarryAfterAdding(\textcolor{keywordtype}{bool}\ p1\_is\_sign,\ \textcolor{keywordtype}{bool}\ p2\_is\_sign)}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_a5310a13af17741dd25fcbedc939e0796}{CorrectCarryAfterAdding}}(\textcolor{keywordtype}{bool}\ p1\_is\_sign,\ \textcolor{keywordtype}{bool}\ p2\_is\_sign)}
 \DoxyCodeLine{00188\ \ \ \ \ \{}
 \DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !p1\_is\_sign\ \&\&\ !p2\_is\_sign\ )}
 \DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \{}
@@ -141,7 +141,7 @@
 \DoxyCodeLine{00194\ }
 \DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ p1\_is\_sign\ \&\&\ p2\_is\_sign\ )}
 \DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \{\ \ \ }
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !\ \mbox{\hyperlink{classttmath_1_1UInt_a2421734423858544d65515584fa4683c}{UInt<value\_size>::IsTheHighestBitSet}}()\ )}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !\ \mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::IsTheHighestBitSet}}()\ )}
 \DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
 \DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00200\ }
@@ -158,7 +158,7 @@
 \DoxyCodeLine{00224\ }
 \DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::Add}}(ss2);\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00226\ }
-\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{return}\ CorrectCarryAfterAdding(p1\_is\_sign,\ p2\_is\_sign);}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a5310a13af17741dd25fcbedc939e0796}{CorrectCarryAfterAdding}}(p1\_is\_sign,\ p2\_is\_sign);}
 \DoxyCodeLine{00228\ \ \ \ \ \}}
 \DoxyCodeLine{00229\ }
 \DoxyCodeLine{00230\ }
@@ -168,7 +168,7 @@
 \DoxyCodeLine{00240\ }
 \DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::AddInt}}(value,\ index);\ \ \ \ \ }
 \DoxyCodeLine{00242\ }
-\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordflow}{return}\ CorrectCarryAfterAdding(p1\_is\_sign,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a5310a13af17741dd25fcbedc939e0796}{CorrectCarryAfterAdding}}(p1\_is\_sign,\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00244\ \ \ \ \ \}}
 \DoxyCodeLine{00245\ }
 \DoxyCodeLine{00246\ }
@@ -178,7 +178,7 @@
 \DoxyCodeLine{00259\ }
 \DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::AddTwoInts}}(x2,\ x1,\ index);\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00261\ }
-\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordflow}{return}\ CorrectCarryAfterAdding(p1\_is\_sign,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a5310a13af17741dd25fcbedc939e0796}{CorrectCarryAfterAdding}}(p1\_is\_sign,\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00263\ \ \ \ \ \}}
 \DoxyCodeLine{00264\ }
 \DoxyCodeLine{00265\ \textcolor{keyword}{private}:}
@@ -229,7 +229,7 @@
 \DoxyCodeLine{00330\ }
 \DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classttmath_1_1UInt_aaa62dbe97d8e2ceb434c5c3cac9cd0e1}{UInt<value\_size>::AddOne}}();\ \ \ \ \ }
 \DoxyCodeLine{00332\ }
-\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{return}\ CorrectCarryAfterAdding(p1\_is\_sign,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a5310a13af17741dd25fcbedc939e0796}{CorrectCarryAfterAdding}}(p1\_is\_sign,\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00334\ \ \ \ \ \}}
 \DoxyCodeLine{00335\ }
 \DoxyCodeLine{00336\ }
@@ -425,7 +425,7 @@
 \DoxyCodeLine{00569\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00570\ }
 \DoxyCodeLine{00571\ }
-\DoxyCodeLine{00577\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ Pow2(\textcolor{keyword}{const}\ Int<value\_size>\ \&\ pow)}
+\DoxyCodeLine{00577\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_aa722d069df6974e9a8a26d9ed353596b}{Pow2}}(\textcolor{keyword}{const}\ Int<value\_size>\ \&\ pow)}
 \DoxyCodeLine{00578\ \ \ \ \ \{}
 \DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ was\_sign\ =\ \mbox{\hyperlink{classttmath_1_1Int_af91fdc65105f7ceb071c2a8a98d0cbfb}{IsSign}}();}
 \DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
@@ -451,7 +451,7 @@
 \DoxyCodeLine{00608\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_a6e523cc29589e77186b02236aa3538de}{Pow}}(Int<value\_size>\ pow)}
 \DoxyCodeLine{00609\ \ \ \ \ \{}
 \DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !pow.IsSign()\ )}
-\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Pow2(pow);}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_aa722d069df6974e9a8a26d9ed353596b}{Pow2}}(pow);}
 \DoxyCodeLine{00612\ }
 \DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::IsZero}}()\ )}
 \DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ 'pow'\ is\ negative\ then}}
@@ -479,7 +479,7 @@
 \DoxyCodeLine{00641\ }
 \DoxyCodeLine{00642\ }
 \DoxyCodeLine{00646\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ argument\_size>}
-\DoxyCodeLine{00647\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ FromUIntOrInt(\textcolor{keyword}{const}\ UInt<argument\_size>\ \&\ p,\ \textcolor{keywordtype}{bool}\ UInt\_type)}
+\DoxyCodeLine{00647\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_a16b4cca6f4f9e3c3860441c2a98d2e2c}{FromUIntOrInt}}(\textcolor{keyword}{const}\ UInt<argument\_size>\ \&\ p,\ \textcolor{keywordtype}{bool}\ UInt\_type)}
 \DoxyCodeLine{00648\ \ \ \ \ \{}
 \DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ min\_size\ =\ (value\_size\ <\ argument\_size)?\ value\_size\ :\ argument\_size;}
 \DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ i;}
@@ -504,7 +504,7 @@
 \DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
 \DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ test\ =\ (\mbox{\hyperlink{classttmath_1_1UInt_a54c67e2e3d1a4d6ea96e828d15c4443a}{UInt<value\_size>::table}}[value\_size-\/1]\ \&\ \mbox{\hyperlink{ttmathtypes_8h_a0ccaf279c13b1d747ef8c4690d84b5dd}{TTMATH\_UINT\_HIGHEST\_BIT}})?}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ test\ =\ (\mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::table}}[value\_size-\/1]\ \&\ \mbox{\hyperlink{ttmathtypes_8h_a0ccaf279c13b1d747ef8c4690d84b5dd}{TTMATH\_UINT\_HIGHEST\_BIT}})?}
 \DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ttmathtypes_8h_a3af4b841f70a529a150c820780e1eb40}{TTMATH\_UINT\_MAX\_VALUE}}\ :\ 0;}
 \DoxyCodeLine{00674\ }
 \DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ UInt\_type\ \&\&\ test!=0\ )}
@@ -523,7 +523,7 @@
 \DoxyCodeLine{00696\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ argument\_size>}
 \DoxyCodeLine{00697\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_a9114adb3f73a64079005a5deaaf08d8f}{FromInt}}(\textcolor{keyword}{const}\ Int<argument\_size>\ \&\ p)}
 \DoxyCodeLine{00698\ \ \ \ \ \{}
-\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FromUIntOrInt(p,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a16b4cca6f4f9e3c3860441c2a98d2e2c}{FromUIntOrInt}}(p,\ \textcolor{keyword}{false});}
 \DoxyCodeLine{00700\ \ \ \ \ \}}
 \DoxyCodeLine{00701\ }
 \DoxyCodeLine{00702\ }
@@ -544,14 +544,14 @@
 \DoxyCodeLine{00723\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ argument\_size>}
 \DoxyCodeLine{00724\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_afa430b83b581bc863949facde3165103}{FromUInt}}(\textcolor{keyword}{const}\ UInt<argument\_size>\ \&\ p)}
 \DoxyCodeLine{00725\ \ \ \ \ \{}
-\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FromUIntOrInt(p,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a16b4cca6f4f9e3c3860441c2a98d2e2c}{FromUIntOrInt}}(p,\ \textcolor{keyword}{true});}
 \DoxyCodeLine{00727\ \ \ \ \ \}}
 \DoxyCodeLine{00728\ }
 \DoxyCodeLine{00729\ }
 \DoxyCodeLine{00733\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ argument\_size>}
 \DoxyCodeLine{00734\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_a5a9bb53359d6a20d3f9fbf66b7afe4ca}{FromInt}}(\textcolor{keyword}{const}\ UInt<argument\_size>\ \&\ p)}
 \DoxyCodeLine{00735\ \ \ \ \ \{}
-\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FromUIntOrInt(p,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a16b4cca6f4f9e3c3860441c2a98d2e2c}{FromUIntOrInt}}(p,\ \textcolor{keyword}{true});}
 \DoxyCodeLine{00737\ \ \ \ \ \}}
 \DoxyCodeLine{00738\ }
 \DoxyCodeLine{00739\ }
@@ -961,7 +961,7 @@
 \DoxyCodeLine{01307\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{01308\ }
 \DoxyCodeLine{01312\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ \textcolor{keywordtype}{string}\_type>}
-\DoxyCodeLine{01313\ \ \ \ \ \textcolor{keywordtype}{void}\ ToStringBase(string\_type\ \&\ result,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01313\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classttmath_1_1Int_a1f3d400368e646ec3bd1d286b5b9f7e5}{ToStringBase}}(string\_type\ \&\ result,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{01314\ \textcolor{keyword}{\ \ \ \ }\{}
 \DoxyCodeLine{01315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classttmath_1_1Int_af91fdc65105f7ceb071c2a8a98d0cbfb}{IsSign}}()\ )}
 \DoxyCodeLine{01316\ \ \ \ \ \ \ \ \ \{}
@@ -979,14 +979,14 @@
 \DoxyCodeLine{01328\ }
 \DoxyCodeLine{01332\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classttmath_1_1Int_a1a66925d9072d8822db12ecb6e05727c}{ToString}}(std::string\ \&\ result,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{01333\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{01334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ToStringBase(result,\ b);}
+\DoxyCodeLine{01334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a1f3d400368e646ec3bd1d286b5b9f7e5}{ToStringBase}}(result,\ b);}
 \DoxyCodeLine{01335\ \ \ \ \ \}}
 \DoxyCodeLine{01336\ }
 \DoxyCodeLine{01337\ }
 \DoxyCodeLine{01341\ \ \ \ \ std::string\ \mbox{\hyperlink{classttmath_1_1Int_a66f05e64f49505e7f16130883765ce7a}{ToString}}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{01342\ \textcolor{keyword}{\ \ \ \ }\{}
 \DoxyCodeLine{01343\ \ \ \ \ \ \ \ \ std::string\ result;}
-\DoxyCodeLine{01344\ \ \ \ \ \ \ \ \ ToStringBase(result,\ b);}
+\DoxyCodeLine{01344\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classttmath_1_1Int_a1f3d400368e646ec3bd1d286b5b9f7e5}{ToStringBase}}(result,\ b);}
 \DoxyCodeLine{01345\ }
 \DoxyCodeLine{01346\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
 \DoxyCodeLine{01347\ \ \ \ \ \}}
@@ -996,14 +996,14 @@
 \DoxyCodeLine{01351\ }
 \DoxyCodeLine{01355\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classttmath_1_1Int_a08a1be509e91e5489eb7c00cebfa60aa}{ToString}}(std::wstring\ \&\ result,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{01356\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{01357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ToStringBase(result,\ b);}
+\DoxyCodeLine{01357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_a1f3d400368e646ec3bd1d286b5b9f7e5}{ToStringBase}}(result,\ b);}
 \DoxyCodeLine{01358\ \ \ \ \ \}}
 \DoxyCodeLine{01359\ }
 \DoxyCodeLine{01360\ }
 \DoxyCodeLine{01364\ \ \ \ \ std::wstring\ \mbox{\hyperlink{classttmath_1_1Int_aaf0b1c00f8b0b8e2f47007a35426f0ab}{ToWString}}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{01365\ \textcolor{keyword}{\ \ \ \ }\{}
 \DoxyCodeLine{01366\ \ \ \ \ \ \ \ \ std::wstring\ result;}
-\DoxyCodeLine{01367\ \ \ \ \ \ \ \ \ ToStringBase(result,\ b);}
+\DoxyCodeLine{01367\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classttmath_1_1Int_a1f3d400368e646ec3bd1d286b5b9f7e5}{ToStringBase}}(result,\ b);}
 \DoxyCodeLine{01368\ }
 \DoxyCodeLine{01369\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
 \DoxyCodeLine{01370\ \ \ \ \ \}}
@@ -1015,7 +1015,7 @@
 \DoxyCodeLine{01376\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{01377\ }
 \DoxyCodeLine{01381\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ \textcolor{keywordtype}{char}\_type>}
-\DoxyCodeLine{01382\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ FromStringBase(\textcolor{keyword}{const}\ char\_type\ *\ s,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10,\ \textcolor{keyword}{const}\ char\_type\ **\ after\_source\ =\ 0,\ \textcolor{keywordtype}{bool}\ *\ value\_read\ =\ 0)}
+\DoxyCodeLine{01382\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_ad0a49dd12631db283ffc04e2d1e464e2}{FromStringBase}}(\textcolor{keyword}{const}\ char\_type\ *\ s,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10,\ \textcolor{keyword}{const}\ char\_type\ **\ after\_source\ =\ 0,\ \textcolor{keywordtype}{bool}\ *\ value\_read\ =\ 0)}
 \DoxyCodeLine{01383\ \ \ \ \ \{}
 \DoxyCodeLine{01384\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_sign\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{01385\ \ \ \ \ }
@@ -1032,7 +1032,7 @@
 \DoxyCodeLine{01396\ \ \ \ \ \ \ \ \ \ \ \ \ Misc::SkipWhiteCharacters(++s);}
 \DoxyCodeLine{01397\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{01398\ }
-\DoxyCodeLine{01399\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classttmath_1_1UInt_a57b749c77692b8d753b475a576d4d906}{UInt<value\_size>::FromString}}(s,b,after\_source,value\_read)\ )}
+\DoxyCodeLine{01399\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::FromString}}(s,b,after\_source,value\_read)\ )}
 \DoxyCodeLine{01400\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
 \DoxyCodeLine{01401\ }
 \DoxyCodeLine{01402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ is\_sign\ )}
@@ -1046,7 +1046,7 @@
 \DoxyCodeLine{01410\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\ UInt\ type}}
 \DoxyCodeLine{01411\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (this\ value\ can\ be\ equal\ mmin\ -\/-\/\ look\ at\ a\ description\ in\ ChangeSign())}}
 \DoxyCodeLine{01412\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ */}}
-\DoxyCodeLine{01413\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ UInt<value\_size>::operator>(\ mmin\ )\ )}
+\DoxyCodeLine{01413\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::operator}}>(\ mmin\ )\ )}
 \DoxyCodeLine{01414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
 \DoxyCodeLine{01415\ }
 \DoxyCodeLine{01416\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
@@ -1060,7 +1060,7 @@
 \DoxyCodeLine{01424\ }
 \DoxyCodeLine{01425\ \ \ \ \ \ \ \ \ \ \ \ \ mmax.SetMax();}
 \DoxyCodeLine{01426\ }
-\DoxyCodeLine{01427\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ UInt<value\_size>::operator>(\ mmax\ )\ )}
+\DoxyCodeLine{01427\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classttmath_1_1UInt}{UInt<value\_size>::operator}}>(\ mmax\ )\ )}
 \DoxyCodeLine{01428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
 \DoxyCodeLine{01429\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{01430\ }
@@ -1072,13 +1072,13 @@
 \DoxyCodeLine{01436\ }
 \DoxyCodeLine{01453\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_a650f84b24d9283af60c1c1127772af2c}{FromString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ s,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **\ after\_source\ =\ 0,\ \textcolor{keywordtype}{bool}\ *\ value\_read\ =\ 0)}
 \DoxyCodeLine{01454\ \ \ \ \ \{}
-\DoxyCodeLine{01455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FromStringBase(s,\ b,\ after\_source,\ value\_read);}
+\DoxyCodeLine{01455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_ad0a49dd12631db283ffc04e2d1e464e2}{FromStringBase}}(s,\ b,\ after\_source,\ value\_read);}
 \DoxyCodeLine{01456\ \ \ \ \ \}}
 \DoxyCodeLine{01457\ }
 \DoxyCodeLine{01458\ }
 \DoxyCodeLine{01462\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{classttmath_1_1Int_a9447d45a7cb8b731f2c22e5014eaf504}{FromString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}\ *\ s,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ 10,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}\ **\ after\_source\ =\ 0,\ \textcolor{keywordtype}{bool}\ *\ value\_read\ =\ 0)}
 \DoxyCodeLine{01463\ \ \ \ \ \{}
-\DoxyCodeLine{01464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FromStringBase(s,\ b,\ after\_source,\ value\_read);}
+\DoxyCodeLine{01464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classttmath_1_1Int_ad0a49dd12631db283ffc04e2d1e464e2}{FromStringBase}}(s,\ b,\ after\_source,\ value\_read);}
 \DoxyCodeLine{01465\ \ \ \ \ \}}
 \DoxyCodeLine{01466\ }
 \DoxyCodeLine{01467\ }
@@ -1379,7 +1379,7 @@
 \DoxyCodeLine{01813\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{01814\ }
 \DoxyCodeLine{01818\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ostream\_type,\ \textcolor{keyword}{class}\ \textcolor{keywordtype}{string}\_type>}
-\DoxyCodeLine{01819\ \ \ \ \ \textcolor{keyword}{static}\ ostream\_type\ \&\ OutputToStream(ostream\_type\ \&\ s,\ \textcolor{keyword}{const}\ Int<value\_size>\ \&\ l)}
+\DoxyCodeLine{01819\ \ \ \ \ \textcolor{keyword}{static}\ ostream\_type\ \&\ \mbox{\hyperlink{classttmath_1_1Int_a7c024e7f027a5b6f143dbbc50c82f812}{OutputToStream}}(ostream\_type\ \&\ s,\ \textcolor{keyword}{const}\ Int<value\_size>\ \&\ l)}
 \DoxyCodeLine{01820\ \ \ \ \ \{}
 \DoxyCodeLine{01821\ \ \ \ \ string\_type\ ss;}
 \DoxyCodeLine{01822\ }
@@ -1414,7 +1414,7 @@
 \DoxyCodeLine{01857\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{01858\ }
 \DoxyCodeLine{01862\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ istream\_type,\ \textcolor{keyword}{class}\ \textcolor{keywordtype}{string}\_type,\ \textcolor{keyword}{class}\ \textcolor{keywordtype}{char}\_type>}
-\DoxyCodeLine{01863\ \ \ \ \ \textcolor{keyword}{static}\ istream\_type\ \&\ InputFromStream(istream\_type\ \&\ s,\ Int<value\_size>\ \&\ l)}
+\DoxyCodeLine{01863\ \ \ \ \ \textcolor{keyword}{static}\ istream\_type\ \&\ \mbox{\hyperlink{classttmath_1_1Int_a1de694c7a7d82ae42dfd7252dc40cf2e}{InputFromStream}}(istream\_type\ \&\ s,\ Int<value\_size>\ \&\ l)}
 \DoxyCodeLine{01864\ \ \ \ \ \{}
 \DoxyCodeLine{01865\ \ \ \ \ string\_type\ ss;}
 \DoxyCodeLine{01866\ \ \ \ \ }

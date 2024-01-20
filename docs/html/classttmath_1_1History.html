@@ -89,7 +89,9 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="classttmath_1_1History-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ttmath::History&lt; ValueType &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -97,6 +99,11 @@ $(function(){ initResizable(false); });
 
 <p><code>#include &lt;<a class="el" href="ttmathobjects_8h_source.html">ttmathobjects.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structttmath_1_1History_1_1Item.html">Item</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a25f0a380eb1133ef7b9446dbd0a75299" id="r_a25f0a380eb1133ef7b9446dbd0a75299"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25f0a380eb1133ef7b9446dbd0a75299">History</a> ()</td></tr>
@@ -109,12 +116,43 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3e39816d5a57a0f510aa01fc0cf4bc7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfcd26d5a29b9d3f7a77b333419db57c" id="r_adfcd26d5a29b9d3f7a77b333419db57c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfcd26d5a29b9d3f7a77b333419db57c">Remove</a> (const ValueType &amp;key)</td></tr>
 <tr class="separator:adfcd26d5a29b9d3f7a77b333419db57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:ac34bfdab0e1a4b141b2e6f8559626b50" id="r_ac34bfdab0e1a4b141b2e6f8559626b50"><td class="memItemLeft" align="right" valign="top">typedef std::list&lt; <a class="el" href="structttmath_1_1History_1_1Item.html">Item</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac34bfdab0e1a4b141b2e6f8559626b50">buffer_type</a></td></tr>
+<tr class="separator:ac34bfdab0e1a4b141b2e6f8559626b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class ValueType&gt;<br />
 class ttmath::History&lt; ValueType &gt;</div><p>objects of the class <a class="el" href="classttmath_1_1History.html">History</a> are used to keep values in functions which take a lot of time during calculating, for instance in the function Factorial(x)</p>
 <p>it means that when we're calculating e.g. Factorial(1000) and the Factorial finds that we have calculated it before, the value (result) is taken from the history </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ac34bfdab0e1a4b141b2e6f8559626b50" name="ac34bfdab0e1a4b141b2e6f8559626b50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac34bfdab0e1a4b141b2e6f8559626b50">&#9670;&#160;</a></span>buffer_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ValueType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::list&lt;<a class="el" href="structttmath_1_1History_1_1Item.html">Item</a>&gt; <a class="el" href="classttmath_1_1History.html">ttmath::History</a>&lt; ValueType &gt;::buffer_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>we use std::list for simply deleting the first item but because we're searching through the whole container (in the method Get) the container should not be too big (linear time of searching) </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a25f0a380eb1133ef7b9446dbd0a75299" name="a25f0a380eb1133ef7b9446dbd0a75299"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25f0a380eb1133ef7b9446dbd0a75299">&#9670;&#160;</a></span>History() <span class="overload">[1/2]</span></h2>
 
