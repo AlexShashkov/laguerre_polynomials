@@ -1,0 +1,197 @@
+\doxysection{Laguerre15m.\+h}
+\hypertarget{Laguerre15m_8h_source}{}\label{Laguerre15m_8h_source}\index{headers/Laguerre15m.h@{headers/Laguerre15m.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keywordtype}{int}\ tdeg;}
+\DoxyCodeLine{00004\ \textcolor{keywordtype}{void}\ bernoullid()\{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keywordtype}{int}\ k,\ k0,\ steps,\ n,\ kn1,\ be,\ se;}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{float}\ cla,\ kden,asa,qsa,i,j,\ s,t,\ pn,u1,u2,res3,d1,terr1;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordflow}{while}(tca[k]\ !=\ 0\ \&\&\ k\ <\ tdeg)\{++k;\}}
+\DoxyCodeLine{00009\ \ \ \ \ k0\ =\ k;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ kden\ =\ -\/tca[0]/(k0*tca[k0]);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ *kia\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[steps+1];\ \textcolor{comment}{//\ each\ element\ equal\ to\ k0}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ *tqa\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[steps+1];\ \textcolor{comment}{//\ each\ element\ equal\ to\ tdeg*kden}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ *asa\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[tdeg+1];\ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ *qsa\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{int}[tdeg+1];\ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ n=0;\ n\ <\ steps;\ ++n)\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ kn1\ =\ kia[n-\/1];}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(kn\ !=\ n)\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ kia[n]=kn1;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ tqa[n]=0;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ k=n;\ be=std::max(0,n-\/tdeg);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(pn\ !=\ 0\ \&\&\ k\ !=\ tdeg)\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ k+=1;\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ se=std::min(k,tdeg);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ t=k-\/n+1;\ t\ <=\ se;\ ++t)\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ asa[t]\ =\ tqa[k-\/t]\ !=\ 0\ ?\ tca[t]\ :\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ s=k-\/t-\/be;\ n-\/1-\/be;\ ++s)\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qsa[0]\ =\ (s+be\ ==\ 0)*(k*kden)\ +\ (s+be\ !=\ 0)*qsa[0];}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qsa[s]\ =\ (s+be\ ==\ 0)*(tqa[s+be]\ !=\ 0\ ?\ tqa[s+be]\ :\ 1);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ pn\ =\ se<=k-\/n\ ?\ 0\ :\ asa[se]*qsa[k-\/se-\/be];}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ se;\ j\ >=\ k-\/n+2;\ -\/-\/j)\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pn\ =\ (pn+asa[j-\/1])*qsa[k-\/j-\/be+1];}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ pn=pn+tca[k-\/n];}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ kia[n]\ =k;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pn\ ==\ 0)\ \textcolor{keywordflow}{return}\ [];\ \textcolor{comment}{//\ ????}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ tqa[n]\ =-\/tca[0]/pn;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ terr1\ =\ err(tp,\ tqa[steps],\ \textcolor{keyword}{true})[0];}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}(terr1\ is\ not\ finite)\ \textcolor{keywordflow}{throw}\ error;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}(terr\ <\ eps)\ \textcolor{keywordflow}{return}\ [tqa[steps],terr1];}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ lam\ =\ (!flag\_min)*lam\ +\ flag\_min*terr1;}
+\DoxyCodeLine{00056\ \ \ \ \ ats\ =\ (!flag\_min)*ats\ +\ flag\_min*tshift;}
+\DoxyCodeLine{00057\ \ \ \ \ ass\ =\ (!flag\_min)*ass\ +\ flag\_min*sshift;}
+\DoxyCodeLine{00058\ \ \ \ \ tph\ =\ (!flag\_min)*tph\ +\ flag\_min*tp;}
+\DoxyCodeLine{00059\ \ \ \ \ stem\ =\ (!flag\_min)*stem\ +\ flag\_min*steps;}
+\DoxyCodeLine{00060\ \ \ \ \ sqa\ =\ (!flag\_min)*sqa\ +\ flag\_min*eval(tqa);}
+\DoxyCodeLine{00061\ \ \ \ \ kma\ =\ (!flag\_min)*kma\ +\ flag\_min*eval(kia)}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ degtwoone(std::vector<std::complex<double>>\&\ tp,\ \textcolor{keywordtype}{int}\&\ tdeg)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ std::complex<double>\ a,\ b,\ c,\ d,\ bz;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ flag\_suc\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ ladi\ =\ 0;}
+\DoxyCodeLine{00068\ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (tdeg\ ==\ 2)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ a\ =\ tp[2];\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ b\ =\ -\/tp[1]\ /\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(2)\ *\ a);\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ c\ =\ tp[0]\ /\ a;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ d\ =\ std::sqrt(std::pow(b,\ 2)\ -\/\ c);\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ a\ =\ b\ +\ d;\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ b\ -\/=\ d;}
+\DoxyCodeLine{00076\ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(a)\ >\ std::abs(b))\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ finroot(bz\ +\ a);\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ finroot(bz\ +\ c\ /\ a);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(a)\ ==\ std::abs(b))\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ finroot(bz\ +\ a);\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ finroot(bz\ +\ b);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(a)\ <\ std::abs(b))\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ finroot(bz\ +\ b);\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ finroot(bz\ +\ c\ /\ b);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ tdeg\ -\/=\ 2;}
+\DoxyCodeLine{00090\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ finroot(-\/tp[0]\ /\ tp[1]\ +\ bz);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ tdeg\ -\/=\ 1;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ std::vector<double>\ err(\textcolor{keywordtype}{double}\ q,\ \textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ la,\ ala;}
+\DoxyCodeLine{00098\ \ \ \ \ la\ =\ laguerre(q,\ x);}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ bool\ flag\_lag\ =\ true;}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ ala\ =\ degree(q)\ *\ std::fabs(la);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (ala\ <\ INFINITY)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{ala,\ la\};}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ error\ result"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ \{INFINITY,\ \textcolor{keyword}{false}\};}
+\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ minrad()\{}
+\DoxyCodeLine{00110\ \ \ \ \ flag\_once\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{double}\ rmin\ =\ np.inf;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ jl=0;\ j\ <\ len(rl);\ jl++)\{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ rmin\ =\ rl[jl]\ <\ rmin\ ?\ std::fabs(rl[jl])\ :\ rmin;}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ findroot(std::vector<double>\&\ p,\ std::vecvor<double>\&\ rootlist,\ \textcolor{keywordtype}{double}\&\ ro,\ \textcolor{keywordtype}{bool}\&\ flag\_suc,\ \textcolor{keywordtype}{bool}\&\ flag\_fin)\{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{auto}\ nera\ =\ err(p,\ ro);}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{auto}\ bof\ =\ (nera[0]\ <\ inf)*bof\ +\ 0;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{if}(flag\_suc)\{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ rootlist.push\_back(ro);}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}(bof\ !=\ 0)\ flag\_fin\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ nera[1]\ returned\ in\ maple}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ nera[1];}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ degtwo(\textcolor{keywordtype}{double}\ bz,\ std::vector<double>\ tp,\ \textcolor{keywordtype}{int}\&\ tdeg,\ std::vector<double>\&\ rootlist,\ \textcolor{keywordtype}{bool}\ flag\_fin)\{}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{bool}\ flag\_suc\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{auto}\ a\ =\ -\/0.5*tp[1]\ +\ np.sqrt(b**2\ -\/\ c);}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{auto}\ b\ =\ -\/0.5*tp[1]\ -\/\ np.sqrt(b**2\ -\/\ c);}
+\DoxyCodeLine{00132\ \ \ \ \ flag\_f\ =\ flag\_fin;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ finroot(tp,\ rootlist,\ bz\ +\ (abs(a)\ >=\ abs(b)*(a)\ +\ (abs(a)\ <\ abs(b))*(b))\ );}
+\DoxyCodeLine{00135\ \ \ \ \ finroot(tp,\ rootlist,\ bz\ +\ (abs(a)\ ==\ abs(b)*(b)\ +\ (abs(a)\ !=\ abs(b))*(tp[2]/(\ (abs(a)>abs(b))*(a)\ +\ (abs(a)<abs(b))*(b)\ ))));}
+\DoxyCodeLine{00136\ \ \ \ \ tdeg\ -\/=\ 2;}
+\DoxyCodeLine{00137\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ trial(\textcolor{keywordtype}{int}\ cl,\ \textcolor{keywordtype}{int}\ tdeg,\ std::vector<double>\&\ tp,std::vector<double>\&\ tp1,\ \textcolor{keywordtype}{double}\ bz,\ \textcolor{keywordtype}{double}\ bz1,\ \textcolor{keywordtype}{double}\ stepfactor,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ stepmin,\ \textcolor{keywordtype}{bool}\&\ flag\_suc,\ \textcolor{keywordtype}{bool}\&\ flag\_inc,\ \textcolor{keywordtype}{bool}\ flag\_min)\{}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}(tp[-\/1]*tp[-\/1]\ <\ eps4\ \&\&\ tp[-\/2]*tp[-\/2]\ >\ eps4)\{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ qco\ =\ -\/tp[-\/1]/tp[-\/2];}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ladi\ =\ err(tp,\ qco)[0];}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(ladi\ <\ eps)\{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(flag\_inc\ =\ (err(tp1,\ qco\ +\ bz\ -\/\ bz1\ \&\&\ cl\ ==\ 2)[0]\ >=eps\ \&\&\ cl==2)\ ?\ \textcolor{keyword}{true}\ :\ false)\ return;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ flag\_suc\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ deflate(qco\ +\ bz\ -\/\ bz1);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{auto}\ diam\ =\ 1.0\ +\ std::max(tp[:-\/1]);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{auto}\ steps\ =\ (cl\ ==\ 1\ ||\ (cl==2\ \&\&\ flag\_min))*np.ceil(stepfactor\ *(np.ln(diam*tdeg)\ +\ ln10n*(prec+1)))\ +}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (cl\ >=\ 2\ ||\ (cl!=2\ \&\&\ flag\_min))*(16*tdeg)}
+\DoxyCodeLine{00154\ \ \ \ \ std::vector<double>\ tca(tdeg,\ 0);}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{auto}\ \_tp\ =\ list(reversed(tp));}
+\DoxyCodeLine{00156\ \ \ \ \ std::vector<double>\ tca\ =\ \_tp;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{auto}\ res2\ =\ bernoullid();}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{if}(flag\_inc)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{if}(len(res2)\ ==\ 2)\{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ ladi\ =\ res2[1];}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ flag\_suc\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ deflate(res2[0]+bz-\/bz1);}
+\DoxyCodeLine{00163\ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(len(res2)\ ==\ 0)\{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ rad\ =\ minrad();}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ \ elif\ cl\ ==\ 2\ and\ flag\_min:}}
+\DoxyCodeLine{00169\ \textcolor{comment}{\ \ \ \ \ \ tqm\ =\ tqa}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ \ \ \ \ \ kim\ =\ kia}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00172\ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ run(\textcolor{keywordtype}{double}\&\ bz,\ \textcolor{keywordtype}{double}\&\ bzre,\ \textcolor{keywordtype}{double}\&\ tp,\ \textcolor{keywordtype}{int}\&\ tdeg,\ \textcolor{keywordtype}{double}\&\ rootlist,\ \textcolor{keywordtype}{double}\&\ stepfactor,\ \textcolor{keywordtype}{bool}\ flag\_fin)\{}
+\DoxyCodeLine{00175\ \ \ \ \ flag\_lag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{if}(tdeg\ <\ 3)\ degtwo(bz,\ tp,\ tdeg,\ rootlist,\ flag\_fin);}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ flag\_suc=\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ flag\_inc\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ flag\_min\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{while}(flag\_inc)\{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ flag\_inc\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ tp1\ =\ tp;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ bz1\ =\ bz;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ bz,\ bz1,\ flag\_suc,\ flag\_inc\ =\ trial(1,\ tp,\ tp1,\ tdeg,\ bz,\ bz1,\ stepfactor,\ flag\_suc,\ flag\_inc,\ flag\_min);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ tp\ =\ tp1;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ bz\ =\ bz1;}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,295 @@
+\doxysection{framework/ttmath/ttmathtypes.h File Reference}
+\hypertarget{ttmathtypes_8h}{}\label{ttmathtypes_8h}\index{framework/ttmath/ttmathtypes.h@{framework/ttmath/ttmathtypes.h}}
+
+
+constants used in the library  
+
+
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttmath_1_1Conv}{ttmath\+::\+Conv}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1StopCalculating}{ttmath\+::\+Stop\+Calculating}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1ExceptionInfo}{ttmath\+::\+Exception\+Info}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1ReferenceError}{ttmath\+::\+Reference\+Error}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1RuntimeError}{ttmath\+::\+Runtime\+Error}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacettmath}{ttmath}}
+\begin{DoxyCompactList}\small\item\em a namespace for the TTMath library \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a4992d1bf10a809e60ee820457837c76c}{TTMATH\+\_\+\+MAJOR\+\_\+\+VER}}~0
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a2351ae0bbd6438a2bf55cb116108af8e}{TTMATH\+\_\+\+MINOR\+\_\+\+VER}}~9
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a44886b1ff571f2933594c4f3324028f5}{TTMATH\+\_\+\+REVISION\+\_\+\+VER}}~4
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a55e414441acdb08d9ecd553a42bab65d}{TTMATH\+\_\+\+PRERELEASE\+\_\+\+VER}}~1
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a2509877478863267cac789a069193df8}{TTMATH\+\_\+\+PLATFORM32}}
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_aba5d45b33da1558ebee14a5c63199035}{TTMATH\+\_\+\+NOASM}}
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_aba5d45b33da1558ebee14a5c63199035}{TTMATH\+\_\+\+NOASM}}
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_aef936ab7a0d7f0c34a9a794b3072cf6a}{TTMATH\+\_\+\+BITS\+\_\+\+PER\+\_\+\+UINT}}~32u
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a0ccaf279c13b1d747ef8c4690d84b5dd}{TTMATH\+\_\+\+UINT\+\_\+\+HIGHEST\+\_\+\+BIT}}~2147483648u
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a3af4b841f70a529a150c820780e1eb40}{TTMATH\+\_\+\+UINT\+\_\+\+MAX\+\_\+\+VALUE}}~4294967295u
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a0a7022271658d24d9da02c1f01be16bc}{TTMATH\+\_\+\+BUILTIN\+\_\+\+VARIABLES\+\_\+\+SIZE}}~256u
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_afda6fd96d6a33c25f9b0dd86ca01a4de}{TTMATH\+\_\+\+BITS}}(min\+\_\+bits)~((min\+\_\+bits-\/1)/32 + 1)
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a3a26c74e34f27589bfceefd0f2e497a8}{TTMATH\+\_\+\+ARITHMETIC\+\_\+\+MAX\+\_\+\+LOOP}}~10000
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_ac44eea4d15434da93b77bf6a1ae86fe2}{TTMATH\+\_\+\+USE\+\_\+\+KARATSUBA\+\_\+\+MULTIPLICATION\+\_\+\+FROM\+\_\+\+SIZE}}~5
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_a778d79adcd3e74d5e26708e7cbdcf244}{TTMATH\+\_\+\+GAMMA\+\_\+\+BOUNDARY}}~2000
+\item 
+\#define \mbox{\hyperlink{ttmathtypes_8h_aa3f5e440e9fef3a6267d24d881d00084}{TTMATH\+\_\+\+REFERENCE\+\_\+\+ASSERT}}(expression)
+\item 
+\Hypertarget{ttmathtypes_8h_aab92b8471379b141e76268df4398bfca}\label{ttmathtypes_8h_aab92b8471379b141e76268df4398bfca} 
+\#define {\bfseries TTMATH\+\_\+\+ASSERT}(expression)
+\item 
+\Hypertarget{ttmathtypes_8h_a1fa9140ad2502ae69d1d1ab4127d123f}\label{ttmathtypes_8h_a1fa9140ad2502ae69d1d1ab4127d123f} 
+\#define {\bfseries TTMATH\+\_\+\+LOG}(msg)
+\item 
+\Hypertarget{ttmathtypes_8h_a47660063c4dcc32c826ee2ff38a008b5}\label{ttmathtypes_8h_a47660063c4dcc32c826ee2ff38a008b5} 
+\#define {\bfseries TTMATH\+\_\+\+LOGC}(msg,  carry)
+\item 
+\Hypertarget{ttmathtypes_8h_aebf47b07371fdde8ced43a740ae16814}\label{ttmathtypes_8h_aebf47b07371fdde8ced43a740ae16814} 
+\#define {\bfseries TTMATH\+\_\+\+VECTOR\+\_\+\+LOG}(msg,  vector,  len)
+\item 
+\Hypertarget{ttmathtypes_8h_a20f2bda1b7ed5379b03615bf1c859413}\label{ttmathtypes_8h_a20f2bda1b7ed5379b03615bf1c859413} 
+\#define {\bfseries TTMATH\+\_\+\+VECTOR\+\_\+\+LOGC}(msg,  carry,  vector,  len)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{ttmath\+::uint}}
+\item 
+\Hypertarget{namespacettmath_a300d86e7599787a118808c8c5972670f}\label{namespacettmath_a300d86e7599787a118808c8c5972670f} 
+typedef signed int {\bfseries ttmath\+::sint}
+\item 
+typedef uint64\+\_\+t \mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ttmath\+::ulint}}
+\item 
+\Hypertarget{namespacettmath_a095c3f861cf4072eafed3278cb991d71}\label{namespacettmath_a095c3f861cf4072eafed3278cb991d71} 
+typedef int64\+\_\+t {\bfseries ttmath\+::slint}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{ttmath\+::\+Lib\+Type\+Code}} \{ \newline
+{\bfseries asm\+\_\+vc\+\_\+32} = 0
+, {\bfseries asm\+\_\+gcc\+\_\+32}
+, {\bfseries asm\+\_\+vc\+\_\+64}
+, {\bfseries asm\+\_\+gcc\+\_\+64}
+, \newline
+{\bfseries no\+\_\+asm\+\_\+32}
+, {\bfseries no\+\_\+asm\+\_\+64}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ttmath\+::\+Error\+Code}} \{ \newline
+{\bfseries err\+\_\+ok} = 0
+, {\bfseries err\+\_\+nothing\+\_\+has\+\_\+read}
+, {\bfseries err\+\_\+unknown\+\_\+character}
+, {\bfseries err\+\_\+unexpected\+\_\+final\+\_\+bracket}
+, \newline
+{\bfseries err\+\_\+stack\+\_\+not\+\_\+clear}
+, {\bfseries err\+\_\+unknown\+\_\+variable}
+, {\bfseries err\+\_\+division\+\_\+by\+\_\+zero}
+, {\bfseries err\+\_\+interrupt}
+, \newline
+{\bfseries err\+\_\+overflow}
+, {\bfseries err\+\_\+unknown\+\_\+function}
+, {\bfseries err\+\_\+unknown\+\_\+operator}
+, {\bfseries err\+\_\+unexpected\+\_\+semicolon\+\_\+operator}
+, \newline
+{\bfseries err\+\_\+improper\+\_\+amount\+\_\+of\+\_\+arguments}
+, {\bfseries err\+\_\+improper\+\_\+argument}
+, {\bfseries err\+\_\+unexpected\+\_\+end}
+, {\bfseries err\+\_\+internal\+\_\+error}
+, \newline
+{\bfseries err\+\_\+incorrect\+\_\+name}
+, {\bfseries err\+\_\+incorrect\+\_\+value}
+, {\bfseries err\+\_\+variable\+\_\+exists}
+, {\bfseries err\+\_\+variable\+\_\+loop}
+, \newline
+{\bfseries err\+\_\+functions\+\_\+loop}
+, {\bfseries err\+\_\+must\+\_\+be\+\_\+only\+\_\+one\+\_\+value}
+, {\bfseries err\+\_\+object\+\_\+exists}
+, {\bfseries err\+\_\+unknown\+\_\+object}
+, \newline
+{\bfseries err\+\_\+still\+\_\+calculating}
+, {\bfseries err\+\_\+in\+\_\+short\+\_\+form\+\_\+used\+\_\+function}
+, {\bfseries err\+\_\+percent\+\_\+from}
+, {\bfseries err\+\_\+assignment\+\_\+requires\+\_\+variable}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+constants used in the library 
+
+As our library is written in header files (templates) we cannot use constants like \textquotesingle{}const int\textquotesingle{} etc. because we should have some source files .cpp to define this variables. Only what we can have are constants defined by \#define preprocessor macros.
+
+All macros are preceded by TTMATH\+\_\+ prefix 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ttmathtypes_8h_a3a26c74e34f27589bfceefd0f2e497a8}\label{ttmathtypes_8h_a3a26c74e34f27589bfceefd0f2e497a8} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_ARITHMETIC\_MAX\_LOOP@{TTMATH\_ARITHMETIC\_MAX\_LOOP}}
+\index{TTMATH\_ARITHMETIC\_MAX\_LOOP@{TTMATH\_ARITHMETIC\_MAX\_LOOP}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_ARITHMETIC\_MAX\_LOOP}{TTMATH\_ARITHMETIC\_MAX\_LOOP}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+ARITHMETIC\+\_\+\+MAX\+\_\+\+LOOP~10000}
+
+this variable defines how many iterations are performed during some kind of calculating when we\textquotesingle{}re making any long formulas (for example Taylor series)
+
+it\textquotesingle{}s used in Exp\+Surrounding0(...), Ln\+Surrounding1(...), Sin0pi05(...), etc.
+
+note! there\textquotesingle{}ll not be so many iterations, iterations are stopped when there is no sense to continue calculating (for example when the result still remains unchanged after adding next series and we know that the next series are smaller than previous ones) \Hypertarget{ttmathtypes_8h_afda6fd96d6a33c25f9b0dd86ca01a4de}\label{ttmathtypes_8h_afda6fd96d6a33c25f9b0dd86ca01a4de} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_BITS@{TTMATH\_BITS}}
+\index{TTMATH\_BITS@{TTMATH\_BITS}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_BITS}{TTMATH\_BITS}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+BITS(\begin{DoxyParamCaption}\item[{}]{min\+\_\+bits }\end{DoxyParamCaption})~((min\+\_\+bits-\/1)/32 + 1)}
+
+this macro returns the number of machine words capable to hold min\+\_\+bits bits e.\+g. \doxylink{ttmathtypes_8h_afda6fd96d6a33c25f9b0dd86ca01a4de}{TTMATH\+\_\+\+BITS(128)} returns 4 \Hypertarget{ttmathtypes_8h_aef936ab7a0d7f0c34a9a794b3072cf6a}\label{ttmathtypes_8h_aef936ab7a0d7f0c34a9a794b3072cf6a} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_BITS\_PER\_UINT@{TTMATH\_BITS\_PER\_UINT}}
+\index{TTMATH\_BITS\_PER\_UINT@{TTMATH\_BITS\_PER\_UINT}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_BITS\_PER\_UINT}{TTMATH\_BITS\_PER\_UINT}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+BITS\+\_\+\+PER\+\_\+\+UINT~32u}
+
+how many bits there are in the uint type \Hypertarget{ttmathtypes_8h_a0a7022271658d24d9da02c1f01be16bc}\label{ttmathtypes_8h_a0a7022271658d24d9da02c1f01be16bc} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_BUILTIN\_VARIABLES\_SIZE@{TTMATH\_BUILTIN\_VARIABLES\_SIZE}}
+\index{TTMATH\_BUILTIN\_VARIABLES\_SIZE@{TTMATH\_BUILTIN\_VARIABLES\_SIZE}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_BUILTIN\_VARIABLES\_SIZE}{TTMATH\_BUILTIN\_VARIABLES\_SIZE}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+BUILTIN\+\_\+\+VARIABLES\+\_\+\+SIZE~256u}
+
+the number of words (32bit words on 32bit platform) which are kept in built-\/in variables for a Big$<$$>$ type (these variables are defined in \doxylink{ttmathbig_8h}{ttmathbig.\+h}) \Hypertarget{ttmathtypes_8h_a778d79adcd3e74d5e26708e7cbdcf244}\label{ttmathtypes_8h_a778d79adcd3e74d5e26708e7cbdcf244} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_GAMMA\_BOUNDARY@{TTMATH\_GAMMA\_BOUNDARY}}
+\index{TTMATH\_GAMMA\_BOUNDARY@{TTMATH\_GAMMA\_BOUNDARY}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_GAMMA\_BOUNDARY}{TTMATH\_GAMMA\_BOUNDARY}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+GAMMA\+\_\+\+BOUNDARY~2000}
+
+this is a special value used when calculating the Gamma(x) function if x is greater than this value then the Gamma(x) will be calculated using some kind of series
+
+don\textquotesingle{}t use smaller values than about 100 \Hypertarget{ttmathtypes_8h_a4992d1bf10a809e60ee820457837c76c}\label{ttmathtypes_8h_a4992d1bf10a809e60ee820457837c76c} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_MAJOR\_VER@{TTMATH\_MAJOR\_VER}}
+\index{TTMATH\_MAJOR\_VER@{TTMATH\_MAJOR\_VER}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_MAJOR\_VER}{TTMATH\_MAJOR\_VER}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+MAJOR\+\_\+\+VER~0}
+
+the major version of the library
+
+the version present to the end user is constructed in this way\+: \begin{DoxyVerb}TTMATH_MAJOR_VER.TTMATH_MINOR_VER.TTMATH_REVISION_VER.[prerelease if TTMATH_PRERELEASE_VER==1]
+\end{DoxyVerb}
+ \Hypertarget{ttmathtypes_8h_a2351ae0bbd6438a2bf55cb116108af8e}\label{ttmathtypes_8h_a2351ae0bbd6438a2bf55cb116108af8e} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_MINOR\_VER@{TTMATH\_MINOR\_VER}}
+\index{TTMATH\_MINOR\_VER@{TTMATH\_MINOR\_VER}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_MINOR\_VER}{TTMATH\_MINOR\_VER}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+MINOR\+\_\+\+VER~9}
+
+the minor version of the library
+
+the version present to the end user is constructed in this way\+: \begin{DoxyVerb}TTMATH_MAJOR_VER.TTMATH_MINOR_VER.TTMATH_REVISION_VER.[prerelease if TTMATH_PRERELEASE_VER==1]
+\end{DoxyVerb}
+ \Hypertarget{ttmathtypes_8h_aba5d45b33da1558ebee14a5c63199035}\label{ttmathtypes_8h_aba5d45b33da1558ebee14a5c63199035} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_NOASM@{TTMATH\_NOASM}}
+\index{TTMATH\_NOASM@{TTMATH\_NOASM}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_NOASM}{TTMATH\_NOASM}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+NOASM}
+
+asm version of the library is available by default only for\+: x86 and amd64 platforms and for Microsoft Visual and GCC compilers
+
+but you can force using asm version (the same asm as for Microsoft Visual) by defining TTMATH\+\_\+\+FORCEASM macro you have to be sure that your compiler accept such an asm format
+
+x86 architecture\+: {\bfseries{i386}} defined by GNU C {\itshape X86} defined by Min\+GW32 \+\_\+\+M\+\_\+\+IX86 defined by Visual Studio, Intel C/\+C++, Digital Mars and Watcom C/\+C++
+
+amd64 architecture\+: {\bfseries{x86\+\_\+64}} defined by GNU C, CLANG (LLVM) and Sun Studio \+\_\+\+M\+\_\+\+X64 defined by Visual Studio
+
+asm version is available only for x86 or amd64 platforms
+
+another compilers than MS VC or GCC or CLANG (LLVM) by default use no asm version (CLANG defines {\bfseries{GNUC}} too) \Hypertarget{ttmathtypes_8h_aba5d45b33da1558ebee14a5c63199035}\label{ttmathtypes_8h_aba5d45b33da1558ebee14a5c63199035} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_NOASM@{TTMATH\_NOASM}}
+\index{TTMATH\_NOASM@{TTMATH\_NOASM}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_NOASM}{TTMATH\_NOASM}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+NOASM}
+
+asm version of the library is available by default only for\+: x86 and amd64 platforms and for Microsoft Visual and GCC compilers
+
+but you can force using asm version (the same asm as for Microsoft Visual) by defining TTMATH\+\_\+\+FORCEASM macro you have to be sure that your compiler accept such an asm format
+
+x86 architecture\+: {\bfseries{i386}} defined by GNU C {\itshape X86} defined by Min\+GW32 \+\_\+\+M\+\_\+\+IX86 defined by Visual Studio, Intel C/\+C++, Digital Mars and Watcom C/\+C++
+
+amd64 architecture\+: {\bfseries{x86\+\_\+64}} defined by GNU C, CLANG (LLVM) and Sun Studio \+\_\+\+M\+\_\+\+X64 defined by Visual Studio
+
+asm version is available only for x86 or amd64 platforms
+
+another compilers than MS VC or GCC or CLANG (LLVM) by default use no asm version (CLANG defines {\bfseries{GNUC}} too) \Hypertarget{ttmathtypes_8h_a2509877478863267cac789a069193df8}\label{ttmathtypes_8h_a2509877478863267cac789a069193df8} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_PLATFORM32@{TTMATH\_PLATFORM32}}
+\index{TTMATH\_PLATFORM32@{TTMATH\_PLATFORM32}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_PLATFORM32}{TTMATH\_PLATFORM32}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+PLATFORM32}
+
+you can define a platform explicitly by defining either TTMATH\+\_\+\+PLATFORM32 or TTMATH\+\_\+\+PLATFORM64 macro \Hypertarget{ttmathtypes_8h_a55e414441acdb08d9ecd553a42bab65d}\label{ttmathtypes_8h_a55e414441acdb08d9ecd553a42bab65d} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_PRERELEASE\_VER@{TTMATH\_PRERELEASE\_VER}}
+\index{TTMATH\_PRERELEASE\_VER@{TTMATH\_PRERELEASE\_VER}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_PRERELEASE\_VER}{TTMATH\_PRERELEASE\_VER}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+PRERELEASE\+\_\+\+VER~1}
+
+TTMATH\+\_\+\+PRERELEASE\+\_\+\+VER is either zero or one zero means that this is the release version of the library (one means something like beta)
+
+the version present to the end user is constructed in this way\+: \begin{DoxyVerb}TTMATH_MAJOR_VER.TTMATH_MINOR_VER.TTMATH_REVISION_VER.[prerelease if TTMATH_PRERELEASE_VER==1]
+\end{DoxyVerb}
+ \Hypertarget{ttmathtypes_8h_aa3f5e440e9fef3a6267d24d881d00084}\label{ttmathtypes_8h_aa3f5e440e9fef3a6267d24d881d00084} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_REFERENCE\_ASSERT@{TTMATH\_REFERENCE\_ASSERT}}
+\index{TTMATH\_REFERENCE\_ASSERT@{TTMATH\_REFERENCE\_ASSERT}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_REFERENCE\_ASSERT}{TTMATH\_REFERENCE\_ASSERT}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+REFERENCE\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{expression }\end{DoxyParamCaption})}
+
+TTMATH\+\_\+\+DEBUG this macro enables further testing during writing your code you don\textquotesingle{}t have to define it in a release mode
+
+if this macro is set then macros TTMATH\+\_\+\+ASSERT and TTMATH\+\_\+\+REFERENCE\+\_\+\+ASSERT are set as well and these macros can throw an exception if a condition in it is not fulfilled (look at the definition of TTMATH\+\_\+\+ASSERT and TTMATH\+\_\+\+REFERENCE\+\_\+\+ASSERT)
+
+TTMATH\+\_\+\+DEBUG is set automatically if DEBUG or \+\_\+\+DEBUG are defined \Hypertarget{ttmathtypes_8h_a44886b1ff571f2933594c4f3324028f5}\label{ttmathtypes_8h_a44886b1ff571f2933594c4f3324028f5} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_REVISION\_VER@{TTMATH\_REVISION\_VER}}
+\index{TTMATH\_REVISION\_VER@{TTMATH\_REVISION\_VER}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_REVISION\_VER}{TTMATH\_REVISION\_VER}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+REVISION\+\_\+\+VER~4}
+
+the revision version of the library
+
+the version present to the end user is constructed in this way\+: \begin{DoxyVerb}TTMATH_MAJOR_VER.TTMATH_MINOR_VER.TTMATH_REVISION_VER.[prerelease if TTMATH_PRERELEASE_VER==1]
+\end{DoxyVerb}
+ \Hypertarget{ttmathtypes_8h_a0ccaf279c13b1d747ef8c4690d84b5dd}\label{ttmathtypes_8h_a0ccaf279c13b1d747ef8c4690d84b5dd} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_UINT\_HIGHEST\_BIT@{TTMATH\_UINT\_HIGHEST\_BIT}}
+\index{TTMATH\_UINT\_HIGHEST\_BIT@{TTMATH\_UINT\_HIGHEST\_BIT}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_UINT\_HIGHEST\_BIT}{TTMATH\_UINT\_HIGHEST\_BIT}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+UINT\+\_\+\+HIGHEST\+\_\+\+BIT~2147483648u}
+
+the mask for the highest bit in the unsigned 32bit word (2\texorpdfstring{$^\wedge$}{\string^}31) \Hypertarget{ttmathtypes_8h_a3af4b841f70a529a150c820780e1eb40}\label{ttmathtypes_8h_a3af4b841f70a529a150c820780e1eb40} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_UINT\_MAX\_VALUE@{TTMATH\_UINT\_MAX\_VALUE}}
+\index{TTMATH\_UINT\_MAX\_VALUE@{TTMATH\_UINT\_MAX\_VALUE}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_UINT\_MAX\_VALUE}{TTMATH\_UINT\_MAX\_VALUE}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+UINT\+\_\+\+MAX\+\_\+\+VALUE~4294967295u}
+
+the max value of the unsigned 32bit word (2\texorpdfstring{$^\wedge$}{\string^}32 -\/ 1) (all bits equal one) \Hypertarget{ttmathtypes_8h_ac44eea4d15434da93b77bf6a1ae86fe2}\label{ttmathtypes_8h_ac44eea4d15434da93b77bf6a1ae86fe2} 
+\index{ttmathtypes.h@{ttmathtypes.h}!TTMATH\_USE\_KARATSUBA\_MULTIPLICATION\_FROM\_SIZE@{TTMATH\_USE\_KARATSUBA\_MULTIPLICATION\_FROM\_SIZE}}
+\index{TTMATH\_USE\_KARATSUBA\_MULTIPLICATION\_FROM\_SIZE@{TTMATH\_USE\_KARATSUBA\_MULTIPLICATION\_FROM\_SIZE}!ttmathtypes.h@{ttmathtypes.h}}
+\doxysubsubsection{\texorpdfstring{TTMATH\_USE\_KARATSUBA\_MULTIPLICATION\_FROM\_SIZE}{TTMATH\_USE\_KARATSUBA\_MULTIPLICATION\_FROM\_SIZE}}
+{\footnotesize\ttfamily \#define TTMATH\+\_\+\+USE\+\_\+\+KARATSUBA\+\_\+\+MULTIPLICATION\+\_\+\+FROM\+\_\+\+SIZE~5}
+
+this is a limit when calculating Karatsuba multiplication if the size of a vector is smaller than TTMATH\+\_\+\+USE\+\_\+\+KARATSUBA\+\_\+\+MULTIPLICATION\+\_\+\+FROM\+\_\+\+SIZE the Karatsuba algorithm will use standard schoolbook multiplication 

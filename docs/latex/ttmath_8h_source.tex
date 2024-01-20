@@ -1,0 +1,2360 @@
+\doxysection{ttmath.\+h}
+\hypertarget{ttmath_8h_source}{}\label{ttmath_8h_source}\index{framework/ttmath/ttmath.h@{framework/ttmath/ttmath.h}}
+\mbox{\hyperlink{ttmath_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ TTMath\ Bignum\ Library}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ and\ is\ distributed\ under\ the\ 3-\/Clause\ BSD\ Licence.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ Tomasz\ Sowa\ <t.sowa@ttmath.org>}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2006-\/2017,\ Tomasz\ Sowa}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions\ are\ met:}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ *\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ \ }}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ *\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the\ distribution.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ \ \ }}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ *\ Neither\ the\ name\ Tomasz\ Sowa\ nor\ the\ names\ of\ contributors\ to\ this}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ project\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS\ "{}AS\ IS"{}}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ THE}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ OWNER\ OR\ CONTRIBUTORS\ BE}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ OF}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifndef\ headerfilettmathmathtt}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ headerfilettmathmathtt}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//warning\ C4127:\ conditional\ expression\ is\ constant}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#pragma\ warning(\ disable:\ 4127\ )}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//warning\ C4702:\ unreachable\ code}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#pragma\ warning(\ disable:\ 4702\ )}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//warning\ C4800:\ forcing\ value\ to\ bool\ 'true'\ or\ 'false'\ (performance\ warning)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#pragma\ warning(\ disable:\ 4800\ )}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ttmathbig_8h}{ttmathbig.h}}"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ttmathobjects_8h}{ttmathobjects.h}}"{}}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacettmath}{ttmath}}}
+\DoxyCodeLine{00063\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ \ *\ \ functions\ defined\ here\ are\ used\ only\ with\ Big<>\ types}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ \ *\ \ functions\ for\ rounding}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00090\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_add9faf7afbd33a91df3e3977789e741f}{SkipFraction}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ ValueType\ result(\ x\ );}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ result.SkipFraction();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00109\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a0c925f364f30f9d23f417ab7cc5689ee}{Round}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ ValueType\ result(\ x\ );}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ result.Round();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00142\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_aeea3642bd4218cf81761930515792844}{Ceil}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00143\ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ ValueType\ result(x);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ result.SkipFraction();}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result\ !=\ x\ )}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ is\ with\ fraction}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ x\ is\ negative\ we\ don't\ have\ to\ do\ anything}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !x.IsSign()\ )}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ValueType\ one;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ result.Add(one);}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{return}\ result;\ \ }
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00189\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a8fde4af46141a3aad68c8081489fd70f}{Floor}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00190\ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ ValueType\ result(x);}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ result.SkipFraction();}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result\ !=\ x\ )}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ is\ with\ fraction}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ x\ is\ positive\ we\ don't\ have\ to\ do\ anything}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsSign()\ )}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ValueType\ one;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ result.Sub(one);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{return}\ result;\ \ }
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ \ \ \ \ *\ \ logarithms\ and\ the\ exponent}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00229\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00237\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_abc53780b7e2e744d0a680d8fae0d266a}{Ln}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00238\ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ ValueType\ result;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ state\ =\ result.Ln(x);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\ state\ )}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_ok;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_overflow;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_internal\_error;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00271\ \ \ \ \ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00278\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_af773d2cf23612ce54bd229c506f2e884}{Log}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \textcolor{keyword}{const}\ ValueType\ \&\ base,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00279\ \ \ \ \ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )\ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ base.IsNan()\ )}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )\ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ base;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ ValueType\ result;}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ state\ =\ result.Log(x,\ base);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\ state\ )}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_ok;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_overflow;}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_internal\_error;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00316\ \ \ \ \ \}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00323\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_ad2f2347d11b3124a6d4c12b97b87f9b1}{Exp}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00324\ \ \ \ \ \{}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ ValueType\ result;}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ result.Exp(x);}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00340\ \ \ \ \ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00351\ \textcolor{comment}{\ \ \ \ \ \ \ \ this\ namespace\ consists\ of\ auxiliary\ functions}}
+\DoxyCodeLine{00352\ \textcolor{comment}{\ \ \ \ \ \ \ \ (something\ like\ 'private'\ in\ a\ class)}}
+\DoxyCodeLine{00353\ \textcolor{comment}{}}
+\DoxyCodeLine{00354\ \textcolor{comment}{\ \ \ \ \ \ \ \ this\ is\ excluded\ from\ doxygen\ documentation}}
+\DoxyCodeLine{00355\ \textcolor{comment}{\ \ \ \ \ \ \ \ (option\ EXCLUDE\_SYMBOLS\ in\ doxygen.cfg)}}
+\DoxyCodeLine{00356\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keyword}{namespace\ }auxiliaryfunctions}
+\DoxyCodeLine{00358\ \ \ \ \ \{}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00365\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a01f5d7ddd1f853a66bf10d849a4fada2}{PrepareSin}}(ValueType\ \&\ x,\ \textcolor{keywordtype}{bool}\ \&\ change\_sign)}
+\DoxyCodeLine{00366\ \ \ \ \ \{}
+\DoxyCodeLine{00367\ \ \ \ \ ValueType\ temp;}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ change\_sign\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00370\ \ \ \ \ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsSign()\ )}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we're\ using\ the\ formula\ 'sin(-\/x)\ =\ -\/sin(x)'}}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ change\_sign\ =\ !change\_sign;}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ x.ChangeSign();}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00377\ \ \ \ \ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we're\ reducing\ the\ period\ 2*PI}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (for\ big\ values\ there'll\ always\ be\ zero)}}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ temp.Set2Pi();}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.Mod(temp)\ )}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we're\ setting\ 'x'\ as\ being\ in\ the\ range\ of\ <0,\ 0.5PI>}}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ temp.SetPi();}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x\ >\ temp\ )}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ is\ in\ (pi,\ 2*pi>}}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ x.Sub(\ temp\ );}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ change\_sign\ =\ !change\_sign;}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ temp.Set05Pi();}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x\ >\ temp\ )}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ is\ in\ (0.5pi,\ pi>}}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ x.Sub(\ temp\ );}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ temp\ -\/\ x;}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00407\ \ \ \ \ \}}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \ \ \ \ }
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00430\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a5a9a708d83a0715fdcfe4d3b35f1e3de}{Sin0pi05}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{00431\ \ \ \ \ \{}
+\DoxyCodeLine{00432\ \ \ \ \ ValueType\ result;}
+\DoxyCodeLine{00433\ \ \ \ \ ValueType\ numerator,\ denominator;}
+\DoxyCodeLine{00434\ \ \ \ \ ValueType\ d\_numerator,\ d\_denominator;}
+\DoxyCodeLine{00435\ \ \ \ \ ValueType\ one,\ temp,\ old\_result;}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp\ =\ pi/4}}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ temp.Set05Pi();}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ temp.exponent.SubOne();}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x\ <\ temp\ )\ }
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \{\ \ \ }
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we're\ using\ the\ Taylor\ series\ with\ a=0}}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ result\ \ \ \ =\ x;}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ numerator\ =\ x;}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ denominator\ =\ one;}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ d\_numerator\ =\ x\string^2}}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ d\_numerator\ =\ x;}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ d\_numerator.Mul(x);}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ d\_denominator\ =\ 2;}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we're\ using\ the\ Taylor\ series\ with\ a=PI/2}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ one;}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ numerator\ =\ one;}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ denominator\ =\ one;}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ d\_numerator\ =\ (x-\/pi/2)\string^2}}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ ValueType\ pi05;}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ pi05.Set05Pi();}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ x;}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ temp.Sub(\ pi05\ );}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ d\_numerator\ =\ temp;}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ d\_numerator.Mul(\ temp\ );}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ d\_denominator\ =\ one;}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ addition\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ old\_result\ =\ result;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ i=1\ ;\ i<=\mbox{\hyperlink{ttmathtypes_8h_a3a26c74e34f27589bfceefd0f2e497a8}{TTMATH\_ARITHMETIC\_MAX\_LOOP}}\ ;\ ++i)}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we're\ starting\ from\ a\ second\ part\ of\ the\ formula}}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ numerator.\ \ \ \ Mul(\ d\_numerator\ );}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator.\ \ Mul(\ d\_denominator\ );}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ d\_denominator.Add(\ one\ );}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator.\ \ Mul(\ d\_denominator\ );}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ d\_denominator.Add(\ one\ );}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ numerator;}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ temp.Div(denominator);}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ c\ )}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sin\ is\ from\ <-\/1,1>\ and\ cannot\ make\ an\ overflow}}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ the\ carry\ can\ be\ from\ the\ Taylor\ series}}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (then\ we\ only\ break\ our\ calculations)}}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ addition\ )}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Add(\ temp\ );}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Sub(\ temp\ );}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ addition\ =\ !addition;}
+\DoxyCodeLine{00503\ \ \ \ \ }
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we're\ testing\ whether\ the\ result\ has\ changed\ after\ adding}}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ next\ part\ of\ the\ Taylor\ formula,\ if\ not\ we\ end\ the\ loop}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (it\ means\ 'x'\ is\ zero\ or\ 'x'\ is\ PI/2\ or\ this\ part\ of\ the\ formula}}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ too\ small)}}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result\ ==\ old\_result\ )}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ old\_result\ =\ result;}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00515\ \ \ \ \ \}}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ auxiliaryfunctions}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00525\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_aadad290da85b89abcd3468c4ad38f556}{Sin}}(ValueType\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00526\ \ \ \ \ \{}
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }auxiliaryfunctions;}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00529\ \ \ \ \ ValueType\ one,\ result;}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordtype}{bool}\ change\_sign;\ \ \ }
+\DoxyCodeLine{00531\ \ \ \ \ }
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_ok;}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ PrepareSin(\ x,\ change\_sign\ )\ )}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ is\ too\ big,\ we\ cannnot\ reduce\ the\ 2*PI\ period}}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ prior\ to\ version\ 0.8.5\ the\ result\ was\ zero}}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ result\ has\ NaN\ flag\ set\ by\ default}}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_overflow;\ \textcolor{comment}{//\ maybe\ another\ error\ code?\ err\_improper\_argument?}}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;\ \textcolor{comment}{//\ NaN\ is\ set\ by\ default}}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ result\ =\ Sin0pi05(\ x\ );}
+\DoxyCodeLine{00557\ \ \ \ \ }
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ after\ calculations\ there\ can\ be\ small\ distortions\ in\ the\ result}}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result\ >\ one\ )}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ one;}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result.IsSign()\ )}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we've\ calculated\ the\ sin\ from\ <0,\ pi/2>\ and\ the\ result}}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ should\ be\ positive}}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ result.SetZero();}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ change\_sign\ )}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ result.ChangeSign();\ \ \ \ }
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00573\ \ \ \ \ \}}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ \ \ \ \ }
+\DoxyCodeLine{00580\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00581\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a8e6c148c8360f8a1779d41e7ee8a20cc}{Cos}}(ValueType\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00582\ \ \ \ \ \{}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ ValueType\ pi05;}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ pi05.Set05Pi();}
+\DoxyCodeLine{00593\ }
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ x.Add(\ pi05\ );}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ c\ )}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_overflow;}
+\DoxyCodeLine{00600\ \ \ \ \ }
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ValueType();\ \textcolor{comment}{//\ result\ is\ undefined\ (NaN\ is\ set\ by\ default)}}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00604\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_aadad290da85b89abcd3468c4ad38f556}{Sin}}(x,\ err);}
+\DoxyCodeLine{00605\ \ \ \ \ \}}
+\DoxyCodeLine{00606\ \ \ \ \ }
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00619\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_afa3658181511f2becb4a54e9888909c1}{Tan}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00620\ \ \ \ \ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ ValueType\ result\ =\ \mbox{\hyperlink{namespacettmath_a8e6c148c8360f8a1779d41e7ee8a20cc}{Cos}}(x,\ err);}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ \&\&\ *err\ !=\ err\_ok\ )}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result.IsZero()\ )}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ result.SetNan();}
+\DoxyCodeLine{00632\ }
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00635\ }
+\DoxyCodeLine{00636\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_aadad290da85b89abcd3468c4ad38f556}{Sin}}(x,\ err)\ /\ result;}
+\DoxyCodeLine{00637\ \ \ \ \ \}}
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00639\ }
+\DoxyCodeLine{00646\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00647\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a52e247c28a10f610b776f5a14a73ccc9}{Tg}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00648\ \ \ \ \ \{}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_afa3658181511f2becb4a54e9888909c1}{Tan}}(x,\ err);}
+\DoxyCodeLine{00650\ \ \ \ \ \}}
+\DoxyCodeLine{00651\ }
+\DoxyCodeLine{00652\ }
+\DoxyCodeLine{00660\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00661\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a729e7b140a09dec6a69f1c431648d97b}{Cot}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00662\ \ \ \ \ \{}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ ValueType\ result\ =\ \mbox{\hyperlink{namespacettmath_aadad290da85b89abcd3468c4ad38f556}{Sin}}(x,\ err);}
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ \&\&\ *err\ !=\ err\_ok\ )}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00667\ }
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result.IsZero()\ )}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ result.SetNan();}
+\DoxyCodeLine{00674\ }
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00677\ \ \ \ \ }
+\DoxyCodeLine{00678\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_a8e6c148c8360f8a1779d41e7ee8a20cc}{Cos}}(x,\ err)\ /\ result;}
+\DoxyCodeLine{00679\ \ \ \ \ \}}
+\DoxyCodeLine{00680\ }
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00688\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00689\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a968360479aa6f110c149acf85b174467}{Ctg}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00690\ \ \ \ \ \{}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_a729e7b140a09dec6a69f1c431648d97b}{Cot}}(x,\ err);}
+\DoxyCodeLine{00692\ \ \ \ \ \}}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00694\ }
+\DoxyCodeLine{00695\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00696\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00697\ \textcolor{comment}{\ \ \ \ \ *\ \ inverse\ trigonometric\ functions}}
+\DoxyCodeLine{00698\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00699\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00700\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00701\ }
+\DoxyCodeLine{00702\ \ \ \ \ \textcolor{keyword}{namespace\ }auxiliaryfunctions}
+\DoxyCodeLine{00703\ \ \ \ \ \{}
+\DoxyCodeLine{00704\ }
+\DoxyCodeLine{00714\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00715\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a976c14cf9f4b466d53922b0481035eb9}{ASin\_0}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{00716\ \ \ \ \ \{}
+\DoxyCodeLine{00717\ \ \ \ \ ValueType\ nominator,\ denominator,\ nominator\_add,\ nominator\_x,\ denominator\_add,\ denominator\_x;}
+\DoxyCodeLine{00718\ \ \ \ \ ValueType\ two,\ result(x),\ x2(x);}
+\DoxyCodeLine{00719\ \ \ \ \ ValueType\ nominator\_temp,\ denominator\_temp,\ old\_result\ =\ result;}
+\DoxyCodeLine{00720\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{00721\ }
+\DoxyCodeLine{00722\ \ \ \ \ x2.Mul(x);}
+\DoxyCodeLine{00723\ \ \ \ \ two\ =\ 2;}
+\DoxyCodeLine{00724\ }
+\DoxyCodeLine{00725\ \ \ \ \ nominator.SetOne();}
+\DoxyCodeLine{00726\ \ \ \ \ denominator\ \ \ \ \ =\ two;}
+\DoxyCodeLine{00727\ \ \ \ \ nominator\_add\ \ \ =\ nominator;}
+\DoxyCodeLine{00728\ \ \ \ \ denominator\_add\ =\ denominator;}
+\DoxyCodeLine{00729\ \ \ \ \ nominator\_x\ \ \ \ \ =\ x;}
+\DoxyCodeLine{00730\ \ \ \ \ denominator\_x\ \ \ =\ 3;}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ i=1\ ;\ i<=\mbox{\hyperlink{ttmathtypes_8h_a3a26c74e34f27589bfceefd0f2e497a8}{TTMATH\_ARITHMETIC\_MAX\_LOOP}}\ ;\ ++i)}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator\_x.Mul(x2);}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \ \ \ \ nominator\_temp\ =\ nominator\_x;\ \ \ }
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator\_temp.Mul(nominator);}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ denominator\_temp\ =\ denominator;}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator\_temp.Mul(denominator\_x);}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator\_temp.Div(denominator\_temp);}
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ there\ is\ a\ carry\ somewhere\ we\ only\ break\ the\ calculating}}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ result\ should\ be\ ok\ -\/-\/\ it's\ from\ <-\/pi/2,\ pi/2>}}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ c\ )\ }
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \ \ \ \ result.Add(nominator\_temp);}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result\ ==\ old\_result\ )}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ there's\ no\ sense\ to\ calculate\ more}}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00751\ }
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ old\_result\ =\ result;}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator\_add.Add(two);}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator\_add.Add(two);}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator.Mul(nominator\_add);}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator.Mul(denominator\_add);}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator\_x.Add(two);}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00761\ }
+\DoxyCodeLine{00762\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00763\ \ \ \ \ \}}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00766\ }
+\DoxyCodeLine{00778\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00779\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a88809fa03fe6789f12d77c7525718b42}{ASin\_1}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{00780\ \ \ \ \ \{}
+\DoxyCodeLine{00781\ \ \ \ \ ValueType\ nominator,\ denominator,\ nominator\_add,\ nominator\_x,\ nominator\_x\_add,\ denominator\_add,\ denominator\_x;}
+\DoxyCodeLine{00782\ \ \ \ \ ValueType\ denominator2;}
+\DoxyCodeLine{00783\ \ \ \ \ ValueType\ one,\ two,\ result;}
+\DoxyCodeLine{00784\ \ \ \ \ ValueType\ nominator\_temp,\ denominator\_temp,\ old\_result;}
+\DoxyCodeLine{00785\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{00786\ }
+\DoxyCodeLine{00787\ \ \ \ \ two\ =\ 2;}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00789\ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{00790\ \ \ \ \ nominator\ \ \ \ \ \ \ =\ one;}
+\DoxyCodeLine{00791\ \ \ \ \ result\ \ \ \ \ \ \ \ \ \ =\ one;}
+\DoxyCodeLine{00792\ \ \ \ \ old\_result\ \ \ \ \ \ =\ result;}
+\DoxyCodeLine{00793\ \ \ \ \ denominator\ \ \ \ \ =\ two;}
+\DoxyCodeLine{00794\ \ \ \ \ nominator\_add\ \ \ =\ nominator;}
+\DoxyCodeLine{00795\ \ \ \ \ denominator\_add\ =\ denominator;}
+\DoxyCodeLine{00796\ \ \ \ \ nominator\_x\ \ \ \ \ =\ one;}
+\DoxyCodeLine{00797\ \ \ \ \ nominator\_x.Sub(x);}
+\DoxyCodeLine{00798\ \ \ \ \ nominator\_x\_add\ =\ nominator\_x;}
+\DoxyCodeLine{00799\ \ \ \ \ denominator\_x\ \ \ =\ 3;}
+\DoxyCodeLine{00800\ \ \ \ \ denominator2\ \ \ \ =\ two;}
+\DoxyCodeLine{00801\ }
+\DoxyCodeLine{00802\ }
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ i=1\ ;\ i<=\mbox{\hyperlink{ttmathtypes_8h_a3a26c74e34f27589bfceefd0f2e497a8}{TTMATH\_ARITHMETIC\_MAX\_LOOP}}\ ;\ ++i)}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ nominator\_temp\ =\ nominator\_x;\ \ \ }
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator\_temp.Mul(nominator);}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \ \ \ \ denominator\_temp\ =\ denominator;}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator\_temp.Mul(denominator\_x);}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator\_temp.Mul(denominator2);}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator\_temp.Div(denominator\_temp);}
+\DoxyCodeLine{00811\ }
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ there\ is\ a\ carry\ somewhere\ we\ only\ break\ the\ calculating}}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ result\ should\ be\ ok\ -\/-\/\ it's\ from\ <-\/pi/2,\ pi/2>}}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ c\ )\ }
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00816\ }
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ result.Add(nominator\_temp);}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00819\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result\ ==\ old\_result\ )}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ there's\ no\ sense\ to\ calculate\ more}}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00822\ }
+\DoxyCodeLine{00823\ \ \ \ \ \ \ \ \ \ \ \ \ old\_result\ =\ result;}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator\_x.Mul(nominator\_x\_add);}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator\_add.Add(two);}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator\_add.Add(two);}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator.Mul(nominator\_add);}
+\DoxyCodeLine{00829\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator.Mul(denominator\_add);}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator\_x.Add(two);}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator2.Mul(two);}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00833\ }
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ nominator\_x\_add.exponent.AddOne();\ \textcolor{comment}{//\ *2}}
+\DoxyCodeLine{00836\ \ \ \ \ \ \ \ \ one.exponent.SubOne();\ \textcolor{comment}{//\ =0.5}}
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ nominator\_x\_add.Pow(one);\ \textcolor{comment}{//\ =sqrt(nominator\_x\_add)}}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ result.Mul(nominator\_x\_add);}
+\DoxyCodeLine{00839\ }
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ one.Set05Pi();}
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ one.Sub(result);}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{keywordflow}{return}\ one;}
+\DoxyCodeLine{00844\ \ \ \ \ \}}
+\DoxyCodeLine{00845\ }
+\DoxyCodeLine{00846\ }
+\DoxyCodeLine{00847\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ auxiliaryfunctions}}
+\DoxyCodeLine{00848\ }
+\DoxyCodeLine{00849\ }
+\DoxyCodeLine{00854\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00855\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a56de53bf34882675055ce5a2c09b07dc}{ASin}}(ValueType\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00856\ \ \ \ \ \{}
+\DoxyCodeLine{00857\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }auxiliaryfunctions;}
+\DoxyCodeLine{00858\ }
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ ValueType\ result,\ one;}
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ change\_sign\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00862\ }
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00866\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00867\ }
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00870\ }
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.GreaterWithoutSignThan(one)\ )}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00873\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00874\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{00875\ }
+\DoxyCodeLine{00876\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;\ \textcolor{comment}{//\ NaN\ is\ set\ by\ default}}
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00878\ }
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsSign()\ )}
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00881\ \ \ \ \ \ \ \ \ \ \ \ \ change\_sign\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00882\ \ \ \ \ \ \ \ \ \ \ \ \ x.Abs();}
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00884\ }
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ one.exponent.SubOne();\ \textcolor{comment}{//\ =0.5}}
+\DoxyCodeLine{00886\ }
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ asin(-\/x)\ =\ -\/asin(x)}}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.GreaterWithoutSignThan(one)\ )}
+\DoxyCodeLine{00889\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ ASin\_1(x);\ }
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ ASin\_0(x);}
+\DoxyCodeLine{00892\ }
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ change\_sign\ )}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ \ \ \ \ \ \ result.ChangeSign();}
+\DoxyCodeLine{00895\ }
+\DoxyCodeLine{00896\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{00897\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_ok;}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00900\ \ \ \ \ \}}
+\DoxyCodeLine{00901\ }
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00909\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00910\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_aee077900462c931807bf72d6bae0f8f9}{ACos}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{00911\ \ \ \ \ \{}
+\DoxyCodeLine{00912\ \ \ \ \ ValueType\ temp;}
+\DoxyCodeLine{00913\ }
+\DoxyCodeLine{00914\ \ \ \ \ \ \ \ \ temp.Set05Pi();}
+\DoxyCodeLine{00915\ \ \ \ \ \ \ \ \ temp.Sub(\mbox{\hyperlink{namespacettmath_a56de53bf34882675055ce5a2c09b07dc}{ASin}}(x,\ err));}
+\DoxyCodeLine{00916\ }
+\DoxyCodeLine{00917\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{00918\ \ \ \ \ \}}
+\DoxyCodeLine{00919\ }
+\DoxyCodeLine{00920\ }
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00922\ \ \ \ \ \textcolor{keyword}{namespace\ }auxiliaryfunctions}
+\DoxyCodeLine{00923\ \ \ \ \ \{}
+\DoxyCodeLine{00924\ }
+\DoxyCodeLine{00934\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00935\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a9b6ab67a96be68dff5e3de0a22d81979}{ATan0}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{00936\ \ \ \ \ \{}
+\DoxyCodeLine{00937\ \ \ \ \ \ \ \ \ ValueType\ nominator,\ denominator,\ nominator\_add,\ denominator\_add,\ temp;}
+\DoxyCodeLine{00938\ \ \ \ \ \ \ \ \ ValueType\ result,\ old\_result;}
+\DoxyCodeLine{00939\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ adding\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00940\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{00941\ }
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ result\ \ \ \ \ \ \ \ =\ x;}
+\DoxyCodeLine{00943\ \ \ \ \ \ \ \ \ old\_result\ \ \ \ =\ result;}
+\DoxyCodeLine{00944\ \ \ \ \ \ \ \ \ nominator\ \ \ \ \ =\ x;}
+\DoxyCodeLine{00945\ \ \ \ \ \ \ \ \ nominator\_add\ =\ x;}
+\DoxyCodeLine{00946\ \ \ \ \ \ \ \ \ nominator\_add.Mul(x);}
+\DoxyCodeLine{00947\ }
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ denominator.SetOne();}
+\DoxyCodeLine{00949\ \ \ \ \ \ \ \ \ denominator\_add\ =\ 2;}
+\DoxyCodeLine{00950\ }
+\DoxyCodeLine{00951\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ i=1\ ;\ i<=\mbox{\hyperlink{ttmathtypes_8h_a3a26c74e34f27589bfceefd0f2e497a8}{TTMATH\_ARITHMETIC\_MAX\_LOOP}}\ ;\ ++i)}
+\DoxyCodeLine{00952\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00953\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ nominator.Mul(nominator\_add);}
+\DoxyCodeLine{00954\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ denominator.Add(denominator\_add);}
+\DoxyCodeLine{00955\ \ \ \ \ }
+\DoxyCodeLine{00956\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ nominator;}
+\DoxyCodeLine{00957\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ temp.Div(denominator);}
+\DoxyCodeLine{00958\ }
+\DoxyCodeLine{00959\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ c\ )}
+\DoxyCodeLine{00960\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ result\ should\ be\ ok}}
+\DoxyCodeLine{00961\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00962\ }
+\DoxyCodeLine{00963\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ adding\ )}
+\DoxyCodeLine{00964\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Add(temp);}
+\DoxyCodeLine{00965\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Sub(temp);}
+\DoxyCodeLine{00967\ }
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result\ ==\ old\_result\ )}
+\DoxyCodeLine{00969\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ there's\ no\ sense\ to\ calculate\ more}}
+\DoxyCodeLine{00970\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00971\ }
+\DoxyCodeLine{00972\ \ \ \ \ \ \ \ \ \ \ \ \ old\_result\ =\ result;}
+\DoxyCodeLine{00973\ \ \ \ \ \ \ \ \ \ \ \ \ adding\ \ \ \ \ =\ !adding;}
+\DoxyCodeLine{00974\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00977\ \ \ \ \ \}}
+\DoxyCodeLine{00978\ }
+\DoxyCodeLine{00979\ }
+\DoxyCodeLine{00985\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{00986\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a7876f4bbd8c445d168c60f891bbf3edf}{ATan01}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{00987\ \ \ \ \ \{}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ ValueType\ half;}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ half.Set05();}
+\DoxyCodeLine{00990\ }
+\DoxyCodeLine{00991\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00992\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ it\ would\ be\ better\ if\ we\ chose\ about\ sqrt(2)-\/1=0.41...\ instead\ of\ 0.5\ here}}
+\DoxyCodeLine{00993\ \textcolor{comment}{}}
+\DoxyCodeLine{00994\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ because\ as\ you\ can\ see\ below:}}
+\DoxyCodeLine{00995\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ when\ x\ =\ sqrt(2)-\/1}}
+\DoxyCodeLine{00996\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ abs(x)\ =\ abs(\ (x-\/1)/(1+x)\ )}}
+\DoxyCodeLine{00997\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ so\ when\ we're\ calculating\ values\ around\ x}}
+\DoxyCodeLine{00998\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ then\ they\ will\ be\ better\ converged\ to\ each\ other}}
+\DoxyCodeLine{00999\ \textcolor{comment}{}}
+\DoxyCodeLine{01000\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ example\ if\ we\ have\ x=0.4999\ then\ during\ calculating\ ATan0(0.4999)}}
+\DoxyCodeLine{01001\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ we\ have\ to\ make\ about\ 141\ iterations\ but\ when\ we\ have\ x=0.5}}
+\DoxyCodeLine{01002\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ then\ during\ calculating\ ATan0(\ (x-\/1)/(1+x)\ )\ we\ have\ to\ make\ }}
+\DoxyCodeLine{01003\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ only\ about\ 89\ iterations\ (both\ for\ Big<3,9>)}}
+\DoxyCodeLine{01004\ \textcolor{comment}{}}
+\DoxyCodeLine{01005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ in\ the\ future\ this\ 0.5\ can\ be\ changed}}
+\DoxyCodeLine{01006\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{01007\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.SmallerWithoutSignThan(half)\ )}
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a9b6ab67a96be68dff5e3de0a22d81979}{ATan0}}(x);}
+\DoxyCodeLine{01009\ }
+\DoxyCodeLine{01010\ }
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01012\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ x>=0.5\ and\ x<=1}}
+\DoxyCodeLine{01013\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ (x\ can\ be\ even\ smaller\ than\ 0.5)}}
+\DoxyCodeLine{01014\ \textcolor{comment}{}}
+\DoxyCodeLine{01015\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ y\ =\ atac(x)}}
+\DoxyCodeLine{01016\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ x\ =\ tan(y)}}
+\DoxyCodeLine{01017\ \textcolor{comment}{}}
+\DoxyCodeLine{01018\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ tan(y-\/b)\ =\ (tan(y)-\/tab(b))\ /\ (1+tan(y)*tan(b))}}
+\DoxyCodeLine{01019\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ y-\/b\ \ \ \ \ \ =\ atan(\ (tan(y)-\/tab(b))\ /\ (1+tan(y)*tan(b))\ )}}
+\DoxyCodeLine{01020\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ y\ \ \ \ \ \ \ \ =\ b\ +\ atan(\ (x-\/tab(b))\ /\ (1+x*tan(b))\ )}}
+\DoxyCodeLine{01021\ \textcolor{comment}{}}
+\DoxyCodeLine{01022\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ let\ b\ =\ pi/4}}
+\DoxyCodeLine{01023\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ tan(b)\ =\ tan(pi/4)\ =\ 1}}
+\DoxyCodeLine{01024\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ y\ =\ pi/4\ +\ atan(\ (x-\/1)/(1+x)\ )}}
+\DoxyCodeLine{01025\ \textcolor{comment}{}}
+\DoxyCodeLine{01026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ so}}
+\DoxyCodeLine{01027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ atac(x)\ =\ pi/4\ +\ atan(\ (x-\/1)/(1+x)\ )}}
+\DoxyCodeLine{01028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ when\ x-\/>1\ (x\ converges\ to\ 1)\ the\ (x-\/1)/(1+x)\ -\/>\ 0}}
+\DoxyCodeLine{01029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ and\ we\ can\ use\ ATan0()\ function\ here}}
+\DoxyCodeLine{01030\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{01031\ }
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ ValueType\ n(x),d(x),one,result;}
+\DoxyCodeLine{01033\ }
+\DoxyCodeLine{01034\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{01035\ \ \ \ \ \ \ \ \ n.Sub(one);}
+\DoxyCodeLine{01036\ \ \ \ \ \ \ \ \ d.Add(one);}
+\DoxyCodeLine{01037\ \ \ \ \ \ \ \ \ n.Div(d);}
+\DoxyCodeLine{01038\ }
+\DoxyCodeLine{01039\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a9b6ab67a96be68dff5e3de0a22d81979}{ATan0}}(n);}
+\DoxyCodeLine{01040\ }
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \ \ n.Set05Pi();}
+\DoxyCodeLine{01042\ \ \ \ \ \ \ \ \ n.exponent.SubOne();\ \textcolor{comment}{//\ =pi/4}}
+\DoxyCodeLine{01043\ \ \ \ \ \ \ \ \ result.Add(n);}
+\DoxyCodeLine{01044\ }
+\DoxyCodeLine{01045\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01046\ \ \ \ \ \}}
+\DoxyCodeLine{01047\ }
+\DoxyCodeLine{01048\ }
+\DoxyCodeLine{01056\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01057\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a99d5eb5a3c1dbcc5054d5bc2a04162e1}{ATanGreaterThanPlusOne}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{01058\ \ \ \ \ \{}
+\DoxyCodeLine{01059\ \ \ \ \ ValueType\ temp,\ atan;}
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01061\ \ \ \ \ \ \ \ \ temp.SetOne();}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ temp.Div(x)\ )}
+\DoxyCodeLine{01064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ there\ was\ a\ carry\ here\ that\ means\ x\ is\ very\ big}}
+\DoxyCodeLine{01066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ atan(1/x)\ fast\ converged\ to\ 0}}
+\DoxyCodeLine{01067\ \ \ \ \ \ \ \ \ \ \ \ \ atan.SetZero();}
+\DoxyCodeLine{01068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01070\ \ \ \ \ \ \ \ \ \ \ \ \ atan\ =\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a7876f4bbd8c445d168c60f891bbf3edf}{ATan01}}(temp);}
+\DoxyCodeLine{01071\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01072\ \ \ \ \ \ \ \ \ temp.Set05Pi();}
+\DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ temp.Sub(atan);}
+\DoxyCodeLine{01074\ }
+\DoxyCodeLine{01075\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{01076\ \ \ \ \ \}}
+\DoxyCodeLine{01077\ }
+\DoxyCodeLine{01078\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ auxiliaryfunctions}}
+\DoxyCodeLine{01079\ }
+\DoxyCodeLine{01080\ }
+\DoxyCodeLine{01084\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01085\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_ac4cabefdca116455346cfda51a9964cb}{ATan}}(ValueType\ x)}
+\DoxyCodeLine{01086\ \ \ \ \ \{}
+\DoxyCodeLine{01087\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }auxiliaryfunctions;}
+\DoxyCodeLine{01088\ }
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ ValueType\ one,\ result;}
+\DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ change\_sign\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01092\ }
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01095\ }
+\DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ x\ is\ negative\ we're\ using\ the\ formula:}}
+\DoxyCodeLine{01097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ atan(-\/x)\ =\ -\/atan(x)}}
+\DoxyCodeLine{01098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsSign()\ )}
+\DoxyCodeLine{01099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01100\ \ \ \ \ \ \ \ \ \ \ \ \ change\_sign\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01101\ \ \ \ \ \ \ \ \ \ \ \ \ x.Abs();}
+\DoxyCodeLine{01102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01103\ }
+\DoxyCodeLine{01104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.GreaterWithoutSignThan(one)\ )}
+\DoxyCodeLine{01105\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ ATanGreaterThanPlusOne(x);}
+\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01107\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ ATan01(x);}
+\DoxyCodeLine{01108\ }
+\DoxyCodeLine{01109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ change\_sign\ )}
+\DoxyCodeLine{01110\ \ \ \ \ \ \ \ \ \ \ \ \ result.ChangeSign();}
+\DoxyCodeLine{01111\ }
+\DoxyCodeLine{01112\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01113\ \ \ \ \ \}}
+\DoxyCodeLine{01114\ }
+\DoxyCodeLine{01115\ }
+\DoxyCodeLine{01122\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01123\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a0e96d4b43c340c816cf21021165c654b}{ATg}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{01124\ \ \ \ \ \{}
+\DoxyCodeLine{01125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_ac4cabefdca116455346cfda51a9964cb}{ATan}}(x);}
+\DoxyCodeLine{01126\ \ \ \ \ \}}
+\DoxyCodeLine{01127\ }
+\DoxyCodeLine{01128\ }
+\DoxyCodeLine{01135\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01136\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a16977771af17c322b2dbacd26ab3f832}{ACot}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{01137\ \ \ \ \ \{}
+\DoxyCodeLine{01138\ \ \ \ \ ValueType\ result;}
+\DoxyCodeLine{01139\ }
+\DoxyCodeLine{01140\ \ \ \ \ \ \ \ \ result.Set05Pi();}
+\DoxyCodeLine{01141\ \ \ \ \ \ \ \ \ result.Sub(\mbox{\hyperlink{namespacettmath_ac4cabefdca116455346cfda51a9964cb}{ATan}}(x));}
+\DoxyCodeLine{01142\ }
+\DoxyCodeLine{01143\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01144\ \ \ \ \ \}}
+\DoxyCodeLine{01145\ }
+\DoxyCodeLine{01146\ }
+\DoxyCodeLine{01153\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01154\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a2b5eee4603490ab765b30984dd857e81}{ACtg}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{01155\ \ \ \ \ \{}
+\DoxyCodeLine{01156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_a16977771af17c322b2dbacd26ab3f832}{ACot}}(x);}
+\DoxyCodeLine{01157\ \ \ \ \ \}}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01159\ }
+\DoxyCodeLine{01160\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01161\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01162\ \textcolor{comment}{\ \ \ \ \ *\ \ hyperbolic\ functions}}
+\DoxyCodeLine{01163\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01164\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01165\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{01166\ }
+\DoxyCodeLine{01167\ }
+\DoxyCodeLine{01173\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01174\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_abb7d8f5511b29ed42fa46c5d6da45140}{Sinh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01175\ \ \ \ \ \{}
+\DoxyCodeLine{01176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01177\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01180\ }
+\DoxyCodeLine{01181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{01182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01183\ }
+\DoxyCodeLine{01184\ \ \ \ \ \ \ \ \ ValueType\ ex,\ emx;}
+\DoxyCodeLine{01185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01186\ }
+\DoxyCodeLine{01187\ \ \ \ \ \ \ \ \ c\ +=\ ex.Exp(x);}
+\DoxyCodeLine{01188\ \ \ \ \ \ \ \ \ c\ +=\ emx.Exp(-\/x);}
+\DoxyCodeLine{01189\ }
+\DoxyCodeLine{01190\ \ \ \ \ \ \ \ \ c\ +=\ ex.Sub(emx);}
+\DoxyCodeLine{01191\ \ \ \ \ \ \ \ \ c\ +=\ ex.exponent.SubOne();}
+\DoxyCodeLine{01192\ }
+\DoxyCodeLine{01193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01194\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01195\ }
+\DoxyCodeLine{01196\ \ \ \ \ \textcolor{keywordflow}{return}\ ex;}
+\DoxyCodeLine{01197\ \ \ \ \ \}}
+\DoxyCodeLine{01198\ }
+\DoxyCodeLine{01199\ }
+\DoxyCodeLine{01205\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01206\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_af49359c6943998f68ec722dd717fdc71}{Cosh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01207\ \ \ \ \ \{}
+\DoxyCodeLine{01208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01209\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01212\ }
+\DoxyCodeLine{01213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{01214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01215\ }
+\DoxyCodeLine{01216\ \ \ \ \ \ \ \ \ ValueType\ ex,\ emx;}
+\DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01218\ }
+\DoxyCodeLine{01219\ \ \ \ \ \ \ \ \ c\ +=\ ex.Exp(x);}
+\DoxyCodeLine{01220\ \ \ \ \ \ \ \ \ c\ +=\ emx.Exp(-\/x);}
+\DoxyCodeLine{01221\ }
+\DoxyCodeLine{01222\ \ \ \ \ \ \ \ \ c\ +=\ ex.Add(emx);}
+\DoxyCodeLine{01223\ \ \ \ \ \ \ \ \ c\ +=\ ex.exponent.SubOne();}
+\DoxyCodeLine{01224\ }
+\DoxyCodeLine{01225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01226\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01227\ }
+\DoxyCodeLine{01228\ \ \ \ \ \textcolor{keywordflow}{return}\ ex;}
+\DoxyCodeLine{01229\ \ \ \ \ \}}
+\DoxyCodeLine{01230\ }
+\DoxyCodeLine{01231\ }
+\DoxyCodeLine{01237\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01238\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a61d39833ec57ac28ad81c018934c857a}{Tanh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01239\ \ \ \ \ \{}
+\DoxyCodeLine{01240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01241\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01244\ }
+\DoxyCodeLine{01245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{01246\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01247\ }
+\DoxyCodeLine{01248\ \ \ \ \ \ \ \ \ ValueType\ ex,\ emx,\ nominator,\ denominator;}
+\DoxyCodeLine{01249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01250\ }
+\DoxyCodeLine{01251\ \ \ \ \ \ \ \ \ c\ +=\ ex.Exp(x);}
+\DoxyCodeLine{01252\ \ \ \ \ \ \ \ \ c\ +=\ emx.Exp(-\/x);}
+\DoxyCodeLine{01253\ }
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ nominator\ =\ ex;}
+\DoxyCodeLine{01255\ \ \ \ \ \ \ \ \ c\ +=\ nominator.Sub(emx);}
+\DoxyCodeLine{01256\ \ \ \ \ \ \ \ \ denominator\ =\ ex;}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ c\ +=\ denominator.Add(emx);}
+\DoxyCodeLine{01258\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ c\ +=\ nominator.Div(denominator);}
+\DoxyCodeLine{01260\ }
+\DoxyCodeLine{01261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01262\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01263\ }
+\DoxyCodeLine{01264\ \ \ \ \ \textcolor{keywordflow}{return}\ nominator;}
+\DoxyCodeLine{01265\ \ \ \ \ \}}
+\DoxyCodeLine{01266\ }
+\DoxyCodeLine{01267\ }
+\DoxyCodeLine{01274\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01275\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a3527548481a8319c1c12fd1f26dfe652}{Tgh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01276\ \ \ \ \ \{}
+\DoxyCodeLine{01277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_a61d39833ec57ac28ad81c018934c857a}{Tanh}}(x,\ err);}
+\DoxyCodeLine{01278\ \ \ \ \ \}}
+\DoxyCodeLine{01279\ }
+\DoxyCodeLine{01285\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01286\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a9446f17be78f1bb3a2a5cf99ec6eb7c5}{Coth}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01287\ \ \ \ \ \{}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01292\ }
+\DoxyCodeLine{01293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{01294\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01295\ }
+\DoxyCodeLine{01296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsZero()\ )}
+\DoxyCodeLine{01297\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01300\ }
+\DoxyCodeLine{01301\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ValueType();\ \textcolor{comment}{//\ NaN\ is\ set\ by\ default}}
+\DoxyCodeLine{01302\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01303\ }
+\DoxyCodeLine{01304\ \ \ \ \ \ \ \ \ ValueType\ ex,\ emx,\ nominator,\ denominator;}
+\DoxyCodeLine{01305\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01306\ }
+\DoxyCodeLine{01307\ \ \ \ \ \ \ \ \ c\ +=\ ex.Exp(x);}
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ c\ +=\ emx.Exp(-\/x);}
+\DoxyCodeLine{01309\ }
+\DoxyCodeLine{01310\ \ \ \ \ \ \ \ \ nominator\ =\ ex;}
+\DoxyCodeLine{01311\ \ \ \ \ \ \ \ \ c\ +=\ nominator.Add(emx);}
+\DoxyCodeLine{01312\ \ \ \ \ \ \ \ \ denominator\ =\ ex;}
+\DoxyCodeLine{01313\ \ \ \ \ \ \ \ \ c\ +=\ denominator.Sub(emx);}
+\DoxyCodeLine{01314\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01315\ \ \ \ \ \ \ \ \ c\ +=\ nominator.Div(denominator);}
+\DoxyCodeLine{01316\ }
+\DoxyCodeLine{01317\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01318\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01319\ }
+\DoxyCodeLine{01320\ \ \ \ \ \textcolor{keywordflow}{return}\ nominator;}
+\DoxyCodeLine{01321\ \ \ \ \ \}}
+\DoxyCodeLine{01322\ }
+\DoxyCodeLine{01323\ }
+\DoxyCodeLine{01330\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01331\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a13e6e549b97b7aea65e95e4141d8a92b}{Ctgh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01332\ \ \ \ \ \{}
+\DoxyCodeLine{01333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_a9446f17be78f1bb3a2a5cf99ec6eb7c5}{Coth}}(x,\ err);}
+\DoxyCodeLine{01334\ \ \ \ \ \}}
+\DoxyCodeLine{01335\ }
+\DoxyCodeLine{01336\ }
+\DoxyCodeLine{01337\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01338\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01339\ \textcolor{comment}{\ \ \ \ \ *\ \ inverse\ hyperbolic\ functions}}
+\DoxyCodeLine{01340\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01341\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01342\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{01343\ }
+\DoxyCodeLine{01344\ }
+\DoxyCodeLine{01350\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01351\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a5c25e4c8895dd02eace31b2cf2b4a376}{ASinh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01352\ \ \ \ \ \{}
+\DoxyCodeLine{01353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01354\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01357\ }
+\DoxyCodeLine{01358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{01359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01360\ }
+\DoxyCodeLine{01361\ \ \ \ \ \ \ \ \ ValueType\ xx(x),\ one,\ result;}
+\DoxyCodeLine{01362\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01363\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{01364\ }
+\DoxyCodeLine{01365\ \ \ \ \ \ \ \ \ c\ +=\ xx.Mul(x);}
+\DoxyCodeLine{01366\ \ \ \ \ \ \ \ \ c\ +=\ xx.Add(one);}
+\DoxyCodeLine{01367\ \ \ \ \ \ \ \ \ one.exponent.SubOne();\ \textcolor{comment}{//\ one=0.5}}
+\DoxyCodeLine{01368\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ xx\ is\ >=\ 1\ }}
+\DoxyCodeLine{01369\ \ \ \ \ \ \ \ \ c\ +=\ xx.PowFrac(one);\ \textcolor{comment}{//\ xx=sqrt(xx)}}
+\DoxyCodeLine{01370\ \ \ \ \ \ \ \ \ c\ +=\ xx.Add(x);}
+\DoxyCodeLine{01371\ \ \ \ \ \ \ \ \ c\ +=\ result.Ln(xx);\ \textcolor{comment}{//\ xx\ >\ 0}}
+\DoxyCodeLine{01372\ }
+\DoxyCodeLine{01373\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ here\ can\ only\ be\ a\ carry}}
+\DoxyCodeLine{01374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01375\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01376\ }
+\DoxyCodeLine{01377\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01378\ \ \ \ \ \}}
+\DoxyCodeLine{01379\ }
+\DoxyCodeLine{01380\ }
+\DoxyCodeLine{01386\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01387\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a06b9a1ee1d7d3d4dc161c577b085045e}{ACosh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01388\ \ \ \ \ \{}
+\DoxyCodeLine{01389\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01390\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01391\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01393\ }
+\DoxyCodeLine{01394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{01395\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01396\ }
+\DoxyCodeLine{01397\ \ \ \ \ \ \ \ \ ValueType\ xx(x),\ one,\ result;}
+\DoxyCodeLine{01398\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01399\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{01400\ }
+\DoxyCodeLine{01401\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x\ <\ one\ )}
+\DoxyCodeLine{01402\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01403\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01405\ }
+\DoxyCodeLine{01406\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;\ \textcolor{comment}{//\ NaN\ is\ set\ by\ default}}
+\DoxyCodeLine{01407\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01408\ }
+\DoxyCodeLine{01409\ \ \ \ \ \ \ \ \ c\ +=\ xx.Mul(x);}
+\DoxyCodeLine{01410\ \ \ \ \ \ \ \ \ c\ +=\ xx.Sub(one);}
+\DoxyCodeLine{01411\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ xx\ is\ >=\ 0}}
+\DoxyCodeLine{01412\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ can't\ call\ a\ PowFrac\ when\ the\ 'x'\ is\ zero}}
+\DoxyCodeLine{01413\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ x\ is\ 0\ the\ sqrt(0)\ is\ 0}}
+\DoxyCodeLine{01414\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !xx.IsZero()\ )}
+\DoxyCodeLine{01415\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01416\ \ \ \ \ \ \ \ \ \ \ \ \ one.exponent.SubOne();\ \textcolor{comment}{//\ one=0.5}}
+\DoxyCodeLine{01417\ \ \ \ \ \ \ \ \ \ \ \ \ c\ +=\ xx.PowFrac(one);\ \textcolor{comment}{//\ xx=sqrt(xx)}}
+\DoxyCodeLine{01418\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01419\ \ \ \ \ \ \ \ \ c\ +=\ xx.Add(x);}
+\DoxyCodeLine{01420\ \ \ \ \ \ \ \ \ c\ +=\ result.Ln(xx);\ \textcolor{comment}{//\ xx\ >=\ 1}}
+\DoxyCodeLine{01421\ }
+\DoxyCodeLine{01422\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ here\ can\ only\ be\ a\ carry}}
+\DoxyCodeLine{01423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01424\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01425\ }
+\DoxyCodeLine{01426\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01427\ \ \ \ \ \}}
+\DoxyCodeLine{01428\ }
+\DoxyCodeLine{01429\ }
+\DoxyCodeLine{01435\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01436\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a59fa5b80ce4752872465d02c4c01625c}{ATanh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01437\ \ \ \ \ \{}
+\DoxyCodeLine{01438\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01439\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01440\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01442\ }
+\DoxyCodeLine{01443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{01444\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01445\ }
+\DoxyCodeLine{01446\ \ \ \ \ \ \ \ \ ValueType\ nominator(x),\ denominator,\ one,\ result;}
+\DoxyCodeLine{01447\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01448\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{01449\ }
+\DoxyCodeLine{01450\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !x.SmallerWithoutSignThan(one)\ )}
+\DoxyCodeLine{01451\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01452\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01454\ }
+\DoxyCodeLine{01455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;\ \textcolor{comment}{//\ NaN\ is\ set\ by\ default}}
+\DoxyCodeLine{01456\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01457\ }
+\DoxyCodeLine{01458\ \ \ \ \ \ \ \ \ c\ +=\ nominator.Add(one);}
+\DoxyCodeLine{01459\ \ \ \ \ \ \ \ \ denominator\ =\ one;}
+\DoxyCodeLine{01460\ \ \ \ \ \ \ \ \ c\ +=\ denominator.Sub(x);}
+\DoxyCodeLine{01461\ \ \ \ \ \ \ \ \ c\ +=\ nominator.Div(denominator);}
+\DoxyCodeLine{01462\ \ \ \ \ \ \ \ \ c\ +=\ result.Ln(nominator);}
+\DoxyCodeLine{01463\ \ \ \ \ \ \ \ \ c\ +=\ result.exponent.SubOne();}
+\DoxyCodeLine{01464\ }
+\DoxyCodeLine{01465\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ here\ can\ only\ be\ a\ carry}}
+\DoxyCodeLine{01466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01467\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01468\ }
+\DoxyCodeLine{01469\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01470\ \ \ \ \ \}}
+\DoxyCodeLine{01471\ }
+\DoxyCodeLine{01472\ }
+\DoxyCodeLine{01476\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01477\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a975495c66ca3027dd1f44163cffa38b4}{ATgh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01478\ \ \ \ \ \{}
+\DoxyCodeLine{01479\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_a59fa5b80ce4752872465d02c4c01625c}{ATanh}}(x,\ err);}
+\DoxyCodeLine{01480\ \ \ \ \ \}}
+\DoxyCodeLine{01481\ }
+\DoxyCodeLine{01482\ }
+\DoxyCodeLine{01488\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01489\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a1bb131b813c879e9e214ccf8a7eb3696}{ACoth}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01490\ \ \ \ \ \{}
+\DoxyCodeLine{01491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01492\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01493\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01495\ }
+\DoxyCodeLine{01496\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{01497\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01498\ }
+\DoxyCodeLine{01499\ \ \ \ \ \ \ \ \ ValueType\ nominator(x),\ denominator(x),\ one,\ result;}
+\DoxyCodeLine{01500\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01501\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{01502\ }
+\DoxyCodeLine{01503\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !x.GreaterWithoutSignThan(one)\ )}
+\DoxyCodeLine{01504\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01505\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01507\ }
+\DoxyCodeLine{01508\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;\ \textcolor{comment}{//\ NaN\ is\ set\ by\ default}}
+\DoxyCodeLine{01509\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01510\ }
+\DoxyCodeLine{01511\ \ \ \ \ \ \ \ \ c\ +=\ nominator.Add(one);}
+\DoxyCodeLine{01512\ \ \ \ \ \ \ \ \ c\ +=\ denominator.Sub(one);}
+\DoxyCodeLine{01513\ \ \ \ \ \ \ \ \ c\ +=\ nominator.Div(denominator);}
+\DoxyCodeLine{01514\ \ \ \ \ \ \ \ \ c\ +=\ result.Ln(nominator);}
+\DoxyCodeLine{01515\ \ \ \ \ \ \ \ \ c\ +=\ result.exponent.SubOne();}
+\DoxyCodeLine{01516\ }
+\DoxyCodeLine{01517\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ here\ can\ only\ be\ a\ carry}}
+\DoxyCodeLine{01518\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01519\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01520\ }
+\DoxyCodeLine{01521\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01522\ \ \ \ \ \}}
+\DoxyCodeLine{01523\ }
+\DoxyCodeLine{01524\ }
+\DoxyCodeLine{01528\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01529\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a3661cefb265dde03e1744db779812fcf}{ACtgh}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01530\ \ \ \ \ \{}
+\DoxyCodeLine{01531\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_a1bb131b813c879e9e214ccf8a7eb3696}{ACoth}}(x,\ err);}
+\DoxyCodeLine{01532\ \ \ \ \ \}}
+\DoxyCodeLine{01533\ }
+\DoxyCodeLine{01534\ }
+\DoxyCodeLine{01535\ }
+\DoxyCodeLine{01536\ }
+\DoxyCodeLine{01537\ }
+\DoxyCodeLine{01538\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01539\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01540\ \textcolor{comment}{\ \ \ \ \ *\ \ functions\ for\ converting\ between\ degrees,\ radians\ and\ gradians}}
+\DoxyCodeLine{01541\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01542\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01543\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{01544\ }
+\DoxyCodeLine{01545\ }
+\DoxyCodeLine{01551\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01552\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_ac6aac6162783d4ad6c5d78729f7fd21c}{DegToRad}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01553\ \ \ \ \ \{}
+\DoxyCodeLine{01554\ \ \ \ \ ValueType\ result,\ temp;}
+\DoxyCodeLine{01555\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01556\ }
+\DoxyCodeLine{01557\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01558\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01559\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01561\ }
+\DoxyCodeLine{01562\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01563\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01564\ }
+\DoxyCodeLine{01565\ \ \ \ \ \ \ \ \ result\ =\ x;}
+\DoxyCodeLine{01566\ }
+\DoxyCodeLine{01567\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ is\ better\ to\ make\ division\ first\ and\ then\ multiplication}}
+\DoxyCodeLine{01568\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ result\ is\ more\ accurate\ especially\ when\ x\ is:\ 90,180,270\ or\ 360}}
+\DoxyCodeLine{01569\ \ \ \ \ \ \ \ \ temp\ =\ 180;}
+\DoxyCodeLine{01570\ \ \ \ \ \ \ \ \ c\ +=\ result.Div(temp);}
+\DoxyCodeLine{01571\ }
+\DoxyCodeLine{01572\ \ \ \ \ \ \ \ \ temp.SetPi();}
+\DoxyCodeLine{01573\ \ \ \ \ \ \ \ \ c\ +=\ result.Mul(temp);}
+\DoxyCodeLine{01574\ }
+\DoxyCodeLine{01575\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01576\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01577\ }
+\DoxyCodeLine{01578\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01579\ \ \ \ \ \}}
+\DoxyCodeLine{01580\ }
+\DoxyCodeLine{01581\ }
+\DoxyCodeLine{01587\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01588\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_aa5ef6c79581805ee4c0bbfd731857511}{RadToDeg}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01589\ \ \ \ \ \{}
+\DoxyCodeLine{01590\ \ \ \ \ ValueType\ result,\ delimiter;}
+\DoxyCodeLine{01591\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01592\ }
+\DoxyCodeLine{01593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01594\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01595\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01596\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01597\ }
+\DoxyCodeLine{01598\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01599\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01600\ }
+\DoxyCodeLine{01601\ \ \ \ \ \ \ \ \ result\ =\ 180;}
+\DoxyCodeLine{01602\ \ \ \ \ \ \ \ \ c\ +=\ result.Mul(x);}
+\DoxyCodeLine{01603\ }
+\DoxyCodeLine{01604\ \ \ \ \ \ \ \ \ delimiter.SetPi();}
+\DoxyCodeLine{01605\ \ \ \ \ \ \ \ \ c\ +=\ result.Div(delimiter);}
+\DoxyCodeLine{01606\ }
+\DoxyCodeLine{01607\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01608\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01609\ }
+\DoxyCodeLine{01610\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01611\ \ \ \ \ \}}
+\DoxyCodeLine{01612\ }
+\DoxyCodeLine{01613\ }
+\DoxyCodeLine{01632\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01633\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_ac2fd073af0bd959717ac1a5784e5110d}{DegToDeg}}(\ \textcolor{keyword}{const}\ ValueType\ \&\ d,\ \textcolor{keyword}{const}\ ValueType\ \&\ m,\ \textcolor{keyword}{const}\ ValueType\ \&\ s,}
+\DoxyCodeLine{01634\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01635\ \ \ \ \ \{}
+\DoxyCodeLine{01636\ \ \ \ \ ValueType\ delimiter,\ multipler;}
+\DoxyCodeLine{01637\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01638\ }
+\DoxyCodeLine{01639\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ d.IsNan()\ ||\ m.IsNan()\ ||\ s.IsNan()\ ||\ m.IsSign()\ ||\ s.IsSign()\ )}
+\DoxyCodeLine{01640\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01641\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01642\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01643\ }
+\DoxyCodeLine{01644\ \ \ \ \ \ \ \ \ \ \ \ \ delimiter.SetZeroNan();\ \textcolor{comment}{//\ not\ needed,\ only\ to\ get\ rid\ of\ GCC\ warning\ about\ an\ uninitialized\ variable}}
+\DoxyCodeLine{01645\ }
+\DoxyCodeLine{01646\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ delimiter;}
+\DoxyCodeLine{01647\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01648\ }
+\DoxyCodeLine{01649\ \ \ \ \ \ \ \ \ multipler\ =\ 60;}
+\DoxyCodeLine{01650\ \ \ \ \ \ \ \ \ delimiter\ =\ 3600;}
+\DoxyCodeLine{01651\ }
+\DoxyCodeLine{01652\ \ \ \ \ \ \ \ \ c\ +=\ multipler.Mul(m);}
+\DoxyCodeLine{01653\ \ \ \ \ \ \ \ \ c\ +=\ multipler.Add(s);}
+\DoxyCodeLine{01654\ \ \ \ \ \ \ \ \ c\ +=\ multipler.Div(delimiter);}
+\DoxyCodeLine{01655\ }
+\DoxyCodeLine{01656\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ d.IsSign()\ )}
+\DoxyCodeLine{01657\ \ \ \ \ \ \ \ \ \ \ \ \ multipler.ChangeSign();}
+\DoxyCodeLine{01658\ }
+\DoxyCodeLine{01659\ \ \ \ \ \ \ \ \ c\ +=\ multipler.Add(d);}
+\DoxyCodeLine{01660\ }
+\DoxyCodeLine{01661\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01662\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01663\ }
+\DoxyCodeLine{01664\ \ \ \ \ \textcolor{keywordflow}{return}\ multipler;}
+\DoxyCodeLine{01665\ \ \ \ \ \}}
+\DoxyCodeLine{01666\ }
+\DoxyCodeLine{01667\ }
+\DoxyCodeLine{01671\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01672\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_ac6aac6162783d4ad6c5d78729f7fd21c}{DegToRad}}(\ \textcolor{keyword}{const}\ ValueType\ \&\ d,\ \textcolor{keyword}{const}\ ValueType\ \&\ m,\ \textcolor{keyword}{const}\ ValueType\ \&\ s,}
+\DoxyCodeLine{01673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01674\ \ \ \ \ \{}
+\DoxyCodeLine{01675\ \ \ \ \ \ \ \ \ ValueType\ temp\_deg\ =\ \mbox{\hyperlink{namespacettmath_ac2fd073af0bd959717ac1a5784e5110d}{DegToDeg}}(d,m,s,err);}
+\DoxyCodeLine{01676\ }
+\DoxyCodeLine{01677\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ \&\&\ *err!=err\_ok\ )}
+\DoxyCodeLine{01678\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temp\_deg;}
+\DoxyCodeLine{01679\ }
+\DoxyCodeLine{01680\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_ac6aac6162783d4ad6c5d78729f7fd21c}{DegToRad}}(temp\_deg,\ err);}
+\DoxyCodeLine{01681\ \ \ \ \ \}}
+\DoxyCodeLine{01682\ }
+\DoxyCodeLine{01683\ }
+\DoxyCodeLine{01689\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01690\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a16791351b7f09a2500c3bbd767a6d074}{GradToRad}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01691\ \ \ \ \ \{}
+\DoxyCodeLine{01692\ \ \ \ \ ValueType\ result,\ temp;}
+\DoxyCodeLine{01693\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01694\ }
+\DoxyCodeLine{01695\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01696\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01697\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01699\ }
+\DoxyCodeLine{01700\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01701\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01702\ }
+\DoxyCodeLine{01703\ \ \ \ \ \ \ \ \ result\ =\ x;}
+\DoxyCodeLine{01704\ }
+\DoxyCodeLine{01705\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ is\ better\ to\ make\ division\ first\ and\ then\ multiplication}}
+\DoxyCodeLine{01706\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ result\ is\ more\ accurate\ especially\ when\ x\ is:\ 100,200,300\ or\ 400}}
+\DoxyCodeLine{01707\ \ \ \ \ \ \ \ \ temp\ =\ 200;}
+\DoxyCodeLine{01708\ \ \ \ \ \ \ \ \ c\ +=\ result.Div(temp);}
+\DoxyCodeLine{01709\ }
+\DoxyCodeLine{01710\ \ \ \ \ \ \ \ \ temp.SetPi();}
+\DoxyCodeLine{01711\ \ \ \ \ \ \ \ \ c\ +=\ result.Mul(temp);}
+\DoxyCodeLine{01712\ }
+\DoxyCodeLine{01713\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01714\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01715\ }
+\DoxyCodeLine{01716\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01717\ \ \ \ \ \}}
+\DoxyCodeLine{01718\ }
+\DoxyCodeLine{01719\ }
+\DoxyCodeLine{01725\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01726\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a1a1aa0f61f5e74abf53c7b36cef77d75}{RadToGrad}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01727\ \ \ \ \ \{}
+\DoxyCodeLine{01728\ \ \ \ \ ValueType\ result,\ delimiter;}
+\DoxyCodeLine{01729\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01730\ }
+\DoxyCodeLine{01731\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01732\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01733\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01734\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01735\ }
+\DoxyCodeLine{01736\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01737\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01738\ }
+\DoxyCodeLine{01739\ \ \ \ \ \ \ \ \ result\ =\ 200;}
+\DoxyCodeLine{01740\ \ \ \ \ \ \ \ \ c\ +=\ result.Mul(x);}
+\DoxyCodeLine{01741\ }
+\DoxyCodeLine{01742\ \ \ \ \ \ \ \ \ delimiter.SetPi();}
+\DoxyCodeLine{01743\ \ \ \ \ \ \ \ \ c\ +=\ result.Div(delimiter);}
+\DoxyCodeLine{01744\ }
+\DoxyCodeLine{01745\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01746\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01747\ }
+\DoxyCodeLine{01748\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01749\ \ \ \ \ \}}
+\DoxyCodeLine{01750\ }
+\DoxyCodeLine{01751\ }
+\DoxyCodeLine{01757\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01758\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_af08419af148d5546f44c97b5300c39d6}{DegToGrad}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01759\ \ \ \ \ \{}
+\DoxyCodeLine{01760\ \ \ \ \ ValueType\ result,\ temp;}
+\DoxyCodeLine{01761\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01762\ }
+\DoxyCodeLine{01763\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01764\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01765\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01766\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01767\ }
+\DoxyCodeLine{01768\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01769\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01770\ }
+\DoxyCodeLine{01771\ \ \ \ \ \ \ \ \ result\ =\ x;}
+\DoxyCodeLine{01772\ }
+\DoxyCodeLine{01773\ \ \ \ \ \ \ \ \ temp\ =\ 200;}
+\DoxyCodeLine{01774\ \ \ \ \ \ \ \ \ c\ +=\ result.Mul(temp);}
+\DoxyCodeLine{01775\ }
+\DoxyCodeLine{01776\ \ \ \ \ \ \ \ \ temp\ =\ 180;}
+\DoxyCodeLine{01777\ \ \ \ \ \ \ \ \ c\ +=\ result.Div(temp);}
+\DoxyCodeLine{01778\ }
+\DoxyCodeLine{01779\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01780\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01781\ }
+\DoxyCodeLine{01782\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01783\ \ \ \ \ \}}
+\DoxyCodeLine{01784\ }
+\DoxyCodeLine{01785\ }
+\DoxyCodeLine{01789\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01790\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_af08419af148d5546f44c97b5300c39d6}{DegToGrad}}(\ \textcolor{keyword}{const}\ ValueType\ \&\ d,\ \textcolor{keyword}{const}\ ValueType\ \&\ m,\ \textcolor{keyword}{const}\ ValueType\ \&\ s,}
+\DoxyCodeLine{01791\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01792\ \ \ \ \ \{}
+\DoxyCodeLine{01793\ \ \ \ \ \ \ \ \ ValueType\ temp\_deg\ =\ \mbox{\hyperlink{namespacettmath_ac2fd073af0bd959717ac1a5784e5110d}{DegToDeg}}(d,m,s,err);}
+\DoxyCodeLine{01794\ }
+\DoxyCodeLine{01795\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ \&\&\ *err!=err\_ok\ )}
+\DoxyCodeLine{01796\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temp\_deg;}
+\DoxyCodeLine{01797\ }
+\DoxyCodeLine{01798\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_af08419af148d5546f44c97b5300c39d6}{DegToGrad}}(temp\_deg,\ err);}
+\DoxyCodeLine{01799\ \ \ \ \ \}}
+\DoxyCodeLine{01800\ }
+\DoxyCodeLine{01801\ }
+\DoxyCodeLine{01807\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01808\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a52eafea0946a3eda59db19fce03abd78}{GradToDeg}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01809\ \ \ \ \ \{}
+\DoxyCodeLine{01810\ \ \ \ \ ValueType\ result,\ temp;}
+\DoxyCodeLine{01811\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{01812\ }
+\DoxyCodeLine{01813\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ )}
+\DoxyCodeLine{01814\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01815\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01816\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01817\ }
+\DoxyCodeLine{01818\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01819\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01820\ }
+\DoxyCodeLine{01821\ \ \ \ \ \ \ \ \ result\ =\ x;}
+\DoxyCodeLine{01822\ }
+\DoxyCodeLine{01823\ \ \ \ \ \ \ \ \ temp\ =\ 180;}
+\DoxyCodeLine{01824\ \ \ \ \ \ \ \ \ c\ +=\ result.Mul(temp);}
+\DoxyCodeLine{01825\ }
+\DoxyCodeLine{01826\ \ \ \ \ \ \ \ \ temp\ =\ 200;}
+\DoxyCodeLine{01827\ \ \ \ \ \ \ \ \ c\ +=\ result.Div(temp);}
+\DoxyCodeLine{01828\ }
+\DoxyCodeLine{01829\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01830\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01831\ }
+\DoxyCodeLine{01832\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01833\ \ \ \ \ \}}
+\DoxyCodeLine{01834\ }
+\DoxyCodeLine{01835\ }
+\DoxyCodeLine{01836\ }
+\DoxyCodeLine{01837\ }
+\DoxyCodeLine{01838\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01839\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01840\ \textcolor{comment}{\ \ \ \ \ *\ \ another\ functions}}
+\DoxyCodeLine{01841\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01842\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{01843\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{01844\ }
+\DoxyCodeLine{01845\ }
+\DoxyCodeLine{01851\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01852\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a4ef68f4994c6c514e97fd44f1d850f0e}{Sqrt}}(ValueType\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{01853\ \ \ \ \ \{}
+\DoxyCodeLine{01854\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ ||\ x.IsSign()\ )}
+\DoxyCodeLine{01855\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01856\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01857\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01858\ }
+\DoxyCodeLine{01859\ \ \ \ \ \ \ \ \ \ \ \ \ x.SetNan();}
+\DoxyCodeLine{01860\ }
+\DoxyCodeLine{01861\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01862\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01863\ }
+\DoxyCodeLine{01864\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ x.Sqrt();}
+\DoxyCodeLine{01865\ }
+\DoxyCodeLine{01866\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01867\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{01868\ }
+\DoxyCodeLine{01869\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{01870\ \ \ \ \ \}}
+\DoxyCodeLine{01871\ }
+\DoxyCodeLine{01872\ }
+\DoxyCodeLine{01873\ }
+\DoxyCodeLine{01874\ \ \ \ \ \textcolor{keyword}{namespace\ }auxiliaryfunctions}
+\DoxyCodeLine{01875\ \ \ \ \ \{}
+\DoxyCodeLine{01876\ }
+\DoxyCodeLine{01877\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01878\ \ \ \ \ \textcolor{keywordtype}{bool}\ RootCheckIndexSign(ValueType\ \&\ x,\ \textcolor{keyword}{const}\ ValueType\ \&\ index,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err)}
+\DoxyCodeLine{01879\ \ \ \ \ \{}
+\DoxyCodeLine{01880\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ index.IsSign()\ )}
+\DoxyCodeLine{01881\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01882\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ index\ cannot\ be\ negative}}
+\DoxyCodeLine{01883\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01884\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01885\ }
+\DoxyCodeLine{01886\ \ \ \ \ \ \ \ \ \ \ \ \ x.SetNan();}
+\DoxyCodeLine{01887\ }
+\DoxyCodeLine{01888\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01889\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01890\ }
+\DoxyCodeLine{01891\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01892\ \ \ \ \ \}}
+\DoxyCodeLine{01893\ }
+\DoxyCodeLine{01894\ }
+\DoxyCodeLine{01895\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01896\ \ \ \ \ \textcolor{keywordtype}{bool}\ RootCheckIndexZero(ValueType\ \&\ x,\ \textcolor{keyword}{const}\ ValueType\ \&\ index,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err)}
+\DoxyCodeLine{01897\ \ \ \ \ \{}
+\DoxyCodeLine{01898\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ index.IsZero()\ )}
+\DoxyCodeLine{01899\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01900\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsZero()\ )}
+\DoxyCodeLine{01901\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01902\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ there\ isn't\ root(0;0)\ -\/\ we\ assume\ it's\ not\ defined}}
+\DoxyCodeLine{01903\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01904\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01905\ }
+\DoxyCodeLine{01906\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x.SetNan();}
+\DoxyCodeLine{01907\ }
+\DoxyCodeLine{01908\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01909\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01910\ \ \ \ \ }
+\DoxyCodeLine{01911\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ root(x;0)\ is\ 1\ (if\ x!=0)}}
+\DoxyCodeLine{01912\ \ \ \ \ \ \ \ \ \ \ \ \ x.SetOne();}
+\DoxyCodeLine{01913\ }
+\DoxyCodeLine{01914\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01915\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_ok;}
+\DoxyCodeLine{01916\ }
+\DoxyCodeLine{01917\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01918\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01919\ }
+\DoxyCodeLine{01920\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01921\ \ \ \ \ \}}
+\DoxyCodeLine{01922\ }
+\DoxyCodeLine{01923\ }
+\DoxyCodeLine{01924\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01925\ \ \ \ \ \textcolor{keywordtype}{bool}\ RootCheckIndexOne(\textcolor{keyword}{const}\ ValueType\ \&\ index,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err)}
+\DoxyCodeLine{01926\ \ \ \ \ \{}
+\DoxyCodeLine{01927\ \ \ \ \ \ \ \ \ ValueType\ one;}
+\DoxyCodeLine{01928\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{01929\ }
+\DoxyCodeLine{01930\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ index\ ==\ one\ )}
+\DoxyCodeLine{01931\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01932\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//root(x;1)\ is\ x}}
+\DoxyCodeLine{01933\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ do\ it\ because\ if\ we\ used\ the\ PowFrac\ function}}
+\DoxyCodeLine{01934\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ would\ lose\ the\ precision}}
+\DoxyCodeLine{01935\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01936\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_ok;}
+\DoxyCodeLine{01937\ }
+\DoxyCodeLine{01938\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01939\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01940\ }
+\DoxyCodeLine{01941\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01942\ \ \ \ \ \}}
+\DoxyCodeLine{01943\ }
+\DoxyCodeLine{01944\ }
+\DoxyCodeLine{01945\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01946\ \ \ \ \ \textcolor{keywordtype}{bool}\ RootCheckIndexTwo(ValueType\ \&\ x,\ \textcolor{keyword}{const}\ ValueType\ \&\ index,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err)}
+\DoxyCodeLine{01947\ \ \ \ \ \{}
+\DoxyCodeLine{01948\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ index\ ==\ 2\ )}
+\DoxyCodeLine{01949\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01950\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ \mbox{\hyperlink{namespacettmath_a4ef68f4994c6c514e97fd44f1d850f0e}{Sqrt}}(x,\ err);}
+\DoxyCodeLine{01951\ }
+\DoxyCodeLine{01952\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01953\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01954\ }
+\DoxyCodeLine{01955\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01956\ \ \ \ \ \}}
+\DoxyCodeLine{01957\ }
+\DoxyCodeLine{01958\ }
+\DoxyCodeLine{01959\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01960\ \ \ \ \ \textcolor{keywordtype}{bool}\ RootCheckIndexFrac(ValueType\ \&\ x,\ \textcolor{keyword}{const}\ ValueType\ \&\ index,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err)}
+\DoxyCodeLine{01961\ \ \ \ \ \{}
+\DoxyCodeLine{01962\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !index.IsInteger()\ )}
+\DoxyCodeLine{01963\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01964\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ index\ must\ be\ integer}}
+\DoxyCodeLine{01965\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01966\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{01967\ }
+\DoxyCodeLine{01968\ \ \ \ \ \ \ \ \ \ \ \ \ x.SetNan();}
+\DoxyCodeLine{01969\ }
+\DoxyCodeLine{01970\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01971\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01972\ }
+\DoxyCodeLine{01973\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01974\ \ \ \ \ \}}
+\DoxyCodeLine{01975\ }
+\DoxyCodeLine{01976\ }
+\DoxyCodeLine{01977\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01978\ \ \ \ \ \textcolor{keywordtype}{bool}\ RootCheckXZero(ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err)}
+\DoxyCodeLine{01979\ \ \ \ \ \{}
+\DoxyCodeLine{01980\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsZero()\ )}
+\DoxyCodeLine{01981\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01982\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ root(0;index)\ is\ zero\ (if\ index!=0)}}
+\DoxyCodeLine{01983\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ RootCheckIndexZero()\ must\ be\ called\ beforehand}}
+\DoxyCodeLine{01984\ \ \ \ \ \ \ \ \ \ \ \ \ x.SetZero();}
+\DoxyCodeLine{01985\ }
+\DoxyCodeLine{01986\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{01987\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_ok;}
+\DoxyCodeLine{01988\ }
+\DoxyCodeLine{01989\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01990\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01991\ }
+\DoxyCodeLine{01992\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01993\ \ \ \ \ \}}
+\DoxyCodeLine{01994\ }
+\DoxyCodeLine{01995\ }
+\DoxyCodeLine{01996\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{01997\ \ \ \ \ \textcolor{keywordtype}{bool}\ RootCheckIndex(ValueType\ \&\ x,\ \textcolor{keyword}{const}\ ValueType\ \&\ index,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err,\ \textcolor{keywordtype}{bool}\ *\ change\_sign)}
+\DoxyCodeLine{01998\ \ \ \ \ \{}
+\DoxyCodeLine{01999\ \ \ \ \ \ \ \ \ *change\_sign\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02000\ }
+\DoxyCodeLine{02001\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ index.Mod2()\ )}
+\DoxyCodeLine{02002\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02003\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ index\ is\ odd\ (1,3,5...)}}
+\DoxyCodeLine{02004\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsSign()\ )}
+\DoxyCodeLine{02005\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *change\_sign\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x.Abs();}
+\DoxyCodeLine{02008\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02009\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02011\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ index\ is\ even}}
+\DoxyCodeLine{02013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ cannot\ be\ negative}}
+\DoxyCodeLine{02014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsSign()\ )}
+\DoxyCodeLine{02015\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{02018\ }
+\DoxyCodeLine{02019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x.SetNan();}
+\DoxyCodeLine{02020\ }
+\DoxyCodeLine{02021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02022\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02024\ }
+\DoxyCodeLine{02025\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02026\ \ \ \ \ \}}
+\DoxyCodeLine{02027\ }
+\DoxyCodeLine{02028\ }
+\DoxyCodeLine{02029\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02030\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ RootCorrectInteger(ValueType\ \&\ old\_x,\ ValueType\ \&\ x,\ \textcolor{keyword}{const}\ ValueType\ \&\ index)}
+\DoxyCodeLine{02031\ \ \ \ \ \{}
+\DoxyCodeLine{02032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !old\_x.IsInteger()\ ||\ x.IsInteger()\ ||\ !index.exponent.IsSign()\ )}
+\DoxyCodeLine{02033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{02034\ }
+\DoxyCodeLine{02035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ old\_x\ is\ integer,}}
+\DoxyCodeLine{02036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ is\ not\ integer,}}
+\DoxyCodeLine{02037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ index\ is\ relatively\ small\ (index.exponent<0\ or\ index.exponent<=0)}}
+\DoxyCodeLine{02038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (because\ we're\ using\ a\ special\ powering\ algorithm\ Big::PowUInt())}}
+\DoxyCodeLine{02039\ }
+\DoxyCodeLine{02040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{02041\ }
+\DoxyCodeLine{02042\ \ \ \ \ \ \ \ \ ValueType\ temp(x);}
+\DoxyCodeLine{02043\ \ \ \ \ \ \ \ \ c\ +=\ temp.Round();}
+\DoxyCodeLine{02044\ }
+\DoxyCodeLine{02045\ \ \ \ \ \ \ \ \ ValueType\ temp\_round(temp);}
+\DoxyCodeLine{02046\ \ \ \ \ \ \ \ \ c\ +=\ temp.PowUInt(index);}
+\DoxyCodeLine{02047\ }
+\DoxyCodeLine{02048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ temp\ ==\ old\_x\ )}
+\DoxyCodeLine{02049\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ temp\_round;}
+\DoxyCodeLine{02050\ }
+\DoxyCodeLine{02051\ \ \ \ \ \textcolor{keywordflow}{return}\ (c==0)?\ 0\ :\ 1;}
+\DoxyCodeLine{02052\ \ \ \ \ \}}
+\DoxyCodeLine{02053\ }
+\DoxyCodeLine{02054\ }
+\DoxyCodeLine{02055\ }
+\DoxyCodeLine{02056\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ auxiliaryfunctions\ }}
+\DoxyCodeLine{02057\ }
+\DoxyCodeLine{02058\ }
+\DoxyCodeLine{02059\ }
+\DoxyCodeLine{02075\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02076\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a3b83986f71f6f78d6b0eb33d0e832654}{Root}}(ValueType\ x,\ \textcolor{keyword}{const}\ ValueType\ \&\ index,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{02077\ \ \ \ \ \{}
+\DoxyCodeLine{02078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }auxiliaryfunctions;}
+\DoxyCodeLine{02079\ }
+\DoxyCodeLine{02080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ ||\ index.IsNan()\ )}
+\DoxyCodeLine{02081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{02084\ }
+\DoxyCodeLine{02085\ \ \ \ \ \ \ \ \ \ \ \ \ x.SetNan();}
+\DoxyCodeLine{02086\ }
+\DoxyCodeLine{02087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02089\ }
+\DoxyCodeLine{02090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ RootCheckIndexSign(x,\ index,\ err)\ )\ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ RootCheckIndexZero(x,\ index,\ err)\ )\ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ RootCheckIndexOne\ (\ \ \ index,\ err)\ )\ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ RootCheckIndexTwo\ (x,\ index,\ err)\ )\ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ RootCheckIndexFrac(x,\ index,\ err)\ )\ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ RootCheckXZero\ \ \ \ (x,\ \ \ \ \ \ \ \ err)\ )\ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02096\ }
+\DoxyCodeLine{02097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ index\ integer\ and\ index!=0}}
+\DoxyCodeLine{02098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x!=0}}
+\DoxyCodeLine{02099\ }
+\DoxyCodeLine{02100\ \ \ \ \ \ \ \ \ ValueType\ old\_x(x);}
+\DoxyCodeLine{02101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ change\_sign;}
+\DoxyCodeLine{02102\ }
+\DoxyCodeLine{02103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ RootCheckIndex(x,\ index,\ err,\ \&change\_sign\ )\ )\ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02104\ }
+\DoxyCodeLine{02105\ \ \ \ \ \ \ \ \ ValueType\ temp;}
+\DoxyCodeLine{02106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ 0;}
+\DoxyCodeLine{02107\ }
+\DoxyCodeLine{02108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we're\ using\ the\ formula:\ root(x\ ;\ n)\ =\ exp(\ ln(x)\ /\ n\ )}}
+\DoxyCodeLine{02109\ \ \ \ \ \ \ \ \ c\ +=\ temp.Ln(x);}
+\DoxyCodeLine{02110\ \ \ \ \ \ \ \ \ c\ +=\ temp.Div(index);}
+\DoxyCodeLine{02111\ \ \ \ \ \ \ \ \ c\ +=\ x.Exp(temp);}
+\DoxyCodeLine{02112\ }
+\DoxyCodeLine{02113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ change\_sign\ )}
+\DoxyCodeLine{02114\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\ is\ different\ from\ zero}}
+\DoxyCodeLine{02116\ \ \ \ \ \ \ \ \ \ \ \ \ x.SetSign();}
+\DoxyCodeLine{02117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02118\ }
+\DoxyCodeLine{02119\ \ \ \ \ \ \ \ \ c\ +=\ RootCorrectInteger(old\_x,\ x,\ index);}
+\DoxyCodeLine{02120\ }
+\DoxyCodeLine{02121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02122\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{02123\ }
+\DoxyCodeLine{02124\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02125\ \ \ \ \ \}}
+\DoxyCodeLine{02126\ }
+\DoxyCodeLine{02127\ }
+\DoxyCodeLine{02128\ }
+\DoxyCodeLine{02136\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02137\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a73415d46abca7b89ea7bad780b152b9f}{Abs}}(\textcolor{keyword}{const}\ ValueType\ \&\ x)}
+\DoxyCodeLine{02138\ \ \ \ \ \{}
+\DoxyCodeLine{02139\ \ \ \ \ \ \ \ \ ValueType\ result(\ x\ );}
+\DoxyCodeLine{02140\ \ \ \ \ \ \ \ \ result.Abs();}
+\DoxyCodeLine{02141\ }
+\DoxyCodeLine{02142\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{02143\ \ \ \ \ \}}
+\DoxyCodeLine{02144\ }
+\DoxyCodeLine{02145\ }
+\DoxyCodeLine{02154\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02155\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_ae489b629ef0887bdb3d9aa94e40383ae}{Sgn}}(ValueType\ x)}
+\DoxyCodeLine{02156\ \ \ \ \ \{}
+\DoxyCodeLine{02157\ \ \ \ \ \ \ \ \ x.Sgn();}
+\DoxyCodeLine{02158\ }
+\DoxyCodeLine{02159\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02160\ \ \ \ \ \}}
+\DoxyCodeLine{02161\ }
+\DoxyCodeLine{02162\ }
+\DoxyCodeLine{02172\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02173\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_a53024d1c0076793b6ef66da1595e7ebf}{Mod}}(ValueType\ a,\ \textcolor{keyword}{const}\ ValueType\ \&\ b,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{02174\ \ \ \ \ \{}
+\DoxyCodeLine{02175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ a.IsNan()\ ||\ b.IsNan()\ )}
+\DoxyCodeLine{02176\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{02179\ }
+\DoxyCodeLine{02180\ \ \ \ \ \ \ \ \ \ \ \ \ a.SetNan();}
+\DoxyCodeLine{02181\ }
+\DoxyCodeLine{02182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{02183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02184\ }
+\DoxyCodeLine{02185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c\ =\ a.Mod(b);}
+\DoxyCodeLine{02186\ }
+\DoxyCodeLine{02187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02188\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ c\ ?\ err\_overflow\ :\ err\_ok;}
+\DoxyCodeLine{02189\ }
+\DoxyCodeLine{02190\ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{02191\ \ \ \ \ \}}
+\DoxyCodeLine{02192\ }
+\DoxyCodeLine{02193\ }
+\DoxyCodeLine{02194\ }
+\DoxyCodeLine{02195\ \ \ \ \ \textcolor{keyword}{namespace\ }auxiliaryfunctions}
+\DoxyCodeLine{02196\ \ \ \ \ \{}
+\DoxyCodeLine{02197\ }
+\DoxyCodeLine{02211\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02212\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_aebead0ab3d2fa56e76479cd5d49e586c}{SetFactorialSequence}}(std::vector<ValueType>\ \&\ fact,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ more\ =\ 20)}
+\DoxyCodeLine{02213\ \ \ \ \ \{}
+\DoxyCodeLine{02214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ more\ ==\ 0\ )}
+\DoxyCodeLine{02215\ \ \ \ \ \ \ \ \ \ \ \ \ more\ =\ 1;}
+\DoxyCodeLine{02216\ }
+\DoxyCodeLine{02217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ start\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\textcolor{keyword}{>}(fact.size());}
+\DoxyCodeLine{02218\ \ \ \ \ \ \ \ \ fact.resize(fact.size()\ +\ more);}
+\DoxyCodeLine{02219\ }
+\DoxyCodeLine{02220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ start\ ==\ 0\ )}
+\DoxyCodeLine{02221\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02222\ \ \ \ \ \ \ \ \ \ \ \ \ fact[0]\ =\ 1;}
+\DoxyCodeLine{02223\ \ \ \ \ \ \ \ \ \ \ \ \ ++start;}
+\DoxyCodeLine{02224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02225\ }
+\DoxyCodeLine{02226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ i=start\ ;\ i<fact.size()\ ;\ ++i)}
+\DoxyCodeLine{02227\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02228\ \ \ \ \ \ \ \ \ \ \ \ \ fact[i]\ =\ fact[i-\/1];}
+\DoxyCodeLine{02229\ \ \ \ \ \ \ \ \ \ \ \ \ fact[i].MulInt(i);}
+\DoxyCodeLine{02230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02231\ \ \ \ \ \}}
+\DoxyCodeLine{02232\ }
+\DoxyCodeLine{02233\ }
+\DoxyCodeLine{02246\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02247\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a2b1241b5b802d71a9968d2aaf3da46b3}{SetBernoulliNumbersSum}}(CGamma<ValueType>\ \&\ cgamma,\ \textcolor{keyword}{const}\ ValueType\ \&\ n\_,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ m,}
+\DoxyCodeLine{02248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop\ =\ 0)}
+\DoxyCodeLine{02249\ \ \ \ \ \{}
+\DoxyCodeLine{02250\ \ \ \ \ ValueType\ k\_,\ temp,\ temp2,\ temp3,\ sum;}
+\DoxyCodeLine{02251\ }
+\DoxyCodeLine{02252\ \ \ \ \ \ \ \ \ sum.SetZero();}
+\DoxyCodeLine{02253\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ k=0\ ;\ k<m\ ;\ ++k)\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ k<m\ means\ k<=m-\/1}}
+\DoxyCodeLine{02255\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ stop\ \&\&\ (k\ \&\ 15)==0\ )\ \ \ \ \ \ \ \textcolor{comment}{//\ means:\ k\ \%\ 16\ ==\ 0}}
+\DoxyCodeLine{02257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ stop-\/>WasStopSignal()\ )}
+\DoxyCodeLine{02258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ValueType();\ \ \ \ \ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{02259\ }
+\DoxyCodeLine{02260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ k>1\ \&\&\ (k\ \&\ 1)\ ==\ 1\ )\ \ \ \ \ \ \ \textcolor{comment}{//\ for\ that\ k\ the\ Bernoulli\ number\ is\ zero}}
+\DoxyCodeLine{02261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{02262\ }
+\DoxyCodeLine{02263\ \ \ \ \ \ \ \ \ \ \ \ \ k\_\ =\ k;}
+\DoxyCodeLine{02264\ }
+\DoxyCodeLine{02265\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ n\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ n\_\ is\ equal\ 2}}
+\DoxyCodeLine{02266\ \ \ \ \ \ \ \ \ \ \ \ \ temp.Pow(k\_);}
+\DoxyCodeLine{02267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp\ =\ 2\string^k}}
+\DoxyCodeLine{02268\ }
+\DoxyCodeLine{02269\ \ \ \ \ \ \ \ \ \ \ \ \ temp2\ =\ cgamma.fact[m];}
+\DoxyCodeLine{02270\ \ \ \ \ \ \ \ \ \ \ \ \ temp3\ =\ cgamma.fact[k];}
+\DoxyCodeLine{02271\ \ \ \ \ \ \ \ \ \ \ \ \ temp3.Mul(cgamma.fact[m-\/k]);}
+\DoxyCodeLine{02272\ \ \ \ \ \ \ \ \ \ \ \ \ temp2.Div(temp3);}
+\DoxyCodeLine{02273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp2\ =\ (m\ k)\ =\ m!\ /\ (\ k!\ *\ (m-\/k)!\ )}}
+\DoxyCodeLine{02274\ }
+\DoxyCodeLine{02275\ \ \ \ \ \ \ \ \ \ \ \ \ temp.Mul(temp2);}
+\DoxyCodeLine{02276\ \ \ \ \ \ \ \ \ \ \ \ \ temp.Mul(cgamma.bern[k]);}
+\DoxyCodeLine{02277\ }
+\DoxyCodeLine{02278\ \ \ \ \ \ \ \ \ \ \ \ \ sum.Add(temp);}
+\DoxyCodeLine{02279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sum\ +=\ 2\string^k\ *\ (m\ k)\ *\ B(k)}}
+\DoxyCodeLine{02280\ }
+\DoxyCodeLine{02281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ sum.IsNan()\ )}
+\DoxyCodeLine{02282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{02283\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02284\ }
+\DoxyCodeLine{02285\ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{02286\ \ \ \ \ \}}
+\DoxyCodeLine{02287\ }
+\DoxyCodeLine{02288\ }
+\DoxyCodeLine{02298\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02299\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a1e1264733f7235f0dd3741bdf74bced6}{SetBernoulliNumbersMore}}(CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ start,\ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop\ =\ 0)}
+\DoxyCodeLine{02300\ \ \ \ \ \{}
+\DoxyCodeLine{02301\ \ \ \ \ ValueType\ denominator,\ temp,\ temp2,\ temp3,\ m\_,\ sum,\ sum2,\ n\_,\ k\_;}
+\DoxyCodeLine{02302\ }
+\DoxyCodeLine{02303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ n\ =\ 2;}
+\DoxyCodeLine{02304\ \ \ \ \ \ \ \ \ n\_\ =\ n;}
+\DoxyCodeLine{02305\ }
+\DoxyCodeLine{02306\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ start\ is\ >=\ 2}}
+\DoxyCodeLine{02307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ m=start\ ;\ m<cgamma.bern.size()\ ;\ ++m)}
+\DoxyCodeLine{02308\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ (m\ \&\ 1)\ ==\ 1\ )}
+\DoxyCodeLine{02310\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cgamma.bern[m].SetZero();}
+\DoxyCodeLine{02312\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02314\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_\ =\ m;}
+\DoxyCodeLine{02316\ }
+\DoxyCodeLine{02317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ n\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ n\_\ =\ 2}}
+\DoxyCodeLine{02318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp.Pow(m\_);}
+\DoxyCodeLine{02319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp\ =\ 2\string^m}}
+\DoxyCodeLine{02320\ }
+\DoxyCodeLine{02321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ denominator.SetOne();}
+\DoxyCodeLine{02322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ denominator.Sub(temp);}
+\DoxyCodeLine{02323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ denominator.exponent.AddOne()\ )\ \textcolor{comment}{//\ it\ means:\ denominator.MulInt(2)}}
+\DoxyCodeLine{02324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ denominator.SetNan();}
+\DoxyCodeLine{02325\ }
+\DoxyCodeLine{02326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ denominator\ =\ 2\ *\ (1\ -\/\ 2\string^m)}}
+\DoxyCodeLine{02327\ }
+\DoxyCodeLine{02328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cgamma.bern[m]\ =\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a2b1241b5b802d71a9968d2aaf3da46b3}{SetBernoulliNumbersSum}}(cgamma,\ n\_,\ m,\ stop);}
+\DoxyCodeLine{02329\ }
+\DoxyCodeLine{02330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ stop\ \&\&\ stop-\/>WasStopSignal()\ )}
+\DoxyCodeLine{02331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cgamma.bern.resize(m);\ \ \ \ \ \ \textcolor{comment}{//\ valid\ numbers\ are\ in\ [0,\ m-\/1]}}
+\DoxyCodeLine{02333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02335\ }
+\DoxyCodeLine{02336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cgamma.bern[m].Div(denominator);}
+\DoxyCodeLine{02337\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02338\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02339\ }
+\DoxyCodeLine{02340\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02341\ \ \ \ \ \}}
+\DoxyCodeLine{02342\ }
+\DoxyCodeLine{02343\ }
+\DoxyCodeLine{02359\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02360\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a17d658e0fbefd72422e69daf4d7943af}{SetBernoulliNumbers}}(CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ more\ =\ 20,\ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop\ =\ 0)}
+\DoxyCodeLine{02361\ \ \ \ \ \{}
+\DoxyCodeLine{02362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ more\ ==\ 0\ )}
+\DoxyCodeLine{02363\ \ \ \ \ \ \ \ \ \ \ \ \ more\ =\ 1;}
+\DoxyCodeLine{02364\ }
+\DoxyCodeLine{02365\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ start\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\textcolor{keyword}{>}(cgamma.bern.size());}
+\DoxyCodeLine{02366\ \ \ \ \ \ \ \ \ cgamma.bern.resize(cgamma.bern.size()\ +\ more);}
+\DoxyCodeLine{02367\ }
+\DoxyCodeLine{02368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ start\ ==\ 0\ )}
+\DoxyCodeLine{02369\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02370\ \ \ \ \ \ \ \ \ \ \ \ \ cgamma.bern[0].SetOne();}
+\DoxyCodeLine{02371\ \ \ \ \ \ \ \ \ \ \ \ \ ++start;}
+\DoxyCodeLine{02372\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02373\ }
+\DoxyCodeLine{02374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ cgamma.bern.size()\ ==\ 1\ )}
+\DoxyCodeLine{02375\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02376\ }
+\DoxyCodeLine{02377\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ start\ ==\ 1\ )}
+\DoxyCodeLine{02378\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02379\ \ \ \ \ \ \ \ \ \ \ \ \ cgamma.bern[1].Set05();}
+\DoxyCodeLine{02380\ \ \ \ \ \ \ \ \ \ \ \ \ cgamma.bern[1].ChangeSign();}
+\DoxyCodeLine{02381\ \ \ \ \ \ \ \ \ \ \ \ \ ++start;}
+\DoxyCodeLine{02382\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02383\ }
+\DoxyCodeLine{02384\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ should\ have\ sufficient\ factorials\ in\ cgamma.fact}}
+\DoxyCodeLine{02385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ cgamma.fact.size()\ <\ cgamma.bern.size()\ )}
+\DoxyCodeLine{02386\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_aebead0ab3d2fa56e76479cd5d49e586c}{SetFactorialSequence}}(cgamma.fact,\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\textcolor{keyword}{>}(cgamma.bern.size()\ -\/\ cgamma.fact.size()));}
+\DoxyCodeLine{02387\ }
+\DoxyCodeLine{02388\ }
+\DoxyCodeLine{02389\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a1e1264733f7235f0dd3741bdf74bced6}{SetBernoulliNumbersMore}}(cgamma,\ start,\ stop);}
+\DoxyCodeLine{02390\ \ \ \ \ \}}
+\DoxyCodeLine{02391\ }
+\DoxyCodeLine{02392\ }
+\DoxyCodeLine{02403\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02404\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a9ccfe2be80c33fc72f77a8dc8f496779}{GammaFactorialHighSum}}(\textcolor{keyword}{const}\ ValueType\ \&\ n,\ CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ \&\ err,}
+\DoxyCodeLine{02405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop)}
+\DoxyCodeLine{02406\ \ \ \ \ \{}
+\DoxyCodeLine{02407\ \ \ \ \ ValueType\ temp,\ temp2,\ denominator,\ sum,\ oldsum;}
+\DoxyCodeLine{02408\ }
+\DoxyCodeLine{02409\ \ \ \ \ \ \ \ \ sum.SetZero();}
+\DoxyCodeLine{02410\ }
+\DoxyCodeLine{02411\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ m=2\ ;\ m<\mbox{\hyperlink{ttmathtypes_8h_a3a26c74e34f27589bfceefd0f2e497a8}{TTMATH\_ARITHMETIC\_MAX\_LOOP}}\ ;\ m+=2)}
+\DoxyCodeLine{02412\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02413\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ stop\ \&\&\ (m\ \&\ 3)==0\ )\ \textcolor{comment}{//\ (m\ \&\ 3)==0\ means:\ (m\ \%\ 4)==0}}
+\DoxyCodeLine{02414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ stop-\/>WasStopSignal()\ )}
+\DoxyCodeLine{02415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ err\ =\ err\_interrupt;}
+\DoxyCodeLine{02417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ValueType();\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{02418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02419\ }
+\DoxyCodeLine{02420\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ (m-\/1);}
+\DoxyCodeLine{02421\ \ \ \ \ \ \ \ \ \ \ \ \ denominator\ =\ n;}
+\DoxyCodeLine{02422\ \ \ \ \ \ \ \ \ \ \ \ \ denominator.Pow(temp);}
+\DoxyCodeLine{02423\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ denominator\ =\ n\ \string^\ (m-\/1)}}
+\DoxyCodeLine{02424\ }
+\DoxyCodeLine{02425\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ m;}
+\DoxyCodeLine{02426\ \ \ \ \ \ \ \ \ \ \ \ \ temp2\ =\ temp;}
+\DoxyCodeLine{02427\ \ \ \ \ \ \ \ \ \ \ \ \ temp.Mul(temp2);}
+\DoxyCodeLine{02428\ \ \ \ \ \ \ \ \ \ \ \ \ temp.Sub(temp2);}
+\DoxyCodeLine{02429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp\ =\ m\string^2\ -\/\ m}}
+\DoxyCodeLine{02430\ }
+\DoxyCodeLine{02431\ \ \ \ \ \ \ \ \ \ \ \ \ denominator.Mul(temp);}
+\DoxyCodeLine{02432\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ denominator\ =\ (m\string^2\ -\/\ m)\ *\ n\ \string^\ (m-\/1)}}
+\DoxyCodeLine{02433\ }
+\DoxyCodeLine{02434\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ m\ >=\ cgamma.bern.size()\ )}
+\DoxyCodeLine{02435\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !\mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a17d658e0fbefd72422e69daf4d7943af}{SetBernoulliNumbers}}(cgamma,\ m\ -\/\ cgamma.bern.size()\ +\ 1\ +\ 3,\ stop)\ )\ \textcolor{comment}{//\ 3\ more\ than\ needed}}
+\DoxyCodeLine{02437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ there\ was\ the\ stop\ signal}}
+\DoxyCodeLine{02439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ err\ =\ err\_interrupt;}
+\DoxyCodeLine{02440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ValueType();\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{02441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02442\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02443\ }
+\DoxyCodeLine{02444\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ cgamma.bern[m];}
+\DoxyCodeLine{02445\ \ \ \ \ \ \ \ \ \ \ \ \ temp.Div(denominator);}
+\DoxyCodeLine{02446\ }
+\DoxyCodeLine{02447\ \ \ \ \ \ \ \ \ \ \ \ \ oldsum\ =\ sum;}
+\DoxyCodeLine{02448\ \ \ \ \ \ \ \ \ \ \ \ \ sum.Add(temp);}
+\DoxyCodeLine{02449\ }
+\DoxyCodeLine{02450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ sum.IsNan()\ ||\ oldsum==sum\ )}
+\DoxyCodeLine{02451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{02452\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02453\ }
+\DoxyCodeLine{02454\ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{02455\ \ \ \ \ \}}
+\DoxyCodeLine{02456\ }
+\DoxyCodeLine{02457\ }
+\DoxyCodeLine{02468\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02469\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a0980051faf905fa994dc105c67d90419}{GammaFactorialHigh}}(\textcolor{keyword}{const}\ ValueType\ \&\ n,\ CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ \&\ err,}
+\DoxyCodeLine{02470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop)}
+\DoxyCodeLine{02471\ \ \ \ \ \{}
+\DoxyCodeLine{02472\ \ \ \ \ ValueType\ temp,\ temp2,\ temp3,\ denominator,\ sum;}
+\DoxyCodeLine{02473\ }
+\DoxyCodeLine{02474\ \ \ \ \ \ \ \ \ temp.Set2Pi();}
+\DoxyCodeLine{02475\ \ \ \ \ \ \ \ \ temp.Mul(n);}
+\DoxyCodeLine{02476\ \ \ \ \ \ \ \ \ temp2\ =\ \mbox{\hyperlink{namespacettmath_a4ef68f4994c6c514e97fd44f1d850f0e}{Sqrt}}(temp);}
+\DoxyCodeLine{02477\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp2\ =\ sqrt(2*pi*n)}}
+\DoxyCodeLine{02478\ }
+\DoxyCodeLine{02479\ \ \ \ \ \ \ \ \ temp\ =\ n;}
+\DoxyCodeLine{02480\ \ \ \ \ \ \ \ \ temp3.SetE();}
+\DoxyCodeLine{02481\ \ \ \ \ \ \ \ \ temp.Div(temp3);}
+\DoxyCodeLine{02482\ \ \ \ \ \ \ \ \ temp.Pow(n);}
+\DoxyCodeLine{02483\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp\ =\ (n/e)\string^n}}
+\DoxyCodeLine{02484\ }
+\DoxyCodeLine{02485\ \ \ \ \ \ \ \ \ sum\ =\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a9ccfe2be80c33fc72f77a8dc8f496779}{GammaFactorialHighSum}}(n,\ cgamma,\ err,\ stop);}
+\DoxyCodeLine{02486\ \ \ \ \ \ \ \ \ temp3.Exp(sum);}
+\DoxyCodeLine{02487\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp3\ =\ exp(sum)}}
+\DoxyCodeLine{02488\ }
+\DoxyCodeLine{02489\ \ \ \ \ \ \ \ \ temp.Mul(temp2);}
+\DoxyCodeLine{02490\ \ \ \ \ \ \ \ \ temp.Mul(temp3);}
+\DoxyCodeLine{02491\ }
+\DoxyCodeLine{02492\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{02493\ \ \ \ \ \}}
+\DoxyCodeLine{02494\ }
+\DoxyCodeLine{02495\ }
+\DoxyCodeLine{02501\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02502\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_ad745b5d91acf1e26a8bc821beeebc625}{GammaPlusHigh}}(ValueType\ n,\ CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ \&\ err,\ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop)}
+\DoxyCodeLine{02503\ \ \ \ \ \{}
+\DoxyCodeLine{02504\ \ \ \ \ ValueType\ one;}
+\DoxyCodeLine{02505\ }
+\DoxyCodeLine{02506\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{02507\ \ \ \ \ \ \ \ \ n.Sub(one);}
+\DoxyCodeLine{02508\ }
+\DoxyCodeLine{02509\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a0980051faf905fa994dc105c67d90419}{GammaFactorialHigh}}(n,\ cgamma,\ err,\ stop);}
+\DoxyCodeLine{02510\ \ \ \ \ \}}
+\DoxyCodeLine{02511\ }
+\DoxyCodeLine{02512\ }
+\DoxyCodeLine{02521\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02522\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_ae2e884109586c2e8d05bf5fa85052d1f}{GammaPlusLowIntegerInt}}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ n,\ CGamma<ValueType>\ \&\ cgamma)}
+\DoxyCodeLine{02523\ \ \ \ \ \{}
+\DoxyCodeLine{02524\ \ \ \ \ \ \ \ \ TTMATH\_ASSERT(\ n\ >\ 0\ )}
+\DoxyCodeLine{02525\ }
+\DoxyCodeLine{02526\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ n\ -\/\ 1\ <\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\textcolor{keyword}{>}(cgamma.fact.size())\ )}
+\DoxyCodeLine{02527\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cgamma.fact[n\ -\/\ 1];}
+\DoxyCodeLine{02528\ }
+\DoxyCodeLine{02529\ \ \ \ \ \ \ \ \ ValueType\ res;}
+\DoxyCodeLine{02530\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ start\ =\ 2;}
+\DoxyCodeLine{02531\ }
+\DoxyCodeLine{02532\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ cgamma.fact.size()\ <\ 2\ )}
+\DoxyCodeLine{02533\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02534\ \ \ \ \ \ \ \ \ \ \ \ \ res.SetOne();}
+\DoxyCodeLine{02535\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02536\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02537\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02538\ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\textcolor{keyword}{>}(cgamma.fact.size());}
+\DoxyCodeLine{02539\ \ \ \ \ \ \ \ \ \ \ \ \ res\ \ \ =\ cgamma.fact[start-\/1];}
+\DoxyCodeLine{02540\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02541\ }
+\DoxyCodeLine{02542\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ i=start\ ;\ i<n\ ;\ ++i)}
+\DoxyCodeLine{02543\ \ \ \ \ \ \ \ \ \ \ \ \ res.MulInt(i);}
+\DoxyCodeLine{02544\ }
+\DoxyCodeLine{02545\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{02546\ \ \ \ \ \}}
+\DoxyCodeLine{02547\ \ \ \ \ }
+\DoxyCodeLine{02548\ }
+\DoxyCodeLine{02554\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02555\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_adf9af1dab0566f862a2cbec383259405}{GammaPlusLowInteger}}(\textcolor{keyword}{const}\ ValueType\ \&\ n,\ CGamma<ValueType>\ \&\ cgamma)}
+\DoxyCodeLine{02556\ \ \ \ \ \{}
+\DoxyCodeLine{02557\ \ \ \ \ sint\ n\_;}
+\DoxyCodeLine{02558\ }
+\DoxyCodeLine{02559\ \ \ \ \ \ \ \ \ n.ToInt(n\_);}
+\DoxyCodeLine{02560\ }
+\DoxyCodeLine{02561\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_ae2e884109586c2e8d05bf5fa85052d1f}{GammaPlusLowIntegerInt}}(n\_,\ cgamma);}
+\DoxyCodeLine{02562\ \ \ \ \ \}}
+\DoxyCodeLine{02563\ }
+\DoxyCodeLine{02564\ }
+\DoxyCodeLine{02577\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02578\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_ae1ddecbf07467959ab6aa1cf70879a9d}{GammaPlusLow}}(ValueType\ n,\ CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ \&\ err,\ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop)}
+\DoxyCodeLine{02579\ \ \ \ \ \{}
+\DoxyCodeLine{02580\ \ \ \ \ ValueType\ one,\ denominator,\ temp,\ boundary;}
+\DoxyCodeLine{02581\ }
+\DoxyCodeLine{02582\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ n.IsInteger()\ )}
+\DoxyCodeLine{02583\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_adf9af1dab0566f862a2cbec383259405}{GammaPlusLowInteger}}(n,\ cgamma);}
+\DoxyCodeLine{02584\ }
+\DoxyCodeLine{02585\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{02586\ \ \ \ \ \ \ \ \ denominator\ =\ n;}
+\DoxyCodeLine{02587\ \ \ \ \ \ \ \ \ boundary\ \ \ \ =\ \mbox{\hyperlink{ttmathtypes_8h_a778d79adcd3e74d5e26708e7cbdcf244}{TTMATH\_GAMMA\_BOUNDARY}};}
+\DoxyCodeLine{02588\ }
+\DoxyCodeLine{02589\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ n\ <\ boundary\ )}
+\DoxyCodeLine{02590\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02591\ \ \ \ \ \ \ \ \ \ \ \ \ n.Add(one);}
+\DoxyCodeLine{02592\ \ \ \ \ \ \ \ \ \ \ \ \ denominator.Mul(n);}
+\DoxyCodeLine{02593\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02594\ }
+\DoxyCodeLine{02595\ \ \ \ \ \ \ \ \ n.Add(one);}
+\DoxyCodeLine{02596\ }
+\DoxyCodeLine{02597\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ now\ n\ is\ sufficient\ big}}
+\DoxyCodeLine{02598\ \ \ \ \ \ \ \ \ temp\ =\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_ad745b5d91acf1e26a8bc821beeebc625}{GammaPlusHigh}}(n,\ cgamma,\ err,\ stop);}
+\DoxyCodeLine{02599\ \ \ \ \ \ \ \ \ temp.Div(denominator);}
+\DoxyCodeLine{02600\ }
+\DoxyCodeLine{02601\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{02602\ \ \ \ \ \}}
+\DoxyCodeLine{02603\ }
+\DoxyCodeLine{02604\ }
+\DoxyCodeLine{02608\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02609\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a0909ee69c75ab9529d8728ffb97384a9}{GammaPlus}}(\textcolor{keyword}{const}\ ValueType\ \&\ n,\ CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ \&\ err,\ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop)}
+\DoxyCodeLine{02610\ \ \ \ \ \{}
+\DoxyCodeLine{02611\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ n\ >\ \mbox{\hyperlink{ttmathtypes_8h_a778d79adcd3e74d5e26708e7cbdcf244}{TTMATH\_GAMMA\_BOUNDARY}}\ )}
+\DoxyCodeLine{02612\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_ad745b5d91acf1e26a8bc821beeebc625}{GammaPlusHigh}}(n,\ cgamma,\ err,\ stop);}
+\DoxyCodeLine{02613\ }
+\DoxyCodeLine{02614\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_ae1ddecbf07467959ab6aa1cf70879a9d}{GammaPlusLow}}(n,\ cgamma,\ err,\ stop);}
+\DoxyCodeLine{02615\ \ \ \ \ \}}
+\DoxyCodeLine{02616\ }
+\DoxyCodeLine{02617\ }
+\DoxyCodeLine{02627\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02628\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a7cf2caf11ab610eadeba44ba36ad30db}{GammaMinus}}(\textcolor{keyword}{const}\ ValueType\ \&\ n,\ CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ \&\ err,\ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop)}
+\DoxyCodeLine{02629\ \ \ \ \ \{}
+\DoxyCodeLine{02630\ \ \ \ \ ValueType\ pi,\ denominator,\ temp,\ temp2;}
+\DoxyCodeLine{02631\ }
+\DoxyCodeLine{02632\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ n.IsInteger()\ )}
+\DoxyCodeLine{02633\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02634\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ gamma\ function\ is\ not\ defined\ when\ n\ is\ negative\ and\ integer}}
+\DoxyCodeLine{02635\ \ \ \ \ \ \ \ \ \ \ \ \ err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{02636\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temp;\ \textcolor{comment}{//\ NaN}}
+\DoxyCodeLine{02637\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02638\ }
+\DoxyCodeLine{02639\ \ \ \ \ \ \ \ \ pi.SetPi();}
+\DoxyCodeLine{02640\ }
+\DoxyCodeLine{02641\ \ \ \ \ \ \ \ \ temp\ =\ pi;}
+\DoxyCodeLine{02642\ \ \ \ \ \ \ \ \ temp.Mul(n);}
+\DoxyCodeLine{02643\ \ \ \ \ \ \ \ \ temp2\ =\ \mbox{\hyperlink{namespacettmath_aadad290da85b89abcd3468c4ad38f556}{Sin}}(temp);}
+\DoxyCodeLine{02644\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp2\ =\ sin(pi\ *\ n)}}
+\DoxyCodeLine{02645\ }
+\DoxyCodeLine{02646\ \ \ \ \ \ \ \ \ temp.SetOne();}
+\DoxyCodeLine{02647\ \ \ \ \ \ \ \ \ temp.Sub(n);}
+\DoxyCodeLine{02648\ \ \ \ \ \ \ \ \ temp\ =\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_a0909ee69c75ab9529d8728ffb97384a9}{GammaPlus}}(temp,\ cgamma,\ err,\ stop);}
+\DoxyCodeLine{02649\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ temp\ =\ gamma(1\ -\/\ n)}}
+\DoxyCodeLine{02650\ }
+\DoxyCodeLine{02651\ \ \ \ \ \ \ \ \ temp.Mul(temp2);}
+\DoxyCodeLine{02652\ \ \ \ \ \ \ \ \ pi.Div(temp);}
+\DoxyCodeLine{02653\ }
+\DoxyCodeLine{02654\ \ \ \ \ \textcolor{keywordflow}{return}\ pi;}
+\DoxyCodeLine{02655\ \ \ \ \ \}}
+\DoxyCodeLine{02656\ }
+\DoxyCodeLine{02657\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ auxiliaryfunctions}}
+\DoxyCodeLine{02658\ }
+\DoxyCodeLine{02659\ }
+\DoxyCodeLine{02660\ }
+\DoxyCodeLine{02678\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02679\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma}}(\textcolor{keyword}{const}\ ValueType\ \&\ n,\ CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0,}
+\DoxyCodeLine{02680\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop\ =\ 0)}
+\DoxyCodeLine{02681\ \ \ \ \ \{}
+\DoxyCodeLine{02682\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }auxiliaryfunctions;}
+\DoxyCodeLine{02683\ }
+\DoxyCodeLine{02684\ \ \ \ \ ValueType\ result;}
+\DoxyCodeLine{02685\ \ \ \ \ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ err\_tmp;}
+\DoxyCodeLine{02686\ }
+\DoxyCodeLine{02687\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ n.IsNan()\ )}
+\DoxyCodeLine{02688\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02689\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{02691\ }
+\DoxyCodeLine{02692\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{02693\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02694\ }
+\DoxyCodeLine{02695\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ cgamma.history.Get(n,\ result,\ err\_tmp)\ )}
+\DoxyCodeLine{02696\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02697\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_tmp;}
+\DoxyCodeLine{02699\ }
+\DoxyCodeLine{02700\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{02701\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02702\ }
+\DoxyCodeLine{02703\ \ \ \ \ \ \ \ \ err\_tmp\ =\ err\_ok;}
+\DoxyCodeLine{02704\ }
+\DoxyCodeLine{02705\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ n.IsSign()\ )}
+\DoxyCodeLine{02706\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02707\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ GammaMinus(n,\ cgamma,\ err\_tmp,\ stop);}
+\DoxyCodeLine{02708\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02709\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02710\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ n.IsZero()\ )}
+\DoxyCodeLine{02711\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02712\ \ \ \ \ \ \ \ \ \ \ \ \ err\_tmp\ =\ err\_improper\_argument;}
+\DoxyCodeLine{02713\ \ \ \ \ \ \ \ \ \ \ \ \ result.SetNan();}
+\DoxyCodeLine{02714\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02715\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02716\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02717\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ GammaPlus(n,\ cgamma,\ err\_tmp,\ stop);}
+\DoxyCodeLine{02718\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02719\ }
+\DoxyCodeLine{02720\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result.IsNan()\ \&\&\ err\_tmp==err\_ok\ )}
+\DoxyCodeLine{02721\ \ \ \ \ \ \ \ \ \ \ \ \ err\_tmp\ =\ err\_overflow;}
+\DoxyCodeLine{02722\ }
+\DoxyCodeLine{02723\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02724\ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_tmp;}
+\DoxyCodeLine{02725\ }
+\DoxyCodeLine{02726\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ stop\ \&\&\ !stop-\/>WasStopSignal()\ )}
+\DoxyCodeLine{02727\ \ \ \ \ \ \ \ \ \ \ \ \ cgamma.history.Add(n,\ result,\ err\_tmp);}
+\DoxyCodeLine{02728\ }
+\DoxyCodeLine{02729\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{02730\ \ \ \ \ \}}
+\DoxyCodeLine{02731\ }
+\DoxyCodeLine{02732\ }
+\DoxyCodeLine{02738\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02739\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma}}(\textcolor{keyword}{const}\ ValueType\ \&\ n,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{02740\ \ \ \ \ \{}
+\DoxyCodeLine{02741\ \ \ \ \ \textcolor{comment}{//\ warning:\ this\ static\ object\ is\ not\ thread\ safe}}
+\DoxyCodeLine{02742\ \ \ \ \ \textcolor{keyword}{static}\ CGamma<ValueType>\ cgamma;}
+\DoxyCodeLine{02743\ }
+\DoxyCodeLine{02744\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma}}(n,\ cgamma,\ err);}
+\DoxyCodeLine{02745\ \ \ \ \ \}}
+\DoxyCodeLine{02746\ }
+\DoxyCodeLine{02747\ }
+\DoxyCodeLine{02748\ }
+\DoxyCodeLine{02749\ \ \ \ \ \textcolor{keyword}{namespace\ }auxiliaryfunctions}
+\DoxyCodeLine{02750\ \ \ \ \ \{}
+\DoxyCodeLine{02751\ }
+\DoxyCodeLine{02758\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02759\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_adf1f2ac3048a7dda26dd5217ce90e551}{Factorial2}}(ValueType\ x,}
+\DoxyCodeLine{02760\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CGamma<ValueType>\ *\ cgamma\ =\ 0,}
+\DoxyCodeLine{02761\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0,}
+\DoxyCodeLine{02762\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop\ =\ 0)}
+\DoxyCodeLine{02763\ \ \ \ \ \{}
+\DoxyCodeLine{02764\ \ \ \ \ ValueType\ result,\ one;}
+\DoxyCodeLine{02765\ }
+\DoxyCodeLine{02766\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ x.IsNan()\ ||\ x.IsSign()\ ||\ !x.IsInteger()\ )}
+\DoxyCodeLine{02767\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02768\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ err\ )}
+\DoxyCodeLine{02769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *err\ =\ err\_improper\_argument;}
+\DoxyCodeLine{02770\ }
+\DoxyCodeLine{02771\ \ \ \ \ \ \ \ \ \ \ \ \ x.SetNan();}
+\DoxyCodeLine{02772\ }
+\DoxyCodeLine{02773\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{02774\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02775\ }
+\DoxyCodeLine{02776\ \ \ \ \ \ \ \ \ one.SetOne();}
+\DoxyCodeLine{02777\ \ \ \ \ \ \ \ \ x.Add(one);}
+\DoxyCodeLine{02778\ }
+\DoxyCodeLine{02779\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ cgamma\ )}
+\DoxyCodeLine{02780\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma}}(x,\ *cgamma,\ err,\ stop);}
+\DoxyCodeLine{02781\ }
+\DoxyCodeLine{02782\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma}}(x,\ err);}
+\DoxyCodeLine{02783\ \ \ \ \ \}}
+\DoxyCodeLine{02784\ \ \ \ \ }
+\DoxyCodeLine{02785\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ auxiliaryfunctions}}
+\DoxyCodeLine{02786\ }
+\DoxyCodeLine{02787\ }
+\DoxyCodeLine{02788\ }
+\DoxyCodeLine{02808\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02809\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_ae0a248c8618c9ac4e3edf6095fe31f92}{Factorial}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ CGamma<ValueType>\ \&\ cgamma,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0,}
+\DoxyCodeLine{02810\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{classttmath_1_1StopCalculating}{StopCalculating}}\ *\ stop\ =\ 0)}
+\DoxyCodeLine{02811\ \ \ \ \ \{}
+\DoxyCodeLine{02812\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_adf1f2ac3048a7dda26dd5217ce90e551}{auxiliaryfunctions::Factorial2}}(x,\ \&cgamma,\ err,\ stop);}
+\DoxyCodeLine{02813\ \ \ \ \ \}}
+\DoxyCodeLine{02814\ }
+\DoxyCodeLine{02815\ }
+\DoxyCodeLine{02823\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02824\ \ \ \ \ ValueType\ \mbox{\hyperlink{namespacettmath_ae0a248c8618c9ac4e3edf6095fe31f92}{Factorial}}(\textcolor{keyword}{const}\ ValueType\ \&\ x,\ \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ErrorCode}}\ *\ err\ =\ 0)}
+\DoxyCodeLine{02825\ \ \ \ \ \{}
+\DoxyCodeLine{02826\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions_adf1f2ac3048a7dda26dd5217ce90e551}{auxiliaryfunctions::Factorial2}}(x,\ (CGamma<ValueType>*)0,\ err,\ 0);}
+\DoxyCodeLine{02827\ \ \ \ \ \}}
+\DoxyCodeLine{02828\ }
+\DoxyCodeLine{02829\ }
+\DoxyCodeLine{02839\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{02840\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structttmath_1_1CGamma_a0741221115113a71d3c9b183a46042d6}{CGamma<ValueType>::InitAll}}()}
+\DoxyCodeLine{02841\ \ \ \ \ \{}
+\DoxyCodeLine{02842\ \ \ \ \ \ \ \ \ ValueType\ x\ =\ \mbox{\hyperlink{ttmathtypes_8h_a778d79adcd3e74d5e26708e7cbdcf244}{TTMATH\_GAMMA\_BOUNDARY}}\ +\ 1;}
+\DoxyCodeLine{02843\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02844\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ history.Remove(x)\ removes\ only\ one\ object}}
+\DoxyCodeLine{02845\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ must\ be\ sure\ that\ there\ are\ not\ others\ objects\ with\ the\ key\ 'x'}}
+\DoxyCodeLine{02846\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ history.Remove(x)\ )}
+\DoxyCodeLine{02847\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02848\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02849\ }
+\DoxyCodeLine{02850\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ simplest\ way\ to\ initialize\ is\ to\ call\ the\ Gamma\ function\ with\ (TTMATH\_GAMMA\_BOUNDARY\ +\ 1)}}
+\DoxyCodeLine{02851\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ when\ x\ is\ larger\ then\ fewer\ coefficients\ we\ need}}
+\DoxyCodeLine{02852\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma}}(x,\ *\textcolor{keyword}{this});}
+\DoxyCodeLine{02853\ \ \ \ \ \}}
+\DoxyCodeLine{02854\ }
+\DoxyCodeLine{02855\ }
+\DoxyCodeLine{02856\ }
+\DoxyCodeLine{02857\ \}\ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{02858\ }
+\DoxyCodeLine{02859\ }
+\DoxyCodeLine{02864\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ttmathparser_8h}{ttmathparser.h}}"{}}}
+\DoxyCodeLine{02865\ }
+\DoxyCodeLine{02866\ \textcolor{comment}{//\ Dec\ is\ not\ finished\ yet}}
+\DoxyCodeLine{02867\ \textcolor{comment}{//\#include\ "{}ttmathdec.h"{}}}
+\DoxyCodeLine{02868\ }
+\DoxyCodeLine{02869\ }
+\DoxyCodeLine{02870\ }
+\DoxyCodeLine{02871\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{02872\ \textcolor{comment}{//warning\ C4127:\ conditional\ expression\ is\ constant}}
+\DoxyCodeLine{02873\ \textcolor{preprocessor}{\#pragma\ warning(\ default:\ 4127\ )}}
+\DoxyCodeLine{02874\ \textcolor{comment}{//warning\ C4702:\ unreachable\ code}}
+\DoxyCodeLine{02875\ \textcolor{preprocessor}{\#pragma\ warning(\ default:\ 4702\ )}}
+\DoxyCodeLine{02876\ \textcolor{comment}{//warning\ C4800:\ forcing\ value\ to\ bool\ 'true'\ or\ 'false'\ (performance\ warning)}}
+\DoxyCodeLine{02877\ \textcolor{preprocessor}{\#pragma\ warning(\ default:\ 4800\ )}}
+\DoxyCodeLine{02878\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02879\ }
+\DoxyCodeLine{02880\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

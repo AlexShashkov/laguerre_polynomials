@@ -1,0 +1,29 @@
+\chapter{Laguerre Methods}
+\hypertarget{md_README}{}\label{md_README}\index{Laguerre Methods@{Laguerre Methods}}
+\label{md_README_autotoc_md2}%
+\Hypertarget{md_README_autotoc_md2}%
+ This project uses various Laguerre methods to solve polynomials.
+
+КМБО-\/03-\/20\+: Александр Шашков, Вячеслав Иванов, Глеб Дорошенко, Дмитрий Балашов, Роман Охотников, Шахин Гаджиев\hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{Make\+File Variables}{Make\+File Variables}}\label{md_README_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\ttfamily SOLVER}\+: The solver to use. Default is {\ttfamily 0}. Options are\+:
+\begin{DoxyItemize}
+\item {\ttfamily 0}\+: Original Laguerre
+\item {\ttfamily 1}\+: 2013 modification
+\item {\ttfamily 2}\+: 2018 modification
+\end{DoxyItemize}
+\item {\ttfamily NUMBER}\+: The number type to use. Default is {\ttfamily double}.
+\item {\ttfamily EXPONENT} and {\ttfamily MANTISSA}\+: Used for root generator with degree greater than 4. Default values are {\ttfamily 2} and {\ttfamily 4} respectively.
+\item {\ttfamily DEGREE}\+: The degree of the polynomials. Default is {\ttfamily 10}.
+\item {\ttfamily N\+\_\+\+TESTS}\+: The number of tests to run. Default is {\ttfamily 1000}.
+\item {\ttfamily N\+\_\+\+PAIRS\+\_\+\+OF\+\_\+\+COMPLEX\+\_\+\+ROOTS}, {\ttfamily N\+\_\+\+CLUSTERED\+\_\+\+ROOTS}, {\ttfamily N\+\_\+\+MULTIPLE\+\_\+\+ROOTS}\+: Parameters for the generator. If all are zero, then the generator will create only simple roots. Default values are {\ttfamily 0}, {\ttfamily DEGREE}, and {\ttfamily 0} respectively.
+\item {\ttfamily MAX\+\_\+\+DISTANCE\+\_\+\+BETWEEN\+\_\+\+CLUSTERED}\+: Used only for clustered roots. Default is {\ttfamily 1e-\/5}.
+\item {\ttfamily ROOT\+\_\+\+SWEEP\+\_\+\+LOW} and {\ttfamily ROOT\+\_\+\+SWEEP\+\_\+\+HIGH}\+: The range for the root sweep. Default values are {\ttfamily -\/1.\+0} and {\ttfamily 1.\+0} respectively.
+\item {\ttfamily TRIES}\+: The number of iterations Laguerre should try to solve the polynomial. Default is {\ttfamily 80}.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_README_autotoc_md4}
+To compile the program, run {\ttfamily make}.
+
+To clean up the compiled files, run {\ttfamily make clean}.
+
+For example, to run modified version of Laguerre with float type for polynomials degree of 15\+: {\ttfamily make SOLVER=1 NUMBER=float DEGREE=15} 

@@ -1,0 +1,62 @@
+\doxysection{ttmath\+::Parser\texorpdfstring{$<$}{<} Value\+Type \texorpdfstring{$>$}{>}\+::Mat\+Operator Class Reference}
+\hypertarget{classttmath_1_1Parser_1_1MatOperator}{}\label{classttmath_1_1Parser_1_1MatOperator}\index{ttmath::Parser$<$ ValueType $>$::MatOperator@{ttmath::Parser$<$ ValueType $>$::MatOperator}}
+
+
+{\ttfamily \#include $<$ttmathparser.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classttmath_1_1Parser_1_1MatOperator_a7cc0cf7b3cec4b700c13b792c6fd6cab}\label{classttmath_1_1Parser_1_1MatOperator_a7cc0cf7b3cec4b700c13b792c6fd6cab} 
+enum {\bfseries Type} \{ \newline
+{\bfseries none}
+, {\bfseries add}
+, {\bfseries sub}
+, {\bfseries mul}
+, \newline
+{\bfseries div}
+, {\bfseries pow}
+, {\bfseries lt}
+, {\bfseries gt}
+, \newline
+{\bfseries let}
+, {\bfseries get}
+, {\bfseries eq}
+, {\bfseries neq}
+, \newline
+{\bfseries lor}
+, {\bfseries land}
+, {\bfseries shortmul}
+, {\bfseries assign}
+ \}
+\item 
+\Hypertarget{classttmath_1_1Parser_1_1MatOperator_a95d3b39e2761bc4371c8eded9cbf4b2b}\label{classttmath_1_1Parser_1_1MatOperator_a95d3b39e2761bc4371c8eded9cbf4b2b} 
+enum {\bfseries Assoc} \{ {\bfseries right}
+, {\bfseries non\+\_\+right}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classttmath_1_1Parser_1_1MatOperator_aaa1d1acf47ae779a39aac5a2eb584a92}\label{classttmath_1_1Parser_1_1MatOperator_aaa1d1acf47ae779a39aac5a2eb584a92} 
+Type {\bfseries Get\+Type} () const
+\item 
+\Hypertarget{classttmath_1_1Parser_1_1MatOperator_a4ace55d75817d523744f504a4171107e}\label{classttmath_1_1Parser_1_1MatOperator_a4ace55d75817d523744f504a4171107e} 
+int {\bfseries Get\+Priority} () const
+\item 
+\Hypertarget{classttmath_1_1Parser_1_1MatOperator_a2353a0b0ecff679637dfa3d6edf70488}\label{classttmath_1_1Parser_1_1MatOperator_a2353a0b0ecff679637dfa3d6edf70488} 
+Assoc {\bfseries Get\+Assoc} () const
+\item 
+\Hypertarget{classttmath_1_1Parser_1_1MatOperator_abadd82a78c29bc5deda51fc24a59c8f6}\label{classttmath_1_1Parser_1_1MatOperator_abadd82a78c29bc5deda51fc24a59c8f6} 
+void {\bfseries Set\+Type} (Type t)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Value\+Type$>$\newline
+class ttmath\+::\+Parser$<$ Value\+Type $>$\+::\+Mat\+Operator}
+there are 5 mathematical operators as follows (with their standard priorities)\+: add (+) sub (-\/) mul (\texorpdfstring{$\ast$}{*}) div (/) pow (\texorpdfstring{$^\wedge$}{\string^}) and \textquotesingle{}shortmul\textquotesingle{} used when there is no any operators between a first parameter and a variable or function (the \textquotesingle{}shortmul\textquotesingle{} has the same priority as the normal multiplication ) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+framework/ttmath/\mbox{\hyperlink{ttmathparser_8h}{ttmathparser.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\doxysection{Laguerre\+::Original\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classLaguerre_1_1Original}{}\label{classLaguerre_1_1Original}\index{Laguerre::Original$<$ T $>$@{Laguerre::Original$<$ T $>$}}
+Inheritance diagram for Laguerre\+::Original\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLaguerre_1_1Original}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLaguerre_1_1Original_a03169c891eccb0b2af5be5e274a25770}{operator()}} (std\+::vector$<$ T $>$ \&poly, std\+::vector$<$ std\+::complex$<$ T $>$ $>$ \&roots, std\+::vector$<$ int $>$ \&conv, int itmax=80) override
+\begin{DoxyCompactList}\small\item\em Find the roots of a polynomial using Laguerre\textquotesingle{}s method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLaguerre_1_1Original_a03169c891eccb0b2af5be5e274a25770}\label{classLaguerre_1_1Original_a03169c891eccb0b2af5be5e274a25770} 
+\index{Laguerre::Original$<$ T $>$@{Laguerre::Original$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Laguerre::Original$<$ T $>$@{Laguerre::Original$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classLaguerre_1_1Original}{Laguerre\+::\+Original}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{poly,  }\item[{std\+::vector$<$ std\+::complex$<$ T $>$ $>$ \&}]{roots,  }\item[{std\+::vector$<$ int $>$ \&}]{conv,  }\item[{int}]{itmax = {\ttfamily 80} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Find the roots of a polynomial using Laguerre\textquotesingle{}s method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poly} & \doxylink{classLaguerre_1_1Polynomial}{Polynomial} object. \\
+\hline
+{\em roots} & Vector to store the roots. \\
+\hline
+{\em conv} & Vector to store convergence status of each root. \\
+\hline
+{\em itmax} & Maximum number of iterations. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBaseSolver_a5a58026a9330ac63e7801c848fdbb5ed}{Base\+Solver$<$ T $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/Laguerre.\+h\end{DoxyCompactItemize}

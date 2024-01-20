@@ -1,0 +1,243 @@
+\doxysection{Polynomial.\+h}
+\hypertarget{Polynomial_8h_source}{}\label{Polynomial_8h_source}\index{headers/Polynomial.h@{headers/Polynomial.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Александр,\ Дмитрий}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ POLYNOMIAL\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ POLYNOMIAL\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <complex>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Polynomial.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}BaseSolver.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}ExtendedFunctions.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }Laguerre\{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<std::complex<T>>\ roots;}
+\DoxyCodeLine{00019\ \ \ \ \ std::vector<T>\ coeffs;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Pointer\ to\ a\ base\ solver\ class}}
+\DoxyCodeLine{00022\ \ \ \ \ BaseSolver<T>*\ Solver;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}(std::vector<T>\ \_coeffs,\ std::vector<std::complex<T>>\ \_roots)\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a3e67dbfd19a1f5560a19c5fa7e81c1b1}{setCoeffs}}(\_coeffs);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a36f418d27c746f6b9a215c849007294f}{setRoots}}(\_roots);}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a24544533dbe39df53f1b7247d394c133}{Polynomial}}(std::vector<T>\ args)\{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a3e67dbfd19a1f5560a19c5fa7e81c1b1}{setCoeffs}}(args);}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a9775f274fffc3b6e5b5494e2722039ac}{Polynomial}}(Args...args)\{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a3e67dbfd19a1f5560a19c5fa7e81c1b1}{setCoeffs}}(args...);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ coeffs.size();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ size\ >\ 0\ ?\ size\ -\/\ 1\ :\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a36f418d27c746f6b9a215c849007294f}{setRoots}}(std::vector<std::complex<T>>\ args)\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ count\ =\ args.size();}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(count\ !=\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}())}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Count\ of\ given\ roots\ is\ different\ from\ given\ polynomial\ degree.\ ("{}}\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ std::to\_string(count)\ +\ \textcolor{stringliteral}{"{}\ vs\ "{}}\ +\ std::to\_string(\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}())\ +\ \textcolor{stringliteral}{"{})\(\backslash\)n"{}});}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ roots\ =\ args;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a2614d36071a5ba9f8101287183e79283}{setRoots}}(Args...args)\{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a36f418d27c746f6b9a215c849007294f}{setRoots}}(std::vector<std::complex<T>>\{args...\});}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a3e67dbfd19a1f5560a19c5fa7e81c1b1}{setCoeffs}}(std::vector<T>\ args)\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ coeffs\ =\ args;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ roots.clear();}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_ae2d96682de033016b61e20d950f78403}{setCoeffs}}(Args...args)\{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a3e67dbfd19a1f5560a19c5fa7e81c1b1}{setCoeffs}}(std::vector<T>\{args...\});}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a4eb571a238115491750d0efbfe41dc18}{setSolver}}(BaseSolver<T>*\ solver)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ Solver\ =\ solver;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a61aeac4163fac1fd4869fd2fde5eb2bf}{solve}}(std::vector<std::complex<T>>\&\ roots,\ std::vector<int>\&\ conv,\ \textcolor{keywordtype}{int}\ maxiter=80)\{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(Solver)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ (*Solver)(coeffs,\ roots,\ conv,\ 80);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}solved,\ exiting"{};}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Solver\ wasnt\ set!\(\backslash\)n"{}});}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\ operator+(\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\&\ rhs)\{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ std::vector<T>\ result\_coeffs(std::max(this-\/>\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}(),\ rhs.\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}())\ +\ 1,\ 0);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ this-\/>\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}();\ ++i)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ result\_coeffs[i]\ +=\ this-\/>coeffs[i];}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ rhs.degree();\ ++i)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ result\_coeffs[i]\ +=\ rhs.coeffs[i];}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Polynomial<T>(result\_coeffs);}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}\&\ rhs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ std::vector<T>\ result\_coeffs(std::max(this-\/>\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}(),\ rhs.degree())\ +\ 1,\ 0);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ this-\/>\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}();\ ++i)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ result\_coeffs[i]\ +=\ this-\/>coeffs[i];}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ rhs.degree();\ ++i)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ result\_coeffs[i]\ -\/=\ rhs.coeffs[i];}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Polynomial<T>(result\_coeffs);}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}\&\ other)\{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ coeffs.size();}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ other.coeffs.size();}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ std::vector<T>\ result(n\ +\ m\ -\/\ 1,\ 0);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ m;\ ++j)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i\ +\ j]\ +=\ coeffs[i]\ *\ other.coeffs[j];}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}(result);}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}\ operator/(\mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}\&\ divisor)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divisor.degree()\ >\ this-\/>degree())\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}The\ degree\ of\ the\ divisor\ is\ greater\ than\ the\ dividend"{}});}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ Polynomial<T>\ dividend\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ std::vector<T>\ quotient\_coeffs(this-\/>\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}()\ -\/\ divisor.degree()\ +\ 1,\ 0);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ Polynomial<T>\ tmp(std::vector<T>(this-\/>\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}()\ +\ 1,\ 0));}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (dividend.degree()\ >=\ divisor.degree())\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\_diff\ =\ dividend.degree()\ -\/\ divisor.degree();}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ T\ coeff\ =\ dividend.coeffs.back()\ /\ divisor.coeffs.back();}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ temporary\ polynomial\ for\ subtraction}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ tmp.coeffs[degree\_diff]\ =\ coeff;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Subtract\ and\ update\ the\ dividend}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ divisor.degree();\ ++i)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dividend.coeffs[i\ +\ degree\_diff]\ -\/=\ coeff\ *\ divisor.coeffs[i];}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ dividend.coeffs.pop\_back();}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ quotient}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ quotient\_coeffs[degree\_diff]\ =\ coeff;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Polynomial<T>(quotient\_coeffs);}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a3f8068994370bba3184d9f662607c33f}{divide}}(\mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\&\ divisor,\ \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\&\ quotient,\ \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\&\ remainder)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divisor.degree()\ >\ this-\/>degree())\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}The\ degree\ of\ the\ divisor\ is\ greater\ than\ the\ dividend"{}});}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ Polynomial<T>\ dividend\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ std::vector<T>\ quotient\_coeffs(this-\/>\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}()\ -\/\ divisor.\mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}()\ +\ 1,\ 0);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ Polynomial<T>\ tmp;}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (dividend.degree()\ >=\ divisor.degree())\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\_diff\ =\ dividend.degree()\ -\/\ divisor.degree();}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ T\ coeff\ =\ dividend.coeffs.back()\ /\ divisor.coeffs.back();}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ temporary\ polynomial\ for\ subtraction}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ tmp.coeffs\ =\ std::vector<T>(degree\_diff\ +\ 1,\ 0);}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ tmp.coeffs.back()\ =\ coeff;}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Subtract\ and\ update\ the\ dividend}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ divisor.degree();\ ++i)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dividend.coeffs[i\ +\ degree\_diff]\ -\/=\ coeff\ *\ divisor.coeffs[i];}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ dividend.coeffs.pop\_back();}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ quotient}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ quotient\_coeffs[degree\_diff]\ =\ coeff;}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ quotient\ =\ Polynomial<T>(quotient\_coeffs);}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ remainder\ =\ dividend;}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\&\ operator*=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\&\ other)\{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ *\textcolor{keyword}{this}\ *\ other;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ this-\/>roots.clear();}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a86c78e23c9cc7ecf27f54d7b0c978674}{Polynomial}}\&\ other)\{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classLaguerre_1_1Polynomial_a3e67dbfd19a1f5560a19c5fa7e81c1b1}{setCoeffs}}(other.coeffs);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00245\ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ T\ operator[](\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coeffs[i];}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ T\&\ operator\ [](\textcolor{keywordtype}{int}\ i)\{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coeffs[i];}
+\DoxyCodeLine{00253\ \ \ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00267\ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_af2d6ce0cd2101f6819b1829b4beb264f}{diff}}(\textcolor{keywordtype}{int}\ deg=1)\{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ std::vector\ ret\ =\ coeffs;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ deg;\ ++j)\{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ ret.size();\ ++i)\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret[i]\ *=\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(i);}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ret.size())\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret.erase(ret.begin());}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{void}\ print()\{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_degree\ =\ \mbox{\hyperlink{classLaguerre_1_1Polynomial_a9aceca7be5c5daac35322c0c3fc51fc2}{degree}}();}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\_degree)\{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ polynomial\ object\ doesnt\ contain\ any\ coefficients.\(\backslash\)n"{}};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ \_degree;\ i\ >=\ 0;\ -\/-\/i)\{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ coeffs[i]\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}x\string^"{}}\ <<\ i;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i\ !=\ 0)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ +\ "{}};}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}.\ Degree:\ "{}}\ <<\ \_degree\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Roots:\ "{}}\ <<\ roots.size()\ <<\ \ \textcolor{stringliteral}{"{};\ "{}};}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ printVec(roots);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \}\ \ \ \ \ \ \ }
+\DoxyCodeLine{00299\ \};}
+\DoxyCodeLine{00300\ \};}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

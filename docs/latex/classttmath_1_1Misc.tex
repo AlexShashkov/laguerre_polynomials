@@ -1,0 +1,128 @@
+\doxysection{ttmath\+::Misc Class Reference}
+\hypertarget{classttmath_1_1Misc}{}\label{classttmath_1_1Misc}\index{ttmath::Misc@{ttmath::Misc}}
+
+
+{\ttfamily \#include $<$ttmathmisc.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classttmath_1_1Misc_a77a225d405c1f54c28dfca566c486232}{Assign\+String}} (std\+::string \&result, const char \texorpdfstring{$\ast$}{*}str)
+\item 
+static void \mbox{\hyperlink{classttmath_1_1Misc_a7233e6204b8e57f5faaf5e627541d24e}{Assign\+String}} (std\+::wstring \&result, const char \texorpdfstring{$\ast$}{*}str)
+\item 
+static void \mbox{\hyperlink{classttmath_1_1Misc_a0ab84b0f5dd68e5829cb48f19cf07891}{Assign\+String}} (std\+::wstring \&result, const std\+::string \&str)
+\item 
+static void \mbox{\hyperlink{classttmath_1_1Misc_a7fa01e126fb56e13831bf6b24bce69ef}{Assign\+String}} (std\+::string \&result, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}str)
+\item 
+static void \mbox{\hyperlink{classttmath_1_1Misc_add85ddc6d2534f9cc210e0732d2135a7}{Assign\+String}} (std\+::string \&result, const std\+::wstring \&str)
+\item 
+static void \mbox{\hyperlink{classttmath_1_1Misc_acfe3356acfeb0a444481e6d6ccb5ba78}{Add\+String}} (std\+::string \&result, const char \texorpdfstring{$\ast$}{*}str)
+\item 
+static void \mbox{\hyperlink{classttmath_1_1Misc_a8ba27713a01ba16eb923d9e4beeacf8c}{Add\+String}} (std\+::wstring \&result, const char \texorpdfstring{$\ast$}{*}str)
+\item 
+\Hypertarget{classttmath_1_1Misc_a6046430880f5e9ae0938d614554c2366}\label{classttmath_1_1Misc_a6046430880f5e9ae0938d614554c2366} 
+{\footnotesize template$<$class char\+\_\+type $>$ }\\static void {\bfseries Skip\+White\+Characters} (const char\+\_\+type \texorpdfstring{$\ast$}{*}\&c)
+\item 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1Misc_a37c769adf7e2cb8a7533d04dea080ebf}{Char\+To\+Digit}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c)
+\item 
+static sint \mbox{\hyperlink{classttmath_1_1Misc_aa2637677dbd7199d4e6b4cea89f7f9d9}{Char\+To\+Digit}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} base)
+\item 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1Misc_a93a49aa7775f27e51feccc665c537277}{Digit\+To\+Char}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} digit)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+some helpful functions 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classttmath_1_1Misc_acfe3356acfeb0a444481e6d6ccb5ba78}\label{classttmath_1_1Misc_acfe3356acfeb0a444481e6d6ccb5ba78} 
+\index{ttmath::Misc@{ttmath::Misc}!AddString@{AddString}}
+\index{AddString@{AddString}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{AddString()}{AddString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void ttmath\+::\+Misc\+::\+Add\+String (\begin{DoxyParamCaption}\item[{std\+::string \&}]{result,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+result += str \Hypertarget{classttmath_1_1Misc_a8ba27713a01ba16eb923d9e4beeacf8c}\label{classttmath_1_1Misc_a8ba27713a01ba16eb923d9e4beeacf8c} 
+\index{ttmath::Misc@{ttmath::Misc}!AddString@{AddString}}
+\index{AddString@{AddString}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{AddString()}{AddString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void ttmath\+::\+Misc\+::\+Add\+String (\begin{DoxyParamCaption}\item[{std\+::wstring \&}]{result,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+result += str \Hypertarget{classttmath_1_1Misc_a77a225d405c1f54c28dfca566c486232}\label{classttmath_1_1Misc_a77a225d405c1f54c28dfca566c486232} 
+\index{ttmath::Misc@{ttmath::Misc}!AssignString@{AssignString}}
+\index{AssignString@{AssignString}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{AssignString()}{AssignString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily static void ttmath\+::\+Misc\+::\+Assign\+String (\begin{DoxyParamCaption}\item[{std\+::string \&}]{result,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+result = str \Hypertarget{classttmath_1_1Misc_add85ddc6d2534f9cc210e0732d2135a7}\label{classttmath_1_1Misc_add85ddc6d2534f9cc210e0732d2135a7} 
+\index{ttmath::Misc@{ttmath::Misc}!AssignString@{AssignString}}
+\index{AssignString@{AssignString}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{AssignString()}{AssignString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily static void ttmath\+::\+Misc\+::\+Assign\+String (\begin{DoxyParamCaption}\item[{std\+::string \&}]{result,  }\item[{const std\+::wstring \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+result = str \Hypertarget{classttmath_1_1Misc_a7fa01e126fb56e13831bf6b24bce69ef}\label{classttmath_1_1Misc_a7fa01e126fb56e13831bf6b24bce69ef} 
+\index{ttmath::Misc@{ttmath::Misc}!AssignString@{AssignString}}
+\index{AssignString@{AssignString}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{AssignString()}{AssignString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily static void ttmath\+::\+Misc\+::\+Assign\+String (\begin{DoxyParamCaption}\item[{std\+::string \&}]{result,  }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+result = str \Hypertarget{classttmath_1_1Misc_a7233e6204b8e57f5faaf5e627541d24e}\label{classttmath_1_1Misc_a7233e6204b8e57f5faaf5e627541d24e} 
+\index{ttmath::Misc@{ttmath::Misc}!AssignString@{AssignString}}
+\index{AssignString@{AssignString}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{AssignString()}{AssignString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily static void ttmath\+::\+Misc\+::\+Assign\+String (\begin{DoxyParamCaption}\item[{std\+::wstring \&}]{result,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+result = str \Hypertarget{classttmath_1_1Misc_a0ab84b0f5dd68e5829cb48f19cf07891}\label{classttmath_1_1Misc_a0ab84b0f5dd68e5829cb48f19cf07891} 
+\index{ttmath::Misc@{ttmath::Misc}!AssignString@{AssignString}}
+\index{AssignString@{AssignString}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{AssignString()}{AssignString()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily static void ttmath\+::\+Misc\+::\+Assign\+String (\begin{DoxyParamCaption}\item[{std\+::wstring \&}]{result,  }\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+result = str \Hypertarget{classttmath_1_1Misc_a37c769adf7e2cb8a7533d04dea080ebf}\label{classttmath_1_1Misc_a37c769adf7e2cb8a7533d04dea080ebf} 
+\index{ttmath::Misc@{ttmath::Misc}!CharToDigit@{CharToDigit}}
+\index{CharToDigit@{CharToDigit}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{CharToDigit()}{CharToDigit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ttmath\+::\+Misc\+::\+Char\+To\+Digit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+this static method converts one character into its value
+
+for example\+:
+\begin{DoxyItemize}
+\item 1 -\/\texorpdfstring{$>$}{>} 1
+\item 8 -\/\texorpdfstring{$>$}{>} 8
+\item A -\/\texorpdfstring{$>$}{>} 10
+\item f -\/\texorpdfstring{$>$}{>} 15
+\end{DoxyItemize}
+
+this method don\textquotesingle{}t check whether c is correct or not \Hypertarget{classttmath_1_1Misc_aa2637677dbd7199d4e6b4cea89f7f9d9}\label{classttmath_1_1Misc_aa2637677dbd7199d4e6b4cea89f7f9d9} 
+\index{ttmath::Misc@{ttmath::Misc}!CharToDigit@{CharToDigit}}
+\index{CharToDigit@{CharToDigit}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{CharToDigit()}{CharToDigit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static sint ttmath\+::\+Misc\+::\+Char\+To\+Digit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{c,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{base }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+this method changes a character \textquotesingle{}c\textquotesingle{} into its value (if there can\textquotesingle{}t be a correct value it returns -\/1)
+
+for example\+:
+\begin{DoxyItemize}
+\item c=2, base=10 -\/\texorpdfstring{$>$}{>} function returns 2
+\item c=A, base=10 -\/\texorpdfstring{$>$}{>} function returns -\/1
+\item c=A, base=16 -\/\texorpdfstring{$>$}{>} function returns 10 
+\end{DoxyItemize}\Hypertarget{classttmath_1_1Misc_a93a49aa7775f27e51feccc665c537277}\label{classttmath_1_1Misc_a93a49aa7775f27e51feccc665c537277} 
+\index{ttmath::Misc@{ttmath::Misc}!DigitToChar@{DigitToChar}}
+\index{DigitToChar@{DigitToChar}!ttmath::Misc@{ttmath::Misc}}
+\doxysubsubsection{\texorpdfstring{DigitToChar()}{DigitToChar()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ttmath\+::\+Misc\+::\+Digit\+To\+Char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{digit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+this method converts a digit into a char digit should be from \texorpdfstring{$<$}{<}0,F\texorpdfstring{$>$}{>} (we don\textquotesingle{}t have to get a base)
+
+for example\+:
+\begin{DoxyItemize}
+\item 1 -\/\texorpdfstring{$>$}{>} 1
+\item 8 -\/\texorpdfstring{$>$}{>} 8
+\item 10 -\/\texorpdfstring{$>$}{>} A
+\item 15 -\/\texorpdfstring{$>$}{>} F 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+framework/ttmath/\mbox{\hyperlink{ttmathmisc_8h}{ttmathmisc.\+h}}\end{DoxyCompactItemize}

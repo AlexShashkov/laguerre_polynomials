@@ -1,0 +1,245 @@
+\doxysection{ttmath\+::Objects Class Reference}
+\hypertarget{classttmath_1_1Objects}{}\label{classttmath_1_1Objects}\index{ttmath::Objects@{ttmath::Objects}}
+
+
+{\ttfamily \#include $<$ttmathobjects.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structttmath_1_1Objects_1_1Item}{Item}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classttmath_1_1Objects_ade37c2885b74d236b4816b4e9bc42230}\label{classttmath_1_1Objects_ade37c2885b74d236b4816b4e9bc42230} 
+typedef std\+::map$<$ std\+::string, \mbox{\hyperlink{structttmath_1_1Objects_1_1Item}{Item}} $>$ {\bfseries Table}
+\item 
+\Hypertarget{classttmath_1_1Objects_a4948676cd12e9b57f606d1d498b0361a}\label{classttmath_1_1Objects_a4948676cd12e9b57f606d1d498b0361a} 
+typedef Table\+::iterator {\bfseries Iterator}
+\item 
+\Hypertarget{classttmath_1_1Objects_ad5a65647bbf2d87f161d3568eb774c45}\label{classttmath_1_1Objects_ad5a65647bbf2d87f161d3568eb774c45} 
+typedef Table\+::const\+\_\+iterator {\bfseries CIterator}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classttmath_1_1Objects_aff96043bb8780091a8dc12281a856042}{Is\+Defined}} (const std\+::string \&name)
+\item 
+bool \mbox{\hyperlink{classttmath_1_1Objects_ae4936d58b169c5d8a791a7b6aebea69d}{Is\+Defined}} (const std\+::wstring \&name)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_ad74017ae70a16a7eed928bbe7cb6e5f1}{Add}} (const std\+::string \&name, const std\+::string \&value, int param=0)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_aef75938be242e02c4ea27d085047af92}{Add}} (const std\+::wstring \&name, const std\+::wstring \&value, int param=0)
+\item 
+bool \mbox{\hyperlink{classttmath_1_1Objects_af2cdd045a29de31e12558e75fe3213d3}{Empty}} () const
+\item 
+void \mbox{\hyperlink{classttmath_1_1Objects_aa8eca6fa65cfae7d8eb1d4da75c95d9c}{Clear}} ()
+\item 
+CIterator \mbox{\hyperlink{classttmath_1_1Objects_ac78db0c33423477653456954259896d8}{Begin}} () const
+\item 
+CIterator \mbox{\hyperlink{classttmath_1_1Objects_a6c245147f0d5d7461334fa34ee67ae37}{End}} () const
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a50d3eae65f0cc94f8abdd47bdbab917e}{Edit\+Value}} (const std\+::string \&name, const std\+::string \&value, int param=0)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a1543c996c898da390913a4d02aa77cee}{Edit\+Value}} (const std\+::wstring \&name, const std\+::wstring \&value, int param=0)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a6ff902b5ea21aaf38d174f3dd8f24706}{Edit\+Name}} (const std\+::string \&old\+\_\+name, const std\+::string \&new\+\_\+name)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a24d10b8c7a3f8282810b423796182a28}{Edit\+Name}} (const std\+::wstring \&old\+\_\+name, const std\+::wstring \&new\+\_\+name)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_adc346b22e0199d36bca777bcc5685c12}{Delete}} (const std\+::string \&name)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a45686c7ebd06d83904df54b8388c1a78}{Delete}} (const std\+::wstring \&name)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a28a854b19e90337e654a386f979661ae}{Get\+Value}} (const std\+::string \&name, std\+::string \&value) const
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a9442669097c146a677991be4ac3b320d}{Get\+Value}} (const std\+::wstring \&name, std\+::wstring \&value)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a94ba2be760b72fce8b7a26480c713987}{Get\+Value}} (const std\+::string \&name, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value) const
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a41b8bec833c259b3194c5d03c3660adc}{Get\+Value}} (const std\+::wstring \&name, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a34db71f17465316fb319074698032f46}{Get\+Value\+And\+Param}} (const std\+::string \&name, std\+::string \&value, int \texorpdfstring{$\ast$}{*}param) const
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_ab634c4000adc2b977925d20726256c65}{Get\+Value\+And\+Param}} (const std\+::wstring \&name, std\+::wstring \&value, int \texorpdfstring{$\ast$}{*}param)
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a74bf862af3d79fa6fde70de315aa11a9}{Get\+Value\+And\+Param}} (const std\+::string \&name, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value, int \texorpdfstring{$\ast$}{*}param) const
+\item 
+\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \mbox{\hyperlink{classttmath_1_1Objects_a7e83b52ddae4990ff8a630b1548f7982}{Get\+Value\+And\+Param}} (const std\+::wstring \&name, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value, int \texorpdfstring{$\ast$}{*}param)
+\item 
+Table \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classttmath_1_1Objects_a1f1ec41e0814312f1233fc7080e5dbbf}{Get\+Table}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classttmath_1_1Objects_a417c81200d71ad3a7913da547e1ea2a5}{Correct\+Character}} (int c, bool can\+\_\+be\+\_\+digit)
+\item 
+{\footnotesize template$<$class string\+\_\+type $>$ }\\static bool \mbox{\hyperlink{classttmath_1_1Objects_ae202f3adf8dfd39b18c471a380fb0a1d}{Is\+Name\+Correct}} (const string\+\_\+type \&name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+objects of this class are used with the mathematical parser they hold variables or functions defined by a user
+
+each object has its own table in which we\textquotesingle{}re keeping variables or functions 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classttmath_1_1Objects_ad74017ae70a16a7eed928bbe7cb6e5f1}\label{classttmath_1_1Objects_ad74017ae70a16a7eed928bbe7cb6e5f1} 
+\index{ttmath::Objects@{ttmath::Objects}!Add@{Add}}
+\index{Add@{Add}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Add (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{value,  }\item[{int}]{param = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method adds one object (variable of function) into the table \Hypertarget{classttmath_1_1Objects_aef75938be242e02c4ea27d085047af92}\label{classttmath_1_1Objects_aef75938be242e02c4ea27d085047af92} 
+\index{ttmath::Objects@{ttmath::Objects}!Add@{Add}}
+\index{Add@{Add}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Add (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{name,  }\item[{const std\+::wstring \&}]{value,  }\item[{int}]{param = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method adds one object (variable of function) into the table \Hypertarget{classttmath_1_1Objects_ac78db0c33423477653456954259896d8}\label{classttmath_1_1Objects_ac78db0c33423477653456954259896d8} 
+\index{ttmath::Objects@{ttmath::Objects}!Begin@{Begin}}
+\index{Begin@{Begin}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}}
+{\footnotesize\ttfamily CIterator ttmath\+::\+Objects\+::\+Begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns \textquotesingle{}const\+\_\+iterator\textquotesingle{} on the first item on the table \Hypertarget{classttmath_1_1Objects_aa8eca6fa65cfae7d8eb1d4da75c95d9c}\label{classttmath_1_1Objects_aa8eca6fa65cfae7d8eb1d4da75c95d9c} 
+\index{ttmath::Objects@{ttmath::Objects}!Clear@{Clear}}
+\index{Clear@{Clear}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void ttmath\+::\+Objects\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method clears the table \Hypertarget{classttmath_1_1Objects_a417c81200d71ad3a7913da547e1ea2a5}\label{classttmath_1_1Objects_a417c81200d71ad3a7913da547e1ea2a5} 
+\index{ttmath::Objects@{ttmath::Objects}!CorrectCharacter@{CorrectCharacter}}
+\index{CorrectCharacter@{CorrectCharacter}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{CorrectCharacter()}{CorrectCharacter()}}
+{\footnotesize\ttfamily static bool ttmath\+::\+Objects\+::\+Correct\+Character (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{bool}]{can\+\_\+be\+\_\+digit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+this method returns true if a character \textquotesingle{}c\textquotesingle{} is a character which can be in a name
+
+if \textquotesingle{}can\+\_\+be\+\_\+digit\textquotesingle{} is true that means when the \textquotesingle{}c\textquotesingle{} is a digit this method returns true otherwise it returns false \Hypertarget{classttmath_1_1Objects_adc346b22e0199d36bca777bcc5685c12}\label{classttmath_1_1Objects_adc346b22e0199d36bca777bcc5685c12} 
+\index{ttmath::Objects@{ttmath::Objects}!Delete@{Delete}}
+\index{Delete@{Delete}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Delete (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method deletes an object \Hypertarget{classttmath_1_1Objects_a45686c7ebd06d83904df54b8388c1a78}\label{classttmath_1_1Objects_a45686c7ebd06d83904df54b8388c1a78} 
+\index{ttmath::Objects@{ttmath::Objects}!Delete@{Delete}}
+\index{Delete@{Delete}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Delete (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method deletes an object \Hypertarget{classttmath_1_1Objects_a6ff902b5ea21aaf38d174f3dd8f24706}\label{classttmath_1_1Objects_a6ff902b5ea21aaf38d174f3dd8f24706} 
+\index{ttmath::Objects@{ttmath::Objects}!EditName@{EditName}}
+\index{EditName@{EditName}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{EditName()}{EditName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Edit\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{old\+\_\+name,  }\item[{const std\+::string \&}]{new\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method changes the name of a specific object \Hypertarget{classttmath_1_1Objects_a24d10b8c7a3f8282810b423796182a28}\label{classttmath_1_1Objects_a24d10b8c7a3f8282810b423796182a28} 
+\index{ttmath::Objects@{ttmath::Objects}!EditName@{EditName}}
+\index{EditName@{EditName}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{EditName()}{EditName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Edit\+Name (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{old\+\_\+name,  }\item[{const std\+::wstring \&}]{new\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method changes the name of a specific object \Hypertarget{classttmath_1_1Objects_a50d3eae65f0cc94f8abdd47bdbab917e}\label{classttmath_1_1Objects_a50d3eae65f0cc94f8abdd47bdbab917e} 
+\index{ttmath::Objects@{ttmath::Objects}!EditValue@{EditValue}}
+\index{EditValue@{EditValue}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{EditValue()}{EditValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Edit\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{value,  }\item[{int}]{param = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method changes the value and the number of parameters for a specific object \Hypertarget{classttmath_1_1Objects_a1543c996c898da390913a4d02aa77cee}\label{classttmath_1_1Objects_a1543c996c898da390913a4d02aa77cee} 
+\index{ttmath::Objects@{ttmath::Objects}!EditValue@{EditValue}}
+\index{EditValue@{EditValue}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{EditValue()}{EditValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Edit\+Value (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{name,  }\item[{const std\+::wstring \&}]{value,  }\item[{int}]{param = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method changes the value and the number of parameters for a specific object \Hypertarget{classttmath_1_1Objects_af2cdd045a29de31e12558e75fe3213d3}\label{classttmath_1_1Objects_af2cdd045a29de31e12558e75fe3213d3} 
+\index{ttmath::Objects@{ttmath::Objects}!Empty@{Empty}}
+\index{Empty@{Empty}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{Empty()}{Empty()}}
+{\footnotesize\ttfamily bool ttmath\+::\+Objects\+::\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns \textquotesingle{}true\textquotesingle{} if the table is empty \Hypertarget{classttmath_1_1Objects_a6c245147f0d5d7461334fa34ee67ae37}\label{classttmath_1_1Objects_a6c245147f0d5d7461334fa34ee67ae37} 
+\index{ttmath::Objects@{ttmath::Objects}!End@{End}}
+\index{End@{End}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily CIterator ttmath\+::\+Objects\+::\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns \textquotesingle{}const\+\_\+iterator\textquotesingle{} pointing at the space after last item (returns table.\+end()) \Hypertarget{classttmath_1_1Objects_a1f1ec41e0814312f1233fc7080e5dbbf}\label{classttmath_1_1Objects_a1f1ec41e0814312f1233fc7080e5dbbf} 
+\index{ttmath::Objects@{ttmath::Objects}!GetTable@{GetTable}}
+\index{GetTable@{GetTable}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetTable()}{GetTable()}}
+{\footnotesize\ttfamily Table \texorpdfstring{$\ast$}{*} ttmath\+::\+Objects\+::\+Get\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns a pointer into the table \Hypertarget{classttmath_1_1Objects_a94ba2be760b72fce8b7a26480c713987}\label{classttmath_1_1Objects_a94ba2be760b72fce8b7a26480c713987} 
+\index{ttmath::Objects@{ttmath::Objects}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Get\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method gets the value of a specific object (this version is used for not copying the whole string) \Hypertarget{classttmath_1_1Objects_a28a854b19e90337e654a386f979661ae}\label{classttmath_1_1Objects_a28a854b19e90337e654a386f979661ae} 
+\index{ttmath::Objects@{ttmath::Objects}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Get\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::string \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method gets the value of a specific object \Hypertarget{classttmath_1_1Objects_a41b8bec833c259b3194c5d03c3660adc}\label{classttmath_1_1Objects_a41b8bec833c259b3194c5d03c3660adc} 
+\index{ttmath::Objects@{ttmath::Objects}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Get\+Value (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{name,  }\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method gets the value of a specific object (this version is used for not copying the whole string) \Hypertarget{classttmath_1_1Objects_a9442669097c146a677991be4ac3b320d}\label{classttmath_1_1Objects_a9442669097c146a677991be4ac3b320d} 
+\index{ttmath::Objects@{ttmath::Objects}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Get\+Value (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{name,  }\item[{std\+::wstring \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method gets the value of a specific object \Hypertarget{classttmath_1_1Objects_a74bf862af3d79fa6fde70de315aa11a9}\label{classttmath_1_1Objects_a74bf862af3d79fa6fde70de315aa11a9} 
+\index{ttmath::Objects@{ttmath::Objects}!GetValueAndParam@{GetValueAndParam}}
+\index{GetValueAndParam@{GetValueAndParam}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetValueAndParam()}{GetValueAndParam()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Get\+Value\+And\+Param (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{value,  }\item[{int \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method sets the value and the number of parameters of a specific object (this version is used for not copying the whole string) \Hypertarget{classttmath_1_1Objects_a34db71f17465316fb319074698032f46}\label{classttmath_1_1Objects_a34db71f17465316fb319074698032f46} 
+\index{ttmath::Objects@{ttmath::Objects}!GetValueAndParam@{GetValueAndParam}}
+\index{GetValueAndParam@{GetValueAndParam}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetValueAndParam()}{GetValueAndParam()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Get\+Value\+And\+Param (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::string \&}]{value,  }\item[{int \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method gets the value and the number of parameters of a specific object \Hypertarget{classttmath_1_1Objects_a7e83b52ddae4990ff8a630b1548f7982}\label{classttmath_1_1Objects_a7e83b52ddae4990ff8a630b1548f7982} 
+\index{ttmath::Objects@{ttmath::Objects}!GetValueAndParam@{GetValueAndParam}}
+\index{GetValueAndParam@{GetValueAndParam}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetValueAndParam()}{GetValueAndParam()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Get\+Value\+And\+Param (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{name,  }\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{value,  }\item[{int \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method sets the value and the number of parameters of a specific object (this version is used for not copying the whole string but in fact we make one copying during Assign\+String()) \Hypertarget{classttmath_1_1Objects_ab634c4000adc2b977925d20726256c65}\label{classttmath_1_1Objects_ab634c4000adc2b977925d20726256c65} 
+\index{ttmath::Objects@{ttmath::Objects}!GetValueAndParam@{GetValueAndParam}}
+\index{GetValueAndParam@{GetValueAndParam}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{GetValueAndParam()}{GetValueAndParam()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} ttmath\+::\+Objects\+::\+Get\+Value\+And\+Param (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{name,  }\item[{std\+::wstring \&}]{value,  }\item[{int \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method gets the value and the number of parameters of a specific object \Hypertarget{classttmath_1_1Objects_aff96043bb8780091a8dc12281a856042}\label{classttmath_1_1Objects_aff96043bb8780091a8dc12281a856042} 
+\index{ttmath::Objects@{ttmath::Objects}!IsDefined@{IsDefined}}
+\index{IsDefined@{IsDefined}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{IsDefined()}{IsDefined()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool ttmath\+::\+Objects\+::\+Is\+Defined (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if such an object is defined (name exists) \Hypertarget{classttmath_1_1Objects_ae4936d58b169c5d8a791a7b6aebea69d}\label{classttmath_1_1Objects_ae4936d58b169c5d8a791a7b6aebea69d} 
+\index{ttmath::Objects@{ttmath::Objects}!IsDefined@{IsDefined}}
+\index{IsDefined@{IsDefined}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{IsDefined()}{IsDefined()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool ttmath\+::\+Objects\+::\+Is\+Defined (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if such an object is defined (name exists) \Hypertarget{classttmath_1_1Objects_ae202f3adf8dfd39b18c471a380fb0a1d}\label{classttmath_1_1Objects_ae202f3adf8dfd39b18c471a380fb0a1d} 
+\index{ttmath::Objects@{ttmath::Objects}!IsNameCorrect@{IsNameCorrect}}
+\index{IsNameCorrect@{IsNameCorrect}!ttmath::Objects@{ttmath::Objects}}
+\doxysubsubsection{\texorpdfstring{IsNameCorrect()}{IsNameCorrect()}}
+{\footnotesize\ttfamily template$<$class string\+\_\+type $>$ \\
+static bool ttmath\+::\+Objects\+::\+Is\+Name\+Correct (\begin{DoxyParamCaption}\item[{const string\+\_\+type \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+this method returns true if the name can be as a name of an object 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+framework/ttmath/\mbox{\hyperlink{ttmathobjects_8h}{ttmathobjects.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,763 @@
+\doxysection{ttmath Namespace Reference}
+\hypertarget{namespacettmath}{}\label{namespacettmath}\index{ttmath@{ttmath}}
+
+
+a namespace for the TTMath library  
+
+
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacettmath_1_1auxiliaryfunctions}{auxiliaryfunctions}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classttmath_1_1Big}{Big}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classttmath_1_1Big}{Big} implements the floating point numbers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structttmath_1_1CGamma}{CGamma}}
+\item 
+struct \mbox{\hyperlink{structttmath_1_1Conv}{Conv}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1Dec}{Dec}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1ExceptionInfo}{Exception\+Info}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1History}{History}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1Int}{Int}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classttmath_1_1Int}{Int} implements a big integer value with a sign. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classttmath_1_1Misc}{Misc}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1Objects}{Objects}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1Parser}{Parser}}
+\begin{DoxyCompactList}\small\item\em Mathematical parser. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classttmath_1_1ReferenceError}{Reference\+Error}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1RuntimeError}{Runtime\+Error}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1StopCalculating}{Stop\+Calculating}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1ThreadLock}{Thread\+Lock}}
+\item 
+class \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classttmath_1_1UInt}{UInt} implements a big integer value without a sign. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classttmath_1_1UInt_3_010_01_4}{UInt$<$ 0 $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}
+\item 
+\Hypertarget{namespacettmath_a300d86e7599787a118808c8c5972670f}\label{namespacettmath_a300d86e7599787a118808c8c5972670f} 
+typedef signed int {\bfseries sint}
+\item 
+typedef uint64\+\_\+t \mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}}
+\item 
+\Hypertarget{namespacettmath_a095c3f861cf4072eafed3278cb991d71}\label{namespacettmath_a095c3f861cf4072eafed3278cb991d71} 
+typedef int64\+\_\+t {\bfseries slint}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{Lib\+Type\+Code}} \{ \newline
+{\bfseries asm\+\_\+vc\+\_\+32} = 0
+, {\bfseries asm\+\_\+gcc\+\_\+32}
+, {\bfseries asm\+\_\+vc\+\_\+64}
+, {\bfseries asm\+\_\+gcc\+\_\+64}
+, \newline
+{\bfseries no\+\_\+asm\+\_\+32}
+, {\bfseries no\+\_\+asm\+\_\+64}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \{ \newline
+{\bfseries err\+\_\+ok} = 0
+, {\bfseries err\+\_\+nothing\+\_\+has\+\_\+read}
+, {\bfseries err\+\_\+unknown\+\_\+character}
+, {\bfseries err\+\_\+unexpected\+\_\+final\+\_\+bracket}
+, \newline
+{\bfseries err\+\_\+stack\+\_\+not\+\_\+clear}
+, {\bfseries err\+\_\+unknown\+\_\+variable}
+, {\bfseries err\+\_\+division\+\_\+by\+\_\+zero}
+, {\bfseries err\+\_\+interrupt}
+, \newline
+{\bfseries err\+\_\+overflow}
+, {\bfseries err\+\_\+unknown\+\_\+function}
+, {\bfseries err\+\_\+unknown\+\_\+operator}
+, {\bfseries err\+\_\+unexpected\+\_\+semicolon\+\_\+operator}
+, \newline
+{\bfseries err\+\_\+improper\+\_\+amount\+\_\+of\+\_\+arguments}
+, {\bfseries err\+\_\+improper\+\_\+argument}
+, {\bfseries err\+\_\+unexpected\+\_\+end}
+, {\bfseries err\+\_\+internal\+\_\+error}
+, \newline
+{\bfseries err\+\_\+incorrect\+\_\+name}
+, {\bfseries err\+\_\+incorrect\+\_\+value}
+, {\bfseries err\+\_\+variable\+\_\+exists}
+, {\bfseries err\+\_\+variable\+\_\+loop}
+, \newline
+{\bfseries err\+\_\+functions\+\_\+loop}
+, {\bfseries err\+\_\+must\+\_\+be\+\_\+only\+\_\+one\+\_\+value}
+, {\bfseries err\+\_\+object\+\_\+exists}
+, {\bfseries err\+\_\+unknown\+\_\+object}
+, \newline
+{\bfseries err\+\_\+still\+\_\+calculating}
+, {\bfseries err\+\_\+in\+\_\+short\+\_\+form\+\_\+used\+\_\+function}
+, {\bfseries err\+\_\+percent\+\_\+from}
+, {\bfseries err\+\_\+assignment\+\_\+requires\+\_\+variable}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_add9faf7afbd33a91df3e3977789e741f}{Skip\+Fraction}} (const Value\+Type \&x)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a0c925f364f30f9d23f417ab7cc5689ee}{Round}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_aeea3642bd4218cf81761930515792844}{Ceil}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a8fde4af46141a3aad68c8081489fd70f}{Floor}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_abc53780b7e2e744d0a680d8fae0d266a}{Ln}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_af773d2cf23612ce54bd229c506f2e884}{Log}} (const Value\+Type \&x, const Value\+Type \&base, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_ad2f2347d11b3124a6d4c12b97b87f9b1}{Exp}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_aadad290da85b89abcd3468c4ad38f556}{Sin}} (Value\+Type x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a8e6c148c8360f8a1779d41e7ee8a20cc}{Cos}} (Value\+Type x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_afa3658181511f2becb4a54e9888909c1}{Tan}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a52e247c28a10f610b776f5a14a73ccc9}{Tg}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a729e7b140a09dec6a69f1c431648d97b}{Cot}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a968360479aa6f110c149acf85b174467}{Ctg}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a56de53bf34882675055ce5a2c09b07dc}{ASin}} (Value\+Type x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_aee077900462c931807bf72d6bae0f8f9}{ACos}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_ac4cabefdca116455346cfda51a9964cb}{ATan}} (Value\+Type x)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a0e96d4b43c340c816cf21021165c654b}{ATg}} (const Value\+Type \&x)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a16977771af17c322b2dbacd26ab3f832}{ACot}} (const Value\+Type \&x)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a2b5eee4603490ab765b30984dd857e81}{ACtg}} (const Value\+Type \&x)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_abb7d8f5511b29ed42fa46c5d6da45140}{Sinh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_af49359c6943998f68ec722dd717fdc71}{Cosh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a61d39833ec57ac28ad81c018934c857a}{Tanh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a3527548481a8319c1c12fd1f26dfe652}{Tgh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a9446f17be78f1bb3a2a5cf99ec6eb7c5}{Coth}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a13e6e549b97b7aea65e95e4141d8a92b}{Ctgh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a5c25e4c8895dd02eace31b2cf2b4a376}{ASinh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a06b9a1ee1d7d3d4dc161c577b085045e}{ACosh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a59fa5b80ce4752872465d02c4c01625c}{ATanh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a975495c66ca3027dd1f44163cffa38b4}{ATgh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a1bb131b813c879e9e214ccf8a7eb3696}{ACoth}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a3661cefb265dde03e1744db779812fcf}{ACtgh}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_ac6aac6162783d4ad6c5d78729f7fd21c}{Deg\+To\+Rad}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_aa5ef6c79581805ee4c0bbfd731857511}{Rad\+To\+Deg}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_ac2fd073af0bd959717ac1a5784e5110d}{Deg\+To\+Deg}} (const Value\+Type \&d, const Value\+Type \&m, const Value\+Type \&s, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a25f85adf34074305414d7d7e4dbf1afd}{Deg\+To\+Rad}} (const Value\+Type \&d, const Value\+Type \&m, const Value\+Type \&s, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a16791351b7f09a2500c3bbd767a6d074}{Grad\+To\+Rad}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a1a1aa0f61f5e74abf53c7b36cef77d75}{Rad\+To\+Grad}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_af08419af148d5546f44c97b5300c39d6}{Deg\+To\+Grad}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a4a9f4b16959a34525bccadd4fa5b3b31}{Deg\+To\+Grad}} (const Value\+Type \&d, const Value\+Type \&m, const Value\+Type \&s, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a52eafea0946a3eda59db19fce03abd78}{Grad\+To\+Deg}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a4ef68f4994c6c514e97fd44f1d850f0e}{Sqrt}} (Value\+Type x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a3b83986f71f6f78d6b0eb33d0e832654}{Root}} (Value\+Type x, const Value\+Type \&index, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a73415d46abca7b89ea7bad780b152b9f}{Abs}} (const Value\+Type \&x)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_ae489b629ef0887bdb3d9aa94e40383ae}{Sgn}} (Value\+Type x)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a53024d1c0076793b6ef66da1595e7ebf}{Mod}} (Value\+Type a, const Value\+Type \&b, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma}} (const Value\+Type \&n, \mbox{\hyperlink{structttmath_1_1CGamma}{CGamma}}$<$ Value\+Type $>$ \&cgamma, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0, const volatile \mbox{\hyperlink{classttmath_1_1StopCalculating}{Stop\+Calculating}} \texorpdfstring{$\ast$}{*}stop=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_a9dc16e4ff84855b18fa0def0115beeb0}{Gamma}} (const Value\+Type \&n, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_ae0a248c8618c9ac4e3edf6095fe31f92}{Factorial}} (const Value\+Type \&x, \mbox{\hyperlink{structttmath_1_1CGamma}{CGamma}}$<$ Value\+Type $>$ \&cgamma, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0, const volatile \mbox{\hyperlink{classttmath_1_1StopCalculating}{Stop\+Calculating}} \texorpdfstring{$\ast$}{*}stop=0)
+\item 
+{\footnotesize template$<$class Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{namespacettmath_ab8d7f0fbe3a72a59c32717f8eafe5857}{Factorial}} (const Value\+Type \&x, \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}err=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+a namespace for the TTMath library 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}\label{namespacettmath_a9897e861179132b64f0e2640dde9d7b7} 
+\index{ttmath@{ttmath}!uint@{uint}}
+\index{uint@{uint}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{uint}{uint}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{ttmath\+::uint}}}
+
+on 32bit platforms one word (uint, sint) will be equal 32bits \Hypertarget{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}\label{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8} 
+\index{ttmath@{ttmath}!ulint@{ulint}}
+\index{ulint@{ulint}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ulint}{ulint}}
+{\footnotesize\ttfamily typedef uint64\+\_\+t \mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ttmath\+::ulint}}}
+
+on 32 bit platform ulint and slint will be equal 64 bits 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}\label{namespacettmath_af99599ccaf4dc05cc3a74277f9579942} 
+\index{ttmath@{ttmath}!ErrorCode@{ErrorCode}}
+\index{ErrorCode@{ErrorCode}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ErrorCode}{ErrorCode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{ttmath\+::\+Error\+Code}}}
+
+error codes \Hypertarget{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}\label{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799} 
+\index{ttmath@{ttmath}!LibTypeCode@{LibTypeCode}}
+\index{LibTypeCode@{LibTypeCode}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{LibTypeCode}{LibTypeCode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{ttmath\+::\+Lib\+Type\+Code}}}
+
+lib type codes\+:
+\begin{DoxyItemize}
+\item asm\+\_\+vc\+\_\+32 -\/ with asm code designed for Microsoft Visual C++ (32 bits)
+\item asm\+\_\+gcc\+\_\+32 -\/ with asm code designed for GCC (32 bits)
+\item asm\+\_\+vc\+\_\+64 -\/ with asm for VC (64 bit)
+\item asm\+\_\+gcc\+\_\+64 -\/ with asm for GCC (64 bit)
+\item no\+\_\+asm\+\_\+32 -\/ pure C++ version (32 bit) -\/ without any asm code
+\item no\+\_\+asm\+\_\+64 -\/ pure C++ version (64 bit) -\/ without any asm code 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacettmath_a73415d46abca7b89ea7bad780b152b9f}\label{namespacettmath_a73415d46abca7b89ea7bad780b152b9f} 
+\index{ttmath@{ttmath}!Abs@{Abs}}
+\index{Abs@{Abs}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Abs()}{Abs()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Abs (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x }\end{DoxyParamCaption})}
+
+absolute value of x
+
+samples\+:
+\begin{DoxyItemize}
+\item -\/2 = 2
+\item 2 = 2 
+\end{DoxyItemize}\Hypertarget{namespacettmath_aee077900462c931807bf72d6bae0f8f9}\label{namespacettmath_aee077900462c931807bf72d6bae0f8f9} 
+\index{ttmath@{ttmath}!ACos@{ACos}}
+\index{ACos@{ACos}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ACos()}{ACos()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ACos (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Arc Cosine
+
+we\textquotesingle{}re using the formula\+: acos(x) = pi/2 -\/ asin(x) \Hypertarget{namespacettmath_a06b9a1ee1d7d3d4dc161c577b085045e}\label{namespacettmath_a06b9a1ee1d7d3d4dc161c577b085045e} 
+\index{ttmath@{ttmath}!ACosh@{ACosh}}
+\index{ACosh@{ACosh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ACosh()}{ACosh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ACosh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+inverse hyperbolic cosine
+
+acosh(x) = ln( x + sqrt(x\texorpdfstring{$^\wedge$}{\string^}2 -\/ 1) ) x in \texorpdfstring{$<$}{<}1, infinity) \Hypertarget{namespacettmath_a16977771af17c322b2dbacd26ab3f832}\label{namespacettmath_a16977771af17c322b2dbacd26ab3f832} 
+\index{ttmath@{ttmath}!ACot@{ACot}}
+\index{ACot@{ACot}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ACot()}{ACot()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ACot (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x }\end{DoxyParamCaption})}
+
+this function calculates the Arc Cotangent
+
+we\textquotesingle{}re using the formula\+: actan(x) = pi/2 -\/ atan(x) \Hypertarget{namespacettmath_a1bb131b813c879e9e214ccf8a7eb3696}\label{namespacettmath_a1bb131b813c879e9e214ccf8a7eb3696} 
+\index{ttmath@{ttmath}!ACoth@{ACoth}}
+\index{ACoth@{ACoth}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ACoth()}{ACoth()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ACoth (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+inverse hyperbolic cotangent
+
+acoth(x) = 0.\+5 \texorpdfstring{$\ast$}{*} ln( (x+1) / (x-\/1) ) x in (-\/infinity, -\/1) or (1, infinity) \Hypertarget{namespacettmath_a2b5eee4603490ab765b30984dd857e81}\label{namespacettmath_a2b5eee4603490ab765b30984dd857e81} 
+\index{ttmath@{ttmath}!ACtg@{ACtg}}
+\index{ACtg@{ACtg}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ACtg()}{ACtg()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ACtg (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x }\end{DoxyParamCaption})}
+
+this function calculates the Arc Cotangent look at the description of ACot(...)
+
+(the abbreviation of Arc Cotangent can be \textquotesingle{}actg\textquotesingle{} as well) \Hypertarget{namespacettmath_a3661cefb265dde03e1744db779812fcf}\label{namespacettmath_a3661cefb265dde03e1744db779812fcf} 
+\index{ttmath@{ttmath}!ACtgh@{ACtgh}}
+\index{ACtgh@{ACtgh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ACtgh()}{ACtgh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ACtgh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+inverse hyperbolic cotantent \Hypertarget{namespacettmath_a56de53bf34882675055ce5a2c09b07dc}\label{namespacettmath_a56de53bf34882675055ce5a2c09b07dc} 
+\index{ttmath@{ttmath}!ASin@{ASin}}
+\index{ASin@{ASin}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ASin()}{ASin()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ASin (\begin{DoxyParamCaption}\item[{Value\+Type}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Arc Sine x is from \texorpdfstring{$<$}{<}-\/1,1\texorpdfstring{$>$}{>} \Hypertarget{namespacettmath_a5c25e4c8895dd02eace31b2cf2b4a376}\label{namespacettmath_a5c25e4c8895dd02eace31b2cf2b4a376} 
+\index{ttmath@{ttmath}!ASinh@{ASinh}}
+\index{ASinh@{ASinh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ASinh()}{ASinh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ASinh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+inverse hyperbolic sine
+
+asinh(x) = ln( x + sqrt(x\texorpdfstring{$^\wedge$}{\string^}2 + 1) ) \Hypertarget{namespacettmath_ac4cabefdca116455346cfda51a9964cb}\label{namespacettmath_ac4cabefdca116455346cfda51a9964cb} 
+\index{ttmath@{ttmath}!ATan@{ATan}}
+\index{ATan@{ATan}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ATan()}{ATan()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ATan (\begin{DoxyParamCaption}\item[{Value\+Type}]{x }\end{DoxyParamCaption})}
+
+this function calculates the Arc Tangent \Hypertarget{namespacettmath_a59fa5b80ce4752872465d02c4c01625c}\label{namespacettmath_a59fa5b80ce4752872465d02c4c01625c} 
+\index{ttmath@{ttmath}!ATanh@{ATanh}}
+\index{ATanh@{ATanh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ATanh()}{ATanh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ATanh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+inverse hyperbolic tangent
+
+atanh(x) = 0.\+5 \texorpdfstring{$\ast$}{*} ln( (1+x) / (1-\/x) ) x in (-\/1, 1) \Hypertarget{namespacettmath_a0e96d4b43c340c816cf21021165c654b}\label{namespacettmath_a0e96d4b43c340c816cf21021165c654b} 
+\index{ttmath@{ttmath}!ATg@{ATg}}
+\index{ATg@{ATg}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ATg()}{ATg()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ATg (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x }\end{DoxyParamCaption})}
+
+this function calculates the Arc Tangent look at the description of ATan(...)
+
+(the abbreviation of Arc Tangent can be \textquotesingle{}atg\textquotesingle{} as well) \Hypertarget{namespacettmath_a975495c66ca3027dd1f44163cffa38b4}\label{namespacettmath_a975495c66ca3027dd1f44163cffa38b4} 
+\index{ttmath@{ttmath}!ATgh@{ATgh}}
+\index{ATgh@{ATgh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{ATgh()}{ATgh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+ATgh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+inverse hyperbolic tantent \Hypertarget{namespacettmath_aeea3642bd4218cf81761930515792844}\label{namespacettmath_aeea3642bd4218cf81761930515792844} 
+\index{ttmath@{ttmath}!Ceil@{Ceil}}
+\index{Ceil@{Ceil}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Ceil()}{Ceil()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Ceil (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function returns a value representing the smallest integer that is greater than or equal to x
+
+
+\begin{DoxyItemize}
+\item Ceil(-\/3.\+7) = -\/3
+\item Ceil(-\/3.\+1) = -\/3
+\item Ceil(-\/3.\+0) = -\/3
+\item Ceil(4.\+0) = 4
+\item Ceil(4.\+2) = 5
+\item Ceil(4.\+8) = 5 
+\end{DoxyItemize}\Hypertarget{namespacettmath_a8e6c148c8360f8a1779d41e7ee8a20cc}\label{namespacettmath_a8e6c148c8360f8a1779d41e7ee8a20cc} 
+\index{ttmath@{ttmath}!Cos@{Cos}}
+\index{Cos@{Cos}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Cos()}{Cos()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Cos (\begin{DoxyParamCaption}\item[{Value\+Type}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calulates the Cosine we\textquotesingle{}re using the formula cos(x) = sin(x + PI/2) \Hypertarget{namespacettmath_af49359c6943998f68ec722dd717fdc71}\label{namespacettmath_af49359c6943998f68ec722dd717fdc71} 
+\index{ttmath@{ttmath}!Cosh@{Cosh}}
+\index{Cosh@{Cosh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Cosh()}{Cosh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Cosh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Hyperbolic Cosine
+
+we\textquotesingle{}re using the formula cosh(x)= ( e\texorpdfstring{$^\wedge$}{\string^}x + e\texorpdfstring{$^\wedge$}{\string^}(-\/x) ) / 2 \Hypertarget{namespacettmath_a729e7b140a09dec6a69f1c431648d97b}\label{namespacettmath_a729e7b140a09dec6a69f1c431648d97b} 
+\index{ttmath@{ttmath}!Cot@{Cot}}
+\index{Cot@{Cot}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Cot()}{Cot()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Cot (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calulates the Cotangent we\textquotesingle{}re using the formula tan(x) = cos(x) / sin(x)
+
+(why do we make it in this way? look at information in \doxylink{namespacettmath_afa3658181511f2becb4a54e9888909c1}{Tan()} function) \Hypertarget{namespacettmath_a9446f17be78f1bb3a2a5cf99ec6eb7c5}\label{namespacettmath_a9446f17be78f1bb3a2a5cf99ec6eb7c5} 
+\index{ttmath@{ttmath}!Coth@{Coth}}
+\index{Coth@{Coth}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Coth()}{Coth()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Coth (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Hyperbolic Cotangent
+
+we\textquotesingle{}re using the formula coth(x)= ( e\texorpdfstring{$^\wedge$}{\string^}x + e\texorpdfstring{$^\wedge$}{\string^}(-\/x) ) / ( e\texorpdfstring{$^\wedge$}{\string^}x -\/ e\texorpdfstring{$^\wedge$}{\string^}(-\/x) ) \Hypertarget{namespacettmath_a968360479aa6f110c149acf85b174467}\label{namespacettmath_a968360479aa6f110c149acf85b174467} 
+\index{ttmath@{ttmath}!Ctg@{Ctg}}
+\index{Ctg@{Ctg}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Ctg()}{Ctg()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Ctg (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calulates the Cotangent look at the description of Cot(...)
+
+(the abbreviation of Cotangent can be \textquotesingle{}ctg\textquotesingle{} as well) \Hypertarget{namespacettmath_a13e6e549b97b7aea65e95e4141d8a92b}\label{namespacettmath_a13e6e549b97b7aea65e95e4141d8a92b} 
+\index{ttmath@{ttmath}!Ctgh@{Ctgh}}
+\index{Ctgh@{Ctgh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Ctgh()}{Ctgh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Ctgh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Hyperbolic Cotangent look at the description of Coth(...)
+
+(the abbreviation of Hyperbolic Cotangent can be \textquotesingle{}ctgh\textquotesingle{} as well) \Hypertarget{namespacettmath_ac2fd073af0bd959717ac1a5784e5110d}\label{namespacettmath_ac2fd073af0bd959717ac1a5784e5110d} 
+\index{ttmath@{ttmath}!DegToDeg@{DegToDeg}}
+\index{DegToDeg@{DegToDeg}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{DegToDeg()}{DegToDeg()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Deg\+To\+Deg (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{d,  }\item[{const Value\+Type \&}]{m,  }\item[{const Value\+Type \&}]{s,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts degrees in the long format into one value
+
+long format\+: (degrees, minutes, seconds) minutes and seconds must be greater than or equal zero
+
+result\+:
+\begin{DoxyItemize}
+\item if d\texorpdfstring{$>$}{>}=0 \+: result= d + ((s/60)+m)/60
+\item if d\texorpdfstring{$<$}{<}0 \+: result= d -\/ ((s/60)+m)/60
+\end{DoxyItemize}
+
+((s/60)+m)/60 = (s+60\texorpdfstring{$\ast$}{*}m)/3600 (second version is faster because there\textquotesingle{}s only one division)
+
+samples\+:
+
+
+\begin{DoxyItemize}
+\item Deg\+To\+Deg(10, 30, 0) = 10.\+5
+\item Deg\+To\+Deg(10, 24, 35.\+6)=10.\+4098(8) 
+\end{DoxyItemize}\Hypertarget{namespacettmath_a4a9f4b16959a34525bccadd4fa5b3b31}\label{namespacettmath_a4a9f4b16959a34525bccadd4fa5b3b31} 
+\index{ttmath@{ttmath}!DegToGrad@{DegToGrad}}
+\index{DegToGrad@{DegToGrad}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{DegToGrad()}{DegToGrad()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Deg\+To\+Grad (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{d,  }\item[{const Value\+Type \&}]{m,  }\item[{const Value\+Type \&}]{s,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts degrees in the long format to gradians \Hypertarget{namespacettmath_af08419af148d5546f44c97b5300c39d6}\label{namespacettmath_af08419af148d5546f44c97b5300c39d6} 
+\index{ttmath@{ttmath}!DegToGrad@{DegToGrad}}
+\index{DegToGrad@{DegToGrad}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{DegToGrad()}{DegToGrad()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Deg\+To\+Grad (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts degrees to gradians
+
+it returns\+: x \texorpdfstring{$\ast$}{*} 200 / 180 \Hypertarget{namespacettmath_a25f85adf34074305414d7d7e4dbf1afd}\label{namespacettmath_a25f85adf34074305414d7d7e4dbf1afd} 
+\index{ttmath@{ttmath}!DegToRad@{DegToRad}}
+\index{DegToRad@{DegToRad}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{DegToRad()}{DegToRad()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Deg\+To\+Rad (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{d,  }\item[{const Value\+Type \&}]{m,  }\item[{const Value\+Type \&}]{s,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts degrees in the long format to radians \Hypertarget{namespacettmath_ac6aac6162783d4ad6c5d78729f7fd21c}\label{namespacettmath_ac6aac6162783d4ad6c5d78729f7fd21c} 
+\index{ttmath@{ttmath}!DegToRad@{DegToRad}}
+\index{DegToRad@{DegToRad}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{DegToRad()}{DegToRad()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Deg\+To\+Rad (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts degrees to radians
+
+it returns\+: x \texorpdfstring{$\ast$}{*} pi / 180 \Hypertarget{namespacettmath_ad2f2347d11b3124a6d4c12b97b87f9b1}\label{namespacettmath_ad2f2347d11b3124a6d4c12b97b87f9b1} 
+\index{ttmath@{ttmath}!Exp@{Exp}}
+\index{Exp@{Exp}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Exp()}{Exp()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Exp (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the expression e\texorpdfstring{$^\wedge$}{\string^}x \Hypertarget{namespacettmath_ae0a248c8618c9ac4e3edf6095fe31f92}\label{namespacettmath_ae0a248c8618c9ac4e3edf6095fe31f92} 
+\index{ttmath@{ttmath}!Factorial@{Factorial}}
+\index{Factorial@{Factorial}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Factorial()}{Factorial()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Factorial (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{structttmath_1_1CGamma}{CGamma}}$<$ Value\+Type $>$ \&}]{cgamma,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0},  }\item[{const volatile \mbox{\hyperlink{classttmath_1_1StopCalculating}{Stop\+Calculating}} \texorpdfstring{$\ast$}{*}}]{stop = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+the factorial from given \textquotesingle{}x\textquotesingle{} e.\+g. Factorial(4) = 4! = 1\texorpdfstring{$\ast$}{*}2\texorpdfstring{$\ast$}{*}3\texorpdfstring{$\ast$}{*}4
+
+it\textquotesingle{}s multithread safe, you should create a CGamma$<$$>$ object and use it whenever you call the \doxylink{namespacettmath_ae0a248c8618c9ac4e3edf6095fe31f92}{Factorial()} e.\+g. \begin{DoxyVerb}typedef Big<1,2> MyBig;
+MyBig x=234, y=54345;
+CGamma<MyBig> cgamma;
+std::cout << Factorial(x, cgamma) << std::endl;
+std::cout << Factorial(y, cgamma) << std::endl;
+\end{DoxyVerb}
+ in the CGamma$<$$>$ object the function stores some coefficients (factorials, Bernoulli numbers), and they will be reused in next calls to the function
+
+each thread should have its own CGamma$<$$>$ object, and you can use these objects with \doxylink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma()} function too \Hypertarget{namespacettmath_ab8d7f0fbe3a72a59c32717f8eafe5857}\label{namespacettmath_ab8d7f0fbe3a72a59c32717f8eafe5857} 
+\index{ttmath@{ttmath}!Factorial@{Factorial}}
+\index{Factorial@{Factorial}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Factorial()}{Factorial()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Factorial (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+the factorial from given \textquotesingle{}x\textquotesingle{} e.\+g. Factorial(4) = 4! = 1\texorpdfstring{$\ast$}{*}2\texorpdfstring{$\ast$}{*}3\texorpdfstring{$\ast$}{*}4
+
+note\+: this function should be used only in a single-\/thread environment \Hypertarget{namespacettmath_a8fde4af46141a3aad68c8081489fd70f}\label{namespacettmath_a8fde4af46141a3aad68c8081489fd70f} 
+\index{ttmath@{ttmath}!Floor@{Floor}}
+\index{Floor@{Floor}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Floor()}{Floor()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Floor (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function returns a value representing the largest integer that is less than or equal to x
+
+
+\begin{DoxyItemize}
+\item Floor(-\/3.\+6) = -\/4
+\item Floor(-\/3.\+1) = -\/4
+\item Floor(-\/3) = -\/3
+\item Floor(2) = 2
+\item Floor(2.\+3) = 2
+\item Floor(2.\+8) = 2 
+\end{DoxyItemize}\Hypertarget{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}\label{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017} 
+\index{ttmath@{ttmath}!Gamma@{Gamma}}
+\index{Gamma@{Gamma}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Gamma()}{Gamma()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Gamma (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{n,  }\item[{\mbox{\hyperlink{structttmath_1_1CGamma}{CGamma}}$<$ Value\+Type $>$ \&}]{cgamma,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0},  }\item[{const volatile \mbox{\hyperlink{classttmath_1_1StopCalculating}{Stop\+Calculating}} \texorpdfstring{$\ast$}{*}}]{stop = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Gamma function
+
+it\textquotesingle{}s multithread safe, you should create a CGamma$<$$>$ object and use it whenever you call the \doxylink{namespacettmath_aaf1312e301f4800c67164f4eb8a5e017}{Gamma()} e.\+g. \begin{DoxyVerb}typedef Big<1,2> MyBig;
+MyBig x=234, y=345.53;
+CGamma<MyBig> cgamma;
+std::cout << Gamma(x, cgamma) << std::endl;
+std::cout << Gamma(y, cgamma) << std::endl;
+\end{DoxyVerb}
+ in the CGamma$<$$>$ object the function stores some coefficients (factorials, Bernoulli numbers), and they will be reused in next calls to the function
+
+each thread should have its own CGamma$<$$>$ object, and you can use these objects with \doxylink{namespacettmath_ae0a248c8618c9ac4e3edf6095fe31f92}{Factorial()} function too \Hypertarget{namespacettmath_a9dc16e4ff84855b18fa0def0115beeb0}\label{namespacettmath_a9dc16e4ff84855b18fa0def0115beeb0} 
+\index{ttmath@{ttmath}!Gamma@{Gamma}}
+\index{Gamma@{Gamma}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Gamma()}{Gamma()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Gamma (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{n,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Gamma function
+
+note\+: this function should be used only in a single-\/thread environment \Hypertarget{namespacettmath_a52eafea0946a3eda59db19fce03abd78}\label{namespacettmath_a52eafea0946a3eda59db19fce03abd78} 
+\index{ttmath@{ttmath}!GradToDeg@{GradToDeg}}
+\index{GradToDeg@{GradToDeg}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{GradToDeg()}{GradToDeg()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Grad\+To\+Deg (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts degrees to gradians
+
+it returns\+: x \texorpdfstring{$\ast$}{*} 180 / 200 \Hypertarget{namespacettmath_a16791351b7f09a2500c3bbd767a6d074}\label{namespacettmath_a16791351b7f09a2500c3bbd767a6d074} 
+\index{ttmath@{ttmath}!GradToRad@{GradToRad}}
+\index{GradToRad@{GradToRad}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{GradToRad()}{GradToRad()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Grad\+To\+Rad (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts gradians to radians
+
+it returns\+: x \texorpdfstring{$\ast$}{*} pi / 200 \Hypertarget{namespacettmath_abc53780b7e2e744d0a680d8fae0d266a}\label{namespacettmath_abc53780b7e2e744d0a680d8fae0d266a} 
+\index{ttmath@{ttmath}!Ln@{Ln}}
+\index{Ln@{Ln}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Ln()}{Ln()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Ln (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the natural logarithm (logarithm with the base \textquotesingle{}e\textquotesingle{}) \Hypertarget{namespacettmath_af773d2cf23612ce54bd229c506f2e884}\label{namespacettmath_af773d2cf23612ce54bd229c506f2e884} 
+\index{ttmath@{ttmath}!Log@{Log}}
+\index{Log@{Log}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Log (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{const Value\+Type \&}]{base,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the logarithm \Hypertarget{namespacettmath_a53024d1c0076793b6ef66da1595e7ebf}\label{namespacettmath_a53024d1c0076793b6ef66da1595e7ebf} 
+\index{ttmath@{ttmath}!Mod@{Mod}}
+\index{Mod@{Mod}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Mod()}{Mod()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Mod (\begin{DoxyParamCaption}\item[{Value\+Type}]{a,  }\item[{const Value\+Type \&}]{b,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+the remainder from a division
+
+samples\+:
+\begin{DoxyItemize}
+\item mod( 12.\+6 ; 3) = 0.\+6 because 12.\+6 = 3\texorpdfstring{$\ast$}{*}4 + 0.\+6
+\item mod(-\/12.\+6 ; 3) = -\/0.\+6 bacause -\/12.\+6 = 3\texorpdfstring{$\ast$}{*}(-\/4) + (-\/0.\+6)
+\item mod( 12.\+6 ; -\/3) = 0.\+6
+\item mod(-\/12.\+6 ; -\/3) = -\/0.\+6 
+\end{DoxyItemize}\Hypertarget{namespacettmath_aa5ef6c79581805ee4c0bbfd731857511}\label{namespacettmath_aa5ef6c79581805ee4c0bbfd731857511} 
+\index{ttmath@{ttmath}!RadToDeg@{RadToDeg}}
+\index{RadToDeg@{RadToDeg}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{RadToDeg()}{RadToDeg()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Rad\+To\+Deg (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts radians to degrees
+
+it returns\+: x \texorpdfstring{$\ast$}{*} 180 / pi \Hypertarget{namespacettmath_a1a1aa0f61f5e74abf53c7b36cef77d75}\label{namespacettmath_a1a1aa0f61f5e74abf53c7b36cef77d75} 
+\index{ttmath@{ttmath}!RadToGrad@{RadToGrad}}
+\index{RadToGrad@{RadToGrad}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{RadToGrad()}{RadToGrad()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Rad\+To\+Grad (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function converts radians to gradians
+
+it returns\+: x \texorpdfstring{$\ast$}{*} 200 / pi \Hypertarget{namespacettmath_a3b83986f71f6f78d6b0eb33d0e832654}\label{namespacettmath_a3b83986f71f6f78d6b0eb33d0e832654} 
+\index{ttmath@{ttmath}!Root@{Root}}
+\index{Root@{Root}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Root()}{Root()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Root (\begin{DoxyParamCaption}\item[{Value\+Type}]{x,  }\item[{const Value\+Type \&}]{index,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+caltulate the index\textquotesingle{}th Root of x
+
+index must be integer and not negative \texorpdfstring{$<$}{<}0;1;2;3....)
+
+
+\begin{DoxyItemize}
+\item if index==0 the result is one
+\item if x==0 the result is zero and we assume root(0;0) is not defined
+\item if index is even (2;4;6...) the result is x\texorpdfstring{$^\wedge$}{\string^}(1/index) and x\texorpdfstring{$>$}{>}0
+\item if index is odd (1;2;3;...) the result is either
+\begin{DoxyItemize}
+\item -\/(abs(x)\texorpdfstring{$^\wedge$}{\string^}(1/index)) if x\texorpdfstring{$<$}{<}0, or
+\item x\texorpdfstring{$^\wedge$}{\string^}(1/index)) if x\texorpdfstring{$>$}{>}0
+\end{DoxyItemize}
+\item for index==1 the result is equal x 
+\end{DoxyItemize}\Hypertarget{namespacettmath_a0c925f364f30f9d23f417ab7cc5689ee}\label{namespacettmath_a0c925f364f30f9d23f417ab7cc5689ee} 
+\index{ttmath@{ttmath}!Round@{Round}}
+\index{Round@{Round}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Round()}{Round()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Round (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function rounds to the nearest integer value
+
+samples
+\begin{DoxyItemize}
+\item 2.\+2 = 2
+\item 2.\+7 = 3
+\item -\/2.\+2 = -\/2
+\item -\/2.\+7 = -\/3 
+\end{DoxyItemize}\Hypertarget{namespacettmath_ae489b629ef0887bdb3d9aa94e40383ae}\label{namespacettmath_ae489b629ef0887bdb3d9aa94e40383ae} 
+\index{ttmath@{ttmath}!Sgn@{Sgn}}
+\index{Sgn@{Sgn}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Sgn()}{Sgn()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Sgn (\begin{DoxyParamCaption}\item[{Value\+Type}]{x }\end{DoxyParamCaption})}
+
+it returns the sign of the value
+
+samples\+:
+\begin{DoxyItemize}
+\item -\/2 = -\/1
+\item 0 = 0
+\item 10 = 1 
+\end{DoxyItemize}\Hypertarget{namespacettmath_aadad290da85b89abcd3468c4ad38f556}\label{namespacettmath_aadad290da85b89abcd3468c4ad38f556} 
+\index{ttmath@{ttmath}!Sin@{Sin}}
+\index{Sin@{Sin}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Sin()}{Sin()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Sin (\begin{DoxyParamCaption}\item[{Value\+Type}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Sine \Hypertarget{namespacettmath_abb7d8f5511b29ed42fa46c5d6da45140}\label{namespacettmath_abb7d8f5511b29ed42fa46c5d6da45140} 
+\index{ttmath@{ttmath}!Sinh@{Sinh}}
+\index{Sinh@{Sinh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Sinh()}{Sinh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Sinh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Hyperbolic Sine
+
+we\textquotesingle{}re using the formula sinh(x)= ( e\texorpdfstring{$^\wedge$}{\string^}x -\/ e\texorpdfstring{$^\wedge$}{\string^}(-\/x) ) / 2 \Hypertarget{namespacettmath_add9faf7afbd33a91df3e3977789e741f}\label{namespacettmath_add9faf7afbd33a91df3e3977789e741f} 
+\index{ttmath@{ttmath}!SkipFraction@{SkipFraction}}
+\index{SkipFraction@{SkipFraction}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{SkipFraction()}{SkipFraction()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Skip\+Fraction (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x }\end{DoxyParamCaption})}
+
+this function skips the fraction from x
+
+samples
+\begin{DoxyItemize}
+\item 2.\+2 = 2
+\item 2.\+7 = 2
+\item -\/2.\+2 = 2
+\item -\/2.\+7 = 2 
+\end{DoxyItemize}\Hypertarget{namespacettmath_a4ef68f4994c6c514e97fd44f1d850f0e}\label{namespacettmath_a4ef68f4994c6c514e97fd44f1d850f0e} 
+\index{ttmath@{ttmath}!Sqrt@{Sqrt}}
+\index{Sqrt@{Sqrt}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Sqrt()}{Sqrt()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Sqrt (\begin{DoxyParamCaption}\item[{Value\+Type}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the square root
+
+Sqrt(9) = 3 \Hypertarget{namespacettmath_afa3658181511f2becb4a54e9888909c1}\label{namespacettmath_afa3658181511f2becb4a54e9888909c1} 
+\index{ttmath@{ttmath}!Tan@{Tan}}
+\index{Tan@{Tan}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Tan()}{Tan()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Tan (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calulates the Tangent we\textquotesingle{}re using the formula tan(x) = sin(x) / cos(x)
+
+it takes more time than calculating the Tan directly from for example Taylor series but should be a bit preciser because Tan receives its values from -\/infinity to +infinity and when we calculate it from any series then we can make a greater mistake than calculating \textquotesingle{}sin/cos\textquotesingle{} \Hypertarget{namespacettmath_a61d39833ec57ac28ad81c018934c857a}\label{namespacettmath_a61d39833ec57ac28ad81c018934c857a} 
+\index{ttmath@{ttmath}!Tanh@{Tanh}}
+\index{Tanh@{Tanh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Tanh()}{Tanh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Tanh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Hyperbolic Tangent
+
+we\textquotesingle{}re using the formula tanh(x)= ( e\texorpdfstring{$^\wedge$}{\string^}x -\/ e\texorpdfstring{$^\wedge$}{\string^}(-\/x) ) / ( e\texorpdfstring{$^\wedge$}{\string^}x + e\texorpdfstring{$^\wedge$}{\string^}(-\/x) ) \Hypertarget{namespacettmath_a52e247c28a10f610b776f5a14a73ccc9}\label{namespacettmath_a52e247c28a10f610b776f5a14a73ccc9} 
+\index{ttmath@{ttmath}!Tg@{Tg}}
+\index{Tg@{Tg}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Tg()}{Tg()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Tg (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calulates the Tangent look at the description of Tan(...)
+
+(the abbreviation of Tangent can be \textquotesingle{}tg\textquotesingle{} as well) \Hypertarget{namespacettmath_a3527548481a8319c1c12fd1f26dfe652}\label{namespacettmath_a3527548481a8319c1c12fd1f26dfe652} 
+\index{ttmath@{ttmath}!Tgh@{Tgh}}
+\index{Tgh@{Tgh}!ttmath@{ttmath}}
+\doxysubsubsection{\texorpdfstring{Tgh()}{Tgh()}}
+{\footnotesize\ttfamily template$<$class Value\+Type $>$ \\
+Value\+Type ttmath\+::\+Tgh (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{x,  }\item[{\mbox{\hyperlink{namespacettmath_af99599ccaf4dc05cc3a74277f9579942}{Error\+Code}} \texorpdfstring{$\ast$}{*}}]{err = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+this function calculates the Hyperbolic Tangent look at the description of Tanh(...)
+
+(the abbreviation of Hyperbolic Tangent can be \textquotesingle{}tgh\textquotesingle{} as well) 

@@ -1,0 +1,40 @@
+\doxysection{ttmath\+::Runtime\+Error Class Reference}
+\hypertarget{classttmath_1_1RuntimeError}{}\label{classttmath_1_1RuntimeError}\index{ttmath::RuntimeError@{ttmath::RuntimeError}}
+
+
+{\ttfamily \#include $<$ttmathtypes.\+h$>$}
+
+Inheritance diagram for ttmath\+::Runtime\+Error\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classttmath_1_1RuntimeError}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classttmath_1_1RuntimeError_a458ebc23a0971292de088c357e596e65}\label{classttmath_1_1RuntimeError_a458ebc23a0971292de088c357e596e65} 
+{\bfseries Runtime\+Error} (const char \texorpdfstring{$\ast$}{*}f, int l)
+\item 
+\Hypertarget{classttmath_1_1RuntimeError_a34df6c3606ff22e6a0fd0a6a09d8fa4a}\label{classttmath_1_1RuntimeError_a34df6c3606ff22e6a0fd0a6a09d8fa4a} 
+std\+::string {\bfseries Where} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classttmath_1_1ExceptionInfo}{ttmath\+::\+Exception\+Info}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Exception\+Info} (const char \texorpdfstring{$\ast$}{*}f, int l)
+\item 
+std\+::string {\bfseries Where} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+a small class used for reporting errors
+
+in the library is used macro TTMATH\+\_\+\+ASSERT which (if the condition in it is false) throw an exception of this type
+
+if you compile with gcc you can get a small benefit from using method Where() (it returns std\+::string) with the name and the line of a file where the macro TTMATH\+\_\+\+ASSERT was used) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+framework/ttmath/\mbox{\hyperlink{ttmathtypes_8h}{ttmathtypes.\+h}}\end{DoxyCompactItemize}

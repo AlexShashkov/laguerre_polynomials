@@ -1,0 +1,1366 @@
+\doxysection{ttmathuint\+\_\+x86.\+h}
+\hypertarget{ttmathuint__x86_8h_source}{}\label{ttmathuint__x86_8h_source}\index{framework/ttmath/ttmathuint\_x86.h@{framework/ttmath/ttmathuint\_x86.h}}
+\mbox{\hyperlink{ttmathuint__x86_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ file\ is\ a\ part\ of\ TTMath\ Bignum\ Library}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ and\ is\ distributed\ under\ the\ 3-\/Clause\ BSD\ Licence.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ Tomasz\ Sowa\ <t.sowa@ttmath.org>}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2006-\/2009,\ Tomasz\ Sowa}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions\ are\ met:}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ *\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ \ }}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ *\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the\ distribution.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ \ \ }}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ *\ Neither\ the\ name\ Tomasz\ Sowa\ nor\ the\ names\ of\ contributors\ to\ this}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ project\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS\ "{}AS\ IS"{}}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ THE}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ OWNER\ OR\ CONTRIBUTORS\ BE}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ OF}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#ifndef\ headerfilettmathuint\_x86}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ headerfilettmathuint\_x86}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifndef\ TTMATH\_NOASM}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#ifdef\ TTMATH\_PLATFORM32}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacettmath}{ttmath}}}
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ UInt<value\_size>::LibTypeStr()}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ info[]\ =\ \textcolor{stringliteral}{"{}asm\_vc\_32"{}};}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ \ \ \ \ \ }}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ info[]\ =\ \textcolor{stringliteral}{"{}asm\_gcc\_32"{}};}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ info;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{LibTypeCode}}\ UInt<value\_size>::LibType()}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{LibTypeCode}}\ info\ =\ asm\_vc\_32;}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ \ \ \ \ \ }}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{LibTypeCode}}\ info\ =\ asm\_gcc\_32;}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ info;}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::Add(\textcolor{keyword}{const}\ UInt<value\_size>\ \&\ ss2,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c)}
+\DoxyCodeLine{00124\ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p2\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}*\textcolor{keyword}{>}(ss2.table);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ don't\ have\ to\ use\ TTMATH\_REFERENCE\_ASSERT\ here}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ algorithm\ doesn't\ require\ it}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ this\ part\ might\ be\ compiled\ with\ for\ example\ visual\ c}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ esi}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,[b]}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,[p1]}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ esi,[p2]}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ edx,edx\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ edx=0}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,[c]}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neg\ eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CF=1\ if\ rax!=0\ ,\ CF=0\ if\ rax==0}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,[esi+edx*4]}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ [ebx+edx*4],eax}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ ecx,\ ecx}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ ecx}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ esi}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ \ \ \ \ \ }}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy,\ dummy2;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ this\ part\ should\ be\ compiled\ with\ gcc}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_(}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xorl\ \%\%edx,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}negl\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \textcolor{comment}{//\ CF=1\ if\ rax!=0\ ,\ CF=0\ if\ rax==0}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ (\%\%esi,\%\%edx,4),\ \%\%eax\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adcl\ \%\%eax,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}incl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adc\ \%\%ecx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=c"{}}\ (c),\ \textcolor{stringliteral}{"{}=a"{}}\ (dummy),\ \textcolor{stringliteral}{"{}=d"{}}\ (dummy2)}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (b),\ \ \textcolor{stringliteral}{"{}1"{}}\ (c),\ \textcolor{stringliteral}{"{}b"{}}\ (p1),\ \textcolor{stringliteral}{"{}S"{}}\ (p2)}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::Add"{}},\ c)}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::AddInt(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ value,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ index)}
+\DoxyCodeLine{00233\ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{00235\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{00236\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c;}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ TTMATH\_ASSERT(\ index\ <\ value\_size\ )}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{\#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [b]}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\ ecx,\ [index]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edx,\ [index]}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [p1]}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [value]}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ add\ [ebx+edx*4],\ eax}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ jnc\ ttmath\_end}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ 1}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_end:}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setc\ al}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ movzx\ edx,\ al}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ edx}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ \ \ \ \ \ }}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy,\ dummy2;}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_(}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}subl\ \%\%edx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}addl\ \%\%eax,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnc\ 2f\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \$1,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}incl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}setc\ \%\%al\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movzx\ \%\%al,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=d"{}}\ (c),\ \ \ \ \textcolor{stringliteral}{"{}=a"{}}\ (dummy),\ \textcolor{stringliteral}{"{}=c"{}}\ (dummy2)}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (index),\ \textcolor{stringliteral}{"{}1"{}}\ (value),\ \ \textcolor{stringliteral}{"{}2"{}}\ (b),\ \textcolor{stringliteral}{"{}b"{}}\ (p1)}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00305\ \ \ \ \ }
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::AddInt"{}},\ c)}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00309\ \ \ \ \ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00351\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::AddTwoInts(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ x2,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ x1,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ index)}
+\DoxyCodeLine{00352\ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{00354\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{00355\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c;}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ TTMATH\_ASSERT(\ index\ <\ value\_size\ -\/\ 1\ )}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{\#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [b]}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\ ecx,\ [index]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [p1]}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edx,\ [index]}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [x1]}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ add\ [ebx+edx*4],\ eax}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [x2]}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ [ebx+edx*4],\ eax}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ jnc\ ttmath\_end}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ 0}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_end:}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setc\ al}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ movzx\ edx,\ al}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ edx}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ \ \ \ \ \ }}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy,\ dummy2;}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_(}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}subl\ \%\%edx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}addl\ \%\%esi,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}incl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adcl\ \%\%eax,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnc\ 2f\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ \$0,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}incl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}setc\ \%\%al\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movzx\ \%\%al,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}\ (c),\ \textcolor{stringliteral}{"{}=c"{}}\ (dummy),\ \textcolor{stringliteral}{"{}=d"{}}\ (dummy2)}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (x2),\ \textcolor{stringliteral}{"{}1"{}}\ (b),\ \ \ \ \ \ \textcolor{stringliteral}{"{}2"{}}\ (index),\ \textcolor{stringliteral}{"{}b"{}}\ (p1),\ \textcolor{stringliteral}{"{}S"{}}\ (x1)}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::AddTwoInts"{}},\ c)}
+\DoxyCodeLine{00434\ \ \ \ \ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00436\ \ \ \ \ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00461\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::AddVector(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ ss1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ ss2,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ ss1\_size,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ ss2\_size,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ result)}
+\DoxyCodeLine{00462\ \ \ \ \ \{}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ TTMATH\_ASSERT(\ ss1\_size\ >=\ ss2\_size\ )}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ rest\ =\ ss1\_size\ -\/\ ss2\_size;}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c;}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ this\ part\ might\ be\ compiled\ with\ for\ example\ visual\ c}}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pushad}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [ss2\_size]}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ edx,\ edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ edx\ =\ 0,\ cf\ =\ 0}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ esi,\ [ss1]}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [ss2]}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edi,\ [result]}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [esi+edx*4]}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ eax,\ [ebx+edx*4]}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [edi+edx*4],\ eax}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ ecx,\ ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ecx\ has\ the\ cf\ state}}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [rest]}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ ebx,\ ebx}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jz\ ttmath\_end}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ ebx,\ ebx\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ebx\ =\ 0}}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neg\ ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ setting\ cf\ from\ ecx}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [rest]\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ecx\ is\ !=\ 0}}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop2:}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [esi+edx*4]}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ eax,\ ebx\ }
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [edi+edx*4],\ eax}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop2}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ ecx,\ ecx}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_end:}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ ecx}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ popad}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ \ \ \ \ \ }}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ this\ part\ should\ be\ compiled\ with\ gcc}}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy1,\ dummy2,\ dummy3;}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_(}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}push\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xor\ \%\%edx,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ edx\ =\ 0,\ cf\ =\ 0}}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ (\%\%esi,\%\%edx,4),\ \%\%eax\ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adc\ (\%\%ebx,\%\%edx,4),\ \%\%eax\ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ \%\%eax,\ (\%\%edi,\%\%edx,4)\ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}inc\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}dec\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adc\ \%\%ecx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ ecx\ has\ the\ cf\ state}}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}pop\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ eax\ =\ rest}}
+\DoxyCodeLine{00540\ }
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}or\ \%\%eax,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jz\ 3f\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xor\ \%\%ebx,\ \%\%ebx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ ebx\ =\ 0}}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}neg\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ setting\ cf\ from\ ecx}}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ \%\%eax,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ ecx=rest\ and\ is\ !=\ 0}}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ (\%\%esi,\ \%\%edx,\ 4),\ \%\%eax\ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adc\ \%\%ebx,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ \%\%eax,\ (\%\%edi,\ \%\%edx,\ 4)\ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}inc\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}dec\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 2b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adc\ \%\%ecx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}3:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}\ (dummy1),\ \textcolor{stringliteral}{"{}=b"{}}\ (dummy2),\ \textcolor{stringliteral}{"{}=c"{}}\ (c),\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}=d"{}}\ (dummy3)}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1"{}}\ (ss2),\ \ \ \ \ \textcolor{stringliteral}{"{}2"{}}\ (ss2\_size),\ \textcolor{stringliteral}{"{}3"{}}\ (rest),\ \ \ \textcolor{stringliteral}{"{}S"{}}\ (ss1),\ \ \textcolor{stringliteral}{"{}D"{}}\ (result)}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ TTMATH\_VECTOR\_LOGC(\textcolor{stringliteral}{"{}UInt::AddVector"{}},\ c,\ result,\ ss1\_size)}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00568\ \ \ \ \ \}}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00580\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::Sub(\textcolor{keyword}{const}\ UInt<value\_size>\ \&\ ss2,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c)}
+\DoxyCodeLine{00581\ \ \ \ \ \{}
+\DoxyCodeLine{00582\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{00583\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{00584\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p2\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}*\textcolor{keyword}{>}(ss2.table);}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ don't\ have\ to\ use\ TTMATH\_REFERENCE\_ASSERT\ here}}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ algorithm\ doesn't\ require\ it}}
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ esi}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,[b]}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,[p1]}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ esi,[p2]}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ edx,edx\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ edx=0}}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,[c]}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neg\ eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CF=1\ if\ rax!=0\ ,\ CF=0\ if\ rax==0}}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,[esi+edx*4]}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sbb\ [ebx+edx*4],eax}
+\DoxyCodeLine{00611\ }
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ ecx,\ ecx}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ ecx}
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ esi}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy,\ dummy2;}
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \ \_\_volatile\_\_(}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xorl\ \%\%edx,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}negl\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \textcolor{comment}{//\ CF=1\ if\ rax!=0\ ,\ CF=0\ if\ rax==0}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ (\%\%esi,\%\%edx,4),\ \%\%eax\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sbbl\ \%\%eax,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}incl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adc\ \%\%ecx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=c"{}}\ (c),\ \textcolor{stringliteral}{"{}=a"{}}\ (dummy),\ \textcolor{stringliteral}{"{}=d"{}}\ (dummy2)}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (b),\ \ \textcolor{stringliteral}{"{}1"{}}\ (c),\ \textcolor{stringliteral}{"{}b"{}}\ (p1),\ \textcolor{stringliteral}{"{}S"{}}\ (p2)}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00652\ }
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::Sub"{}},\ c)}
+\DoxyCodeLine{00654\ }
+\DoxyCodeLine{00655\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00656\ \ \ \ \ \}}
+\DoxyCodeLine{00657\ }
+\DoxyCodeLine{00658\ }
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00685\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00686\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::SubInt(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ value,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ index)}
+\DoxyCodeLine{00687\ \ \ \ \ \{}
+\DoxyCodeLine{00688\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{00689\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{00690\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c;}
+\DoxyCodeLine{00691\ }
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ TTMATH\_ASSERT(\ index\ <\ value\_size\ )}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{\#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00695\ }
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [b]}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\ ecx,\ [index]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00705\ }
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edx,\ [index]}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [p1]}
+\DoxyCodeLine{00708\ }
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [value]}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\ [ebx+edx*4],\ eax}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \ \ \ \ jnc\ ttmath\_end}
+\DoxyCodeLine{00714\ }
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ 1}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_end:}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setc\ al}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ movzx\ edx,\ al}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ edx}
+\DoxyCodeLine{00724\ }
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00730\ }
+\DoxyCodeLine{00731\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ \ \ \ \ \ }}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00733\ }
+\DoxyCodeLine{00734\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy,\ dummy2;}
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_(}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}subl\ \%\%edx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}subl\ \%\%eax,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnc\ 2f\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \$1,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}incl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}setc\ \%\%al\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movzx\ \%\%al,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=d"{}}\ (c),\ \ \ \ \textcolor{stringliteral}{"{}=a"{}}\ (dummy),\ \textcolor{stringliteral}{"{}=c"{}}\ (dummy2)}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (index),\ \textcolor{stringliteral}{"{}1"{}}\ (value),\ \ \textcolor{stringliteral}{"{}2"{}}\ (b),\ \textcolor{stringliteral}{"{}b"{}}\ (p1)}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00758\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::SubInt"{}},\ c)}
+\DoxyCodeLine{00761\ \ \ \ \ }
+\DoxyCodeLine{00762\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00763\ \ \ \ \ \}}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00766\ }
+\DoxyCodeLine{00788\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00789\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::SubVector(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ ss1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ ss2,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ ss1\_size,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ ss2\_size,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ result)}
+\DoxyCodeLine{00790\ \ \ \ \ \{}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ TTMATH\_ASSERT(\ ss1\_size\ >=\ ss2\_size\ )}
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ rest\ =\ ss1\_size\ -\/\ ss2\_size;}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c;}
+\DoxyCodeLine{00795\ }
+\DoxyCodeLine{00796\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00797\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00798\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ this\ part\ might\ be\ compiled\ with\ for\ example\ visual\ c}}
+\DoxyCodeLine{00799\ }
+\DoxyCodeLine{00800\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00801\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ asm\ code\ is\ nearly\ the\ same\ as\ in\ AddVector}}
+\DoxyCodeLine{00802\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ only\ two\ instructions\ 'adc'\ are\ changed\ to\ 'sbb'}}
+\DoxyCodeLine{00803\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pushad}
+\DoxyCodeLine{00807\ }
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [ss2\_size]}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ edx,\ edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ edx\ =\ 0,\ cf\ =\ 0}}
+\DoxyCodeLine{00810\ }
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ esi,\ [ss1]}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [ss2]}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edi,\ [result]}
+\DoxyCodeLine{00814\ }
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [esi+edx*4]}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sbb\ eax,\ [ebx+edx*4]}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [edi+edx*4],\ eax}
+\DoxyCodeLine{00819\ }
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00824\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ ecx,\ ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ecx\ has\ the\ cf\ state}}
+\DoxyCodeLine{00825\ }
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [rest]}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ ebx,\ ebx}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ jz\ ttmath\_end}
+\DoxyCodeLine{00829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ ebx,\ ebx\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ebx\ =\ 0}}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neg\ ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ setting\ cf\ from\ ecx}}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [rest]\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ecx\ is\ !=\ 0}}
+\DoxyCodeLine{00833\ }
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop2:}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [esi+edx*4]}
+\DoxyCodeLine{00836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sbb\ eax,\ ebx\ }
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [edi+edx*4],\ eax}
+\DoxyCodeLine{00838\ }
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop2}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ ecx,\ ecx}
+\DoxyCodeLine{00844\ }
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_end:}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ ecx}
+\DoxyCodeLine{00847\ }
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ popad}
+\DoxyCodeLine{00849\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00850\ }
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif\ \ \ \ \ \ }}
+\DoxyCodeLine{00852\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00853\ }
+\DoxyCodeLine{00854\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00855\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00856\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ this\ part\ should\ be\ compiled\ with\ gcc}}
+\DoxyCodeLine{00857\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy1,\ dummy2,\ dummy3;}
+\DoxyCodeLine{00858\ }
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \_\_volatile\_\_(}
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}push\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xor\ \%\%edx,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ edx\ =\ 0,\ cf\ =\ 0}}
+\DoxyCodeLine{00862\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ (\%\%esi,\%\%edx,4),\ \%\%eax\ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sbb\ (\%\%ebx,\%\%edx,4),\ \%\%eax\ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ \%\%eax,\ (\%\%edi,\%\%edx,4)\ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00866\ }
+\DoxyCodeLine{00867\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}inc\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}dec\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00870\ }
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adc\ \%\%ecx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ ecx\ has\ the\ cf\ state}}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}pop\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ eax\ =\ rest}}
+\DoxyCodeLine{00873\ }
+\DoxyCodeLine{00874\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}or\ \%\%eax,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00875\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jz\ 3f\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00876\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xor\ \%\%ebx,\ \%\%ebx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ ebx\ =\ 0}}
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}neg\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ setting\ cf\ from\ ecx}}
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ \%\%eax,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ ecx=rest\ and\ is\ !=\ 0}}
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00881\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ (\%\%esi,\ \%\%edx,\ 4),\ \%\%eax\ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00882\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sbb\ \%\%ebx,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mov\ \%\%eax,\ (\%\%edi,\ \%\%edx,\ 4)\ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00884\ }
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}inc\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}dec\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 2b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00888\ }
+\DoxyCodeLine{00889\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adc\ \%\%ecx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}3:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00891\ }
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}\ (dummy1),\ \textcolor{stringliteral}{"{}=b"{}}\ (dummy2),\ \textcolor{stringliteral}{"{}=c"{}}\ (c),\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}=d"{}}\ (dummy3)}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1"{}}\ (ss2),\ \ \ \ \ \textcolor{stringliteral}{"{}2"{}}\ (ss2\_size),\ \textcolor{stringliteral}{"{}3"{}}\ (rest),\ \ \ \textcolor{stringliteral}{"{}S"{}}\ (ss1),\ \ \textcolor{stringliteral}{"{}D"{}}\ (result)}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{00895\ }
+\DoxyCodeLine{00896\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00897\ }
+\DoxyCodeLine{00898\ \ \ \ \ \ \ \ \ TTMATH\_VECTOR\_LOGC(\textcolor{stringliteral}{"{}UInt::SubVector"{}},\ c,\ result,\ ss1\_size)}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00900\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00901\ \ \ \ \ \}}
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00903\ }
+\DoxyCodeLine{00904\ }
+\DoxyCodeLine{00917\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00918\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::Rcl2\_one(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c)}
+\DoxyCodeLine{00919\ \ \ \ \ \{}
+\DoxyCodeLine{00920\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{00921\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{00922\ }
+\DoxyCodeLine{00923\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00924\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{00925\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00926\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{00927\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{00928\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{00929\ }
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [p1]}
+\DoxyCodeLine{00931\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ edx,\ edx}
+\DoxyCodeLine{00932\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [c]}
+\DoxyCodeLine{00933\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neg\ ecx}
+\DoxyCodeLine{00934\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [b]}
+\DoxyCodeLine{00935\ }
+\DoxyCodeLine{00936\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{00937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rcl\ dword\ ptr\ [ebx+edx*4],\ 1}
+\DoxyCodeLine{00938\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00939\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{00940\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{00941\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{00942\ }
+\DoxyCodeLine{00943\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ ecx,\ ecx}
+\DoxyCodeLine{00944\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ ecx}
+\DoxyCodeLine{00945\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00946\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{00949\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00950\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00951\ }
+\DoxyCodeLine{00952\ }
+\DoxyCodeLine{00953\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00954\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy,\ dummy2;}
+\DoxyCodeLine{00955\ }
+\DoxyCodeLine{00956\ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \ \_\_volatile\_\_(}
+\DoxyCodeLine{00957\ }
+\DoxyCodeLine{00958\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xorl\ \%\%edx,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ edx=0}}
+\DoxyCodeLine{00959\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}negl\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ CF=1\ if\ eax!=0\ ,\ CF=0\ if\ eax==0}}
+\DoxyCodeLine{00960\ }
+\DoxyCodeLine{00961\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00962\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}rcll\ \$1,\ (\%\%ebx,\ \%\%edx,\ 4)\ \(\backslash\)n"{}}}
+\DoxyCodeLine{00963\ }
+\DoxyCodeLine{00964\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}incl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00965\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00967\ }
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adcl\ \%\%ecx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{00969\ }
+\DoxyCodeLine{00970\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=c"{}}\ (c),\ \textcolor{stringliteral}{"{}=a"{}}\ (dummy),\ \textcolor{stringliteral}{"{}=d"{}}\ (dummy2)}
+\DoxyCodeLine{00971\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (b),\ \ \textcolor{stringliteral}{"{}1"{}}\ (c),\ \textcolor{stringliteral}{"{}b"{}}\ (p1)}
+\DoxyCodeLine{00972\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{00973\ }
+\DoxyCodeLine{00974\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::Rcl2\_one"{}},\ c)}
+\DoxyCodeLine{00977\ }
+\DoxyCodeLine{00978\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{00979\ \ \ \ \ \}}
+\DoxyCodeLine{00980\ }
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{00982\ }
+\DoxyCodeLine{00995\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{00996\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::Rcr2\_one(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c)}
+\DoxyCodeLine{00997\ \ \ \ \ \{}
+\DoxyCodeLine{00998\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{00999\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{01000\ }
+\DoxyCodeLine{01001\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01002\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{01003\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{01005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{01006\ }
+\DoxyCodeLine{01007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [p1]}
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [c]}
+\DoxyCodeLine{01009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ neg\ ecx}
+\DoxyCodeLine{01010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [b]}
+\DoxyCodeLine{01011\ }
+\DoxyCodeLine{01012\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rcr\ dword\ ptr\ [ebx+ecx*4-\/4],\ 1}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ ecx}
+\DoxyCodeLine{01016\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{01017\ }
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adc\ ecx,\ ecx}
+\DoxyCodeLine{01019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ ecx}
+\DoxyCodeLine{01020\ }
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01024\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01025\ }
+\DoxyCodeLine{01026\ }
+\DoxyCodeLine{01027\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy;}
+\DoxyCodeLine{01029\ }
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \ \_\_volatile\_\_(}
+\DoxyCodeLine{01031\ }
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}negl\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \textcolor{comment}{//\ CF=1\ if\ eax!=0\ ,\ CF=0\ if\ eax==0}}
+\DoxyCodeLine{01033\ }
+\DoxyCodeLine{01034\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}rcrl\ \$1,\ -\/4(\%\%ebx,\ \%\%ecx,\ 4)\ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01036\ }
+\DoxyCodeLine{01037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01038\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01039\ }
+\DoxyCodeLine{01040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}adcl\ \%\%ecx,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01041\ }
+\DoxyCodeLine{01042\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=c"{}}\ (c),\ \textcolor{stringliteral}{"{}=a"{}}\ (dummy)}
+\DoxyCodeLine{01043\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (b),\ \ \textcolor{stringliteral}{"{}1"{}}\ (c),\ \textcolor{stringliteral}{"{}b"{}}\ (p1)}
+\DoxyCodeLine{01044\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{01045\ }
+\DoxyCodeLine{01046\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01047\ }
+\DoxyCodeLine{01048\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::Rcr2\_one"{}},\ c)}
+\DoxyCodeLine{01049\ }
+\DoxyCodeLine{01050\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{01051\ \ \ \ \ \}}
+\DoxyCodeLine{01052\ }
+\DoxyCodeLine{01053\ }
+\DoxyCodeLine{01054\ }
+\DoxyCodeLine{01055\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01056\ \textcolor{preprocessor}{\#pragma\ warning\ (disable\ :\ 4731)}}
+\DoxyCodeLine{01057\ \textcolor{comment}{//warning\ C4731:\ frame\ pointer\ register\ 'ebp'\ modified\ by\ inline\ assembly\ code}}
+\DoxyCodeLine{01058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01059\ \ \ \ \ }
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01061\ }
+\DoxyCodeLine{01074\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{01075\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::Rcl2(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ bits,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c)}
+\DoxyCodeLine{01076\ \ \ \ \ \{}
+\DoxyCodeLine{01077\ \ \ \ \ TTMATH\_ASSERT(\ bits>0\ \&\&\ bits<\mbox{\hyperlink{ttmathtypes_8h_aef936ab7a0d7f0c34a9a794b3072cf6a}{TTMATH\_BITS\_PER\_UINT}}\ )}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01079\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{01080\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{01081\ }
+\DoxyCodeLine{01082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{01086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{01087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{01088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ esi}
+\DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edi}
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebp}
+\DoxyCodeLine{01092\ }
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edi,\ [b]}
+\DoxyCodeLine{01094\ }
+\DoxyCodeLine{01095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ 32}
+\DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\ ecx,\ [bits]}
+\DoxyCodeLine{01097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edx,\ -\/1}
+\DoxyCodeLine{01098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shr\ edx,\ cl}
+\DoxyCodeLine{01099\ }
+\DoxyCodeLine{01100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [bits]}
+\DoxyCodeLine{01101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [p1]}
+\DoxyCodeLine{01102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [c]}
+\DoxyCodeLine{01103\ }
+\DoxyCodeLine{01104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebp,\ edx\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ebp\ =\ mask\ (modified\ ebp\ -\/\ don't\ read/write\ to\ variables)}}
+\DoxyCodeLine{01105\ }
+\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ edx,\ edx\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ edx\ =\ 0}}
+\DoxyCodeLine{01107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ esi,\ edx}
+\DoxyCodeLine{01108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ eax,\ eax}
+\DoxyCodeLine{01109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmovnz\ esi,\ ebp\ \ \ \ \ \ \textcolor{comment}{//\ if(c)\ esi=mask\ else\ esi=0}}
+\DoxyCodeLine{01110\ }
+\DoxyCodeLine{01111\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{01112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rol\ dword\ ptr\ [ebx+edx*4],\ cl}
+\DoxyCodeLine{01113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [ebx+edx*4]}
+\DoxyCodeLine{01115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ eax,\ ebp}
+\DoxyCodeLine{01116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ [ebx+edx*4],\ eax\ \textcolor{comment}{//\ clearing\ bits}}
+\DoxyCodeLine{01117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ [ebx+edx*4],\ esi\ \ \textcolor{comment}{//\ saving\ old\ value}}
+\DoxyCodeLine{01118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ esi,\ eax}
+\DoxyCodeLine{01119\ }
+\DoxyCodeLine{01120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc\ edx}
+\DoxyCodeLine{01121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ edi}
+\DoxyCodeLine{01122\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{01123\ }
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ restoring\ ebp}}
+\DoxyCodeLine{01125\ }
+\DoxyCodeLine{01126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ eax,\ 1}
+\DoxyCodeLine{01127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ eax}
+\DoxyCodeLine{01128\ }
+\DoxyCodeLine{01129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edi}
+\DoxyCodeLine{01130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ esi}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{01132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{01133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{01134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{01135\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01136\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01137\ }
+\DoxyCodeLine{01138\ }
+\DoxyCodeLine{01139\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy,\ dummy2,\ dummy3;}
+\DoxyCodeLine{01141\ }
+\DoxyCodeLine{01142\ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \ \_\_volatile\_\_(}
+\DoxyCodeLine{01143\ }
+\DoxyCodeLine{01144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}push\ \%\%ebp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01145\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%ecx,\ \%\%esi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \$32,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}subl\ \%\%esi,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ ecx\ =\ 32\ -\/\ bits}}
+\DoxyCodeLine{01149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \$-\/1,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ edx\ =\ -\/1\ (all\ bits\ set\ to\ one)}}
+\DoxyCodeLine{01150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}shrl\ \%\%cl,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ shifting\ (0\ -\/>\ edx\ -\/>\ cf)\ \ (cl\ times)}}
+\DoxyCodeLine{01151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%edx,\ \%\%ebp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ ebp\ =\ edx\ =\ mask}}
+\DoxyCodeLine{01152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%esi,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01153\ }
+\DoxyCodeLine{01154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xorl\ \%\%edx,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%edx,\ \%\%esi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}orl\ \%\%eax,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}cmovnz\ \%\%ebp,\ \%\%esi\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ if(c)\ esi=mask\ else\ esi=0}}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01159\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}roll\ \%\%cl,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01161\ }
+\DoxyCodeLine{01162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ (\%\%ebx,\%\%edx,4),\ \%\%eax\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}andl\ \%\%ebp,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xorl\ \%\%eax,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}orl\ \ \%\%esi,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%eax,\ \%\%esi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01167\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}incl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%edi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01170\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01171\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}and\ \$1,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01173\ }
+\DoxyCodeLine{01174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}pop\ \%\%ebp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01175\ }
+\DoxyCodeLine{01176\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}\ (c),\ \textcolor{stringliteral}{"{}=D"{}}\ (dummy),\ \textcolor{stringliteral}{"{}=S"{}}\ (dummy2),\ \textcolor{stringliteral}{"{}=d"{}}\ (dummy3)}
+\DoxyCodeLine{01177\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (c),\ \ \textcolor{stringliteral}{"{}1"{}}\ (b),\ \textcolor{stringliteral}{"{}b"{}}\ (p1),\ \textcolor{stringliteral}{"{}c"{}}\ (bits)}
+\DoxyCodeLine{01178\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{01179\ }
+\DoxyCodeLine{01180\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01181\ }
+\DoxyCodeLine{01182\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::Rcl2"{}},\ c)}
+\DoxyCodeLine{01183\ }
+\DoxyCodeLine{01184\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{01185\ \ \ \ \ \}}
+\DoxyCodeLine{01186\ }
+\DoxyCodeLine{01187\ }
+\DoxyCodeLine{01188\ }
+\DoxyCodeLine{01189\ }
+\DoxyCodeLine{01202\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{01203\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::Rcr2(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ bits,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c)}
+\DoxyCodeLine{01204\ \ \ \ \ \{}
+\DoxyCodeLine{01205\ \ \ \ \ TTMATH\_ASSERT(\ bits>0\ \&\&\ bits<\mbox{\hyperlink{ttmathtypes_8h_aef936ab7a0d7f0c34a9a794b3072cf6a}{TTMATH\_BITS\_PER\_UINT}}\ )}
+\DoxyCodeLine{01206\ }
+\DoxyCodeLine{01207\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b\ =\ value\_size;}
+\DoxyCodeLine{01208\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ p1\ =\ table;}
+\DoxyCodeLine{01209\ }
+\DoxyCodeLine{01210\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01211\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{01212\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{01214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{01215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ecx}
+\DoxyCodeLine{01216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ esi}
+\DoxyCodeLine{01218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edi}
+\DoxyCodeLine{01219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebp}
+\DoxyCodeLine{01220\ }
+\DoxyCodeLine{01221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edi,\ [b]}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ 32}
+\DoxyCodeLine{01224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\ ecx,\ [bits]}
+\DoxyCodeLine{01225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edx,\ -\/1}
+\DoxyCodeLine{01226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shl\ edx,\ cl}
+\DoxyCodeLine{01227\ }
+\DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ecx,\ [bits]}
+\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [p1]}
+\DoxyCodeLine{01230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [c]}
+\DoxyCodeLine{01231\ }
+\DoxyCodeLine{01232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebp,\ edx\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ebp\ =\ mask\ (modified\ ebp\ -\/\ don't\ read/write\ to\ variables)}}
+\DoxyCodeLine{01233\ }
+\DoxyCodeLine{01234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ edx,\ edx\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ edx\ =\ 0}}
+\DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ esi,\ edx}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ add\ edx,\ edi}
+\DoxyCodeLine{01237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ edx\ is\ pointing\ at\ the\ end\ of\ the\ table\ (on\ last\ word)}}
+\DoxyCodeLine{01238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ eax,\ eax}
+\DoxyCodeLine{01239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmovnz\ esi,\ ebp\ \ \ \ \ \ \textcolor{comment}{//\ if(c)\ esi=mask\ else\ esi=0}}
+\DoxyCodeLine{01240\ }
+\DoxyCodeLine{01241\ \ \ \ \ \ \ \ \ \ \ \ \ ttmath\_loop:}
+\DoxyCodeLine{01242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ror\ dword\ ptr\ [ebx+edx*4],\ cl}
+\DoxyCodeLine{01243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [ebx+edx*4]}
+\DoxyCodeLine{01245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ eax,\ ebp\ }
+\DoxyCodeLine{01246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xor\ [ebx+edx*4],\ eax\ \textcolor{comment}{//\ clearing\ bits}}
+\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ [ebx+edx*4],\ esi\ \ \textcolor{comment}{//\ saving\ old\ value}}
+\DoxyCodeLine{01248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ esi,\ eax}
+\DoxyCodeLine{01249\ }
+\DoxyCodeLine{01250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ edx}
+\DoxyCodeLine{01251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dec\ edi}
+\DoxyCodeLine{01252\ \ \ \ \ \ \ \ \ \ \ \ \ jnz\ ttmath\_loop}
+\DoxyCodeLine{01253\ }
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ restoring\ ebp}}
+\DoxyCodeLine{01255\ }
+\DoxyCodeLine{01256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rol\ eax,\ 1\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 31bit\ will\ be\ first}}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ eax,\ 1\ \ }
+\DoxyCodeLine{01258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [c],\ eax}
+\DoxyCodeLine{01259\ }
+\DoxyCodeLine{01260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edi}
+\DoxyCodeLine{01261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ esi}
+\DoxyCodeLine{01262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{01263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ecx}
+\DoxyCodeLine{01264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{01265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{01266\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01267\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01268\ }
+\DoxyCodeLine{01269\ }
+\DoxyCodeLine{01270\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01271\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy,\ dummy2,\ dummy3;}
+\DoxyCodeLine{01272\ }
+\DoxyCodeLine{01273\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ \ \_\_volatile\_\_(}
+\DoxyCodeLine{01274\ }
+\DoxyCodeLine{01275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}push\ \%\%ebp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01276\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%ecx,\ \%\%esi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \$32,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}subl\ \%\%esi,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ ecx\ =\ 32\ -\/\ bits}}
+\DoxyCodeLine{01280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \$-\/1,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ edx\ =\ -\/1\ (all\ bits\ set\ to\ one)}}
+\DoxyCodeLine{01281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}shll\ \%\%cl,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ shifting\ (cf\ <-\/\ edx\ <-\/\ 0)\ \ (cl\ times)}}
+\DoxyCodeLine{01282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%edx,\ \%\%ebp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ ebp\ =\ edx\ =\ mask}}
+\DoxyCodeLine{01283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%esi,\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01284\ }
+\DoxyCodeLine{01285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xorl\ \%\%edx,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%edx,\ \%\%esi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}addl\ \%\%edi,\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ edx\ is\ pointing\ at\ the\ end\ of\ the\ table\ (on\ last\ word)}}
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}orl\ \%\%eax,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}cmovnz\ \%\%ebp,\ \%\%esi\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}\ \ \ \ \textcolor{comment}{//\ if(c)\ esi=mask\ else\ esi=0}}
+\DoxyCodeLine{01291\ }
+\DoxyCodeLine{01292\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}rorl\ \%\%cl,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01294\ }
+\DoxyCodeLine{01295\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ (\%\%ebx,\%\%edx,4),\ \%\%eax\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}andl\ \%\%ebp,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}xorl\ \%\%eax,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}orl\ \ \%\%esi,\ (\%\%ebx,\%\%edx,4)\ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \%\%eax,\ \%\%esi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01300\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01301\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%edx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decl\ \%\%edi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01303\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}jnz\ 1b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01304\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01305\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}roll\ \$1,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}andl\ \$1,\ \%\%eax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01307\ }
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}pop\ \%\%ebp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01309\ }
+\DoxyCodeLine{01310\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}\ (c),\ \textcolor{stringliteral}{"{}=D"{}}\ (dummy),\ \textcolor{stringliteral}{"{}=S"{}}\ (dummy2),\ \textcolor{stringliteral}{"{}=d"{}}\ (dummy3)}
+\DoxyCodeLine{01311\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (c),\ \ \textcolor{stringliteral}{"{}1"{}}\ (b),\ \textcolor{stringliteral}{"{}b"{}}\ (p1),\ \textcolor{stringliteral}{"{}c"{}}\ (bits)}
+\DoxyCodeLine{01312\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}},\ \textcolor{stringliteral}{"{}memory"{}}\ );}
+\DoxyCodeLine{01313\ }
+\DoxyCodeLine{01314\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01315\ }
+\DoxyCodeLine{01316\ \ \ \ \ \ \ \ \ TTMATH\_LOGC(\textcolor{stringliteral}{"{}UInt::Rcr2"{}},\ c)}
+\DoxyCodeLine{01317\ }
+\DoxyCodeLine{01318\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{01319\ \ \ \ \ \}}
+\DoxyCodeLine{01320\ }
+\DoxyCodeLine{01321\ }
+\DoxyCodeLine{01322\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{01323\ \textcolor{preprocessor}{\#pragma\ warning\ (default\ :\ 4731)}}
+\DoxyCodeLine{01324\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01325\ }
+\DoxyCodeLine{01326\ }
+\DoxyCodeLine{01327\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01328\ \textcolor{comment}{\ \ \ \ \ \ \ \ this\ method\ returns\ the\ number\ of\ the\ highest\ set\ bit\ in\ one\ 32-\/bit\ word}}
+\DoxyCodeLine{01329\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ the\ 'x'\ is\ zero\ this\ method\ returns\ '-\/1'}}
+\DoxyCodeLine{01330\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{01331\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{01332\ \ \ \ \ sint\ UInt<value\_size>::FindLeadingBitInWord(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ x)}
+\DoxyCodeLine{01333\ \ \ \ \ \{}
+\DoxyCodeLine{01334\ \ \ \ \ sint\ result;}
+\DoxyCodeLine{01335\ }
+\DoxyCodeLine{01336\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01337\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{01338\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{01340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{01341\ }
+\DoxyCodeLine{01342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edx,-\/1}
+\DoxyCodeLine{01343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bsr\ eax,[x]}
+\DoxyCodeLine{01344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmovz\ eax,edx}
+\DoxyCodeLine{01345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [result],\ eax}
+\DoxyCodeLine{01346\ }
+\DoxyCodeLine{01347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{01348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{01349\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01350\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01351\ }
+\DoxyCodeLine{01352\ }
+\DoxyCodeLine{01353\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01354\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy;}
+\DoxyCodeLine{01355\ }
+\DoxyCodeLine{01356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ (}
+\DoxyCodeLine{01357\ }
+\DoxyCodeLine{01358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \$-\/1,\ \%1\ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}bsrl\ \%2,\ \%0\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}cmovz\ \%1,\ \%0\ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01361\ }
+\DoxyCodeLine{01362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=r"{}}\ (result),\ \textcolor{stringliteral}{"{}=\&r"{}}\ (dummy)}
+\DoxyCodeLine{01363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}r"{}}\ (x)}
+\DoxyCodeLine{01364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}}\ );}
+\DoxyCodeLine{01365\ }
+\DoxyCodeLine{01366\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01367\ }
+\DoxyCodeLine{01368\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01369\ \ \ \ \ \}}
+\DoxyCodeLine{01370\ }
+\DoxyCodeLine{01371\ }
+\DoxyCodeLine{01372\ }
+\DoxyCodeLine{01373\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01374\ \textcolor{comment}{\ \ \ \ \ \ \ \ this\ method\ returns\ the\ number\ of\ the\ smallest\ set\ bit\ in\ one\ 32-\/bit\ word}}
+\DoxyCodeLine{01375\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ the\ 'x'\ is\ zero\ this\ method\ returns\ '-\/1'}}
+\DoxyCodeLine{01376\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{01377\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{01378\ \ \ \ \ sint\ UInt<value\_size>::FindLowestBitInWord(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ x)}
+\DoxyCodeLine{01379\ \ \ \ \ \{}
+\DoxyCodeLine{01380\ \ \ \ \ sint\ result;}
+\DoxyCodeLine{01381\ }
+\DoxyCodeLine{01382\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01383\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{01384\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{01386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{01387\ }
+\DoxyCodeLine{01388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edx,-\/1}
+\DoxyCodeLine{01389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bsf\ eax,[x]}
+\DoxyCodeLine{01390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cmovz\ eax,edx}
+\DoxyCodeLine{01391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [result],\ eax}
+\DoxyCodeLine{01392\ }
+\DoxyCodeLine{01393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{01394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{01395\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01397\ }
+\DoxyCodeLine{01398\ }
+\DoxyCodeLine{01399\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01400\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ dummy;}
+\DoxyCodeLine{01401\ }
+\DoxyCodeLine{01402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ (}
+\DoxyCodeLine{01403\ }
+\DoxyCodeLine{01404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movl\ \$-\/1,\ \%1\ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}bsfl\ \%2,\ \%0\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}cmovz\ \%1,\ \%0\ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01407\ }
+\DoxyCodeLine{01408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=r"{}}\ (result),\ \textcolor{stringliteral}{"{}=\&r"{}}\ (dummy)}
+\DoxyCodeLine{01409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}r"{}}\ (x)}
+\DoxyCodeLine{01410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}}\ );}
+\DoxyCodeLine{01411\ }
+\DoxyCodeLine{01412\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01413\ }
+\DoxyCodeLine{01414\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{01415\ \ \ \ \ \}}
+\DoxyCodeLine{01416\ }
+\DoxyCodeLine{01417\ }
+\DoxyCodeLine{01418\ }
+\DoxyCodeLine{01430\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{01431\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ UInt<value\_size>::SetBitInWord(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ \&\ value,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ bit)}
+\DoxyCodeLine{01432\ \ \ \ \ \{}
+\DoxyCodeLine{01433\ \ \ \ \ \ \ \ \ TTMATH\_ASSERT(\ bit\ <\ \mbox{\hyperlink{ttmathtypes_8h_aef936ab7a0d7f0c34a9a794b3072cf6a}{TTMATH\_BITS\_PER\_UINT}}\ )}
+\DoxyCodeLine{01434\ }
+\DoxyCodeLine{01435\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ old\_bit;}
+\DoxyCodeLine{01436\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ v\ =\ value;}
+\DoxyCodeLine{01437\ }
+\DoxyCodeLine{01438\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01439\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{01440\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01441\ \ \ \ \ \ \ \ \ \ \ \ \ push\ ebx}
+\DoxyCodeLine{01442\ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{01443\ }
+\DoxyCodeLine{01444\ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [v]}
+\DoxyCodeLine{01445\ \ \ \ \ \ \ \ \ \ \ \ \ mov\ ebx,\ [bit]}
+\DoxyCodeLine{01446\ \ \ \ \ \ \ \ \ \ \ \ \ bts\ eax,\ ebx}
+\DoxyCodeLine{01447\ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [v],\ eax}
+\DoxyCodeLine{01448\ }
+\DoxyCodeLine{01449\ \ \ \ \ \ \ \ \ \ \ \ \ setc\ bl}
+\DoxyCodeLine{01450\ \ \ \ \ \ \ \ \ \ \ \ \ movzx\ ebx,\ bl}
+\DoxyCodeLine{01451\ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [old\_bit],\ ebx}
+\DoxyCodeLine{01452\ }
+\DoxyCodeLine{01453\ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{01454\ \ \ \ \ \ \ \ \ \ \ \ \ pop\ ebx}
+\DoxyCodeLine{01455\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01456\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01457\ }
+\DoxyCodeLine{01458\ }
+\DoxyCodeLine{01459\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01460\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ (}
+\DoxyCodeLine{01461\ }
+\DoxyCodeLine{01462\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}btsl\ \%\%ebx,\ \%\%eax\ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01463\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}setc\ \%\%bl\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01464\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}movzx\ \%\%bl,\ \%\%ebx\ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01465\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01466\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}\ (v),\ \textcolor{stringliteral}{"{}=b"{}}\ (old\_bit)}
+\DoxyCodeLine{01467\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (v),\ \ \textcolor{stringliteral}{"{}1"{}}\ (bit)}
+\DoxyCodeLine{01468\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}}\ );}
+\DoxyCodeLine{01469\ }
+\DoxyCodeLine{01470\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01471\ }
+\DoxyCodeLine{01472\ \ \ \ \ \ \ \ \ value\ =\ v;}
+\DoxyCodeLine{01473\ }
+\DoxyCodeLine{01474\ \ \ \ \ \textcolor{keywordflow}{return}\ old\_bit;}
+\DoxyCodeLine{01475\ \ \ \ \ \}}
+\DoxyCodeLine{01476\ }
+\DoxyCodeLine{01477\ }
+\DoxyCodeLine{01478\ }
+\DoxyCodeLine{01479\ }
+\DoxyCodeLine{01488\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{01489\ \ \ \ \ \textcolor{keywordtype}{void}\ UInt<value\_size>::MulTwoWords(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ a,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ result\_high,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ result\_low)}
+\DoxyCodeLine{01490\ \ \ \ \ \{}
+\DoxyCodeLine{01491\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01492\ \textcolor{comment}{\ \ \ \ \ \ \ \ we\ must\ use\ these\ temporary\ variables\ in\ order\ to\ inform\ the\ compilator}}
+\DoxyCodeLine{01493\ \textcolor{comment}{\ \ \ \ \ \ \ \ that\ value\ pointed\ with\ result1\ and\ result2\ has\ changed}}
+\DoxyCodeLine{01494\ \textcolor{comment}{}}
+\DoxyCodeLine{01495\ \textcolor{comment}{\ \ \ \ \ \ \ \ this\ has\ no\ effect\ in\ visual\ studio\ but\ it's\ useful\ when}}
+\DoxyCodeLine{01496\ \textcolor{comment}{\ \ \ \ \ \ \ \ using\ gcc\ and\ options\ like\ -\/Ox}}
+\DoxyCodeLine{01497\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{01498\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ result1\_;}
+\DoxyCodeLine{01499\ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ result2\_;}
+\DoxyCodeLine{01500\ }
+\DoxyCodeLine{01501\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01502\ }
+\DoxyCodeLine{01503\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{01504\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01505\ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{01506\ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{01507\ }
+\DoxyCodeLine{01508\ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [a]}
+\DoxyCodeLine{01509\ \ \ \ \ \ \ \ \ \ \ \ \ mul\ dword\ ptr\ [b]}
+\DoxyCodeLine{01510\ }
+\DoxyCodeLine{01511\ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [result2\_],\ edx}
+\DoxyCodeLine{01512\ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [result1\_],\ eax}
+\DoxyCodeLine{01513\ }
+\DoxyCodeLine{01514\ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{01515\ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{01516\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01517\ }
+\DoxyCodeLine{01518\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01519\ }
+\DoxyCodeLine{01520\ }
+\DoxyCodeLine{01521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01522\ }
+\DoxyCodeLine{01523\ \ \ \ \ \ \ \ \ \_\_asm\_\_\ (}
+\DoxyCodeLine{01524\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01525\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}mull\ \%\%edx\ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01526\ }
+\DoxyCodeLine{01527\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}\ (result1\_),\ \textcolor{stringliteral}{"{}=d"{}}\ (result2\_)}
+\DoxyCodeLine{01528\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (a),\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1"{}}\ (b)}
+\DoxyCodeLine{01529\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}}\ );}
+\DoxyCodeLine{01530\ }
+\DoxyCodeLine{01531\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01532\ }
+\DoxyCodeLine{01533\ }
+\DoxyCodeLine{01534\ \ \ \ \ \ \ \ \ *result\_low\ \ =\ result1\_;}
+\DoxyCodeLine{01535\ \ \ \ \ \ \ \ \ *result\_high\ =\ result2\_;}
+\DoxyCodeLine{01536\ \ \ \ \ \}}
+\DoxyCodeLine{01537\ }
+\DoxyCodeLine{01538\ }
+\DoxyCodeLine{01539\ }
+\DoxyCodeLine{01540\ }
+\DoxyCodeLine{01541\ }
+\DoxyCodeLine{01563\ \ \ \ \ \textcolor{keyword}{template}<u\textcolor{keywordtype}{int}\ value\_size>}
+\DoxyCodeLine{01564\ \ \ \ \ \textcolor{keywordtype}{void}\ UInt<value\_size>::DivTwoWords(\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ a,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ b,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ c,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ r,\ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ *\ rest)}
+\DoxyCodeLine{01565\ \ \ \ \ \{}
+\DoxyCodeLine{01566\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ r\_;}
+\DoxyCodeLine{01567\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}\ rest\_;}
+\DoxyCodeLine{01568\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01569\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ these\ variables\ have\ similar\ meaning\ like\ those\ in}}
+\DoxyCodeLine{01570\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ the\ multiplication\ algorithm\ MulTwoWords}}
+\DoxyCodeLine{01571\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{01572\ }
+\DoxyCodeLine{01573\ \ \ \ \ \ \ \ \ TTMATH\_ASSERT(\ c\ !=\ 0\ )}
+\DoxyCodeLine{01574\ }
+\DoxyCodeLine{01575\ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{\#ifndef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01576\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}
+\DoxyCodeLine{01577\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01578\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ eax}
+\DoxyCodeLine{01579\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push\ edx}
+\DoxyCodeLine{01580\ }
+\DoxyCodeLine{01581\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ edx,\ [a]}
+\DoxyCodeLine{01582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ eax,\ [b]}
+\DoxyCodeLine{01583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ div\ dword\ ptr\ [c]}
+\DoxyCodeLine{01584\ }
+\DoxyCodeLine{01585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [r\_],\ eax}
+\DoxyCodeLine{01586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mov\ [rest\_],\ edx}
+\DoxyCodeLine{01587\ }
+\DoxyCodeLine{01588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ edx}
+\DoxyCodeLine{01589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pop\ eax}
+\DoxyCodeLine{01590\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01591\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01592\ }
+\DoxyCodeLine{01593\ }
+\DoxyCodeLine{01594\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{01595\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01596\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm\_\_\ (}
+\DoxyCodeLine{01597\ }
+\DoxyCodeLine{01598\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}divl\ \%\%ecx\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{01599\ }
+\DoxyCodeLine{01600\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}=a"{}}\ (r\_),\ \textcolor{stringliteral}{"{}=d"{}}\ (rest\_)}
+\DoxyCodeLine{01601\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}0"{}}\ (b),\ \ \ \textcolor{stringliteral}{"{}1"{}}\ (a),\ \textcolor{stringliteral}{"{}c"{}}\ (c)}
+\DoxyCodeLine{01602\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}cc"{}}\ );}
+\DoxyCodeLine{01603\ }
+\DoxyCodeLine{01604\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{01605\ }
+\DoxyCodeLine{01606\ }
+\DoxyCodeLine{01607\ \ \ \ \ \ \ \ \ *r\ =\ r\_;}
+\DoxyCodeLine{01608\ \ \ \ \ \ \ \ \ *rest\ =\ rest\_;}
+\DoxyCodeLine{01609\ }
+\DoxyCodeLine{01610\ \ \ \ \ \}}
+\DoxyCodeLine{01611\ }
+\DoxyCodeLine{01612\ }
+\DoxyCodeLine{01613\ }
+\DoxyCodeLine{01614\ \}\ \textcolor{comment}{//namespace}}
+\DoxyCodeLine{01615\ }
+\DoxyCodeLine{01616\ }
+\DoxyCodeLine{01617\ }
+\DoxyCodeLine{01618\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ifdef\ TTMATH\_PLATFORM32}}
+\DoxyCodeLine{01619\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ifndef\ TTMATH\_NOASM}}
+\DoxyCodeLine{01620\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

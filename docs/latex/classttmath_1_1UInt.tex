@@ -1,0 +1,1393 @@
+\doxysection{ttmath\+::UInt\texorpdfstring{$<$}{<} value\+\_\+size \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classttmath_1_1UInt}{}\label{classttmath_1_1UInt}\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+
+
+\doxylink{classttmath_1_1UInt}{UInt} implements a big integer value without a sign.  
+
+
+
+
+{\ttfamily \#include $<$ttmathuint.\+h$>$}
+
+Inheritance diagram for ttmath\+::UInt\texorpdfstring{$<$}{<} value\+\_\+size \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classttmath_1_1UInt}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class ostream\+\_\+type $>$ }\\void \mbox{\hyperlink{classttmath_1_1UInt_a230d0a0fe82951e2c73d93d87a03652d}{Print\+Table}} (ostream\+\_\+type \&output) const
+\item 
+{\footnotesize template$<$class char\+\_\+type , class ostream\+\_\+type $>$ }\\void \mbox{\hyperlink{classttmath_1_1UInt_a6ca522d3e99c95b3b2fcbf88f20492c5}{Print\+Log}} (const char\+\_\+type \texorpdfstring{$\ast$}{*}msg, ostream\+\_\+type \&output) const
+\item 
+{\footnotesize template$<$class char\+\_\+type , class ostream\+\_\+type $>$ }\\void \mbox{\hyperlink{classttmath_1_1UInt_af5e0b513b13034023e4d2d68c033b8be}{Print\+Log}} (const char\+\_\+type \texorpdfstring{$\ast$}{*}msg, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} carry, ostream\+\_\+type \&output) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a76625f22f97d1723685966cb6b3d3ffa}{Size}} () const
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_ab2086439211b3fbc02eb998b328483ea}{Set\+Zero}} ()
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_aa857e4036b8a726c70c51ff088080acb}{Set\+One}} ()
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a7fdeb0ac1b5fdd397f03fcfc9080488d}{Set\+Max}} ()
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a2e1bc8030ecd0fbfefcee702b8887660}{Set\+Min}} ()
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a47f6a6820ea8447013d8e20ae5fa0545}{Swap}} (\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_abf55bec9fb48cee4fddda40403a0dbde}{Set\+From\+Table}} (const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}temp\+\_\+table, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} temp\+\_\+table\+\_\+len)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_aaa62dbe97d8e2ceb434c5c3cac9cd0e1}{Add\+One}} ()
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_afd3f1dc2508a6625f0a5906779e58d00}{Sub\+One}} ()
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_abbcc02c03802229412f902de309bad7d}{Rcl}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bits, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c=0)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a0f395f84b208f36a215d8b5f53400b42}{Rcr}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bits, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c=0)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_adef5243a8390314fb21339145e3a154c}{Compensation\+To\+Left}} ()
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_ad1639273f7e78c737e532d0375b4b1e9}{Find\+Leading\+Bit}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&table\+\_\+id, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&index) const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_a25fde993c54b2db2043947d462369068}{Find\+Lowest\+Bit}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&table\+\_\+id, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&index) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a9cee17c474838e4d58d55e4c8524fdb7}{Get\+Bit}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bit\+\_\+index) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_aeb19e9f7b5028360ea08dd0c6b43be85}{Set\+Bit}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bit\+\_\+index)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a3f305dc39575008dc2ad1f094cdccacc}{Bit\+And}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_ab254e021f626e59b5e32e0b8e02ce9be}{Bit\+Or}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a82d9a7e2147c21a09bd7480d5d046336}{Bit\+Xor}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a323201eabc966dc24349d965fae7f9cd}{Bit\+Not}} ()
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a9710bb273fcf635ed8bb055aa17a7467}{Bit\+Not2}} ()
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a47b57350163b4dc79e480995fc044ad7}{Mul\+Int}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss2)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} result\+\_\+size$>$ }\\void \mbox{\hyperlink{classttmath_1_1UInt_ad0deed24562f4736ea3601a91612054b}{Mul\+Int}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss2, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ result\+\_\+size $>$ \&result) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_aa4963e5c44942adf38731307f34287dd}{Mul}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} algorithm=100)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_ac655c4d3a5ec23052292ccf3a058a6f1}{Mul\+Big}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&result, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} algorithm=100)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a9d427ec739abdc4e1a8354f19d87e022}{Mul1}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a3da327dfd6e59621497c735ababb392e}{Mul1\+Big}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2\+\_\+, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&result)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a1c3b166dbd485361dff8df9756fd9d9a}{Mul2}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_ae145ad09c7e20a9f5944cdf94ac2b189}{Mul2\+Big}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&result)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a8167a3f0b869b08577f46ab7ea3581d4}{Mul3}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a59c8668cd527298db160079e96a1477a}{Mul3\+Big}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&result)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_adaa67dddec10cd14617a7402e6a0bb26}{Mul\+Fastest}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a9147e767c1f90666a21c581343854c7a}{Mul\+Fastest\+Big}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&result)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_aadcfa312adce5e4c9f59eb7bb67ee925}{Div\+Int}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} divisor, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}remainder=0)
+\item 
+\Hypertarget{classttmath_1_1UInt_a7da0becbd05fdb18aef340a10fdaa981}\label{classttmath_1_1UInt_a7da0becbd05fdb18aef340a10fdaa981} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Div\+Int} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} divisor, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&remainder)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a66ed2921ae082f9694afb330ec67d05d}{Div}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder=0, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} algorithm=3)
+\item 
+\Hypertarget{classttmath_1_1UInt_a1d9c05ea20c070265b33342c0f76b2f9}\label{classttmath_1_1UInt_a1d9c05ea20c070265b33342c0f76b2f9} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Div} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&remainder, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} algorithm=3)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_ae71bf44fb6746f7633b2c485bc6ae082}{Div1}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder=0)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a523890a408a7102429ce720df3dc50dc}{Div1}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&remainder)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_acad855eb4debd1fba0a49336849df210}{Div2}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder=0)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a60c05b01f4bad1bef8561e2d54ea0702}{Div2}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&divisor, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&remainder)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_acff57af28e5b4d65f0bf5fd0de5b455b}{Div3}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}remainder=0)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a43f983c5363cce698955c5ab3c11741e}{Div3}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&remainder)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_afdbaf5bd46ab8035c1d6983c761302d2}{Pow}} (\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ pow)
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_af3235637450aac9a4b0f9e05ce69f386}{Sqrt}} ()
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_a60e97560d5f03d2321130a33fd24c74c}{Clear\+First\+Bits}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} n)
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_a2421734423858544d65515584fa4683c}{Is\+The\+Highest\+Bit\+Set}} () const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_a65b27dabbb8cefab74c1c31c6610a2b6}{Is\+The\+Lowest\+Bit\+Set}} () const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_ad20b71dfc5f2eed0c6ae4c09d29ac960}{Is\+Only\+The\+Highest\+Bit\+Set}} () const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_ac6dd8e0cab3a501f094b6b7d22db9805}{Is\+Only\+The\+Lowest\+Bit\+Set}} () const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_ac7e4c950e2abeda28e58a35725d37ef7}{Is\+Zero}} () const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_abd1c336e927429ad0aa43d26cfd57eaf}{Are\+First\+Bits\+Zero}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bits) const
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} argument\+\_\+size$>$ }\\\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a7a35fd5a272f1623617cc638d3a92cfb}{From\+UInt}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ argument\+\_\+size $>$ \&p)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} argument\+\_\+size$>$ }\\\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a85a4fcbef4e2a87123be649ca014a999}{From\+Int}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ argument\+\_\+size $>$ \&p)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a9dd01ef2e600c5393995885d8bdfb82c}{From\+UInt}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_aede9127beee501773f388d86b7ff9018}{From\+Int}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_ac6db46265b40943fbe3b6504df898af1}{From\+Int}} (sint value)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} argument\+\_\+size$>$ }\\\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a5822993b845d02601bbf619cb67dccb3}{operator=}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ argument\+\_\+size $>$ \&p)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_ad9913049846a5e615e132256614f2fb7}{operator=}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_ab87b4a2dc4a6a805e98ccc3910c2ea56}{operator=}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} i)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_a50edfb04ced217f90521748579b11f2c}{UInt}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} i)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a5d883d80ac37b55dba8084a973017c60}{operator=}} (sint i)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_a45836e1b40b4c66879e2f35d70a74bfc}{UInt}} (sint i)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a263949d1181f5f5168fe9b6f38cc4103}{From\+UInt}} (\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}} n)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a782a1e8bbd5248eaea222cbcbb614836}{From\+Int}} (\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}} n)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a123683cd85f819a231df87f6448aa2ec}{From\+Int}} (slint n)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a14352ef7815353726ae2252991eb9117}{operator=}} (\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}} n)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_afb3f55749e8d80ef98f2af6af5637ae6}{UInt}} (\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}} n)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a48c74c9b6cd41e7349bc8ae61a8a418d}{operator=}} (slint n)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_a36ecbcba191fa77c43882475e362d272}{UInt}} (slint n)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_a6b3a7e84423270f9f965bf32d67c26f4}{UInt}} (const char \texorpdfstring{$\ast$}{*}s)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_a160dd1ca8a988c769b24121587ed530d}{UInt}} (const std\+::string \&s)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_abcf612c95d8c85612955a57529d88f38}{UInt}} (const wchar\+\_\+t \texorpdfstring{$\ast$}{*}s)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_aa9c3e78d2074967179158fa15b5e52da}{UInt}} (const std\+::wstring \&s)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_a4078e574332231102133119a3c9fc725}{UInt}} ()
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_a3a239f37f2f6531ec401e0149e151a78}{UInt}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&u)
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} argument\+\_\+size$>$ }\\\mbox{\hyperlink{classttmath_1_1UInt_a1d7f3ffbde11002e0354db6d82925d99}{UInt}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ argument\+\_\+size $>$ \&u)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt_a0d91012495628dbfb660bc219f897ba9}{\texorpdfstring{$\sim$}{\string~}\+UInt}} ()
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a403da6805149cdfb8a69f39a15cdf505}{To\+UInt}} () const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_ad5d910c4b5911ce27d90124729f625d1}{To\+UInt}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&result) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_adcafd6522510e129529e524c67e50f00}{To\+Int}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&result) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a814d4d7c7f8bf5eff57a70bb0884d455}{To\+Int}} (sint \&result) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a2e9f4b2efa04e0d56ee5985e6fe5ea60}{To\+UInt}} (\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}} \&result) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_afa32c8a7b8d9a546d69ef3c937bbfbda}{To\+Int}} (\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}} \&result) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_ab9ef2f98bc511c4aeb3ef3b5bb60d287}{To\+Int}} (slint \&result) const
+\item 
+{\footnotesize template$<$class string\+\_\+type $>$ }\\void \mbox{\hyperlink{classttmath_1_1UInt_a08ef836b2bbcc7acaad88ea4284332d5}{To\+String\+Base}} (string\+\_\+type \&result, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10, bool negative=false) const
+\item 
+void \mbox{\hyperlink{classttmath_1_1UInt_abdff04e00cfba4c49a63688eeec3f14b}{To\+String}} (std\+::string \&result, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a9b724bb5cf26107c7a810d9d0cdf7ca3}\label{classttmath_1_1UInt_a9b724bb5cf26107c7a810d9d0cdf7ca3} 
+std\+::string {\bfseries To\+String} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a2103bf8a7aab63308d06d283782b0cea}\label{classttmath_1_1UInt_a2103bf8a7aab63308d06d283782b0cea} 
+void {\bfseries To\+String} (std\+::wstring \&result, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ad4c4ce6fcc01f6bc9f3bd4663aefd906}\label{classttmath_1_1UInt_ad4c4ce6fcc01f6bc9f3bd4663aefd906} 
+std\+::wstring {\bfseries To\+WString} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10) const
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a57b749c77692b8d753b475a576d4d906}{From\+String}} (const char \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}after\+\_\+source=0, bool \texorpdfstring{$\ast$}{*}value\+\_\+read=0)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a8a9d1f8d1670b843c662c0d68bfae8ef}{From\+String}} (const std\+::string \&s, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_add7d6118ff305590257b9d2ee6d82c6e}{operator=}} (const char \texorpdfstring{$\ast$}{*}s)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a51686ca0550207f9b517006d6da5d383}{operator=}} (const std\+::string \&s)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a0d88c1fad33b188bc5dd00b1e181cfee}{From\+String}} (const wchar\+\_\+t \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}after\+\_\+source=0, bool \texorpdfstring{$\ast$}{*}value\+\_\+read=0)
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a22d18b2db4e304c1991d4719db22524e}{From\+String}} (const std\+::wstring \&s, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b=10)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a076b0a33ac9cabe65ec0eb23c12550dc}{operator=}} (const wchar\+\_\+t \texorpdfstring{$\ast$}{*}s)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a052e36b5ca2a32923e4dddf05ee9864d}{operator=}} (const std\+::wstring \&s)
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_abf90bb1f18373b442393de4135dab57e}{Cmp\+Smaller}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l, sint index=-\/1) const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_a5243626e5c3cddaf16d6a9ca9e4deabe}{Cmp\+Bigger}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l, sint index=-\/1) const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_a5c0321f55dfb72128ead8120bd854dc4}{Cmp\+Equal}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l, sint index=-\/1) const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_adb25ff6d1b7e1dca07c22678b047e237}{Cmp\+Smaller\+Equal}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l, sint index=-\/1) const
+\item 
+bool \mbox{\hyperlink{classttmath_1_1UInt_a834bea52c5400450f6213aadce4cadd3}{Cmp\+Bigger\+Equal}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l, sint index=-\/1) const
+\item 
+\Hypertarget{classttmath_1_1UInt_aef349143cab8808e8cc5004943ddbd82}\label{classttmath_1_1UInt_aef349143cab8808e8cc5004943ddbd82} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_af8d417f101417974cafedc71848b3605}\label{classttmath_1_1UInt_af8d417f101417974cafedc71848b3605} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ac55ef58149dc52cc7b004568ea675762}\label{classttmath_1_1UInt_ac55ef58149dc52cc7b004568ea675762} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_abb1141c9cb23425b43c78bca16a4a17f}\label{classttmath_1_1UInt_abb1141c9cb23425b43c78bca16a4a17f} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a76f3db7371fc91694c29bd10f8bb6e8c}\label{classttmath_1_1UInt_a76f3db7371fc91694c29bd10f8bb6e8c} 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ae37fa22b9bf72f6f0fc3df9e167cdeb6}\label{classttmath_1_1UInt_ae37fa22b9bf72f6f0fc3df9e167cdeb6} 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l) const
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt_afa00ba92a05e074de24e6cdda7990bc7}{operator-\/}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a69166e833bed518083be8c1511607cde}\label{classttmath_1_1UInt_a69166e833bed518083be8c1511607cde} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator-\/=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_ad325927589d231090bf856016cc4b3e6}\label{classttmath_1_1UInt_ad325927589d231090bf856016cc4b3e6} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator+} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_adcbdf6b41f8003c9a319f88d90fe9ad1}\label{classttmath_1_1UInt_adcbdf6b41f8003c9a319f88d90fe9ad1} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator+=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_adba7de63604701ddea5c387d254c9ad6}\label{classttmath_1_1UInt_adba7de63604701ddea5c387d254c9ad6} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\texorpdfstring{$\ast$}{*}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ab92ef92d811f5a43c67c6fce2226184a}\label{classttmath_1_1UInt_ab92ef92d811f5a43c67c6fce2226184a} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\texorpdfstring{$\ast$}{*}=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_adcad0fb567509e96cea659b33a7a6392}\label{classttmath_1_1UInt_adcad0fb567509e96cea659b33a7a6392} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator/} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a0e0c2602da48c8b4fbc5a2d6fa9c8487}\label{classttmath_1_1UInt_a0e0c2602da48c8b4fbc5a2d6fa9c8487} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator/=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_ac39b130d4b731f5f60e1edfe0e4e6626}\label{classttmath_1_1UInt_ac39b130d4b731f5f60e1edfe0e4e6626} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\%} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_afd2981d85c540df2f4a4d9afeff127c5}\label{classttmath_1_1UInt_afd2981d85c540df2f4a4d9afeff127c5} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\%=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt_a30c3bfbecfb89ace23d4becd9c6894a9}{operator++}} ()
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt_a6c542692a8bc7f57927029e7a82e2280}{operator++}} (int)
+\item 
+\Hypertarget{classttmath_1_1UInt_a52b7900d372f206c4a7dccf54e09f110}\label{classttmath_1_1UInt_a52b7900d372f206c4a7dccf54e09f110} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator-\/-\/} ()
+\item 
+\Hypertarget{classttmath_1_1UInt_afdbe14c5b7b286291da50a214e8ab016}\label{classttmath_1_1UInt_afdbe14c5b7b286291da50a214e8ab016} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator-\/-\/} (int)
+\item 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt_aa95218ad020c1e2802bae3e1f8e5ace1}{operator\texorpdfstring{$\sim$}{\string~}}} () const
+\item 
+\Hypertarget{classttmath_1_1UInt_a5926b5441f3261b96ff8b20233346118}\label{classttmath_1_1UInt_a5926b5441f3261b96ff8b20233346118} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\&} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ad9af4a6ad8e1d3f4ed4c0c8a9bf1c102}\label{classttmath_1_1UInt_ad9af4a6ad8e1d3f4ed4c0c8a9bf1c102} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\&=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_a612fcda3605793d10c7ac0b37e22ece9}\label{classttmath_1_1UInt_a612fcda3605793d10c7ac0b37e22ece9} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\texorpdfstring{$\vert$}{|}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_ab8910f60aa649c82509cfff75b51fb9e}\label{classttmath_1_1UInt_ab8910f60aa649c82509cfff75b51fb9e} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\texorpdfstring{$\vert$}{|}=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_a91ad647efc443010991f883d45992a0c}\label{classttmath_1_1UInt_a91ad647efc443010991f883d45992a0c} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator\texorpdfstring{$^\wedge$}{\string^}} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a60349ebfc8eab54497d21bfb82d77c0e}\label{classttmath_1_1UInt_a60349ebfc8eab54497d21bfb82d77c0e} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator\texorpdfstring{$^\wedge$}{\string^}=} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&p2)
+\item 
+\Hypertarget{classttmath_1_1UInt_a337a0e36ce10b0b328b06f60047d3f9e}\label{classttmath_1_1UInt_a337a0e36ce10b0b328b06f60047d3f9e} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator$>$$>$} (int move) const
+\item 
+\Hypertarget{classttmath_1_1UInt_a471f585bb8b44032b583d4349e6c0d1b}\label{classttmath_1_1UInt_a471f585bb8b44032b583d4349e6c0d1b} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator$>$$>$=} (int move)
+\item 
+\Hypertarget{classttmath_1_1UInt_adc451adcb837422460a52a637f73a72a}\label{classttmath_1_1UInt_adc451adcb837422460a52a637f73a72a} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ {\bfseries operator$<$$<$} (int move) const
+\item 
+\Hypertarget{classttmath_1_1UInt_aab9d2c68007dd29da09ccbfb153bcfea}\label{classttmath_1_1UInt_aab9d2c68007dd29da09ccbfb153bcfea} 
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& {\bfseries operator$<$$<$=} (int move)
+\item 
+\Hypertarget{classttmath_1_1UInt_af69f4f1a71948175abc653a82a728665}\label{classttmath_1_1UInt_af69f4f1a71948175abc653a82a728665} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c=0)
+\item 
+\Hypertarget{classttmath_1_1UInt_af4234f162487dbde47c9319f49b2d7af}\label{classttmath_1_1UInt_af4234f162487dbde47c9319f49b2d7af} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add\+Int} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} index=0)
+\item 
+\Hypertarget{classttmath_1_1UInt_aba79aa3cdad513d1c41f4caa3758faab}\label{classttmath_1_1UInt_aba79aa3cdad513d1c41f4caa3758faab} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add\+Two\+Ints} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x1, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} index)
+\item 
+\Hypertarget{classttmath_1_1UInt_a62de1450c61299cdbbda5632b85386c8}\label{classttmath_1_1UInt_a62de1450c61299cdbbda5632b85386c8} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Sub} (const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c=0)
+\item 
+\Hypertarget{classttmath_1_1UInt_abe3a0a22636f905e536aaacf960d962b}\label{classttmath_1_1UInt_abe3a0a22636f905e536aaacf960d962b} 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Sub\+Int} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} index=0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class char\+\_\+type , class ostream\+\_\+type $>$ }\\static void \mbox{\hyperlink{classttmath_1_1UInt_aa05536ad0b4ff594bb3f6b9afc7aa3d8}{Print\+Vector\+Log}} (const char\+\_\+type \texorpdfstring{$\ast$}{*}msg, ostream\+\_\+type \&output, const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}vector, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} vector\+\_\+len)
+\item 
+{\footnotesize template$<$class char\+\_\+type , class ostream\+\_\+type $>$ }\\static void \mbox{\hyperlink{classttmath_1_1UInt_abc701dece8f6d0e9d38310d936b2b065}{Print\+Vector\+Log}} (const char\+\_\+type \texorpdfstring{$\ast$}{*}msg, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} carry, ostream\+\_\+type \&output, const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}vector, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} vector\+\_\+len)
+\item 
+\Hypertarget{classttmath_1_1UInt_ad8773b87be5ce9346232dc64540b816a}\label{classttmath_1_1UInt_ad8773b87be5ce9346232dc64540b816a} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add\+Two\+Words} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} a, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} carry, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{classttmath_1_1UInt_a8f61c05cf6f5fef6dfe70911531ac39d}\label{classttmath_1_1UInt_a8f61c05cf6f5fef6dfe70911531ac39d} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Sub\+Two\+Words} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} a, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} carry, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{classttmath_1_1UInt_a4fba41ee601aa3aacb8f94670ea94408}\label{classttmath_1_1UInt_a4fba41ee601aa3aacb8f94670ea94408} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries Lib\+Type\+Str} ()
+\item 
+\Hypertarget{classttmath_1_1UInt_a93a9987a235ebaeeffa1824fee7d30f0}\label{classttmath_1_1UInt_a93a9987a235ebaeeffa1824fee7d30f0} 
+static \mbox{\hyperlink{namespacettmath_a5c3bd12cd3d050852a60e022e5e12799}{Lib\+Type\+Code}} {\bfseries Lib\+Type} ()
+\item 
+\Hypertarget{classttmath_1_1UInt_a70b08646a481057b2eaaa1e960fdb850}\label{classttmath_1_1UInt_a70b08646a481057b2eaaa1e960fdb850} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Add\+Vector} (const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}ss1, const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss1\+\_\+size, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss2\+\_\+size, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{classttmath_1_1UInt_a21c36a8951d8191fe563664afc2d9842}\label{classttmath_1_1UInt_a21c36a8951d8191fe563664afc2d9842} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Sub\+Vector} (const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}ss1, const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}ss2, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss1\+\_\+size, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} ss2\+\_\+size, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{classttmath_1_1UInt_a48fa33b2511b8b153589c2c84f3a0309}\label{classttmath_1_1UInt_a48fa33b2511b8b153589c2c84f3a0309} 
+static sint {\bfseries Find\+Leading\+Bit\+In\+Word} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x)
+\item 
+\Hypertarget{classttmath_1_1UInt_aa50ac818f3b827cbf5117e2b1d96ebb9}\label{classttmath_1_1UInt_aa50ac818f3b827cbf5117e2b1d96ebb9} 
+static sint {\bfseries Find\+Lowest\+Bit\+In\+Word} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x)
+\item 
+\Hypertarget{classttmath_1_1UInt_ae50b571f0b9eb4f1f0ccdee3dc6b12a2}\label{classttmath_1_1UInt_ae50b571f0b9eb4f1f0ccdee3dc6b12a2} 
+static \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} {\bfseries Set\+Bit\+In\+Word} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&value, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} bit)
+\item 
+\Hypertarget{classttmath_1_1UInt_a725e31c2fbe12368c18c5c308da7239f}\label{classttmath_1_1UInt_a725e31c2fbe12368c18c5c308da7239f} 
+static void {\bfseries Mul\+Two\+Words} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} a, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result\+\_\+high, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}result\+\_\+low)
+\item 
+\Hypertarget{classttmath_1_1UInt_aa5e5fcf1bccc940c90896362908bc88a}\label{classttmath_1_1UInt_aa5e5fcf1bccc940c90896362908bc88a} 
+static void {\bfseries Div\+Two\+Words} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} a, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} b, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} c, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}r, \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}rest)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt_a54c67e2e3d1a4d6ea96e828d15c4443a}{table}} \mbox{[}value\+\_\+size\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classttmath_1_1UInt_a73615fefe06732d9372cf952a324fa70}{To\+String\+Log2}} (\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} x) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classttmath_1_1UInt_a380e0670a04d0f9814ca12d724142fc2}{operator$<$$<$}} (std\+::ostream \&s, const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l)
+\item 
+std\+::wostream \& \mbox{\hyperlink{classttmath_1_1UInt_af9289af379dcb7213ddd906784dc758a}{operator$<$$<$}} (std\+::wostream \&s, const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l)
+\item 
+std\+::istream \& \mbox{\hyperlink{classttmath_1_1UInt_a5ebac923f4493779d96a49d7761e4fbf}{operator$>$$>$}} (std\+::istream \&s, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l)
+\item 
+std\+::wistream \& \mbox{\hyperlink{classttmath_1_1UInt_aacd5f48a2b76f152111ecc770a520ebf}{operator$>$$>$}} (std\+::wistream \&s, \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&l)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$\newline
+class ttmath\+::\+UInt$<$ value\+\_\+size $>$}
+\doxylink{classttmath_1_1UInt}{UInt} implements a big integer value without a sign. 
+
+value\+\_\+size -\/ how many bytes specify our value
+\begin{DoxyItemize}
+\item on 32bit platforms\+: value\+\_\+size=1 -\/\texorpdfstring{$>$}{>} 4 bytes -\/\texorpdfstring{$>$}{>} 32 bits
+\item on 64bit platforms\+: value\+\_\+size=1 -\/\texorpdfstring{$>$}{>} 8 bytes -\/\texorpdfstring{$>$}{>} 64 bits value\+\_\+size = 1,2,3,4,5,6.... 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classttmath_1_1UInt_a50edfb04ced217f90521748579b11f2c}\label{classttmath_1_1UInt_a50edfb04ced217f90521748579b11f2c} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a constructor for converting the uint to this class \Hypertarget{classttmath_1_1UInt_a45836e1b40b4c66879e2f35d70a74bfc}\label{classttmath_1_1UInt_a45836e1b40b4c66879e2f35d70a74bfc} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{sint}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a constructor for converting the sint to this class
+
+look at the description of \doxylink{classttmath_1_1UInt_ab87b4a2dc4a6a805e98ccc3910c2ea56}{UInt\+::operator=(sint)} \Hypertarget{classttmath_1_1UInt_afb3f55749e8d80ef98f2af6af5637ae6}\label{classttmath_1_1UInt_afb3f55749e8d80ef98f2af6af5637ae6} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a constructor for converting unsigned 64 bit int to this class this constructor is created only on a 32bit platform\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_a36ecbcba191fa77c43882475e362d272}\label{classttmath_1_1UInt_a36ecbcba191fa77c43882475e362d272} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{slint}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a constructor for converting signed 64 bit int to this class this constructor is created only on a 32bit platform\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_a6b3a7e84423270f9f965bf32d67c26f4}\label{classttmath_1_1UInt_a6b3a7e84423270f9f965bf32d67c26f4} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a constructor for converting a string to this class (with the base=10) \Hypertarget{classttmath_1_1UInt_a160dd1ca8a988c769b24121587ed530d}\label{classttmath_1_1UInt_a160dd1ca8a988c769b24121587ed530d} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a constructor for converting a string to this class (with the base=10) \Hypertarget{classttmath_1_1UInt_abcf612c95d8c85612955a57529d88f38}\label{classttmath_1_1UInt_abcf612c95d8c85612955a57529d88f38} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a constructor for converting a string to this class (with the base=10) \Hypertarget{classttmath_1_1UInt_aa9c3e78d2074967179158fa15b5e52da}\label{classttmath_1_1UInt_aa9c3e78d2074967179158fa15b5e52da} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a constructor for converting a string to this class (with the base=10) \Hypertarget{classttmath_1_1UInt_a4078e574332231102133119a3c9fc725}\label{classttmath_1_1UInt_a4078e574332231102133119a3c9fc725} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a default constructor
+
+we don\textquotesingle{}t clear the table \Hypertarget{classttmath_1_1UInt_a3a239f37f2f6531ec401e0149e151a78}\label{classttmath_1_1UInt_a3a239f37f2f6531ec401e0149e151a78} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{u }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a copy constructor \Hypertarget{classttmath_1_1UInt_a1d7f3ffbde11002e0354db6d82925d99}\label{classttmath_1_1UInt_a1d7f3ffbde11002e0354db6d82925d99} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!UInt@{UInt}}
+\index{UInt@{UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{UInt()}{UInt()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} argument\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+UInt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ argument\+\_\+size $>$ \&}]{u }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a template for producting constructors for copying from another types \Hypertarget{classttmath_1_1UInt_a0d91012495628dbfb660bc219f897ba9}\label{classttmath_1_1UInt_a0d91012495628dbfb660bc219f897ba9} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!````~UInt@{\texorpdfstring{$\sim$}{\string~}UInt}}
+\index{````~UInt@{\texorpdfstring{$\sim$}{\string~}UInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UInt()}{\string~UInt()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classttmath_1_1UInt}{UInt}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+a destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classttmath_1_1UInt_aaa62dbe97d8e2ceb434c5c3cac9cd0e1}\label{classttmath_1_1UInt_aaa62dbe97d8e2ceb434c5c3cac9cd0e1} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!AddOne@{AddOne}}
+\index{AddOne@{AddOne}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{AddOne()}{AddOne()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Add\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+basic mathematic functions
+
+this method adds one to the existing value \Hypertarget{classttmath_1_1UInt_abd1c336e927429ad0aa43d26cfd57eaf}\label{classttmath_1_1UInt_abd1c336e927429ad0aa43d26cfd57eaf} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!AreFirstBitsZero@{AreFirstBitsZero}}
+\index{AreFirstBitsZero@{AreFirstBitsZero}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{AreFirstBitsZero()}{AreFirstBitsZero()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Are\+First\+Bits\+Zero (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{bits }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returning true if first \textquotesingle{}bits\textquotesingle{} bits are equal zero \Hypertarget{classttmath_1_1UInt_a3f305dc39575008dc2ad1f094cdccacc}\label{classttmath_1_1UInt_a3f305dc39575008dc2ad1f094cdccacc} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!BitAnd@{BitAnd}}
+\index{BitAnd@{BitAnd}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{BitAnd()}{BitAnd()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Bit\+And (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method performs a bitwise operation AND \Hypertarget{classttmath_1_1UInt_a323201eabc966dc24349d965fae7f9cd}\label{classttmath_1_1UInt_a323201eabc966dc24349d965fae7f9cd} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!BitNot@{BitNot}}
+\index{BitNot@{BitNot}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{BitNot()}{BitNot()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Bit\+Not (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method performs a bitwise operation NOT \Hypertarget{classttmath_1_1UInt_a9710bb273fcf635ed8bb055aa17a7467}\label{classttmath_1_1UInt_a9710bb273fcf635ed8bb055aa17a7467} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!BitNot2@{BitNot2}}
+\index{BitNot2@{BitNot2}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{BitNot2()}{BitNot2()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Bit\+Not2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method performs a bitwise operation NOT but only on the range of \texorpdfstring{$<$}{<}0, leading\+\_\+bit\texorpdfstring{$>$}{>}
+
+for example\+: Bit\+Not2(8) = Bit\+Not2( 1000(bin) ) = 111(bin) = 7 \Hypertarget{classttmath_1_1UInt_ab254e021f626e59b5e32e0b8e02ce9be}\label{classttmath_1_1UInt_ab254e021f626e59b5e32e0b8e02ce9be} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!BitOr@{BitOr}}
+\index{BitOr@{BitOr}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{BitOr()}{BitOr()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Bit\+Or (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method performs a bitwise operation OR \Hypertarget{classttmath_1_1UInt_a82d9a7e2147c21a09bd7480d5d046336}\label{classttmath_1_1UInt_a82d9a7e2147c21a09bd7480d5d046336} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!BitXor@{BitXor}}
+\index{BitXor@{BitXor}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{BitXor()}{BitXor()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Bit\+Xor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method performs a bitwise operation XOR \Hypertarget{classttmath_1_1UInt_a60e97560d5f03d2321130a33fd24c74c}\label{classttmath_1_1UInt_a60e97560d5f03d2321130a33fd24c74c} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ClearFirstBits@{ClearFirstBits}}
+\index{ClearFirstBits@{ClearFirstBits}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ClearFirstBits()}{ClearFirstBits()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Clear\+First\+Bits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method sets n first bits to value zero
+
+For example\+: let n=2 then if there\textquotesingle{}s a value 111 (bin) there\textquotesingle{}ll be \textquotesingle{}100\textquotesingle{} (bin) \Hypertarget{classttmath_1_1UInt_a5243626e5c3cddaf16d6a9ca9e4deabe}\label{classttmath_1_1UInt_a5243626e5c3cddaf16d6a9ca9e4deabe} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!CmpBigger@{CmpBigger}}
+\index{CmpBigger@{CmpBigger}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{CmpBigger()}{CmpBigger()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Cmp\+Bigger (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l,  }\item[{sint}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if \textquotesingle{}this\textquotesingle{} is bigger than \textquotesingle{}l\textquotesingle{}
+
+\textquotesingle{}index\textquotesingle{} is an index of the first word from will be the comparison performed (note\+: we start the comparison from back -\/ from the last word, when index is -\/1 /default/ it is automatically set into the last word)
+
+I introduced it for some kind of optimization made in the second division algorithm (Div2) \Hypertarget{classttmath_1_1UInt_a834bea52c5400450f6213aadce4cadd3}\label{classttmath_1_1UInt_a834bea52c5400450f6213aadce4cadd3} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!CmpBiggerEqual@{CmpBiggerEqual}}
+\index{CmpBiggerEqual@{CmpBiggerEqual}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{CmpBiggerEqual()}{CmpBiggerEqual()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Cmp\+Bigger\+Equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l,  }\item[{sint}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if \textquotesingle{}this\textquotesingle{} is bigger than or equal \textquotesingle{}l\textquotesingle{}
+
+\textquotesingle{}index\textquotesingle{} is an index of the first word from will be the comparison performed (note\+: we start the comparison from back -\/ from the last word, when index is -\/1 /default/ it is automatically set into the last word) \Hypertarget{classttmath_1_1UInt_a5c0321f55dfb72128ead8120bd854dc4}\label{classttmath_1_1UInt_a5c0321f55dfb72128ead8120bd854dc4} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!CmpEqual@{CmpEqual}}
+\index{CmpEqual@{CmpEqual}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{CmpEqual()}{CmpEqual()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Cmp\+Equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l,  }\item[{sint}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if \textquotesingle{}this\textquotesingle{} is equal \textquotesingle{}l\textquotesingle{}
+
+\textquotesingle{}index\textquotesingle{} is an index of the first word from will be the comparison performed (note\+: we start the comparison from back -\/ from the last word, when index is -\/1 /default/ it is automatically set into the last word) \Hypertarget{classttmath_1_1UInt_abf90bb1f18373b442393de4135dab57e}\label{classttmath_1_1UInt_abf90bb1f18373b442393de4135dab57e} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!CmpSmaller@{CmpSmaller}}
+\index{CmpSmaller@{CmpSmaller}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{CmpSmaller()}{CmpSmaller()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Cmp\+Smaller (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l,  }\item[{sint}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+methods for comparing
+
+this method returns true if \textquotesingle{}this\textquotesingle{} is smaller than \textquotesingle{}l\textquotesingle{}
+
+\textquotesingle{}index\textquotesingle{} is an index of the first word from will be the comparison performed (note\+: we start the comparison from back -\/ from the last word, when index is -\/1 /default/ it is automatically set into the last word) I introduced it for some kind of optimization made in the second division algorithm (Div2) \Hypertarget{classttmath_1_1UInt_adb25ff6d1b7e1dca07c22678b047e237}\label{classttmath_1_1UInt_adb25ff6d1b7e1dca07c22678b047e237} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!CmpSmallerEqual@{CmpSmallerEqual}}
+\index{CmpSmallerEqual@{CmpSmallerEqual}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{CmpSmallerEqual()}{CmpSmallerEqual()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Cmp\+Smaller\+Equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l,  }\item[{sint}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if \textquotesingle{}this\textquotesingle{} is smaller than or equal \textquotesingle{}l\textquotesingle{}
+
+\textquotesingle{}index\textquotesingle{} is an index of the first word from will be the comparison performed (note\+: we start the comparison from back -\/ from the last word, when index is -\/1 /default/ it is automatically set into the last word) \Hypertarget{classttmath_1_1UInt_adef5243a8390314fb21339145e3a154c}\label{classttmath_1_1UInt_adef5243a8390314fb21339145e3a154c} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!CompensationToLeft@{CompensationToLeft}}
+\index{CompensationToLeft@{CompensationToLeft}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{CompensationToLeft()}{CompensationToLeft()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Compensation\+To\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method moves all bits into the left side (it returns value how many bits have been moved) \Hypertarget{classttmath_1_1UInt_a66ed2921ae082f9694afb330ec67d05d}\label{classttmath_1_1UInt_a66ed2921ae082f9694afb330ec67d05d} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Div@{Div}}
+\index{Div@{Div}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Div()}{Div()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Div (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{divisor,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}}]{remainder = {\ttfamily 0},  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{algorithm = {\ttfamily 3} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+division this = this / ss2
+
+return values\+:
+\begin{DoxyItemize}
+\item 0 -\/ ok
+\item 1 -\/ division by zero
+\item \textquotesingle{}this\textquotesingle{} will be the quotient
+\item \textquotesingle{}remainder\textquotesingle{} -\/ remainder 
+\end{DoxyItemize}\Hypertarget{classttmath_1_1UInt_a523890a408a7102429ce720df3dc50dc}\label{classttmath_1_1UInt_a523890a408a7102429ce720df3dc50dc} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Div1@{Div1}}
+\index{Div1@{Div1}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Div1()}{Div1()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Div1 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{divisor,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{remainder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the first division algorithm (radix 2) \Hypertarget{classttmath_1_1UInt_ae71bf44fb6746f7633b2c485bc6ae082}\label{classttmath_1_1UInt_ae71bf44fb6746f7633b2c485bc6ae082} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Div1@{Div1}}
+\index{Div1@{Div1}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Div1()}{Div1()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Div1 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{divisor,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}}]{remainder = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the first division algorithm (radix 2) \Hypertarget{classttmath_1_1UInt_a60c05b01f4bad1bef8561e2d54ea0702}\label{classttmath_1_1UInt_a60c05b01f4bad1bef8561e2d54ea0702} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Div2@{Div2}}
+\index{Div2@{Div2}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Div2()}{Div2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Div2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{divisor,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{remainder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the second division algorithm
+
+return values\+:
+\begin{DoxyItemize}
+\item 0 -\/ ok
+\item 1 -\/ division by zero 
+\end{DoxyItemize}\Hypertarget{classttmath_1_1UInt_acad855eb4debd1fba0a49336849df210}\label{classttmath_1_1UInt_acad855eb4debd1fba0a49336849df210} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Div2@{Div2}}
+\index{Div2@{Div2}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Div2()}{Div2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Div2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{divisor,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}}]{remainder = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the second division algorithm
+
+return values\+:
+\begin{DoxyItemize}
+\item 0 -\/ ok
+\item 1 -\/ division by zero 
+\end{DoxyItemize}\Hypertarget{classttmath_1_1UInt_a43f983c5363cce698955c5ab3c11741e}\label{classttmath_1_1UInt_a43f983c5363cce698955c5ab3c11741e} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Div3@{Div3}}
+\index{Div3@{Div3}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Div3()}{Div3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Div3 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{remainder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the third division algorithm \Hypertarget{classttmath_1_1UInt_acff57af28e5b4d65f0bf5fd0de5b455b}\label{classttmath_1_1UInt_acff57af28e5b4d65f0bf5fd0de5b455b} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Div3@{Div3}}
+\index{Div3@{Div3}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Div3()}{Div3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Div3 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \texorpdfstring{$\ast$}{*}}]{remainder = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the third division algorithm \Hypertarget{classttmath_1_1UInt_aadcfa312adce5e4c9f59eb7bb67ee925}\label{classttmath_1_1UInt_aadcfa312adce5e4c9f59eb7bb67ee925} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!DivInt@{DivInt}}
+\index{DivInt@{DivInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{DivInt()}{DivInt()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Div\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{divisor,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}}]{remainder = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Division
+
+division by one unsigned word
+
+returns 1 when divisor is zero \Hypertarget{classttmath_1_1UInt_ad1639273f7e78c737e532d0375b4b1e9}\label{classttmath_1_1UInt_ad1639273f7e78c737e532d0375b4b1e9} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FindLeadingBit@{FindLeadingBit}}
+\index{FindLeadingBit@{FindLeadingBit}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FindLeadingBit()}{FindLeadingBit()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Find\+Leading\+Bit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&}]{table\+\_\+id,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method looks for the highest set bit
+
+result\+:
+\begin{DoxyItemize}
+\item if \textquotesingle{}this\textquotesingle{} is not zero\+: return value -\/ true, \textquotesingle{}table\+\_\+id\textquotesingle{} -\/ the index of a word \texorpdfstring{$<$}{<}0..value\+\_\+size-\/1\texorpdfstring{$>$}{>}, \textquotesingle{}index\textquotesingle{} -\/ the index of this set bit in the word \texorpdfstring{$<$}{<}0..TTMATH\+\_\+\+BITS\+\_\+\+PER\+\_\+\+UINT)
+\item if \textquotesingle{}this\textquotesingle{} is zero\+: return value -\/ false, both \textquotesingle{}table\+\_\+id\textquotesingle{} and \textquotesingle{}index\textquotesingle{} are zero 
+\end{DoxyItemize}\Hypertarget{classttmath_1_1UInt_a25fde993c54b2db2043947d462369068}\label{classttmath_1_1UInt_a25fde993c54b2db2043947d462369068} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FindLowestBit@{FindLowestBit}}
+\index{FindLowestBit@{FindLowestBit}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FindLowestBit()}{FindLowestBit()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Find\+Lowest\+Bit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&}]{table\+\_\+id,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method looks for the smallest set bit
+
+result\+:
+\begin{DoxyItemize}
+\item if \textquotesingle{}this\textquotesingle{} is not zero\+: return value -\/ true, \textquotesingle{}table\+\_\+id\textquotesingle{} -\/ the index of a word \texorpdfstring{$<$}{<}0..value\+\_\+size-\/1\texorpdfstring{$>$}{>}, \textquotesingle{}index\textquotesingle{} -\/ the index of this set bit in the word \texorpdfstring{$<$}{<}0..TTMATH\+\_\+\+BITS\+\_\+\+PER\+\_\+\+UINT)
+\item if \textquotesingle{}this\textquotesingle{} is zero\+: return value -\/ false, both \textquotesingle{}table\+\_\+id\textquotesingle{} and \textquotesingle{}index\textquotesingle{} are zero 
+\end{DoxyItemize}\Hypertarget{classttmath_1_1UInt_a85a4fcbef4e2a87123be649ca014a999}\label{classttmath_1_1UInt_a85a4fcbef4e2a87123be649ca014a999} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromInt@{FromInt}}
+\index{FromInt@{FromInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromInt()}{FromInt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} argument\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+Int (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ argument\+\_\+size $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts an UInt$<$another\+\_\+size$>$ type to this class
+
+this operation has mainly sense if the value from p is equal or smaller than that one which is returned from \doxylink{classttmath_1_1UInt_a7fdeb0ac1b5fdd397f03fcfc9080488d}{UInt$<$value\+\_\+size$>$\+::\+Set\+Max()}
+
+it returns a carry if the value \textquotesingle{}p\textquotesingle{} is too big \Hypertarget{classttmath_1_1UInt_ac6db46265b40943fbe3b6504df898af1}\label{classttmath_1_1UInt_ac6db46265b40943fbe3b6504df898af1} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromInt@{FromInt}}
+\index{FromInt@{FromInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromInt()}{FromInt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+Int (\begin{DoxyParamCaption}\item[{sint}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the sint type to this class \Hypertarget{classttmath_1_1UInt_a123683cd85f819a231df87f6448aa2ec}\label{classttmath_1_1UInt_a123683cd85f819a231df87f6448aa2ec} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromInt@{FromInt}}
+\index{FromInt@{FromInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromInt()}{FromInt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+Int (\begin{DoxyParamCaption}\item[{slint}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts signed 64 bit int type to this class this method is created only on a 32bit platform\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_aede9127beee501773f388d86b7ff9018}\label{classttmath_1_1UInt_aede9127beee501773f388d86b7ff9018} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromInt@{FromInt}}
+\index{FromInt@{FromInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromInt()}{FromInt()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the uint type to this class \Hypertarget{classttmath_1_1UInt_a782a1e8bbd5248eaea222cbcbb614836}\label{classttmath_1_1UInt_a782a1e8bbd5248eaea222cbcbb614836} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromInt@{FromInt}}
+\index{FromInt@{FromInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromInt()}{FromInt()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts unsigned 64 bit int type to this class this method is created only on a 32bit platform\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_a57b749c77692b8d753b475a576d4d906}\label{classttmath_1_1UInt_a57b749c77692b8d753b475a576d4d906} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromString@{FromString}}
+\index{FromString@{FromString}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromString()}{FromString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{b = {\ttfamily 10},  }\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{after\+\_\+source = {\ttfamily 0},  }\item[{bool \texorpdfstring{$\ast$}{*}}]{value\+\_\+read = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts a string into its value it returns carry=1 if the value will be too big or an incorrect base \textquotesingle{}b\textquotesingle{} is given
+
+string is ended with a non-\/digit value, for example\+: "{}12"{} will be translated to 12 as well as\+: "{}12foo"{} will be translated to 12 too
+
+existing first white characters will be ommited
+
+if the value from s is too large the rest digits will be skipped
+
+after\+\_\+source (if exists) is pointing at the end of the parsed string
+
+value\+\_\+read (if exists) tells whether something has actually been read (at least one digit) \Hypertarget{classttmath_1_1UInt_a8a9d1f8d1670b843c662c0d68bfae8ef}\label{classttmath_1_1UInt_a8a9d1f8d1670b843c662c0d68bfae8ef} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromString@{FromString}}
+\index{FromString@{FromString}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromString()}{FromString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{b = {\ttfamily 10} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts a string into its value
+
+(it returns carry=1 if the value will be too big or an incorrect base \textquotesingle{}b\textquotesingle{} is given) \Hypertarget{classttmath_1_1UInt_a22d18b2db4e304c1991d4719db22524e}\label{classttmath_1_1UInt_a22d18b2db4e304c1991d4719db22524e} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromString@{FromString}}
+\index{FromString@{FromString}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromString()}{FromString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+String (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{s,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{b = {\ttfamily 10} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts a string into its value
+
+(it returns carry=1 if the value will be too big or an incorrect base \textquotesingle{}b\textquotesingle{} is given) \Hypertarget{classttmath_1_1UInt_a0d88c1fad33b188bc5dd00b1e181cfee}\label{classttmath_1_1UInt_a0d88c1fad33b188bc5dd00b1e181cfee} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromString@{FromString}}
+\index{FromString@{FromString}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromString()}{FromString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+String (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{b = {\ttfamily 10},  }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{after\+\_\+source = {\ttfamily 0},  }\item[{bool \texorpdfstring{$\ast$}{*}}]{value\+\_\+read = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts a string into its value \Hypertarget{classttmath_1_1UInt_a7a35fd5a272f1623617cc638d3a92cfb}\label{classttmath_1_1UInt_a7a35fd5a272f1623617cc638d3a92cfb} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromUInt@{FromUInt}}
+\index{FromUInt@{FromUInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromUInt()}{FromUInt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} argument\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+UInt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ argument\+\_\+size $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+conversion methods
+
+this method converts an UInt$<$another\+\_\+size$>$ type to this class
+
+this operation has mainly sense if the value from p is equal or smaller than that one which is returned from \doxylink{classttmath_1_1UInt_a7fdeb0ac1b5fdd397f03fcfc9080488d}{UInt$<$value\+\_\+size$>$\+::\+Set\+Max()}
+
+it returns a carry if the value \textquotesingle{}p\textquotesingle{} is too big \Hypertarget{classttmath_1_1UInt_a9dd01ef2e600c5393995885d8bdfb82c}\label{classttmath_1_1UInt_a9dd01ef2e600c5393995885d8bdfb82c} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromUInt@{FromUInt}}
+\index{FromUInt@{FromUInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromUInt()}{FromUInt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+UInt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the uint type to this class \Hypertarget{classttmath_1_1UInt_a263949d1181f5f5168fe9b6f38cc4103}\label{classttmath_1_1UInt_a263949d1181f5f5168fe9b6f38cc4103} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!FromUInt@{FromUInt}}
+\index{FromUInt@{FromUInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{FromUInt()}{FromUInt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+From\+UInt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts unsigned 64 bit int type to this class this method is created only on a 32bit platform\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_a9cee17c474838e4d58d55e4c8524fdb7}\label{classttmath_1_1UInt_a9cee17c474838e4d58d55e4c8524fdb7} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!GetBit@{GetBit}}
+\index{GetBit@{GetBit}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{GetBit()}{GetBit()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Get\+Bit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{bit\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+getting the \textquotesingle{}bit\+\_\+index\textquotesingle{} bit
+
+bit\+\_\+index bigger or equal zero \Hypertarget{classttmath_1_1UInt_ad20b71dfc5f2eed0c6ae4c09d29ac960}\label{classttmath_1_1UInt_ad20b71dfc5f2eed0c6ae4c09d29ac960} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!IsOnlyTheHighestBitSet@{IsOnlyTheHighestBitSet}}
+\index{IsOnlyTheHighestBitSet@{IsOnlyTheHighestBitSet}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{IsOnlyTheHighestBitSet()}{IsOnlyTheHighestBitSet()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Is\+Only\+The\+Highest\+Bit\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returning true if only the highest bit is set \Hypertarget{classttmath_1_1UInt_ac6dd8e0cab3a501f094b6b7d22db9805}\label{classttmath_1_1UInt_ac6dd8e0cab3a501f094b6b7d22db9805} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!IsOnlyTheLowestBitSet@{IsOnlyTheLowestBitSet}}
+\index{IsOnlyTheLowestBitSet@{IsOnlyTheLowestBitSet}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{IsOnlyTheLowestBitSet()}{IsOnlyTheLowestBitSet()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Is\+Only\+The\+Lowest\+Bit\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returning true if only the lowest bit is set \Hypertarget{classttmath_1_1UInt_a2421734423858544d65515584fa4683c}\label{classttmath_1_1UInt_a2421734423858544d65515584fa4683c} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!IsTheHighestBitSet@{IsTheHighestBitSet}}
+\index{IsTheHighestBitSet@{IsTheHighestBitSet}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{IsTheHighestBitSet()}{IsTheHighestBitSet()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Is\+The\+Highest\+Bit\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if the highest bit of the value is set \Hypertarget{classttmath_1_1UInt_a65b27dabbb8cefab74c1c31c6610a2b6}\label{classttmath_1_1UInt_a65b27dabbb8cefab74c1c31c6610a2b6} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!IsTheLowestBitSet@{IsTheLowestBitSet}}
+\index{IsTheLowestBitSet@{IsTheLowestBitSet}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{IsTheLowestBitSet()}{IsTheLowestBitSet()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Is\+The\+Lowest\+Bit\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if the lowest bit of the value is set \Hypertarget{classttmath_1_1UInt_ac7e4c950e2abeda28e58a35725d37ef7}\label{classttmath_1_1UInt_ac7e4c950e2abeda28e58a35725d37ef7} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!IsZero@{IsZero}}
+\index{IsZero@{IsZero}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{IsZero()}{IsZero()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+bool \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Is\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns true if the value is equal zero \Hypertarget{classttmath_1_1UInt_aa4963e5c44942adf38731307f34287dd}\label{classttmath_1_1UInt_aa4963e5c44942adf38731307f34287dd} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Mul@{Mul}}
+\index{Mul@{Mul}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Mul()}{Mul()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{algorithm = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the multiplication \textquotesingle{}this\textquotesingle{} = \textquotesingle{}this\textquotesingle{} \texorpdfstring{$\ast$}{*} ss2
+
+algorithm\+: 100 -\/ means automatically choose the fastest algorithm \Hypertarget{classttmath_1_1UInt_a9d427ec739abdc4e1a8354f19d87e022}\label{classttmath_1_1UInt_a9d427ec739abdc4e1a8354f19d87e022} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Mul1@{Mul1}}
+\index{Mul1@{Mul1}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Mul1()}{Mul1()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul1 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication\+: this = this \texorpdfstring{$\ast$}{*} ss2 can return carry \Hypertarget{classttmath_1_1UInt_a3da327dfd6e59621497c735ababb392e}\label{classttmath_1_1UInt_a3da327dfd6e59621497c735ababb392e} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Mul1Big@{Mul1Big}}
+\index{Mul1Big@{Mul1Big}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Mul1Big()}{Mul1Big()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul1\+Big (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2\+\_\+,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication\+: result = this \texorpdfstring{$\ast$}{*} ss2
+
+result is twice bigger than \textquotesingle{}this\textquotesingle{} and \textquotesingle{}ss2\textquotesingle{} this method never returns carry ~\newline
+ \Hypertarget{classttmath_1_1UInt_a1c3b166dbd485361dff8df9756fd9d9a}\label{classttmath_1_1UInt_a1c3b166dbd485361dff8df9756fd9d9a} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Mul2@{Mul2}}
+\index{Mul2@{Mul2}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Mul2()}{Mul2()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the second version of the multiplication algorithm
+
+this algorithm is similar to the \textquotesingle{}schoolbook method\textquotesingle{} which is done by hand
+
+multiplication\+: this = this \texorpdfstring{$\ast$}{*} ss2
+
+it returns carry if it has been \Hypertarget{classttmath_1_1UInt_ae145ad09c7e20a9f5944cdf94ac2b189}\label{classttmath_1_1UInt_ae145ad09c7e20a9f5944cdf94ac2b189} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Mul2Big@{Mul2Big}}
+\index{Mul2Big@{Mul2Big}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Mul2Big()}{Mul2Big()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul2\+Big (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication\+: result = this \texorpdfstring{$\ast$}{*} ss2
+
+result is twice bigger than this and ss2 this method never returns carry ~\newline
+ \Hypertarget{classttmath_1_1UInt_a8167a3f0b869b08577f46ab7ea3581d4}\label{classttmath_1_1UInt_a8167a3f0b869b08577f46ab7ea3581d4} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Mul3@{Mul3}}
+\index{Mul3@{Mul3}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Mul3()}{Mul3()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul3 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication\+: this = this \texorpdfstring{$\ast$}{*} ss2
+
+This is Karatsuba Multiplication algorithm, we\textquotesingle{}re using it when value\+\_\+size is greater than or equal to TTMATH\+\_\+\+USE\+\_\+\+KARATSUBA\+\_\+\+MULTIPLICATION\+\_\+\+FROM\+\_\+\+SIZE macro (defined in \doxylink{ttmathuint_8h}{ttmathuint.\+h}). If value\+\_\+size is smaller then we\textquotesingle{}re using \doxylink{classttmath_1_1UInt_ae145ad09c7e20a9f5944cdf94ac2b189}{Mul2\+Big()} instead.
+
+Karatsuba multiplication\+: Assume we have\+: \begin{DoxyVerb}this = x = x1*B^m + x0
+ss2  = y = y1*B^m + y0
+\end{DoxyVerb}
+ where x0 and y0 are less than B\texorpdfstring{$^\wedge$}{\string^}m the product from multiplication we can show as\+: x\texorpdfstring{$\ast$}{*}y = (x1\texorpdfstring{$\ast$}{*}\+B\texorpdfstring{$^\wedge$}{\string^}m + x0)(y1\texorpdfstring{$\ast$}{*}\+B\texorpdfstring{$^\wedge$}{\string^}m + y0) = z2\texorpdfstring{$\ast$}{*}\+B\texorpdfstring{$^\wedge$}{\string^}(2m) + z1\texorpdfstring{$\ast$}{*}\+B\texorpdfstring{$^\wedge$}{\string^}m + z0 where \begin{DoxyVerb}z2 = x1*y1
+z1 = x1*y0 + x0*y1
+z0 = x0*y0
+\end{DoxyVerb}
+ this is standard schoolbook algorithm with O(n\texorpdfstring{$^\wedge$}{\string^}2), Karatsuba observed that z1 can be given in other form\+: \begin{DoxyVerb}z1 = (x1 + x0)*(y1 + y0) - z2 - z0    / z1 = (x1*y1 + x1*y0 + x0*y1 + x0*y0) - x1*y1 - x0*y0 = x1*y0 + x0*y1 /
+\end{DoxyVerb}
+ and to calculate the multiplication we need only three multiplications (with some additions and subtractions) ~\newline
+
+
+Our objects \textquotesingle{}this\textquotesingle{} and \textquotesingle{}ss2\textquotesingle{} we divide into two parts and by using recurrence we calculate the multiplication. Karatsuba multiplication has O( n\texorpdfstring{$^\wedge$}{\string^}(ln(3)/ln(2)) ) \Hypertarget{classttmath_1_1UInt_a59c8668cd527298db160079e96a1477a}\label{classttmath_1_1UInt_a59c8668cd527298db160079e96a1477a} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Mul3Big@{Mul3Big}}
+\index{Mul3Big@{Mul3Big}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Mul3Big()}{Mul3Big()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul3\+Big (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication\+: result = this \texorpdfstring{$\ast$}{*} ss2
+
+result is twice bigger than this and ss2, this method never returns carry, (Karatsuba multiplication) \Hypertarget{classttmath_1_1UInt_ac655c4d3a5ec23052292ccf3a058a6f1}\label{classttmath_1_1UInt_ac655c4d3a5ec23052292ccf3a058a6f1} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!MulBig@{MulBig}}
+\index{MulBig@{MulBig}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{MulBig()}{MulBig()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul\+Big (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&}]{result,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{algorithm = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the multiplication \textquotesingle{}result\textquotesingle{} = \textquotesingle{}this\textquotesingle{} \texorpdfstring{$\ast$}{*} ss2
+
+since the \textquotesingle{}result\textquotesingle{} is twice bigger than \textquotesingle{}this\textquotesingle{} and \textquotesingle{}ss2\textquotesingle{} this method never returns a carry
+
+algorithm\+: 100 -\/ means automatically choose the fastest algorithm \Hypertarget{classttmath_1_1UInt_adaa67dddec10cd14617a7402e6a0bb26}\label{classttmath_1_1UInt_adaa67dddec10cd14617a7402e6a0bb26} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!MulFastest@{MulFastest}}
+\index{MulFastest@{MulFastest}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{MulFastest()}{MulFastest()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul\+Fastest (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication this = this \texorpdfstring{$\ast$}{*} ss2 \Hypertarget{classttmath_1_1UInt_a9147e767c1f90666a21c581343854c7a}\label{classttmath_1_1UInt_a9147e767c1f90666a21c581343854c7a} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!MulFastestBig@{MulFastestBig}}
+\index{MulFastestBig@{MulFastestBig}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{MulFastestBig()}{MulFastestBig()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul\+Fastest\+Big (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size \texorpdfstring{$\ast$}{*}2 $>$ \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication result = this \texorpdfstring{$\ast$}{*} ss2
+
+this method is trying to select the fastest algorithm (in the future this method can be improved) \Hypertarget{classttmath_1_1UInt_a47b57350163b4dc79e480995fc044ad7}\label{classttmath_1_1UInt_a47b57350163b4dc79e480995fc044ad7} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!MulInt@{MulInt}}
+\index{MulInt@{MulInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{MulInt()}{MulInt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplication
+
+multiplication\+: this = this \texorpdfstring{$\ast$}{*} ss2
+
+it can return a carry \Hypertarget{classttmath_1_1UInt_ad0deed24562f4736ea3601a91612054b}\label{classttmath_1_1UInt_ad0deed24562f4736ea3601a91612054b} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!MulInt@{MulInt}}
+\index{MulInt@{MulInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{MulInt()}{MulInt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} result\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Mul\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{ss2,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ result\+\_\+size $>$ \&}]{result }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication\+: result = this \texorpdfstring{$\ast$}{*} ss2
+
+we\textquotesingle{}re using this method only when result\+\_\+size is greater than value\+\_\+size if so there will not be a carry \Hypertarget{classttmath_1_1UInt_a30c3bfbecfb89ace23d4becd9c6894a9}\label{classttmath_1_1UInt_a30c3bfbecfb89ace23d4becd9c6894a9} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prefix operator e.\+g ++variable \Hypertarget{classttmath_1_1UInt_a6c542692a8bc7f57927029e7a82e2280}\label{classttmath_1_1UInt_a6c542692a8bc7f57927029e7a82e2280} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Postfix operator e.\+g variable++ \Hypertarget{classttmath_1_1UInt_afa00ba92a05e074de24e6cdda7990bc7}\label{classttmath_1_1UInt_afa00ba92a05e074de24e6cdda7990bc7} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{p2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+standard mathematical operators \Hypertarget{classttmath_1_1UInt_add7d6118ff305590257b9d2ee6d82c6e}\label{classttmath_1_1UInt_add7d6118ff305590257b9d2ee6d82c6e} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this operator converts a string into its value (with base = 10) \Hypertarget{classttmath_1_1UInt_a51686ca0550207f9b517006d6da5d383}\label{classttmath_1_1UInt_a51686ca0550207f9b517006d6da5d383} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this operator converts a string into its value (with base = 10) \Hypertarget{classttmath_1_1UInt_a052e36b5ca2a32923e4dddf05ee9864d}\label{classttmath_1_1UInt_a052e36b5ca2a32923e4dddf05ee9864d} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{const std\+::wstring \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this operator converts a string into its value (with base = 10) \Hypertarget{classttmath_1_1UInt_a5822993b845d02601bbf619cb67dccb3}\label{classttmath_1_1UInt_a5822993b845d02601bbf619cb67dccb3} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} argument\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ argument\+\_\+size $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this operator converts an UInt$<$another\+\_\+size$>$ type to this class
+
+it doesn\textquotesingle{}t return a carry \Hypertarget{classttmath_1_1UInt_ad9913049846a5e615e132256614f2fb7}\label{classttmath_1_1UInt_ad9913049846a5e615e132256614f2fb7} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+the assignment operator \Hypertarget{classttmath_1_1UInt_a076b0a33ac9cabe65ec0eb23c12550dc}\label{classttmath_1_1UInt_a076b0a33ac9cabe65ec0eb23c12550dc} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this operator converts a string into its value (with base = 10) \Hypertarget{classttmath_1_1UInt_a5d883d80ac37b55dba8084a973017c60}\label{classttmath_1_1UInt_a5d883d80ac37b55dba8084a973017c60} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{sint}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the sint type to this class \Hypertarget{classttmath_1_1UInt_a48c74c9b6cd41e7349bc8ae61a8a418d}\label{classttmath_1_1UInt_a48c74c9b6cd41e7349bc8ae61a8a418d} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{slint}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this operator converts signed 64 bit int type to this class this operator is created only on a 32bit platform\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_ab87b4a2dc4a6a805e98ccc3910c2ea56}\label{classttmath_1_1UInt_ab87b4a2dc4a6a805e98ccc3910c2ea56} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the uint type to this class \Hypertarget{classttmath_1_1UInt_a14352ef7815353726ae2252991eb9117}\label{classttmath_1_1UInt_a14352ef7815353726ae2252991eb9117} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \& \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this operator converts unsigned 64 bit int type to this class this operator is created only on a 32bit platform\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_aa95218ad020c1e2802bae3e1f8e5ace1}\label{classttmath_1_1UInt_aa95218ad020c1e2802bae3e1f8e5ace1} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator\texorpdfstring{$\sim$}{\string~}@{operator\texorpdfstring{$\sim$}{\string~}}}
+\index{operator\texorpdfstring{$\sim$}{\string~}@{operator\texorpdfstring{$\sim$}{\string~}}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\sim$}{\string~}()}{operator\string~()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::operator\texorpdfstring{$\sim$}{\string~} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+bitwise operators \Hypertarget{classttmath_1_1UInt_afdbaf5bd46ab8035c1d6983c761302d2}\label{classttmath_1_1UInt_afdbaf5bd46ab8035c1d6983c761302d2} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Pow@{Pow}}
+\index{Pow@{Pow}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Pow()}{Pow()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Pow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$}]{pow }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+power this = this \texorpdfstring{$^\wedge$}{\string^} pow binary algorithm (r-\/to-\/l)
+
+return values\+:
+\begin{DoxyItemize}
+\item 0 -\/ ok
+\item 1 -\/ carry
+\item 2 -\/ incorrect argument (0\texorpdfstring{$^\wedge$}{\string^}0) 
+\end{DoxyItemize}\Hypertarget{classttmath_1_1UInt_a6ca522d3e99c95b3b2fcbf88f20492c5}\label{classttmath_1_1UInt_a6ca522d3e99c95b3b2fcbf88f20492c5} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!PrintLog@{PrintLog}}
+\index{PrintLog@{PrintLog}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{PrintLog()}{PrintLog()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$class char\+\_\+type , class ostream\+\_\+type $>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Print\+Log (\begin{DoxyParamCaption}\item[{const char\+\_\+type \texorpdfstring{$\ast$}{*}}]{msg,  }\item[{ostream\+\_\+type \&}]{output }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method is used when macro TTMATH\+\_\+\+DEBUG\+\_\+\+LOG is defined \Hypertarget{classttmath_1_1UInt_af5e0b513b13034023e4d2d68c033b8be}\label{classttmath_1_1UInt_af5e0b513b13034023e4d2d68c033b8be} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!PrintLog@{PrintLog}}
+\index{PrintLog@{PrintLog}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{PrintLog()}{PrintLog()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$class char\+\_\+type , class ostream\+\_\+type $>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Print\+Log (\begin{DoxyParamCaption}\item[{const char\+\_\+type \texorpdfstring{$\ast$}{*}}]{msg,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{carry,  }\item[{ostream\+\_\+type \&}]{output }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method is used when macro TTMATH\+\_\+\+DEBUG\+\_\+\+LOG is defined \Hypertarget{classttmath_1_1UInt_a230d0a0fe82951e2c73d93d87a03652d}\label{classttmath_1_1UInt_a230d0a0fe82951e2c73d93d87a03652d} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!PrintTable@{PrintTable}}
+\index{PrintTable@{PrintTable}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{PrintTable()}{PrintTable()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$class ostream\+\_\+type $>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Print\+Table (\begin{DoxyParamCaption}\item[{ostream\+\_\+type \&}]{output }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+some methods used for debugging purposes
+
+this method is only for debugging purposes or when we want to make a table of a variable (constant) in \doxylink{ttmathbig_8h}{ttmathbig.\+h}
+
+it prints the table in a nice form of several columns \Hypertarget{classttmath_1_1UInt_aa05536ad0b4ff594bb3f6b9afc7aa3d8}\label{classttmath_1_1UInt_aa05536ad0b4ff594bb3f6b9afc7aa3d8} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!PrintVectorLog@{PrintVectorLog}}
+\index{PrintVectorLog@{PrintVectorLog}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{PrintVectorLog()}{PrintVectorLog()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$class char\+\_\+type , class ostream\+\_\+type $>$ \\
+static void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Print\+Vector\+Log (\begin{DoxyParamCaption}\item[{const char\+\_\+type \texorpdfstring{$\ast$}{*}}]{msg,  }\item[{ostream\+\_\+type \&}]{output,  }\item[{const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}}]{vector,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{vector\+\_\+len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+this method is used when macro TTMATH\+\_\+\+DEBUG\+\_\+\+LOG is defined \Hypertarget{classttmath_1_1UInt_abc701dece8f6d0e9d38310d936b2b065}\label{classttmath_1_1UInt_abc701dece8f6d0e9d38310d936b2b065} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!PrintVectorLog@{PrintVectorLog}}
+\index{PrintVectorLog@{PrintVectorLog}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{PrintVectorLog()}{PrintVectorLog()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$class char\+\_\+type , class ostream\+\_\+type $>$ \\
+static void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Print\+Vector\+Log (\begin{DoxyParamCaption}\item[{const char\+\_\+type \texorpdfstring{$\ast$}{*}}]{msg,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{carry,  }\item[{ostream\+\_\+type \&}]{output,  }\item[{const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}}]{vector,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{vector\+\_\+len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+this method is used when macro TTMATH\+\_\+\+DEBUG\+\_\+\+LOG is defined \Hypertarget{classttmath_1_1UInt_abbcc02c03802229412f902de309bad7d}\label{classttmath_1_1UInt_abbcc02c03802229412f902de309bad7d} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Rcl@{Rcl}}
+\index{Rcl@{Rcl}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Rcl()}{Rcl()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Rcl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{bits,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{c = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+moving all bits into the left side \textquotesingle{}bits\textquotesingle{} times return value \texorpdfstring{$<$}{<}-\/ this \texorpdfstring{$<$}{<}-\/ C
+
+bits is from a range of \texorpdfstring{$<$}{<}0, man \texorpdfstring{$\ast$}{*} TTMATH\+\_\+\+BITS\+\_\+\+PER\+\_\+\+UINT\texorpdfstring{$>$}{>} or it can be even bigger then all bits will be set to \textquotesingle{}c\textquotesingle{}
+
+the value c will be set into the lowest bits and the method returns state of the last moved bit \Hypertarget{classttmath_1_1UInt_a0f395f84b208f36a215d8b5f53400b42}\label{classttmath_1_1UInt_a0f395f84b208f36a215d8b5f53400b42} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Rcr@{Rcr}}
+\index{Rcr@{Rcr}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Rcr()}{Rcr()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Rcr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{bits,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{c = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+moving all bits into the right side \textquotesingle{}bits\textquotesingle{} times c -\/\texorpdfstring{$>$}{>} this -\/\texorpdfstring{$>$}{>} return value
+
+bits is from a range of \texorpdfstring{$<$}{<}0, man \texorpdfstring{$\ast$}{*} TTMATH\+\_\+\+BITS\+\_\+\+PER\+\_\+\+UINT\texorpdfstring{$>$}{>} or it can be even bigger then all bits will be set to \textquotesingle{}c\textquotesingle{}
+
+the value c will be set into the highest bits and the method returns state of the last moved bit \Hypertarget{classttmath_1_1UInt_aeb19e9f7b5028360ea08dd0c6b43be85}\label{classttmath_1_1UInt_aeb19e9f7b5028360ea08dd0c6b43be85} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!SetBit@{SetBit}}
+\index{SetBit@{SetBit}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{SetBit()}{SetBit()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Set\+Bit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{bit\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+setting the \textquotesingle{}bit\+\_\+index\textquotesingle{} bit and returning the last state of the bit
+
+bit\+\_\+index bigger or equal zero \Hypertarget{classttmath_1_1UInt_abf55bec9fb48cee4fddda40403a0dbde}\label{classttmath_1_1UInt_abf55bec9fb48cee4fddda40403a0dbde} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!SetFromTable@{SetFromTable}}
+\index{SetFromTable@{SetFromTable}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{SetFromTable()}{SetFromTable()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Set\+From\+Table (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \texorpdfstring{$\ast$}{*}}]{temp\+\_\+table,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{temp\+\_\+table\+\_\+len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method copies the value stored in an another table (warning\+: first values in temp\+\_\+table are the highest words -- it\textquotesingle{}s different from our table)
+
+we copy as many words as it is possible
+
+if temp\+\_\+table\+\_\+len is bigger than value\+\_\+size we\textquotesingle{}ll try to round the lowest word from table depending on the last not used bit in temp\+\_\+table (this rounding isn\textquotesingle{}t a perfect rounding -- look at the description below)
+
+and if temp\+\_\+table\+\_\+len is smaller than value\+\_\+size we\textquotesingle{}ll clear the rest words in the table \Hypertarget{classttmath_1_1UInt_a7fdeb0ac1b5fdd397f03fcfc9080488d}\label{classttmath_1_1UInt_a7fdeb0ac1b5fdd397f03fcfc9080488d} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!SetMax@{SetMax}}
+\index{SetMax@{SetMax}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{SetMax()}{SetMax()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Set\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method sets the max value which this class can hold (all bits will be one) \Hypertarget{classttmath_1_1UInt_a2e1bc8030ecd0fbfefcee702b8887660}\label{classttmath_1_1UInt_a2e1bc8030ecd0fbfefcee702b8887660} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!SetMin@{SetMin}}
+\index{SetMin@{SetMin}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{SetMin()}{SetMin()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Set\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method sets the min value which this class can hold (for an unsigned integer value the zero is the smallest value) \Hypertarget{classttmath_1_1UInt_aa857e4036b8a726c70c51ff088080acb}\label{classttmath_1_1UInt_aa857e4036b8a726c70c51ff088080acb} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!SetOne@{SetOne}}
+\index{SetOne@{SetOne}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{SetOne()}{SetOne()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Set\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method sets one \Hypertarget{classttmath_1_1UInt_ab2086439211b3fbc02eb998b328483ea}\label{classttmath_1_1UInt_ab2086439211b3fbc02eb998b328483ea} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!SetZero@{SetZero}}
+\index{SetZero@{SetZero}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{SetZero()}{SetZero()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Set\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method sets zero \Hypertarget{classttmath_1_1UInt_a76625f22f97d1723685966cb6b3d3ffa}\label{classttmath_1_1UInt_a76625f22f97d1723685966cb6b3d3ffa} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Size@{Size}}
+\index{Size@{Size}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Size()}{Size()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns the size of the table \Hypertarget{classttmath_1_1UInt_af3235637450aac9a4b0f9e05ce69f386}\label{classttmath_1_1UInt_af3235637450aac9a4b0f9e05ce69f386} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Sqrt@{Sqrt}}
+\index{Sqrt@{Sqrt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Sqrt()}{Sqrt()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Sqrt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+square root e.\+g. Sqrt(9) = 3 (\textquotesingle{}digit-\/by-\/digit\textquotesingle{} algorithm) \Hypertarget{classttmath_1_1UInt_afd3f1dc2508a6625f0a5906779e58d00}\label{classttmath_1_1UInt_afd3f1dc2508a6625f0a5906779e58d00} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!SubOne@{SubOne}}
+\index{SubOne@{SubOne}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{SubOne()}{SubOne()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Sub\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method subtracts one from the existing value \Hypertarget{classttmath_1_1UInt_a47f6a6820ea8447013d8e20ae5fa0545}\label{classttmath_1_1UInt_a47f6a6820ea8447013d8e20ae5fa0545} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!Swap@{Swap}}
+\index{Swap@{Swap}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{Swap()}{Swap()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+Swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{ss2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method swappes this for an argument \Hypertarget{classttmath_1_1UInt_a814d4d7c7f8bf5eff57a70bb0884d455}\label{classttmath_1_1UInt_a814d4d7c7f8bf5eff57a70bb0884d455} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToInt@{ToInt}}
+\index{ToInt@{ToInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToInt()}{ToInt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+Int (\begin{DoxyParamCaption}\item[{sint \&}]{result }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the value to sint type (signed integer) can return a carry if the value is too long to store it in sint type \Hypertarget{classttmath_1_1UInt_ab9ef2f98bc511c4aeb3ef3b5bb60d287}\label{classttmath_1_1UInt_ab9ef2f98bc511c4aeb3ef3b5bb60d287} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToInt@{ToInt}}
+\index{ToInt@{ToInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToInt()}{ToInt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+Int (\begin{DoxyParamCaption}\item[{slint \&}]{result }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the value to slint type (64 bit signed integer) can return a carry if the value is too long to store it in slint type this method is created only on a 32 bit platform \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_adcafd6522510e129529e524c67e50f00}\label{classttmath_1_1UInt_adcafd6522510e129529e524c67e50f00} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToInt@{ToInt}}
+\index{ToInt@{ToInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToInt()}{ToInt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&}]{result }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the value to uint type can return a carry if the value is too long to store it in uint type \Hypertarget{classttmath_1_1UInt_afa32c8a7b8d9a546d69ef3c937bbfbda}\label{classttmath_1_1UInt_afa32c8a7b8d9a546d69ef3c937bbfbda} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToInt@{ToInt}}
+\index{ToInt@{ToInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToInt()}{ToInt()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}} \&}]{result }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the value to ulint type (64 bit unsigned integer) can return a carry if the value is too long to store it in ulint type this method is created only on a 32 bit platform \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \Hypertarget{classttmath_1_1UInt_abdff04e00cfba4c49a63688eeec3f14b}\label{classttmath_1_1UInt_abdff04e00cfba4c49a63688eeec3f14b} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToString@{ToString}}
+\index{ToString@{ToString}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+String (\begin{DoxyParamCaption}\item[{std\+::string \&}]{result,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{b = {\ttfamily 10} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the value to a string with a base equal \textquotesingle{}b\textquotesingle{} \Hypertarget{classttmath_1_1UInt_a08ef836b2bbcc7acaad88ea4284332d5}\label{classttmath_1_1UInt_a08ef836b2bbcc7acaad88ea4284332d5} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToStringBase@{ToStringBase}}
+\index{ToStringBase@{ToStringBase}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToStringBase()}{ToStringBase()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+template$<$class string\+\_\+type $>$ \\
+void \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+String\+Base (\begin{DoxyParamCaption}\item[{string\+\_\+type \&}]{result,  }\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{b = {\ttfamily 10},  }\item[{bool}]{negative = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+an auxiliary method for converting to a string it\textquotesingle{}s used from \doxylink{classttmath_1_1Int_a1a66925d9072d8822db12ecb6e05727c}{Int\+::\+To\+String()} too (negative is set true then) \Hypertarget{classttmath_1_1UInt_a73615fefe06732d9372cf952a324fa70}\label{classttmath_1_1UInt_a73615fefe06732d9372cf952a324fa70} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToStringLog2@{ToStringLog2}}
+\index{ToStringLog2@{ToStringLog2}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToStringLog2()}{ToStringLog2()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+double \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+String\+Log2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}}}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+an auxiliary method for converting into the string it returns the log (with the base 2) from x where x is in \texorpdfstring{$<$}{<}2;16\texorpdfstring{$>$}{>} \Hypertarget{classttmath_1_1UInt_a403da6805149cdfb8a69f39a15cdf505}\label{classttmath_1_1UInt_a403da6805149cdfb8a69f39a15cdf505} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToUInt@{ToUInt}}
+\index{ToUInt@{ToUInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToUInt()}{ToUInt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+UInt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method returns the lowest value from table
+
+we must be sure when we using this method whether the value will hold in an uint type or not (the rest value from the table must be zero) \Hypertarget{classttmath_1_1UInt_ad5d910c4b5911ce27d90124729f625d1}\label{classttmath_1_1UInt_ad5d910c4b5911ce27d90124729f625d1} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToUInt@{ToUInt}}
+\index{ToUInt@{ToUInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToUInt()}{ToUInt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+UInt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \&}]{result }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the value to uint type can return a carry if the value is too long to store it in uint type \Hypertarget{classttmath_1_1UInt_a2e9f4b2efa04e0d56ee5985e6fe5ea60}\label{classttmath_1_1UInt_a2e9f4b2efa04e0d56ee5985e6fe5ea60} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!ToUInt@{ToUInt}}
+\index{ToUInt@{ToUInt}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{ToUInt()}{ToUInt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::\+To\+UInt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacettmath_a91ce40c9d465ab13366ef3784286e6d8}{ulint}} \&}]{result }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+this method converts the value to ulint type (64 bit unsigned integer) can return a carry if the value is too long to store it in ulint type this method is created only on a 32 bit platform \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classttmath_1_1UInt_a380e0670a04d0f9814ca12d724142fc2}\label{classttmath_1_1UInt_a380e0670a04d0f9814ca12d724142fc2} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{s,  }\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+output to standard streams \Hypertarget{classttmath_1_1UInt_af9289af379dcb7213ddd906784dc758a}\label{classttmath_1_1UInt_af9289af379dcb7213ddd906784dc758a} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+std\+::wostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::wostream \&}]{s,  }\item[{const \mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+output to standard streams \Hypertarget{classttmath_1_1UInt_a5ebac923f4493779d96a49d7761e4fbf}\label{classttmath_1_1UInt_a5ebac923f4493779d96a49d7761e4fbf} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{s,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+input from standard streams \Hypertarget{classttmath_1_1UInt_aacd5f48a2b76f152111ecc770a520ebf}\label{classttmath_1_1UInt_aacd5f48a2b76f152111ecc770a520ebf} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+std\+::wistream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::wistream \&}]{s,  }\item[{\mbox{\hyperlink{classttmath_1_1UInt}{UInt}}$<$ value\+\_\+size $>$ \&}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+input from standard streams 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classttmath_1_1UInt_a54c67e2e3d1a4d6ea96e828d15c4443a}\label{classttmath_1_1UInt_a54c67e2e3d1a4d6ea96e828d15c4443a} 
+\index{ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}!table@{table}}
+\index{table@{table}!ttmath::UInt$<$ value\_size $>$@{ttmath::UInt$<$ value\_size $>$}}
+\doxysubsubsection{\texorpdfstring{table}{table}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} value\+\_\+size$>$ \\
+\mbox{\hyperlink{namespacettmath_a9897e861179132b64f0e2640dde9d7b7}{uint}} \mbox{\hyperlink{classttmath_1_1UInt}{ttmath\+::\+UInt}}$<$ value\+\_\+size $>$\+::table\mbox{[}value\+\_\+size\mbox{]}}
+
+buffer for the integer value table\mbox{[}0\mbox{]} -\/ the lowest word of the value 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+framework/ttmath/\mbox{\hyperlink{ttmathuint_8h}{ttmathuint.\+h}}\end{DoxyCompactItemize}

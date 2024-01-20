@@ -1,0 +1,160 @@
+\doxysection{Polynomial\+Generator.\+h}
+\hypertarget{PolynomialGenerator_8h_source}{}\label{PolynomialGenerator_8h_source}\index{headers/PolynomialGenerator.h@{headers/PolynomialGenerator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POLYNOMIALGENERATOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ POLYNOMIALGENERATOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00015\ \textcolor{comment}{}}
+\DoxyCodeLine{00016\ \textcolor{comment}{OBSOLETE,\ DONT\ USE!}}
+\DoxyCodeLine{00017\ \textcolor{comment}{USE\ framework.h\ INSTEAD!}}
+\DoxyCodeLine{00018\ \textcolor{comment}{OBSOLETE,\ DONT\ USE!}}
+\DoxyCodeLine{00019\ \textcolor{comment}{USE\ framework.h\ INSTEAD!}}
+\DoxyCodeLine{00020\ \textcolor{comment}{OBSOLETE,\ DONT\ USE!}}
+\DoxyCodeLine{00021\ \textcolor{comment}{USE\ framework.h\ INSTEAD!}}
+\DoxyCodeLine{00022\ \textcolor{comment}{OBSOLETE,\ DONT\ USE!}}
+\DoxyCodeLine{00023\ \textcolor{comment}{USE\ framework.h\ INSTEAD!}}
+\DoxyCodeLine{00024\ \textcolor{comment}{OBSOLETE,\ DONT\ USE!}}
+\DoxyCodeLine{00025\ \textcolor{comment}{USE\ framework.h\ INSTEAD!}}
+\DoxyCodeLine{00026\ \textcolor{comment}{OBSOLETE,\ DONT\ USE!}}
+\DoxyCodeLine{00027\ \textcolor{comment}{USE\ framework.h\ INSTEAD!}}
+\DoxyCodeLine{00028\ \textcolor{comment}{OBSOLETE,\ DONT\ USE!}}
+\DoxyCodeLine{00029\ \textcolor{comment}{USE\ framework.h\ INSTEAD!}}
+\DoxyCodeLine{00030\ \textcolor{comment}{OBSOLETE,\ DONT\ USE!}}
+\DoxyCodeLine{00031\ \textcolor{comment}{USE\ framework.h\ INSTEAD!}}
+\DoxyCodeLine{00032\ \textcolor{comment}{}}
+\DoxyCodeLine{00033\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}Polynomial.h"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}ExtendedFunctions.h"{}}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{namespace\ }Laguerre\{}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLaguerre_1_1Generator}{Generator}}\{}
+\DoxyCodeLine{00062\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Pointer\ to\ a\ coeff\ generator\ function}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{typedef}\ Polynomial<T>\ (*coeffGeneratorPtr)(std::vector<std::complex<T>>);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ coeffGeneratorPtr\ coeffGenerator;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ Pointer\ to\ a\ roots\ generator\ function}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<std::complex<T>>\ (*rootsGeneratorPtr)(int,\ T,\ T,\ T);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{static}\ rootsGeneratorPtr\ rootsGenerator;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{static}\ Polynomial<T>\ basicCoeffsGeneration(std::vector<std::complex<T>>\ roots)\{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ roots.size();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(count\ ==\ 1)\{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Polynomial<T>(-\/roots[0].real(),\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1));}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mid\ =\ count\ /\ 2;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ mid\_begin\ =\ roots.begin()\ +\ mid;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ roots.end();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\ left\_poly\ =\ basicCoeffsGeneration(std::vector<std::complex<T>>(mid\_begin\ -\/mid,\ mid\_begin));}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}\ right\_poly\ =\ basicCoeffsGeneration(std::vector<std::complex<T>>(mid\_begin,\ end));}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left\_poly*right\_poly;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::complex<T>>\ basicRootGeneration(\textcolor{keywordtype}{int}\ count\ =\ 3,\ T\ from\ =\ 0,\ T\ to\ =\ 1,\ T\ delta=1)\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ std::uniform\_real\_distribution<double>\ distribution(from,\ to);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ std::default\_random\_engine\ generator(rd());}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::vector<std::complex<T>>\ roots;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ ++i)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ roots.push\_back(distribution(generator)*delta);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ roots;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ Returns\ pointer\ to\ a\ function\ that\ generates\ coeffs}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{static}\ coeffGeneratorPtr\ currentCoeffGenerator()\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (coeffGenerator\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ coeffGenerator\ =\ \&basicCoeffsGeneration;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coeffGenerator;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ Returns\ pointer\ to\ a\ function\ that\ generates\ roots}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{static}\ rootsGeneratorPtr\ currentRootsGenerator()\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rootsGenerator\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ rootsGenerator\ =\ \&basicRootGeneration;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rootsGenerator;}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setCoeffGenerator(coeffGeneratorPtr\ func)\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ coeffGenerator\ =\ func;}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setRootsGenerator(rootsGeneratorPtr\ func)\{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ rootsGenerator\ =\ func;}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<T>\ generateRoots(\textcolor{keywordtype}{int}\ count\ =\ 3,\ T\ from\ =\ 0,\ T\ to\ =\ 1,\ T\ delta=1)\{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ currentRootsGenerator()(count,\ from,\ to,\ delta);}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{static}\ Polynomial<T>\ createFromRoots(std::vector<std::complex<T>>\ args)\{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!args.size())}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Cant\ create\ polynomial\ from\ zero\ given\ roots."{}});}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ res\ =\ currentCoeffGenerator()(args);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ res.setRoots(args);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{static}\ Polynomial<T>\ createFromRoots(Args...args)\{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ createFromRoots(std::vector<std::complex<T>>\{args...\});}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{static}\ Polynomial<T>\ gen(\textcolor{keywordtype}{int}\ count\ =\ 3,\ T\ from\ =\ 1,\ T\ to\ =\ 3,\ T\ delta=1)\{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ std::vector<std::complex<T>>\ roots\ =\ currentRootsGenerator()(count,\ from,\ to,\ delta);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ Polynomial<T>\ res\ =\ createFromRoots(roots);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ res.setRoots(roots);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00147\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classLaguerre_1_1Generator}{Laguerre::Generator<T>::coeffGeneratorPtr}}\ \mbox{\hyperlink{classLaguerre_1_1Generator}{Laguerre::Generator<T>::coeffGenerator}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00150\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classLaguerre_1_1Generator}{Laguerre::Generator<T>::rootsGeneratorPtr}}\ \mbox{\hyperlink{classLaguerre_1_1Generator}{Laguerre::Generator<T>::rootsGenerator}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

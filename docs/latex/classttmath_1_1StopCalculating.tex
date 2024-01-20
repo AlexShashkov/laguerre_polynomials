@@ -1,0 +1,22 @@
+\doxysection{ttmath\+::Stop\+Calculating Class Reference}
+\hypertarget{classttmath_1_1StopCalculating}{}\label{classttmath_1_1StopCalculating}\index{ttmath::StopCalculating@{ttmath::StopCalculating}}
+
+
+{\ttfamily \#include $<$ttmathtypes.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classttmath_1_1StopCalculating_a456b5aec8b4d299c87799751b8a0e27e}\label{classttmath_1_1StopCalculating_a456b5aec8b4d299c87799751b8a0e27e} 
+virtual bool {\bfseries Was\+Stop\+Signal} () const volatile
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this simple class can be used in multithreading model (you can write your own class derived from this one)
+
+for example\+: in some functions like \doxylink{namespacettmath_ae0a248c8618c9ac4e3edf6095fe31f92}{Factorial()} /at the moment only Factorial/ you can give a pointer to the \textquotesingle{}stop object\textquotesingle{}, if the method Was\+Stop\+Signal() of this object returns true that means we should break the calculating and return 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+framework/ttmath/\mbox{\hyperlink{ttmathtypes_8h}{ttmathtypes.\+h}}\end{DoxyCompactItemize}

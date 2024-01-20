@@ -1,0 +1,61 @@
+\doxysection{Laguerre\+::Generator\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classLaguerre_1_1Generator}{}\label{classLaguerre_1_1Generator}\index{Laguerre::Generator$<$ T $>$@{Laguerre::Generator$<$ T $>$}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a3f34fda488832d89015b5928b4a76185}\label{classLaguerre_1_1Generator_a3f34fda488832d89015b5928b4a76185} 
+static void {\bfseries set\+Coeff\+Generator} (coeff\+Generator\+Ptr func)
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a6635b15abcb9196e1a4984ccb26ccd03}\label{classLaguerre_1_1Generator_a6635b15abcb9196e1a4984ccb26ccd03} 
+static void {\bfseries set\+Roots\+Generator} (roots\+Generator\+Ptr func)
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a3fa7df5cd71812eecf6beeb3ac540328}\label{classLaguerre_1_1Generator_a3fa7df5cd71812eecf6beeb3ac540328} 
+static std\+::vector$<$ T $>$ {\bfseries generate\+Roots} (int count=3, T from=0, T to=1, T delta=1)
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a7cf9ab02e4585d5b2503a7bfe3b98090}\label{classLaguerre_1_1Generator_a7cf9ab02e4585d5b2503a7bfe3b98090} 
+static \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}$<$ T $>$ {\bfseries create\+From\+Roots} (std\+::vector$<$ std\+::complex$<$ T $>$ $>$ args)
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a58e354ee8081c3c5b86c6fcfd9d3e311}\label{classLaguerre_1_1Generator_a58e354ee8081c3c5b86c6fcfd9d3e311} 
+{\footnotesize template$<$typename... Args$>$ }\\static \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}$<$ T $>$ {\bfseries create\+From\+Roots} (Args...\+args)
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a33b3781d5d70ad69107541a3ea686211}\label{classLaguerre_1_1Generator_a33b3781d5d70ad69107541a3ea686211} 
+static \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}$<$ T $>$ {\bfseries gen} (int count=3, T from=1, T to=3, T delta=1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a6af21949878ed56fa10285bc2e03c679}\label{classLaguerre_1_1Generator_a6af21949878ed56fa10285bc2e03c679} 
+typedef \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}$<$ T $>$(\texorpdfstring{$\ast$}{*} {\bfseries coeff\+Generator\+Ptr}) (std\+::vector$<$ std\+::complex$<$ T $>$ $>$)
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a28928188456d7e16e7e13c799a806cd6}\label{classLaguerre_1_1Generator_a28928188456d7e16e7e13c799a806cd6} 
+typedef std\+::vector$<$ std\+::complex$<$ T $>$ $>$(\texorpdfstring{$\ast$}{*} {\bfseries roots\+Generator\+Ptr}) (int, T, T, T)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a724c97fbcda54b563aa2f4ce913584f6}\label{classLaguerre_1_1Generator_a724c97fbcda54b563aa2f4ce913584f6} 
+static \mbox{\hyperlink{classLaguerre_1_1Polynomial}{Polynomial}}$<$ T $>$ {\bfseries basic\+Coeffs\+Generation} (std\+::vector$<$ std\+::complex$<$ T $>$ $>$ roots)
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a928073e7b45bb78adcc8212a0b08e69b}\label{classLaguerre_1_1Generator_a928073e7b45bb78adcc8212a0b08e69b} 
+static std\+::vector$<$ std\+::complex$<$ T $>$ $>$ {\bfseries basic\+Root\+Generation} (int count=3, T from=0, T to=1, T delta=1)
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a40b1ca3889bc8d1d0bd3e2ecd36a0b33}\label{classLaguerre_1_1Generator_a40b1ca3889bc8d1d0bd3e2ecd36a0b33} 
+static coeff\+Generator\+Ptr {\bfseries current\+Coeff\+Generator} ()
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a0732f923ee222410dbb029677cb09ca2}\label{classLaguerre_1_1Generator_a0732f923ee222410dbb029677cb09ca2} 
+static roots\+Generator\+Ptr {\bfseries current\+Roots\+Generator} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLaguerre_1_1Generator_ae2a8896d091a14d97745759d105d2545}\label{classLaguerre_1_1Generator_ae2a8896d091a14d97745759d105d2545} 
+static coeff\+Generator\+Ptr {\bfseries coeff\+Generator} = nullptr
+\item 
+\Hypertarget{classLaguerre_1_1Generator_a6892c2e64a2fc2602f850fad81c7b0a8}\label{classLaguerre_1_1Generator_a6892c2e64a2fc2602f850fad81c7b0a8} 
+static roots\+Generator\+Ptr {\bfseries roots\+Generator} = nullptr
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/Polynomial\+Generator.\+h\end{DoxyCompactItemize}

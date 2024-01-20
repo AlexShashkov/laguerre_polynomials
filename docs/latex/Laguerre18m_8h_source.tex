@@ -1,0 +1,342 @@
+\doxysection{Laguerre18m.\+h}
+\hypertarget{Laguerre18m_8h_source}{}\label{Laguerre18m_8h_source}\index{headers/Laguerre18m.h@{headers/Laguerre18m.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Александр,\ Дмитрий}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ LAGUERRE18}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ LAGUERRE18}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <numbers>}\ \textcolor{comment}{//\ std::numbers::pi\_v<fp\_t>,\ requires\ -\/std=c++20}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <complex>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}BaseSolver.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}ExtendedFunctions.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }Laguerre\{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ }std::complex;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{using\ }std::fma;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLaguerre_1_1ModifiedLaguerre18}{ModifiedLaguerre18}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classBaseSolver}{BaseSolver}}<T>\{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ T\ eps\ \ \ =\ std::numeric\_limits<T>::epsilon();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ T\ big\ \ \ =\ std::numeric\_limits<T>::max();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ T\ small\ =\ std::numeric\_limits<T>::min();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ T\ PI\ \ \ \ =\ std::numbers::pi\_v<T>;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ T\ pi2\ \ \ =\ PI*\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(2);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{inline}\ T\ cross(std::vector<int>\&\ h,\ std::vector<T>\&\ a,\ \textcolor{keywordtype}{int}\ c,\ \textcolor{keywordtype}{int}\ i)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ determinant}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ h\_c\ =\ h[c];}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ h\_c1\ =\ h[c-\/1];}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ T\ a\_hc\ =\ a[h\_c1];}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fms(a[i]-\/a\_hc,\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(h\_c-\/h\_c1),\ a[h\_c]-\/a\_hc,\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(i-\/h\_c1));}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ conv\_hull(\textcolor{keywordtype}{int}\ n,\ std::vector<T>\&\ a,\ std::vector<int>\&\ h,\ \textcolor{keywordtype}{int}\&\ c)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ c\ =\ 0;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ n\ -\/\ 1;\ i\ >=\ 0;\ -\/-\/i)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (c\ >=\ 2\ \&\&\ cross(h,\ a,\ c,\ i)\ <\ eps)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/c;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ ++c;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ h[c]\ =\ i;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ estimates(vector<T>\&\ alpha,\ \textcolor{keywordtype}{int}\ deg,\ std::vector<std::complex<T>>\&\ roots,\ std::vector<int>\&\ conv,\ \textcolor{keywordtype}{int}\&\ nz)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ c,\ i,\ j,\ k,\ nzeros;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ T\ a1,\ a2,\ ang,\ r,\ th;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::vector<int>\ h(deg\ +\ 1);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ std::vector<T>\ a(deg\ +\ 1);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Andrews\ starting\ position}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ deg\ +\ 1;\ ++i)}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ a[i]\ =\ alpha[i]\ >\ 0\ ?\ log(alpha[i])\ :\ -\/big;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ conv\_hull(deg\ +\ 1,\ a,\ h,\ c);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ k\ =\ 0;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ th\ =\ pi2/\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(deg);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initial\ Estimates}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ c\ -\/\ 1;\ i\ >=\ 0;\ -\/-\/i)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ nzeros\ =\ h[i]\ -\/\ h[i\ +\ 1];}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ T\ one\_div\_nzeros\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0\ /\ nzeros);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ a1\ =\ pow(alpha[h[i\ +\ 1]],\ one\_div\_nzeros);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ a2\ =\ pow(alpha[h[i]],\ one\_div\_nzeros);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Help\ :)}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}\(\backslash\)nalpha[h[i]]:\ "{}\ <<\ alpha[h[i]];}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}\(\backslash\)nnzeros:\ "{}\ <<\ nzeros;}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}\(\backslash\)nonedivzeros:\ "{}\ <<\ one\_div\_nzeros;}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}\(\backslash\)na2:\ "{}\ <<\ a2\ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a1\ <=\ a2\ *\ small)\{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ r\ is\ too\ small}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ 0.0;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nz\ +=\ nzeros;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ k;\ j\ <\ k\ +\ nzeros;\ ++j)\{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conv[j]\ =\ -\/1;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ roots[j]\ =\ \{0.0,\ 0.0\};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ sigma\_thh\ =\ fma(th,\ h[i],\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0.7));}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a1\ >=\ a2\ *\ big)\{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ r\ is\ too\ big}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ big;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nz\ +=\ nzeros;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ k;\ j\ <\ k\ +\ nzeros;\ ++j)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conv[j]\ =\ -\/1;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ r\ is\ ok\ :big-\/finger-\/emoji:}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ a1\ /\ a2;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ang\ =\ pi2\ /\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(nzeros);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ nzeros;\ ++j)\{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ arg\ =\ fma(ang,\ j,\ sigma\_thh);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ roots[k\ +\ j]\ =\ r\ *\ std::complex<T>(cos(arg),\ sin(arg));}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ k\ +=\ nzeros;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ rcheck\_lag(std::vector<T>\&\ p,\ vector<T>\&\ alpha,\ \textcolor{keywordtype}{int}\ deg,\ complex<T>\&\ b,\ complex<T>\&\ c,\ complex<T>\ z,\ T\ r,\ \textcolor{keywordtype}{int}\&\ conv,\ T\&\ berr,\ T\&\ cond)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ T\ rr;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ complex<T>\ a,\ zz,\ zz2;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Evaluate\ polynomial\ and\ derivatives}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ zz\ =\ complex<T>(1,\ 0)\ /\ z;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ zz2\ =\ zz*zz;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ rr\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1)\ /\ r;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ a\ =\ p[0];}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ b\ =\ 0;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ c\ =\ 0;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ berr\ =\ alpha[0];}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (k\ =\ 1;\ k\ <\ deg\ +\ 1;\ ++k)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fma(zz,\ c,\ b);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ fma(zz,\ b,\ a);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ fma(zz,\ a,\ p[k]);}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ berr\ =\ fma(rr,\ berr,\ alpha[k]);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Laguerre\ correction/\ backward\ error\ and\ condition}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ condition\ =\ abs(a)\ >\ eps\ *\ berr;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ b\ =\ condition\ ?\ b/a\ :\ b;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ c\ =\ condition\ ?\ fms(zz2,\ fma(-\/\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(2)*zz,\ b,\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(deg)),\ zz2*zz2,\ fms(complex<T>(2.0,\ 0),\ c\ /\ a,\ b,\ b))\ :\ c;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ b\ =\ condition\ ?\ fms(zz,\ complex<T>(deg,\ 0)\ ,\ zz2,\ b)\ :\ b;}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ cond\ =\ (!condition)*(berr\ /\ fabs(fms(complex<T>(deg,\ 0),\ \ a,\ zz,\ b)))\ +\ (condition)*cond;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ berr\ =\ (!condition)*(fabs(a)\ /\ berr)\ +\ (condition)*berr;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ conv\ =\ condition\ ?\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ (complexnotfinite(b,\ big)\ ||\ complexnotfinite(c,\ big)\ ?\ -\/1\ :\ conv)\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ :\ 1;}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (fabs(a)\ >\ eps\ *\ berr)\ \{}}
+\DoxyCodeLine{00185\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ b\ =\ b\ /\ a;}}
+\DoxyCodeLine{00186\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fms(zz2,\ fma(-\/static\_cast<T>(2)*zz,\ b,\ static\_cast<T>(deg)),\ zz2*zz2,\ fms(complex<T>(2.0,\ 0),\ c\ /\ a,\ b,\ b));}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ b\ =\ fms(zz,\ complex<T>(deg,\ 0)\ ,\ zz2,\ b);}}
+\DoxyCodeLine{00188\ \textcolor{comment}{}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ (complexnotfinite(b,\ big)\ ||\ complexnotfinite(c,\ big))}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conv\ =\ -\/1;}}
+\DoxyCodeLine{00191\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{00192\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cond\ =\ berr\ /\ fabs(fms(complex<T>(deg,\ 0),\ \ a,\ zz,\ b));}}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ berr\ =\ fabs(a)\ /\ berr;}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ conv\ =\ 1;}}
+\DoxyCodeLine{00195\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00196\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ check\_lag(std::vector<T>\&\ p,\ std::vector<T>\&\ alpha,\ \textcolor{keywordtype}{int}\ deg,\ std::complex<T>\&\ b,\ std::complex<T>\&\ c,\ std::complex<T>\ z,\ T\ r,\ \textcolor{keywordtype}{int}\&\ conv,\ T\&\ berr,\ T\&\ cond)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ std::complex<T>\ a;}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Evaluate\ polynomial\ and\ derivatives}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ a\ =\ p[deg];}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ b\ =\ 0;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ c\ =\ 0;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ berr\ =\ alpha[deg];}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (k\ =\ deg\ -\/\ 1;\ k\ >=\ 0;\ -\/-\/k)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fma(z,\ c,\ b);}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ fma(z,\ b,\ a);}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ a\ =\ fma(z,\ a,\ p[k]);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ berr\ =\ fma(r,\ berr,\ alpha[k]);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Laguerre\ correction/\ backward\ error\ and\ condition}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ condition\ =\ abs(a)\ >\ eps\ *\ berr;}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ b\ =\ condition\ ?\ b/a\ :\ b;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ b\string^2\ +\ (-\/\{2,0\}*c/a)+\{2,0\}*c/a+(-\/\{2,0\}*c/a)}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ c\ =\ condition\ ?\ fms(b,\ b,\ std::complex<T>(2,\ 0),\ c/a)\ :\ c;}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ cond\ =\ (!condition)*(berr\ /\ (r\ *\ fabs(b)))\ +\ (condition)*cond;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ berr\ =\ (!condition)*(fabs(a)\ /\ berr)\ +\ (condition)*berr;}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ conv\ =\ condition\ ?\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ (complexnotfinite(b,\ big)\ ||\ complexnotfinite(c,\ big)\ ?\ -\/1\ :\ conv)\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ :\ 1;}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00243\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (abs(a)\ >\ eps\ *\ berr)\ \{}}
+\DoxyCodeLine{00244\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ b\ =\ b\ /\ a;}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fms(b,\ b,\ std::complex<T>(2,\ 0),\ c/a);}}
+\DoxyCodeLine{00246\ \textcolor{comment}{}}
+\DoxyCodeLine{00247\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ (complexnotfinite(b,\ big)\ ||\ complexnotfinite(c,\ big))}}
+\DoxyCodeLine{00248\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conv\ =\ -\/1;}}
+\DoxyCodeLine{00249\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{00250\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ cond\ =\ berr\ /\ (r\ *\ fabs(b));}}
+\DoxyCodeLine{00251\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ berr\ =\ fabs(a)\ /\ berr;}}
+\DoxyCodeLine{00252\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ conv\ =\ 1;}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00254\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{void}\ modify\_lag(\textcolor{keywordtype}{int}\ deg,\ std::complex<T>\&\ b,\ std::complex<T>\&\ c,\ std::complex<T>\ z,\ \textcolor{keywordtype}{int}\ j,\ std::vector<std::complex<T>>\&\ roots)\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ std::complex<T>\ t;}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aberth\ correction\ terms}}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ j\ -\/\ 1;\ ++k)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0)\ /\ (z\ -\/\ roots[k]);}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ b\ -\/=\ t;}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fma(-\/t,\ t,\ c);}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ k\ !=\ j}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ j\ +\ 1;\ k\ <=\ deg;\ ++k)\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0)\ /\ (z\ -\/\ roots[k]);}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ b\ -\/=\ t;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fma(-\/t,\ t,\ c);}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Laguerre\ correction}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ t\ =\ sqrt(fms(complex<T>(\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(deg\ -\/\ 1),\ 0),\ (\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(deg)\ *\ c),\ \ b,\ b));}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ c\ =\ b\ +\ t;}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ b\ -\/=\ t;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::complex<T>\ degc(deg,\ 0);}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ c\ =\ abs(b)\ >\ abs(c)\ ?\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(deg)\ /\ b\ :\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(deg)\ /\ c;}
+\DoxyCodeLine{00289\ \ \ \ \ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00292\ \ \ \ \ \mbox{\hyperlink{classLaguerre_1_1ModifiedLaguerre18}{ModifiedLaguerre18}}()\{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00294\ \ \ \ \ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLaguerre_1_1ModifiedLaguerre18_a56aec5b78020fcc1a3fda34b56cc0589}{operator()}}(std::vector<T>\&\ poly,\ std::vector<std::complex<T>>\&\ roots,\ std::vector<int>\&\ conv,\ \textcolor{keywordtype}{int}\ itmax)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ deg\ =\ roots.size();}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ std::vector<T>\ berr(deg);\ \textcolor{comment}{//\ Vector\ to\ store\ the\ backward\ errors.}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ std::vector<T>\ cond(deg);\ \textcolor{comment}{//\ Vector\ to\ store\ the\ condition\ numbers.}}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j,\ nz;}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ T\ r;}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ std::vector<T>\ alpha(deg\ +\ 1);}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ std::complex<T>\ b,\ c,\ z;}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Precheck}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <=\ deg;\ i++)}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ alpha[i]\ =\ fabs(poly[i]);}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (alpha[deg]\ <\ small)\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Warning:\ leading\ coefficient\ is\ too\ small."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initial\ estimates}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ conv.assign(deg,\ 0);}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ nz\ =\ 0;}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ estimates(alpha,\ deg,\ roots,\ conv,\ nz);}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <=\ deg;\ ++i)}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ alpha[i]\ *=\ fma(\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(3.8),\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(i),\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1));}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Main\ loop}}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 1;\ i\ <=\ itmax;\ ++i)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ deg;\ ++j)\ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (conv[j]\ ==\ 0)\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ roots[j];}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ fabs(z);}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ >\ 1.0)}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rcheck\_lag(poly,\ alpha,\ deg,\ b,\ c,\ z,\ r,\ conv[j],\ berr[j],\ cond[j]);}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check\_lag(poly,\ alpha,\ deg,\ b,\ c,\ z,\ r,\ conv[j],\ berr[j],\ cond[j]);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (conv[j]\ ==\ 0)\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ modify\_lag(deg,\ b,\ c,\ z,\ j,\ roots);}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ roots[j]\ -\/=\ c;}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nz++;}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nz\ ==\ deg)\{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*std::min\_element(conv.begin(),\ conv.end())\ ==\ 1)}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Display\ a\ warning}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Some\ root\ approximations\ did\ not\ converge\ or\ experienced\ overflow/underflow.\(\backslash\)n"{}};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ backward\ error\ and\ condition\ number\ for\ roots\ that\ did\ not\ converge.}}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ deg;\ ++j)\{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (conv[j]\ !=\ 1)\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ roots[j];}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ abs(z);}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ >\ 1.0)\ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0)\ /\ z;}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(1.0)\ /\ r;}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ 0;}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ poly[0];}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ berr[j]\ =\ alpha[0];}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 1;\ i\ <\ deg\ +\ 1;\ ++i)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fma(z,\ c,\ b);}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ fma(z,\ b,\ poly[i]);}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ berr[j]\ =\ fma(r,\ berr[j],\ alpha[i]);}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cond[j]\ =\ berr[j]\ /\ fabs(fms(complex<T>(deg,\ 0),\ b,\ z,\ c));}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ berr[j]\ =\ fabs(b)\ /\ berr[j];}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ 0.0;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ poly[deg];}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ berr[j]\ =\ alpha[deg];}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ deg\ -\/\ 1;\ i\ >=\ 0;\ -\/-\/i)\ \{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ fma(z,\ c,\ b);}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ fma(z,\ b,\ poly[i]);}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ berr[j]\ =\ fma(r,\ berr[j],\ alpha[i]);}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cond[j]\ =\ berr[j]\ /\ (r\ *\ fabs(c));}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ berr[j]\ =\ fabs(b)\ /\ berr[j];}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \};}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \};}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

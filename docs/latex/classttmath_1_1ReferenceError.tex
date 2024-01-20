@@ -1,0 +1,42 @@
+\doxysection{ttmath\+::Reference\+Error Class Reference}
+\hypertarget{classttmath_1_1ReferenceError}{}\label{classttmath_1_1ReferenceError}\index{ttmath::ReferenceError@{ttmath::ReferenceError}}
+
+
+{\ttfamily \#include $<$ttmathtypes.\+h$>$}
+
+Inheritance diagram for ttmath\+::Reference\+Error\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classttmath_1_1ReferenceError}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classttmath_1_1ReferenceError_ac35c30dcc037b90e621cf47fe0e163af}\label{classttmath_1_1ReferenceError_ac35c30dcc037b90e621cf47fe0e163af} 
+{\bfseries Reference\+Error} (const char \texorpdfstring{$\ast$}{*}f, int l)
+\item 
+\Hypertarget{classttmath_1_1ReferenceError_a4ef6d2c618a53b1562af056a17351fac}\label{classttmath_1_1ReferenceError_a4ef6d2c618a53b1562af056a17351fac} 
+std\+::string {\bfseries Where} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classttmath_1_1ExceptionInfo}{ttmath\+::\+Exception\+Info}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Exception\+Info} (const char \texorpdfstring{$\ast$}{*}f, int l)
+\item 
+std\+::string {\bfseries Where} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A small class used for reporting \textquotesingle{}reference\textquotesingle{} errors
+
+In the library is used macro TTMATH\+\_\+\+REFERENCE\+\_\+\+ASSERT which can throw an exception of this type
+
+from version 0.\+9.\+2 this macro is removed from all methods in public interface so you don\textquotesingle{}t have to worry about it \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}
+
+If you compile with gcc you can get a small benefit from using method Where() (it returns std\+::string) with the name and the line of a file where the macro TTMATH\+\_\+\+REFERENCE\+\_\+\+ASSERT was used) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+framework/ttmath/\mbox{\hyperlink{ttmathtypes_8h}{ttmathtypes.\+h}}\end{DoxyCompactItemize}
