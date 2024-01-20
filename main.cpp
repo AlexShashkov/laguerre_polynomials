@@ -22,7 +22,7 @@ int main(){
     Laguerre::ModifiedLaguerre18<double>* solver18 = new Laguerre::ModifiedLaguerre18<double>();
 
     // Generator stuff
-    int l = 3, N_TESTS = 1000,                                            // polynomial degree, count of tests 
+    int l = 10, N_TESTS = 10000,                                               // polynomial degree, count of tests 
         rv,                                                                  // status of comparing roots
         N_roots_found_this_test, N_roots_gt_this_test,                       // amount of found roots in each test & gt roots
         N_true_roots_lost=0, N_fake_roots_added=0,                           // total counters of {lost, fake} roots aover all tests
@@ -51,8 +51,9 @@ int main(){
             // с тем же правильным размером вектора n, причем сам последний элемент n+1 НЕ ТРОГАЕТ;
             // костыль, но откуда копать причину ошибки пока не знаю, просто "free(): invalid pointer"
             // по завершению функции случайно. Конечно же необходимо исправить, лишнее место ни к чему
-            //  - Саша
-            std::vector<std::complex<double>> solved_roots(l+1);
+            // ================
+            // большая часть проблемы исправлена, но все-еще могут быть проблемы, тогда добавь +1
+            std::vector<std::complex<double>> solved_roots(l);
             std::vector<int> conv(l);
 
             std::cout << "ORIGINAL LAGUERRE:\n";
@@ -60,6 +61,7 @@ int main(){
             pol.solve(solved_roots, conv, 80);
             Laguerre::printVec(solved_roots);
 
+            // FIXME
             // std::cout << "2018 LAGUERRE MODIFICATION:\n";
             // pol.setSolver(solver18);
             // pol.solve(solved_roots, conv, 80);
@@ -67,8 +69,9 @@ int main(){
 
             std::cout << "=======================\n";
 
-            //                                                    ! убрать -1 когда будет найдено решение ошибки с roots
-            std::for_each(solved_roots.begin(), solved_roots.end()-1, [&roots_found_this_test](std::complex<number> x){ // solved_roots = b_roots
+            //                                                   ! убрать -1 когда будет найдено решение ошибки с roots
+            //                                                   ! добавить +1 если ошибка, описанная выше
+            std::for_each(solved_roots.begin(), solved_roots.end(), [&roots_found_this_test](std::complex<number> x){ // solved_roots = b_roots
                 roots_found_this_test.push_back(x.real());
             });
 
