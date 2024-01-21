@@ -1,0 +1,405 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=2cm,right=1cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\pagestyle{plain}
+\usepackage{fancybox}
+\usepackage{bm}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{floatrow}
+\usepackage{pdfpages}
+\usepackage{ragged2e}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstdefinestyle{mystyle}{
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame=single
+}
+\lstset{style=mystyle}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian, english]{babel}
+\justifying
+\usepackage[inkscapeformat=png]{svg}
+\usepackage[pageanchor]{hyperref}
+\algblock[BLOCK]{parfor}{endparfor}
+
+
+\begin{document}
+\tableofcontents
+\hyperpage{}
+
+\newpage
+\section{Введение} 
+В данной статье мы рассмотрим модифицированный метод Лагерра, который подходит для нахождения кратных корней многочлена, поиск которых часто осложняет работу аналогичных методов. 
+\\
+В первом разделе мы описываем вывод итерационной формулы для модфикации Эйлера-Коши и оцениеваем его погрешность.
+\\
+Во втором разделе объясняется основная схема работы алгоритма.
+\\
+Третий раздел посвящен описанию созданной имплементации на языке C++.
+\\
+В четвертом разделе представлены результаты работы созданной программы с различными многочленами.
+
+
+\newpage
+\section{Теоретическое обоснование}
+\subsection{Вывод метода}
+
+Большинство алгоритмов для нахождения корней многочлена работают лишь для простых корней (корней кратности 1) нелинейного уравнения $f(x) = 0$, то есть для корня $\alpha$, имеем:
+\begin{equation}
+\begin{split}
+    f(\alpha) = 0\\
+    f'(\alpha) \neq 0
+\end{split}
+\tag{1}
+\end{equation}
+
+
+Мы же рассмотрим случай, когда $\alpha$ - корень кратности $m > 1$. Существует очень мало методов для нахождения кратных корней, когда кратность известна. Одним из таких методов является метод Лагерра. Он основан на том, что вместо рассмотрения функции $f(x)$, рассматривается функция $G(x) = \sqrt[m]{f(x)}$, которая также имеет простой корень $\alpha$, в то же время являющийся корнем кратности $m$ для фунции $f(x)$.
+
+В этом случае итерационная формула для метода Лаггера принимает слудующий вид:
+
+$$x_{n+1} = x_n - \frac{\lambda\frac{f(x_n)}{f'(x_n)}}{1+sgn(\lambda-m)\sqrt{(\frac{\lambda - m}{m})[(\lambda-1)-\lambda\frac{f(x_n)f''(x_n)}{f'(x_n)^2}]}} \eqno (2)$$
+
+где $\lambda$ - вещественный параметр. Если $f(x)$ - многочлен степени $n$, этот метод с $\lambda=n$ принимает вид стандартного метода Лагерра для кратных корней. Этот метод сходится кубически.
+
+Модицификация Эйлера-Коши для $\lambda = 2m$:
+
+$$x_{n+1} = x_n - \frac{2m\frac{f(x_n)}{f'(x_n)}}{1 + \sqrt{(2m-1)-2m \frac{f(x_n)f''(x_n)}{f'(x_n)^2}}} \eqno (3)$$
+
+\subsection{Оценка погрешности метода}
+
+Доказано, что погрешность для метода Лагерра определяется выражением:
+$$e_{n-1} = K_3(m, \lambda)e^{3}_{n} + O(e^4_n) \eqno (6)$$
+
+где асимптотическая константа ошибки $K_3(m, \lambda)$ определяется следующим образом:
+$$K_3(m, \lambda) = A_1(m, \lambda)\Big(\frac{f^{(m+1)}(\alpha)}{f^{(m)}(\alpha)}\Big)^2  - A_2(m) \frac{f^{(m+2)}(\alpha)}{f^{(m)}(\alpha)} \eqno (7)$$
+
+$$A_1(m, \lambda) = \frac{1}{2m(m+1)^2}\Big(1 - \frac{1}{\lambda-m} \Big)$$
+
+$$A_2(m) = \frac{1}{m(m+1)(m+2)}$$
+
+Для модификации Эйлера-Коши асимптотическая константа ошибки равна:
+
+$$K_3(m, 2m) = \frac{m-1}{2m^2(m+1)^2}\Big(\frac{f^{(m+1)}(\alpha)}{f^{(m)}(\alpha)}\Big)^2 - A_2(m)\frac{f^{(m+2)}(\alpha)}{f^{(m)}(\alpha)} \eqno (8)$$
+
+
+\newpage
+\section{Описание работы алгоритма}
+Пусть $p(z)$ - полином следующего вида:
+$$p(z) = (z-\xi_1)^m(z-\xi_2)^m...(z-\xi_k)^m$$
+или, если раскрыть скобки:
+$$p(z) = a_0 + a_{1}z + \text{···} + a_{n}z^{n}$$
+Мы стремимися вычислить корни $p(z)$ и для этого необходимо выполнить следующие пункты:
+
+\begin{algorithm}
+            \caption{Метод Лаггера для вычисления кратных корней многочлена}\label{alg:Example}
+            \begin{algorithmic}
+            \State \text{Находим наибольший общий делитель для многочлена и его производной} 
+            \State \text{с помощью алгоритма Евклида}
+            \State $h(z)=\text{НОД}(p(z), p'(z))$
+            \State $g(z) = \frac{f(z)}{h(z)}$
+            \State \text{Степень полученного многочлена является количеством различных корней} 
+            \State \text{исходного полинома}
+            \State $deg(g(z)) = k$
+            \State $m = \frac{n}{k}$
+            \State $\lambda = 2m$
+            \For{$i=1$ to $k$}
+                \State \text{Задаем начальное приближение}
+                \State $x_i = 0$
+                \While{$p'(x_i) \neq 0$}
+                    \State $\displaystyle x_{i} = x_i - \frac{2m\frac{p(x_i)}{p'(x_i)}}{1 + \sqrt{(2m-1)-2m \frac{p(x_i)p''(x_i)}{p'(x_i)^2}}}$
+                \EndWhile
+                \State $p(x) = \displaystyle\frac{p(x)}{(x-x_i)^m}$
+            \EndFor
+            \end{algorithmic}
+\end{algorithm}
+
+
+\clearpage
+\newpage
+\section{Имплементация на C++}
+
+\subsection{ExtendedFunctions.h}
+\textbf{Описание:}
+
+Набор необходимых функций для реализации алгоритмов нахождения корней полиномов.
+
+\textbf{Функции:}
+\begin{itemize}
+    \item \textbf{anynotfinite (bool)} : проверка, является ли хотя бы одно число конечным;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{T \&\& ... t } : множество чисел (любое количество).
+    \end{itemize}
+    \begin{lstlisting}[language=С++]
+inline bool anynotfinite(T && ... t); \end{lstlisting}
+
+    \item \textbf{complexnotfinite (bool)} : проверка, содержит ли комплексное число значения NaN или Inf;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{a (complex<T>)} : комплексное число;
+        \item \textbf{big (T)} : максимальное значение для типа T.
+    \end{itemize}
+    \begin{lstlisting}[language=С++]
+bool complexnotfinite(complex<T> a, T big); \end{lstlisting}
+
+    \item \textbf{anycomplex (bool)} : проверка, что хотя бы одно комплесное число содержит мнимую часть;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{T \&\& ... t } : множество чисел (любое количество).
+    \end{itemize}
+    \begin{lstlisting}[language=С++]
+inline bool anycomplex(T && ... t); \end{lstlisting}
+
+    \item \textbf{anycomplex (bool)} : проверка, что хотя бы одно комплесное число в векторе содержит мнимую часть;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{vec (vector<complex<T>>)} : вектор комплексных чисел.
+    \end{itemize}
+    \begin{lstlisting}[language=С++]
+inline bool anycomplex(vector<complex<T>> vec); \end{lstlisting}
+
+    \item \textbf{sign (int)} : определение знака числа
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{val (number)} : заданное значение;
+    \end{itemize}
+
+    Возвращаемое значение: если заданное значение положительно, функция возвращает 1, если отрицательно, возвращает -1, если значение равно 0, возвращает 0.
+
+    \begin{lstlisting}[language=С++]
+inline int sign(number val); \end{lstlisting}
+
+    \item \textbf{fms (number)} : операция "fused multiply-subtract" (FMS), которая вычисляет разность произведения первых двух чисел и других двух чисел;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{a (number)} : первое число;
+        \item \textbf{b (number)} : второе число;
+        \item \textbf{c (number)} : третье число;
+        \item \textbf{d (number)} : четвертое число;
+    \end{itemize}
+    Возвращаемое значение: число $a\cdot b - d \cdot c$.
+
+    \begin{lstlisting}[language=С++]
+inline number fms(number a, number b, number c, number d); \end{lstlisting}
+
+    \item \textbf{fms (complex<number>)} : операция "fused multiply-subtract" (FMS) для комплесных чисел, которая вычисляет разность произведения первых двух чисел и других двух чисел;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{a (std::complex<number>)} : первое комплесное число;
+        \item \textbf{b (std::complex<number>)} : второе комплесное число;
+        \item \textbf{c (std::complex<number>)} : третье комплесное число;
+        \item \textbf{d (std::complex<number>)} : четвертое комплесное число;
+    \end{itemize}
+    Возвращаемое значение: комплесное число $a\cdot b - d \cdot c$.
+    \begin{lstlisting}[language=С++]
+inline complex<number> fms(std::complex<number> a, 
+                        std::complex<number> b, 
+                        std::complex<number> c,
+                        std::complex<number> d); \end{lstlisting}
+
+
+    \item \textbf{fma (complex<number>)} : операция "fused multiply-add" (FMA) для комплесных чисел, которая вычисляет разность произведения двух чисел и третьего числа;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{a (std::complex<number>)} : первое комплесное число;
+        \item \textbf{b (std::complex<number>)} : второе комплесное число;
+        \item \textbf{c (std::complex<number>)} : третье комплесное число;
+    \end{itemize}
+    Возвращаемое значение: комплесное число $a\cdot b - c$.
+    \begin{lstlisting}[language=С++]
+inline complex<number> fma(std::complex<number> a, 
+                        std::complex<number> b, 
+                        std::complex<number> c); \end{lstlisting}
+
+    \item \textbf{printVec (void)} : вывод вектора чисел в консоль;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{vec (vector<number>)} : вектор чисел;
+    \end{itemize}
+    \begin{lstlisting}[language=С++]
+inline void printVec(vector<number> vec); \end{lstlisting}
+
+    \item \textbf{castVec (vector<number>)} : преобразование вектора с типом T в вектор с типом number;
+    \\Аргументы функции:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{vec (vector<T>)} : вектор чисел;
+    \end{itemize}
+    Возвращаемое значение: вектор чисел типа number.
+    \begin{lstlisting}[language=С++]
+inline vector<number> castVec(vector<T> vec); \end{lstlisting}
+\end{itemize}
+
+
+
+\subsection{Класс BaseSolver}
+\textbf{Описание класса:}
+
+Абстрактный базовый класс для нахождения корней полиномов. 
+
+\textbf{Методы класса:}
+\begin{itemize}
+    \item \textbf{operator() (void)} : нахождение корней полинома;
+
+\\Аргументы метода:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{coeff (std::vector<T>\&)} : вектор, содержащий коэффициенты полинома;
+        \item \textbf{roots (std::vector<std::complex<T>\& )} : вектор для хранения корней полинома;
+        \item \textbf{conv (std::vector<int>\&)} : вектор для хранения статуса сходимости каждого корня;
+        \item \textbf{itmax (int)} : максимально допустимое количество итераций.
+    \end{itemize}
+\begin{lstlisting}[language=С++]
+virtual void operator()(std::vector<T>& coeff, 
+                        std::vector<std::complex<T>>& roots, 
+                        std::vector<int>& conv, 
+                        int itmax) = 0; \end{lstlisting}
+\end{itemize}
+    
+\subsection{Класс ModifiedLaguerre13}
+\textbf{Описание класса:}
+
+Класс, реализующий модификацию Эйлера-Коши для алгоритма Лагерра для поиска корней полиномов.
+
+\textbf{Атрибуты класса:}
+\begin{itemize}
+\renewcommand{\labelitemi}{-}
+    \item \textbf{eps (T)} : машинная точность для типа T;
+\end{itemize}
+
+\textbf{Методы класса:}
+\begin{itemize}
+    \item \textbf{ModifiedLaguerre13()} : конструктор класса \textbf{ModifiedLaguerre13};
+    
+    \item \textbf{operator() (void)} : нахождение корней полинома с использованием модифицированного метода Лагерра;
+    \\Аргументы метода:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{poly (std::vector<T>\&)} : вектор, содержащий коэффициенты полинома;
+        \item \textbf{roots (std::vector<std::complex<T>\& )} : вектор для хранения корней полинома;
+        \item \textbf{conv (std::vector<int>\&)} : вектор для хранения статуса сходимости каждого корня;
+        \item \textbf{itmax (int)} : максимально допустимое количество итераций.
+    \end{itemize}
+    \begin{lstlisting}[language=С++]
+void operator()(std::vector<T>& poly, 
+                std::vector<std::complex<T>>& roots, 
+                std::vector<int>& conv, int itmax); \end{lstlisting}
+
+    \item \textbf{laguer13 (void)} : функция, реализующая модификацию Эйлера-Коши для алгоримта Лагерра.
+    \\Аргументы метода:
+    \begin{itemize}
+        \renewcommand{\labelitemi}{-}
+        \item \textbf{a const std::vector<std::complex<T> >&} : вектор, содержащий коэффициенты многочлена;
+        \item \textbf{x std::complex<T>&} : вектор для хранения корней многочлена;
+        \item \textbf{lam (int&)} : параметр $\lambda$, равный удвоенной кратности корня
+    \end{itemize}
+\begin{lstlisting}[language=С++]
+inline void laguer13(const std::vector<std::complex<T>>& a, 
+                    std::complex<T>& x, 
+                    int& lam); \end{lstlisting}
+   
+\end{itemize}
+
+\newpage
+\section{Тестирование}
+Во время тестирования для каждой степени полинома случайным образом генерировалось 10000 экспериментальных полиномов. В качестве кластеризованных корней были выбраны корни от $-1$ до $1$ с максимальным расстоянием между ними 1e-5.
+\subsection{Результаты тестов для кратных корней}
+\begin{center}
+  \begin{tabular}{|p{2.5cm}|p{3.0cm}|p{5.0cm}|p{5.0cm}|}
+  \hline
+  \textbf{Степень полинома}  & \textbf{Тип данных} & \textbf{Худшая абсолютная погрешность} & \textbf{Худшая относительная погрешность} \\
+  \hline
+  3 & double & 6.66134e-16 & 1.09509e-12 \\
+  \hline
+  3 & float & 3.57628e-07 & 0.00125945 \\
+  \hline
+  4 & double & 9.99201e-16 & 2.56371e-12 \\
+  \hline
+  4 & float & 2.98023e-07, & 0.00191216 \\
+  \hline
+  5 & double & 1.22125e-15 & 3.17808e-12 \\
+  \hline
+  5 & float & 5.96046e-07 & 0.0131582 \\
+  \hline
+  6 & double & 1.55431e-15 & 2.18029e-11 \\
+  \hline
+  6 & float & 7.15256e-07 & 0.0384619 \\
+  \hline
+  10 & double & 3.66374e-15 & 1.31415e-12 \\
+  \hline
+  10 & float & 2.43187e-05 & 205 \\
+  \hline
+\end{tabular}
+\label{tab:my_label_2}
+\end{center}
+
+\subsection{Результаты тестов для кластеризованных корней}
+\begin{center}
+  \begin{tabular}{|p{2.5cm}|p{3.0cm}|p{5.0cm}|p{5.0cm}|}
+  \hline
+  \textbf{Степень полинома}  & \textbf{Тип данных} & \textbf{Худшая абсолютная погрешность} & \textbf{Худшая относительная погрешность} \\
+  \hline
+  3 & double & 3.49695e-06 & 0.0120921 \\
+  \hline
+  3 & float & 3.51667e-06 & 0.0150658 \\
+  \hline
+  4 & double & 4.97295e-06 & 0.0171322 \\
+  \hline
+  4 & float & 4.94719e-06, & 0.736584 \\
+  \hline
+  5 & double & 4.9487e-06 & 0.0240587 \\
+  \hline
+  5 & float & 4.94719e-06 & 0.675506 \\
+  \hline
+  6 & double & 4.93532e-06 & 0.00397325 \\
+  \hline
+  6 & float & 4.94893e-06 & 0.0195956 \\
+  \hline
+  10 & double & 4.98549e-06 & 0.0901883 \\
+  \hline
+  10 & float & 4.94719e-06 & 0.0117614 \\
+  \hline
+\end{tabular}
+\label{tab:my_label_2}
+\end{center}
+
+\newpage
+
+\section{Список литературы}
+\begin{enumerate}
+    \item Osada, N., Asymptotic error constants for cubically convergent zero finding methods, J. Comput. Appl. Math., 196, 347-357, (2006)
+    \item Vrscay, E. R., Gilbert, W. J., Extraneous fixed points, basin boundaries and chaotic dynamics for Schroder and Konig rational iteration functions, Numer. Math., 52, 1-16, (1988)
+    \item Neta, Beny, On a family of Laguerre methods to find multiple roots of nonlinear equations, United States Code, 17, 101, (2013)
+\end{enumerate}
+
+\end{document}
+
