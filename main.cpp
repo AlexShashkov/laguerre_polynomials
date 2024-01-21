@@ -20,7 +20,7 @@
     // 2 - 2018 mod
 #endif
 #ifndef NUMBER
-    #define NUMBER float
+    #define NUMBER double
 #endif
 #ifndef EXPONENT
     #define EXPONENT 2 // Exponent for big NUMBER notation
