@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['generator_0',['Generator',['../classLaguerre_1_1Generator.html',1,'Laguerre']]]
+  ['polynomial_0',['Polynomial',['../classLaguerre_1_1Polynomial.html',1,'Laguerre']]]
 ];

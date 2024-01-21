@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exceptioninfo_0',['ExceptionInfo',['../classttmath_1_1ExceptionInfo.html',1,'ttmath']]]
+  ['original_0',['Original',['../classLaguerre_1_1Original.html',1,'Laguerre']]]
 ];

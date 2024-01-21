@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['hex_0',['- hex',['../classttmath_1_1Parser.html#autotoc_md1',1,'']]],
-  ['history_1',['History',['../classttmath_1_1History.html',1,'ttmath']]],
-  ['history_2',['history',['../structttmath_1_1CGamma.html#a32625db73df913efb0603f0e50d3855f',1,'ttmath::CGamma']]],
-  ['history_3',['History',['../classttmath_1_1History.html#a25f0a380eb1133ef7b9446dbd0a75299',1,'ttmath::History::History()'],['../classttmath_1_1History.html#a6c4276c2b03be7f6e05dd2fe4edab737',1,'ttmath::History::History(typename buffer_type::size_type new_size)']]],
-  ['howmanyparameters_4',['HowManyParameters',['../classttmath_1_1Parser.html#ad4b47a52abc190792054af7b3e2c2475',1,'ttmath::Parser']]]
+  ['operator_28_29_0',['operator()',['../classBaseSolver.html#a5a58026a9330ac63e7801c848fdbb5ed',1,'BaseSolver::operator()()'],['../classLaguerre_1_1Original.html#a03169c891eccb0b2af5be5e274a25770',1,'Laguerre::Original::operator()()'],['../classLaguerre_1_1ModifiedLaguerre13.html#acb5ef79928961737d263676845c885a8',1,'Laguerre::ModifiedLaguerre13::operator()()'],['../classLaguerre_1_1ModifiedLaguerre18.html#a56aec5b78020fcc1a3fda34b56cc0589',1,'Laguerre::ModifiedLaguerre18::operator()()']]],
+  ['original_1',['Original',['../classLaguerre_1_1Original.html',1,'Laguerre']]]
 ];
