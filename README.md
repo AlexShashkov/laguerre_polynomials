@@ -14,7 +14,7 @@ This project uses various Laguerre methods to solve polynomials.
   - `1`: 2013 modification
   - `2`: 2018 modification
 - `NUMBER`: The number type to use. Default is `double`.
-- `EXPONENT` and `MANTISSA`: Used for root generator with degree greater than 4. Default values are `2` and `4` respectively.
+- `EXPONENT` and `MANTISSA`: Used for root generator with degree greater than 4. Default values are `4` and `32` respectively.
 - `DEGREE`: The degree of the polynomials. Default is `10`.
 - `N_TESTS`: The number of tests to run. Default is `1000`.
 - `N_PAIRS_OF_COMPLEX_ROOTS`, `N_CLUSTERED_ROOTS`, `N_MULTIPLE_ROOTS`: Parameters for the generator. If all are zero, then the generator will create only simple roots. Default values are `0`, `DEGREE`, and `0` respectively.

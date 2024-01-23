@@ -10,8 +10,16 @@ SOLVER = 0
 NUMBER = double
 
 # Exponent and mantissa used for root generator with degree greater than 4
-EXPONENT = 2
-MANTISSA = 4
+# You can check recommended precision for ttmath on https://www.ttmath.org/online_calculator/
+# lets use big precision
+# FOR 64-bit 
+# mantissa = 2048 bits / 64 bits per word = 32 words
+# exponent = 256 bits / 64 bits per word = 4 words
+# FOR 32-bit
+# mantissa = 2048 bits / 32 bits per word = 64 words
+# exponent = 256 bits / 32 bits per word = 8 words
+EXPONENT = 4
+MANTISSA = 32
 
 # Degree of polynomials
 DEGREE = 10
