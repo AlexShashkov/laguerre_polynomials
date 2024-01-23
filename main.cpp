@@ -1,4 +1,4 @@
-#include "framework/framework.h"
+#include "headers/framework.h"
 
 #include "headers/Polynomial.h"
 #include "headers/PolynomialGenerator.h"
@@ -41,7 +41,7 @@
 
 
 #ifndef DEGREE
-    #define DEGREE 5 // polynomial degree
+    #define DEGREE 4 // polynomial degree
 #endif
 #ifndef N_TESTS
     #define N_TESTS 10000 // count of tests 
@@ -54,7 +54,7 @@
     #define N_CLUSTERED_ROOTS 0
 #endif
 #ifndef N_MULTIPLE_ROOTS
-    #define N_MULTIPLE_ROOTS DEGREE
+    #define N_MULTIPLE_ROOTS 0
 #endif
 // Used only for clustered roots
 #ifndef MAX_DISTANCE_BETWEEN_CLUSTERED
