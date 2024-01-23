@@ -85,7 +85,7 @@ public:
         
         auto diff = Laguerre::diff(poly, 1);
         std::vector<T> remainder;
-        Laguerre::getRemainder(poly, diff, remainder);
+        Laguerre::getRemainderFromBigNum(poly, diff, remainder);
 
         bool zeros = std::all_of(remainder.begin(), remainder.end(), [](int i) { return i==0; });
         if (zeros)
@@ -96,7 +96,7 @@ public:
         else
         {
             std::vector<T> remainder1;
-            Laguerre::getRemainder(diff, remainder, remainder1);
+            Laguerre::getRemainderFromBigNum(diff, remainder, remainder1);
             zeros = std::all_of(remainder1.begin(), remainder1.end(), [](int i) { return i==0; });
             if (zeros){
                 m1 = m - remainder.size() + 1;

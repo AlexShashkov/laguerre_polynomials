@@ -1,6 +1,15 @@
 #ifndef EXTENDEDFMA_H
 #define EXTENDEDFMA_H
 
+
+#ifndef EXPONENT
+    #define EXPONENT 4 // Exponent for big NUMBER notation
+#endif
+#ifndef MANTISSA
+    #define MANTISSA 32 // Mantissa for big NUMBER notation
+#endif
+
+#include "ttmath/ttmath.h" // Bignum C++ library by Tomasz Sowa
 #include <cmath>
 #include <numbers>
 #include <vector>
@@ -212,6 +221,44 @@ namespace Laguerre{
             dividend.pop_back();
         }
         remainder = dividend;
+	} 
+
+	/** \brief Divide vectors (coefficients of polynomials)
+	*/
+	template <typename T>
+	inline void getRemainderFromBigNum(vector<T> dividend, vector<T> divisor, vector<T>& remainder) {
+		if (divisor.size() > dividend.size()) {
+            throw std::invalid_argument("The degree of the divisor is greater than the dividend");
+        }
+
+		std::vector<ttmath::Big<EXPONENT, MANTISSA>> big_dividend, big_divisor, tmp;
+		for (const T num : dividend) {
+            ttmath::Big<EXPONENT, MANTISSA> bignum(num);
+            big_dividend.push_back(bignum);
+        }
+		for (const T num : divisor) {
+            ttmath::Big<EXPONENT, MANTISSA> bignum(num);
+            big_divisor.push_back(bignum);
+        }
+
+        while (big_dividend.size() >= big_divisor.size()) {
+            int degree_diff = big_dividend.size() - big_divisor.size();
+            ttmath::Big<EXPONENT, MANTISSA> coeff = big_dividend.back() / big_divisor.back();
+
+            // Update the temporary polynomial for subtraction
+            tmp = std::vector<ttmath::Big<EXPONENT, MANTISSA>>(degree_diff + 1, ttmath::Big<EXPONENT, MANTISSA>(0.0));
+            tmp.back() = coeff;
+
+            // Subtract and update the dividend
+            for (int i = 0; i <= big_divisor.size()-1; ++i) {
+                big_dividend[i + degree_diff] -= coeff * big_divisor[i];
+            }
+            big_dividend.pop_back();
+        }
+		remainder = std::vector<T>(big_dividend.size(), static_cast<T>(0));
+		for (int i=0; i < big_dividend.size(); ++i) {
+            remainder[i] = static_cast<T>(big_dividend[i].ToDouble());
+        }
 	} 
 }
 #endif

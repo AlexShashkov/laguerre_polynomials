@@ -41,7 +41,7 @@
 
 
 #ifndef DEGREE
-    #define DEGREE 4 // polynomial degree
+    #define DEGREE 5 // polynomial degree
 #endif
 #ifndef N_TESTS
     #define N_TESTS 10000 // count of tests 
@@ -51,7 +51,7 @@
     #define N_PAIRS_OF_COMPLEX_ROOTS 0
 #endif
 #ifndef N_CLUSTERED_ROOTS
-    #define N_CLUSTERED_ROOTS 0
+    #define N_CLUSTERED_ROOTS DEGREE
 #endif
 #ifndef N_MULTIPLE_ROOTS
     #define N_MULTIPLE_ROOTS 0
