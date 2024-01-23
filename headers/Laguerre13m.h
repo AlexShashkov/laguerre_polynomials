@@ -102,6 +102,11 @@ public:
                 m1 = m - remainder.size() + 1;
                 lambda = 2*m/m1;
             } 
+            // If we got further, then this is a wrong type of polynomial, thus
+            // this method may fail to converge
+            std::cout << "\nFAILED TO DETERMINE DEGREE OF THE ROOT! METHOD MAY FAIL TO CONVERGE!\n";
+            lambda = 2*m;
+            m1 = 1;
         }
 
         int j = m - 1;

@@ -20,7 +20,7 @@
     // 2 - 2018 mod
 #endif
 #ifndef NUMBER
-    #define NUMBER double
+    #define NUMBER float
 #endif
 
 // Exponent and mantissa for root generation
@@ -41,7 +41,7 @@
 
 
 #ifndef DEGREE
-    #define DEGREE 5 // polynomial degree
+    #define DEGREE 30 // polynomial degree
 #endif
 #ifndef N_TESTS
     #define N_TESTS 10000 // count of tests 
@@ -51,20 +51,20 @@
     #define N_PAIRS_OF_COMPLEX_ROOTS 0
 #endif
 #ifndef N_CLUSTERED_ROOTS
-    #define N_CLUSTERED_ROOTS DEGREE
+    #define N_CLUSTERED_ROOTS 0
 #endif
 #ifndef N_MULTIPLE_ROOTS
-    #define N_MULTIPLE_ROOTS 0
+    #define N_MULTIPLE_ROOTS DEGREE
 #endif
 // Used only for clustered roots
 #ifndef MAX_DISTANCE_BETWEEN_CLUSTERED
     #define MAX_DISTANCE_BETWEEN_CLUSTERED 1e-5
 #endif
 #ifndef ROOT_SWEEP_LOW
-    #define ROOT_SWEEP_LOW -1.0
+    #define ROOT_SWEEP_LOW 5.0
 #endif
 #ifndef ROOT_SWEEP_HIGH
-    #define ROOT_SWEEP_HIGH 1.0
+    #define ROOT_SWEEP_HIGH 10.0
 #endif
 #ifndef TRIES
     #define TRIES 80 // For how many iterations Laguerre should trying to solve polynomial

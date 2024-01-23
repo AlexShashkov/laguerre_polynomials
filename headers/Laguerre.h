@@ -59,8 +59,12 @@ private:
             abp = std::abs(gp);
             abm = std::abs(gm);
 
-            gp = abp < abm ? gm : gp;
+            // den (in this case gp) = max{|G + sq|, |G − sq|}
+            gp = abp < abm ? gm : gp; // |G + sq| < |G - sq| ? G − sq : G + sq
+            // std::cout << "!!! " << gp << "\n"; 
+            // dx = std::complex<T>(m, 0)/gp;
             dx = (std::max(abp, abm) > static_cast<T>(0.0)) ? (static_cast<T>(m) / gp) : std::polar(static_cast<T>(1) + abx, static_cast<T>(iter));
+            // std::cout << "??? " << dx << "\n";
             x1 = x - dx;
             if (x == x1)
                 return;  // Converged.
@@ -85,7 +89,7 @@ public:
      */
     void operator()(std::vector<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax=80) override{
         std::complex<T> x, _b, _c;
-        int m = poly.size() - 1;
+        int m = roots.size();
         // std::cout << "M SIZE " << m << "\n";
         std::vector<std::complex<T>> ad(m + 1);
 
@@ -102,7 +106,7 @@ public:
             ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
             laguer(ad_v, x, conv[j], itmax);
 
-            x.imag(std::abs(imag(x)) <= std::abs(real(x)) * eps ? static_cast<T>(0) : x.imag());
+            x.imag(std::fabs(imag(x)) <= std::fabs(real(x)) * eps ? static_cast<T>(0) : x.imag());
             roots[j] = x;
             _b = ad[j + 1];
             for (int jj = j; jj >= 0; jj--) {
@@ -117,7 +121,7 @@ public:
         // Polishing
         if (anycomplex(roots)) {
             std::cout << "has complex!\n";
-            return;
+            // return;
             int i;
             for (int j = 1; j < m; ++j) {
                 x = roots[j];
