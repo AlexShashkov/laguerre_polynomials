@@ -14,7 +14,7 @@
 #define PR_2_INFINITE_ROOTS          -3
 
 #ifndef SOLVER
-    #define SOLVER 0
+    #define SOLVER 1
     // 0 - Original
     // 1 - 2013 mod
     // 2 - 2018 mod
@@ -22,14 +22,26 @@
 #ifndef NUMBER
     #define NUMBER double
 #endif
+
+// Exponent and mantissa for root generation
+// You can check recommended precision for ttmath on https://www.ttmath.org/online_calculator/
+// lets use big precision
+// FOR 64-bit 
+// mantissa = 2048 bits / 64 bits per word = 32 words
+// exponent = 256 bits / 64 bits per word = 4 words
+// FOR 32-bit
+// mantissa = 2048 bits / 32 bits per word = 64 words
+// exponent = 256 bits / 32 bits per word = 8 words
 #ifndef EXPONENT
-    #define EXPONENT 2 // Exponent for big NUMBER notation
+    #define EXPONENT 4 // Exponent for big NUMBER notation
 #endif
 #ifndef MANTISSA
-    #define MANTISSA 4 // Mantissa for big NUMBER notation
+    #define MANTISSA 32 // Mantissa for big NUMBER notation
 #endif
+
+
 #ifndef DEGREE
-    #define DEGREE 10 // polynomial degree
+    #define DEGREE 5 // polynomial degree
 #endif
 #ifndef N_TESTS
     #define N_TESTS 10000 // count of tests 
@@ -39,10 +51,10 @@
     #define N_PAIRS_OF_COMPLEX_ROOTS 0
 #endif
 #ifndef N_CLUSTERED_ROOTS
-    #define N_CLUSTERED_ROOTS DEGREE
+    #define N_CLUSTERED_ROOTS 0
 #endif
 #ifndef N_MULTIPLE_ROOTS
-    #define N_MULTIPLE_ROOTS 0
+    #define N_MULTIPLE_ROOTS DEGREE
 #endif
 // Used only for clustered roots
 #ifndef MAX_DISTANCE_BETWEEN_CLUSTERED
