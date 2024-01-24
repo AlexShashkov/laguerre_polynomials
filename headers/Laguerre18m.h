@@ -48,10 +48,19 @@ private:
          * \return T cross product between two points.
      */
     inline T cross(std::vector<int>& h, std::vector<T>& a, int c, int i) {
-        // determinant
-        int h_c = h[c];
-        int h_c1 = h[c-1];
+
+        int h_c = h[c]+1;
+        int h_c1 = h[c-1]+1;
         T a_hc = a[h_c1];
+        std::cout<< "i\t" << i << "\tc\t"<<c<<"\n";
+        Laguerre::printVec(h);
+        Laguerre::printVec(a);
+        std::cout<<"Cross\n";
+        std::cout<<"B.x\t"<< i << "\tB.y\t"<<a[i]<<"\n"; // должна быть т. O
+        std::cout<<"A.x\t" << h_c << "\tA.y\t" << a[h_c] << "\n";
+        std::cout<<"O.x\t" << h_c1 << "\tO.y\t"<< a_hc<<"\n"; // должна быть т. А
+
+        //return fms(static_cast<T>(h_c1 - hc), , a_hc, )
         return fms(a[i]-a_hc, static_cast<T>(h_c-h_c1), a[h_c]-a_hc, static_cast<T>(i-h_c1));
     }
 
@@ -63,14 +72,14 @@ private:
          * \param c Number of points in the convex hull.
      */
     inline void conv_hull(int n, std::vector<T>& a, std::vector<int>& h, int& c) {
-        c = 0;
+        c = -1;
 
         for (int i = n; i >= 0; --i) {
-            while (c >= 2 && cross(h, a, c, i) < eps)
-                --c;
+            while (c >= 2 && cross(h, a, c, i+1) < eps)
+                c-=1;
             std::cout << "i=" << i << ", c=" << c << "\n"; 
+            c+=1;
             h[c] = i;
-            ++c;
             // ++c;
         }
     }
@@ -86,7 +95,7 @@ private:
     inline void estimates(vector<T>& alpha, int deg, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int& nz) {
         int c, i, j, k, nzeros;
         T a1, a2, ang, r, th;
-        std::vector<int> h(deg + 1);
+        std::vector<int> h(deg+1);
         std::vector<T> a(deg + 1);
 
         // Andrews starting position
@@ -94,15 +103,19 @@ private:
             a[i] = log(alpha[i]);
             a[i] = std::isfinite(a[i]) ? a[i] : -big;
         }
-        conv_hull(deg, a, h, c);
+        Laguerre::printVec(a);
+        conv_hull(deg+1, a, h, c);
+        Laguerre::printVec(h);
         k = 0;
         th = pi2/static_cast<T>(deg);
-
+        Laguerre::printVec(h);
+        for (int i = 0; i < h.size(); ++i)
+            std::cout<< h[i] << "\n";
         // Initial Estimates
-        for (i = c - 2; i >= 0; --i) {
+        for (i =c-1; i >= 0; --i) {
             nzeros = h[i] - h[i + 1];
             if(nzeros == static_cast<T>(0)) throw std::invalid_argument("Convex hull values cant be zero.");
-            if(alpha[h[i]] == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
+            //if(alpha[h[i]] == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
             T one_div_nzeros = static_cast<T>(1.0 / nzeros);
             a1 = pow(alpha[h[i + 1]], one_div_nzeros);
             a2 = pow(alpha[h[i]], one_div_nzeros);
@@ -168,19 +181,18 @@ private:
         b = 0;
         c = 0;
         berr = alpha[0];
-
-        for (k = 1; k <= deg; ++k) {
+        for (k = 1; k < deg + 1; ++k) {
             c = fma(zz, c, b);
             b = fma(zz, b, a);
             a = fma(zz, a, p[k]);
             berr = fma(rr, berr, alpha[k]);
         }
+
         if(a == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
 
         // Laguerre correction/ backward error and condition
-        bool condition = abs(a) > (eps * berr);
+        bool condition = abs(a) > eps * berr;
         b = condition ? b/a : b;
-        // https://www.wolframalpha.com/input?i=z%5E2*%28-2*z*b%2Bd%29+-+%28z%5E2*z%5E2%29*%282*c%2Fa-b%5E2%29
         c = condition ? fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b)) : c;
         b = condition ? fms(zz, complex<T>(deg, 0) , zz2, b) : b;
 
@@ -229,7 +241,6 @@ private:
         b = 0;
         c = 0;
         berr = alpha[deg];
-
         for (k = deg - 1; k >= 0; --k) {
             c = fma(z, c, b);
             b = fma(z, b, a);
@@ -242,6 +253,7 @@ private:
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > eps * berr;
         b = condition ? b/a : b;
+        
         // b^2 + (-{2,0}*c/a)+{2,0}*c/a+(-{2,0}*c/a)
         c = condition ? fms(b, b, std::complex<T>(2, 0), c/a) : c;
 
@@ -281,7 +293,7 @@ private:
         std::complex<T> t;
 
         // Aberth correction terms
-        for (int k = 0; k < j; ++k) {
+        for (int k = 0; k < j - 1; ++k) {
             t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
@@ -292,11 +304,18 @@ private:
             b -= t;
             c = fma(-t, t, c);
         }
-
         // Laguerre correction
         complex<T> t_arg = fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  complex<T>(static_cast<T>(deg - 1), 0), b*b);
-        // if(t_arg.imag() < 0) throw std::invalid_argument("Imaginary part of complex number cannot be less than zero if we want to use it in sqrt");
+        //if(t_arg.imag() < 0) throw std::invalid_argument("Imaginary part of complex number cannot be less than zero if we want to use it in sqrt");
         t = sqrt(t_arg);
+
+        /*
+        t = sqrt(
+            static_cast<T>(deg - 1) * (
+                static_cast<T>(deg) * c - pow(b, 2)
+            )
+        );
+        */
         c = b + t;
         b -= t;
         // std::complex<T> degc(deg, 0);
@@ -346,17 +365,20 @@ public:
         for (j = 0; j < deg; ++j) {
             if (conv[j] == 0) {
                 z = roots[j];
-                r = abs(z);
-                // 
+                r = fabs(z);
+                // ;
                 if (r > 1.0)
+                {
                     rcheck_lag(poly, alpha, deg, b, c, z, r, conv[j], berr[j], cond[j]);
+                    std::cout<<"rcheck\n";
+                }
                 else
+                {
                     check_lag(poly, alpha, deg, b, c, z, r, conv[j], berr[j], cond[j]);
-
+                }
                 if (conv[j] == 0) {
                     modify_lag(deg, b, c, z, j, roots);
                     roots[j] -= c;
-                    std::cout << "ROOT #" << j << "=" << roots[j] << "\n";
                 } 
                 else {
                     nz++;
@@ -408,8 +430,12 @@ public:
                 }
             }
         }
+        /*
+    std::cout<<"\nROOTS\n";
+    for (auto & el : roots){
+        std::cout<<el <<" \n";
+        } */
     }
-
 };
 
 };
