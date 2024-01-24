@@ -30,13 +30,22 @@ private:
     static constexpr T pi2   = PI*static_cast<T>(2);
 
 
+    /*
+    coord2_t cross(const Point &O, const Point &A, const Point &B)
+    {
+        return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
+        x - index, y - log(index)
+    }
+    */
+
+
     /**
-     * \brief Calculate the determinant between two points.
+     * \brief Calculate the cross product between two points.
          * \param h Vector of integers representing points.
          * \param a Vector of Ts representing points' coordinates.
          * \param c Index for the current point.
          * \param i Index for the next point.
-         * \return T Determinant between two points.
+         * \return T cross product between two points.
      */
     inline T cross(std::vector<int>& h, std::vector<T>& a, int c, int i) {
         // determinant
@@ -47,7 +56,7 @@ private:
     }
 
     /**
-     * \brief Calculate the convex hull of a set of points. Dont forget to calculate Andrews alghoritm to vector a!
+     * \brief Calculate the convex hull of a set of points. 
          * \param n Number of points.
          * \param a Vector of templated type T representing points coordinates.
          * \param h Vector to store the convex hull.
@@ -56,11 +65,13 @@ private:
     inline void conv_hull(int n, std::vector<T>& a, std::vector<int>& h, int& c) {
         c = 0;
 
-        for (int i = n - 1; i >= 0; --i) {
+        for (int i = n; i >= 0; --i) {
             while (c >= 2 && cross(h, a, c, i) < eps)
                 --c;
-            ++c;
+            std::cout << "i=" << i << ", c=" << c << "\n"; 
             h[c] = i;
+            ++c;
+            // ++c;
         }
     }
 
@@ -79,27 +90,22 @@ private:
         std::vector<T> a(deg + 1);
 
         // Andrews starting position
-        for (i = 0; i < deg + 1; ++i)
-            a[i] = alpha[i] > 0 ? log(alpha[i]) : -big;
-        conv_hull(deg + 1, a, h, c);
-
+        for (i = 0; i <= deg; ++i){
+            a[i] = log(alpha[i]);
+            a[i] = std::isfinite(a[i]) ? a[i] : -big;
+        }
+        conv_hull(deg, a, h, c);
         k = 0;
         th = pi2/static_cast<T>(deg);
 
         // Initial Estimates
-        for (i = c - 1; i >= 0; --i) {
+        for (i = c - 2; i >= 0; --i) {
             nzeros = h[i] - h[i + 1];
+            if(nzeros == static_cast<T>(0)) throw std::invalid_argument("Convex hull values cant be zero.");
+            if(alpha[h[i]] == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
             T one_div_nzeros = static_cast<T>(1.0 / nzeros);
             a1 = pow(alpha[h[i + 1]], one_div_nzeros);
             a2 = pow(alpha[h[i]], one_div_nzeros);
-
-            // Help :)
-            /*
-            std::cout << "\nalpha[h[i]]: " << alpha[h[i]];
-            std::cout << "\nnzeros: " << nzeros;
-            std::cout << "\nonedivzeros: " << one_div_nzeros;
-            std::cout << "\na2: " << a2 << "\n";
-            */
 
             if (a1 <= a2 * small){
                 // r is too small
@@ -123,7 +129,7 @@ private:
                     // r is ok :big-finger-emoji:
                     r = a1 / a2;
                 }
-                ang = pi2 / static_cast<T>(nzeros);
+                ang = pi2*one_div_nzeros;
                 for (j = 0; j < nzeros; ++j){
                     T arg = fma(ang, j, sigma_thh);
                     roots[k + j] = r * std::complex<T>(cos(arg), sin(arg));
@@ -131,6 +137,7 @@ private:
             }
             k += nzeros;
         }
+        // auto num = 0;
     }
 
 
@@ -147,6 +154,8 @@ private:
          * \param cond Output condition number.
      */
     inline void rcheck_lag(std::vector<T>& p, vector<T>& alpha, int deg, complex<T>& b, complex<T>& c, complex<T> z, T r, int& conv, T& berr, T& cond) {
+        // assert(z != complex(0, 0), "correction values cannot be zero!");
+        // assert(r != static_cast<T>(0), "correction values cannot be zero!");
         int k;
         T rr;
         complex<T> a, zz, zz2;
@@ -166,6 +175,7 @@ private:
             a = fma(zz, a, p[k]);
             berr = fma(rr, berr, alpha[k]);
         }
+        if(a == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
 
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > eps * berr;
@@ -226,6 +236,8 @@ private:
             berr = fma(r, berr, alpha[k]);
         }
 
+        
+
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > eps * berr;
         b = condition ? b/a : b;
@@ -281,7 +293,16 @@ private:
         }
 
         // Laguerre correction
-        t = sqrt(fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  b, b));
+        complex<T> t_arg = fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  complex<T>(static_cast<T>(deg - 1), 0), b*b);
+        if(t_arg.imag() < 0) throw std::invalid_argument("Imaginary part of complex number cannot be less than zero if we want to use it in sqrt");
+        t = sqrt(t_arg);
+        /*
+        t = sqrt(
+            static_cast<T>(deg - 1) * (
+                static_cast<T>(deg) * c - pow(b, 2)
+            )
+        );
+        */
         c = b + t;
         b -= t;
         // std::complex<T> degc(deg, 0);
