@@ -169,7 +169,7 @@ private:
         c = 0;
         berr = alpha[0];
 
-        for (k = 1; k < deg + 1; ++k) {
+        for (k = 1; k <= deg; ++k) {
             c = fma(zz, c, b);
             b = fma(zz, b, a);
             a = fma(zz, a, p[k]);
@@ -178,8 +178,9 @@ private:
         if(a == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
 
         // Laguerre correction/ backward error and condition
-        bool condition = abs(a) > eps * berr;
+        bool condition = abs(a) > (eps * berr);
         b = condition ? b/a : b;
+        // https://www.wolframalpha.com/input?i=z%5E2*%28-2*z*b%2Bd%29+-+%28z%5E2*z%5E2%29*%282*c%2Fa-b%5E2%29
         c = condition ? fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b)) : c;
         b = condition ? fms(zz, complex<T>(deg, 0) , zz2, b) : b;
 
@@ -280,7 +281,7 @@ private:
         std::complex<T> t;
 
         // Aberth correction terms
-        for (int k = 0; k < j - 1; ++k) {
+        for (int k = 0; k < j; ++k) {
             t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
@@ -294,15 +295,8 @@ private:
 
         // Laguerre correction
         complex<T> t_arg = fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  complex<T>(static_cast<T>(deg - 1), 0), b*b);
-        if(t_arg.imag() < 0) throw std::invalid_argument("Imaginary part of complex number cannot be less than zero if we want to use it in sqrt");
+        // if(t_arg.imag() < 0) throw std::invalid_argument("Imaginary part of complex number cannot be less than zero if we want to use it in sqrt");
         t = sqrt(t_arg);
-        /*
-        t = sqrt(
-            static_cast<T>(deg - 1) * (
-                static_cast<T>(deg) * c - pow(b, 2)
-            )
-        );
-        */
         c = b + t;
         b -= t;
         // std::complex<T> degc(deg, 0);
@@ -352,7 +346,7 @@ public:
         for (j = 0; j < deg; ++j) {
             if (conv[j] == 0) {
                 z = roots[j];
-                r = fabs(z);
+                r = abs(z);
                 // 
                 if (r > 1.0)
                     rcheck_lag(poly, alpha, deg, b, c, z, r, conv[j], berr[j], cond[j]);
@@ -362,6 +356,7 @@ public:
                 if (conv[j] == 0) {
                     modify_lag(deg, b, c, z, j, roots);
                     roots[j] -= c;
+                    std::cout << "ROOT #" << j << "=" << roots[j] << "\n";
                 } 
                 else {
                     nz++;

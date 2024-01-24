@@ -331,25 +331,7 @@ switch (P)
     coefficients[0]=rnr(rng); return 0;
   case 1:
     coefficients[0]=-(roots[0]=rnr(rng)); return 1;
-  case 2:
-    {
-     return generate_polynomial_2(N_pairs_of_complex_roots, N_clustered_roots, N_multiple_roots, max_distance_between_clustered_roots, 
-        root_sweep_low, root_sweep_high, roots, coefficients);
-    }
-  case 3:
-    {
-     return generate_polynomial_3(N_pairs_of_complex_roots, N_clustered_roots, N_multiple_roots, max_distance_between_clustered_roots, 
-        root_sweep_low, root_sweep_high, roots, coefficients);
-    } // P=3
-  case 4: // DEN DEBUG: check it carefully and perform calculation of coefficients in long double
-    {
-     return generate_polynomial_4(N_pairs_of_complex_roots, N_clustered_roots, N_multiple_roots, max_distance_between_clustered_roots, 
-        root_sweep_low, root_sweep_high, roots, coefficients);
-    } // P=4
   default:
-  // More than 4 roots, no general formula.
-    {
-
         int crnt_idx=0;
         int i = 0;
 
@@ -439,7 +421,6 @@ switch (P)
         }
         std::cout << "\n";
         return P - (N_pairs_of_complex_roots*2);
-    }
   }
 return -1; // unreachable, means a flaw in control here
 }
