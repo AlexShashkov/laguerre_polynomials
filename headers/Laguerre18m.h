@@ -38,20 +38,20 @@ private:
     }
     */
 
+inline T cross(std::vector<int>& h, std::vector<T>& a, int c, int i) {
 
-    /**
-     * \brief Calculate the cross product between two points.
-         * \param h Vector of integers representing points.
-         * \param a Vector of Ts representing points' coordinates.
-         * \param c Index for the current point.
-         * \param i Index for the next point.
-         * \return T cross product between two points.
-     */
-    inline T cross(std::vector<int>& h, std::vector<T>& a, int c, int i) {
-        // determinant
-        int h_c = h[c];
-        int h_c1 = h[c-1];
+        int h_c = h[c]+1;
+        int h_c1 = h[c-1]+1;
         T a_hc = a[h_c1];
+        std::cout<< "i\t" << i << "\tc\t"<<c<<"\n";
+        Laguerre::printVec(h);
+        Laguerre::printVec(a);
+        std::cout<<"Cross\n";
+        std::cout<<"B.x\t"<< i << "\tB.y\t"<<a[i]<<"\n"; // должна быть т. O
+        std::cout<<"A.x\t" << h_c << "\tA.y\t" << a[h_c] << "\n";
+        std::cout<<"O.x\t" << h_c1 << "\tO.y\t"<< a_hc<<"\n"; // должна быть т. А
+
+        //return fms(static_cast<T>(h_c1 - hc), , a_hc, )
         return fms(a[i]-a_hc, static_cast<T>(h_c-h_c1), a[h_c]-a_hc, static_cast<T>(i-h_c1));
     }
 
@@ -63,14 +63,14 @@ private:
          * \param c Number of points in the convex hull.
      */
     inline void conv_hull(int n, std::vector<T>& a, std::vector<int>& h, int& c) {
-        c = 0;
+        c = -1;
 
         for (int i = n; i >= 0; --i) {
-            while (c >= 2 && cross(h, a, c, i) < eps)
-                --c;
+            while (c >= 2 && cross(h, a, c, i+1) < eps)
+                c-=1;
             std::cout << "i=" << i << ", c=" << c << "\n"; 
+            c+=1;
             h[c] = i;
-            ++c;
             // ++c;
         }
     }
@@ -86,7 +86,7 @@ private:
     inline void estimates(vector<T>& alpha, int deg, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int& nz) {
         int c, i, j, k, nzeros;
         T a1, a2, ang, r, th;
-        std::vector<int> h(deg + 1);
+        std::vector<int> h(deg+1);
         std::vector<T> a(deg + 1);
 
         // Andrews starting position
@@ -94,15 +94,20 @@ private:
             a[i] = log(alpha[i]);
             a[i] = std::isfinite(a[i]) ? a[i] : -big;
         }
-        conv_hull(deg, a, h, c);
+        Laguerre::printVec(a);
+        conv_hull(deg+1, a, h, c);
+        Laguerre::printVec(h);
         k = 0;
         th = pi2/static_cast<T>(deg);
-
+        Laguerre::printVec(h);
+        for (int i = 0; i < h.size(); ++i)
+            std::cout<< h[i] << "\n";
         // Initial Estimates
-        for (i = c - 2; i >= 0; --i) {
+        for (i =c-1; i >= 0; --i) {
             nzeros = h[i] - h[i + 1];
+            std::cout<<"nzeros"<<nzeros <<"\n";
             if(nzeros == static_cast<T>(0)) throw std::invalid_argument("Convex hull values cant be zero.");
-            if(alpha[h[i]] == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
+            //if(alpha[h[i]] == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
             T one_div_nzeros = static_cast<T>(1.0 / nzeros);
             a1 = pow(alpha[h[i + 1]], one_div_nzeros);
             a2 = pow(alpha[h[i]], one_div_nzeros);
