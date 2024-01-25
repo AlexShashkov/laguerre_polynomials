@@ -427,8 +427,24 @@ public:
                 break;
             }
         }
-        if(nanpos >= 0) return;
+        if(nanpos == -1) return;
         roots.erase(roots.begin() + nanpos);
+        std::vector<std::complex<T>> ad(deg + 1);
+        // Copy of coefficients for successive deflation.
+        for (int i = 0; i <= deg; i++)
+            ad[i] = poly[i];
+        std::complex<T> x, _b, _c;
+        for (int j = deg - 1; j > 0; --j) {
+            x = roots[j-1];
+            _b = ad[j + 1];
+            for (int jj = j; jj >= 0; jj--) {
+                _c = ad[jj];
+                ad[jj] = _b;
+                _b = fma(x, _b, _c);
+            }
+        }
+        roots.push_back(-ad[0]);
+        conv[nanpos] = 1;
     }
 
 };
