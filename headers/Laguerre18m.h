@@ -179,13 +179,14 @@ private:
 
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > (eps * berr);
+        std::cout << "berr is " << berr << "\n";
         b = condition ? b/a : b;
         // https://www.wolframalpha.com/input?i=z%5E2*%28-2*z*b%2Bd%29+-+%28z%5E2*z%5E2%29*%282*c%2Fa-b%5E2%29
         c = condition ? fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b)) : c;
         b = condition ? fms(zz, complex<T>(deg, 0) , zz2, b) : b;
 
-        cond = (!condition)*(berr / fabs(fms(complex<T>(deg, 0),  a, zz, b))) + (condition)*cond;
-        berr = (!condition)*(fabs(a) / berr) + (condition)*berr;
+        cond = (!condition)*(berr / abs(fms(complex<T>(deg, 0),  a, zz, b))) + (condition)*cond;
+        berr = (!condition)*(abs(a) / berr) + (condition)*berr;
 
         conv = condition ? 
             (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
@@ -237,23 +238,21 @@ private:
             berr = fma(r, berr, alpha[k]);
         }
 
-        
-
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > eps * berr;
         b = condition ? b/a : b;
         // b^2 + (-{2,0}*c/a)+{2,0}*c/a+(-{2,0}*c/a)
         c = condition ? fms(b, b, std::complex<T>(2, 0), c/a) : c;
 
-        cond = (!condition)*(berr / (r * fabs(b))) + (condition)*cond;
-        berr = (!condition)*(fabs(a) / berr) + (condition)*berr;
+        cond = (!condition)*(berr / (r * abs(b))) + (condition)*cond;
+        berr = (!condition)*(abs(a) / berr) + (condition)*berr;
 
         conv = condition ? 
-        (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
-        : 1;
+            (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
+            : 1;
 
         /*
-        if (abs(a) > eps * berr) {
+        if (fabs(a) > eps * berr) {
             b = b / a;
             c = fms(b, b, std::complex<T>(2, 0), c/a);
 
@@ -280,27 +279,32 @@ private:
     void modify_lag(int deg, std::complex<T>& b, std::complex<T>& c, std::complex<T> z, int j, std::vector<std::complex<T>>& roots) {
         std::complex<T> t;
 
+        std::cout << "Entered modify lag c=" << c << "\n";
         // Aberth correction terms
         for (int k = 0; k < j; ++k) {
             t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
+            std::cout << "Aberth k-1 c=" << c << "\n";
         }
         // k != j
         for (int k = j + 1; k <= deg; ++k) {
             t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
+            std::cout << "Aberth k+1 c=" << c << "\n";
         }
 
         // Laguerre correction
         complex<T> t_arg = fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  complex<T>(static_cast<T>(deg - 1), 0), b*b);
-        // if(t_arg.imag() < 0) throw std::invalid_argument("Imaginary part of complex number cannot be less than zero if we want to use it in sqrt");
+        // TODO: ADD ARGUMENT CHECK
         t = sqrt(t_arg);
         c = b + t;
+        std::cout << "c = b+t c=" << c << "\n";
         b -= t;
         // std::complex<T> degc(deg, 0);
         c = abs(b) > abs(c) ? static_cast<T>(deg) / b : static_cast<T>(deg) / c;
+        std::cout << "Exiting c=" << c << "\n";
     }
 
 public:
@@ -342,12 +346,15 @@ public:
             alpha[i] *= fma(static_cast<T>(3.8), static_cast<T>(i), static_cast<T>(1));
         // Main loop
         
-        for (i = 1; i <= itmax; ++i)
+        for (i = 1; i <= itmax; ++i){
+        if (nz == deg) break;
         for (j = 0; j < deg; ++j) {
             if (conv[j] == 0) {
                 z = roots[j];
                 r = abs(z);
                 // 
+                std::cout << "\nr is " << r << "\n";
+                std::cout << "z is " << z << "\n";
                 if (r > 1.0)
                     rcheck_lag(poly, alpha, deg, b, c, z, r, conv[j], berr[j], cond[j]);
                 else
@@ -385,8 +392,8 @@ public:
                                         berr[j] = fma(r, berr[j], alpha[i]);
                                     }
 
-                                    cond[j] = berr[j] / fabs(fms(complex<T>(deg, 0), b, z, c));
-                                    berr[j] = fabs(b) / berr[j];
+                                    cond[j] = berr[j] / abs(fms(complex<T>(deg, 0), b, z, c));
+                                    berr[j] = abs(b) / berr[j];
                                 }
                                 else {
                                     c = 0.0;
@@ -399,15 +406,29 @@ public:
                                         berr[j] = fma(r, berr[j], alpha[i]);
                                     }
 
-                                    cond[j] = berr[j] / (r * fabs(c));
-                                    berr[j] = fabs(b) / berr[j];
+                                    cond[j] = berr[j] / (r * abs(c));
+                                    berr[j] = abs(b) / berr[j];
                                 }
                             }
                         }
+                        break;
                     }
                 }
             }
         }
+        }
+        // FIXME
+        // If we got here, then one of the roots converged to nan.
+        // We need deeper analysis on this strange case
+        int nanpos = -1;
+        for(i=0; i<deg; ++i){
+            if(complexnotfinite(roots[i], big)){
+                nanpos = i;
+                break;
+            }
+        }
+        if(nanpos >= 0) return;
+        roots.erase(roots.begin() + index);
     }
 
 };
