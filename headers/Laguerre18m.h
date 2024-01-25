@@ -68,7 +68,7 @@ private:
         for (int i = n; i >= 0; --i) {
             while (c >= 2 && cross(h, a, c, i) < eps)
                 --c;
-            std::cout << "i=" << i << ", c=" << c << "\n"; 
+            // std::cout << "i=" << i << ", c=" << c << "\n"; 
             h[c] = i;
             ++c;
             // ++c;
@@ -127,6 +127,7 @@ private:
                 } 
                 else{
                     // r is ok :big-finger-emoji:
+                    if (a2 == static_cast<T>(0)) throw std::invalid_argument("Both correction values equal to zero.");
                     r = a1 / a2;
                 }
                 ang = pi2*one_div_nzeros;
@@ -154,8 +155,8 @@ private:
          * \param cond Output condition number.
      */
     inline void rcheck_lag(std::vector<T>& p, vector<T>& alpha, int deg, complex<T>& b, complex<T>& c, complex<T> z, T r, int& conv, T& berr, T& cond) {
-        // assert(z != complex(0, 0), "correction values cannot be zero!");
-        // assert(r != static_cast<T>(0), "correction values cannot be zero!");
+        if (z == complex<T>(0, 0)) throw std::invalid_argument("correction absolute value cannot be zero!");
+        if (r == static_cast<T>(0)) throw std::invalid_argument("correction value cannot be zero!");
         int k;
         T rr;
         complex<T> a, zz, zz2;
@@ -179,7 +180,7 @@ private:
 
         // Laguerre correction/ backward error and condition
         bool condition = abs(a) > (eps * berr);
-        std::cout << "berr is " << berr << "\n";
+        // std::cout << "berr is " << berr << "\n";
         b = condition ? b/a : b;
         // https://www.wolframalpha.com/input?i=z%5E2*%28-2*z*b%2Bd%29+-+%28z%5E2*z%5E2%29*%282*c%2Fa-b%5E2%29
         c = condition ? fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b)) : c;
@@ -279,20 +280,20 @@ private:
     void modify_lag(int deg, std::complex<T>& b, std::complex<T>& c, std::complex<T> z, int j, std::vector<std::complex<T>>& roots) {
         std::complex<T> t;
 
-        std::cout << "Entered modify lag c=" << c << "\n";
+        // std::cout << "Entered modify lag c=" << c << "\n";
         // Aberth correction terms
         for (int k = 0; k < j; ++k) {
             t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
-            std::cout << "Aberth k-1 c=" << c << "\n";
+            // std::cout << "Aberth k-1 c=" << c << "\n";
         }
         // k != j
         for (int k = j + 1; k <= deg; ++k) {
             t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
-            std::cout << "Aberth k+1 c=" << c << "\n";
+            // std::cout << "Aberth k+1 c=" << c << "\n";
         }
 
         // Laguerre correction
@@ -300,11 +301,11 @@ private:
         if(complexnotfinite(t_arg, big)) throw std::invalid_argument("Sqrt of not finite number is undefined");
         t = sqrt(t_arg);
         c = b + t;
-        std::cout << "c = b+t c=" << c << "\n";
+        // std::cout << "c = b+t c=" << c << "\n";
         b -= t;
         // std::complex<T> degc(deg, 0);
         c = abs(b) > abs(c) ? static_cast<T>(deg) / b : static_cast<T>(deg) / c;
-        std::cout << "Exiting c=" << c << "\n";
+        // std::cout << "Exiting c=" << c << "\n";
     }
 
 public:
@@ -353,8 +354,8 @@ public:
                 z = roots[j];
                 r = abs(z);
                 // 
-                std::cout << "\nr is " << r << "\n";
-                std::cout << "z is " << z << "\n";
+                // std::cout << "\nr is " << r << "\n";
+                // std::cout << "z is " << z << "\n";
                 if (r > 1.0)
                     rcheck_lag(poly, alpha, deg, b, c, z, r, conv[j], berr[j], cond[j]);
                 else
@@ -363,13 +364,13 @@ public:
                 if (conv[j] == 0) {
                     modify_lag(deg, b, c, z, j, roots);
                     roots[j] -= c;
-                    std::cout << "ROOT #" << j << "=" << roots[j] << "\n";
+                    // std::cout << "ROOT #" << j << "=" << roots[j] << "\n";
                 } 
                 else {
                     nz++;
                     if (nz == deg){
                         if (*std::min_element(conv.begin(), conv.end()) == 1)
-                            return;
+                            break;
                         // Display a warning
                         std::cout << "Some root approximations did not converge or experienced overflow/underflow.\n";
 
@@ -427,8 +428,24 @@ public:
                 break;
             }
         }
-        if(nanpos >= 0) return;
+        if(nanpos == -1) return;
         roots.erase(roots.begin() + nanpos);
+        std::vector<std::complex<T>> ad(deg + 1);
+        // Copy of coefficients for successive deflation.
+        for (int i = 0; i <= deg; i++)
+            ad[i] = poly[i];
+        std::complex<T> x, _b, _c;
+        for (int j = deg - 1; j > 0; --j) {
+            x = roots[j-1];
+            _b = ad[j + 1];
+            for (int jj = j; jj >= 0; jj--) {
+                _c = ad[jj];
+                ad[jj] = _b;
+                _b = fma(x, _b, _c);
+            }
+        }
+        roots.push_back(-ad[0]);
+        conv[nanpos] = 1;
     }
 
 };
