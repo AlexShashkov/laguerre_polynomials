@@ -297,7 +297,7 @@ private:
 
         // Laguerre correction
         complex<T> t_arg = fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  complex<T>(static_cast<T>(deg - 1), 0), b*b);
-        // TODO: ADD ARGUMENT CHECK
+        if(complexnotfinite(t_arg, big)) throw std::invalid_argument("Sqrt of not finite number is undefined");
         t = sqrt(t_arg);
         c = b + t;
         std::cout << "c = b+t c=" << c << "\n";
@@ -428,7 +428,7 @@ public:
             }
         }
         if(nanpos >= 0) return;
-        roots.erase(roots.begin() + index);
+        roots.erase(roots.begin() + nanpos);
     }
 
 };
