@@ -29,16 +29,6 @@ private:
     static constexpr T PI    = std::numbers::pi_v<T>;
     static constexpr T pi2   = PI*static_cast<T>(2);
 
-
-    /*
-    coord2_t cross(const Point &O, const Point &A, const Point &B)
-    {
-        return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
-        x - index, y - log(index)
-    }
-    */
-
-
     /**
      * \brief Calculate the cross product between two points.
          * \param h Vector of integers representing points.
@@ -289,7 +279,7 @@ private:
             // std::cout << "Aberth k-1 c=" << c << "\n";
         }
         // k != j
-        for (int k = j + 1; k <= deg; ++k) {
+        for (int k = j + 1; k < deg; ++k) {
             t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
             c = fma(-t, t, c);
@@ -418,9 +408,6 @@ public:
             }
         }
         }
-        // FIXME
-        // If we got here, then one of the roots converged to nan.
-        // We need deeper analysis on this strange case
         int nanpos = -1;
         for(i=0; i<deg; ++i){
             if(complexnotfinite(roots[i], big)){
@@ -429,23 +416,10 @@ public:
             }
         }
         if(nanpos == -1) return;
-        roots.erase(roots.begin() + nanpos);
-        std::vector<std::complex<T>> ad(deg + 1);
-        // Copy of coefficients for successive deflation.
-        for (int i = 0; i <= deg; i++)
-            ad[i] = poly[i];
-        std::complex<T> x, _b, _c;
-        for (int j = deg - 1; j > 0; --j) {
-            x = roots[j-1];
-            _b = ad[j + 1];
-            for (int jj = j; jj >= 0; jj--) {
-                _c = ad[jj];
-                ad[jj] = _b;
-                _b = fma(x, _b, _c);
-            }
+        else{
+            std::cout << "One of the roots had overflow at position " << nanpos << "\n";
+            return;
         }
-        roots.push_back(-ad[0]);
-        conv[nanpos] = 1;
     }
 
 };

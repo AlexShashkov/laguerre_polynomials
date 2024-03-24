@@ -2,9 +2,8 @@
 #include "headers/PolynomialGenerator.h"
 
 #include "headers/Laguerre18m.h"
-#include "headers/L18_or.h"
 #include "headers/Laguerre.h"
-#include "framework/framework.h"
+#include "headers/framework.h"
 
 #define number double
 
@@ -15,8 +14,8 @@ int main(){
     try{
         std::cout << "ORIGINAL LAGUERRE:\n";
         // Polynomial<number> genRoots = Laguerre::Generator<number>::createFromRoots(0.666082, 0.666085, 0.666077);
-        Polynomial<number> genRoots = Laguerre::Generator<number>::createFromRoots(-0.663831, -0.663821, -0.663818);
-        std::vector<number> coeffs = {0.292521, 1.32198, 1.99147, 1};
+        Polynomial<number> genRoots = Laguerre::Generator<number>::createFromRoots(4.1116e-06, -7.59261e-07, 2.76515e-06, -2.13692e-06, 1.43558e-07);
+        // std::vector<number> coeffs = {0.292521, 1.32198, 1.99147, 1};
         genRoots.print();
         int deg = genRoots.degree();
         std::vector<std::complex<double>> roots(deg);
@@ -37,18 +36,6 @@ int main(){
         genRoots.print();
         genRoots.setSolver(solver18);
         genRoots.solve(roots, conv, 80);
-        Laguerre::printVec(roots);
-        Laguerre::printVec(conv);
-
-        std::cout << "2018 LAGUERRE BAD MODIFICATION:\n";
-
-        deg = genRoots.degree(); 
-        roots = std::vector<std::complex<double>>(deg);
-        conv = std::vector<int>(deg);
-
-        genRoots.print();
-        genRoots.setSolver(solver18);
-        laguerre(coeffs, deg, roots, conv, 80);
         Laguerre::printVec(roots);
         Laguerre::printVec(conv);
 

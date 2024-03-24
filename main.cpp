@@ -14,7 +14,7 @@
 #define PR_2_INFINITE_ROOTS          -3
 
 #ifndef SOLVER
-    #define SOLVER 0
+    #define SOLVER 2
     // 0 - Original
     // 1 - 2013 mod
     // 2 - 2018 mod
@@ -41,7 +41,7 @@
 
 
 #ifndef DEGREE
-    #define DEGREE 10 // polynomial degree
+    #define DEGREE 5  // polynomial degree
 #endif
 #ifndef N_TESTS
     #define N_TESTS 10000 // count of tests 
@@ -67,7 +67,7 @@
     #define ROOT_SWEEP_HIGH 1.0
 #endif
 #ifndef TRIES
-    #define TRIES 80 // For how many iterations Laguerre should trying to solve polynomial
+    #define TRIES 80 // For how many iterations Laguerre should try to solve polynomial
 #endif
 
 int main(){
