@@ -93,7 +93,8 @@ switch (P)
         // std::cout << "\nGenerating clustered roots: " <<  N_clustered_roots-first4_clustered_roots;
         for (i = 0; i < N_clustered_roots; ++i) {
             im = rnc(rng); // Generate a small random number
-            re = roots[i] = (re > root_mid_sweep) ? re - im : re + im; // Generate the next root close to the previous one
+            roots[i] = (re > root_mid_sweep) ? re - im : re + im; // Generate the next root close to the previous one
+            re = roots[i];
         }
         crnt_idx = i;
 
@@ -126,7 +127,7 @@ switch (P)
             big_coeffs.push_back(bignum);
         }
         // roots = {-0.594628, -0.706948, -0.743337, -0.702158, -0.608897};
-        for (const fp_t num : roots) {
+        for (const auto num : roots) {
             ttmath::Big<exponent,mantissa> bignum(num);
             big_roots.push_back(bignum);
         }
@@ -160,9 +161,9 @@ switch (P)
             }
             big_coeffs_new[P] *= ttmath::Big<exponent,mantissa>(c2) ; // first not null element
             big_coeffs = big_coeffs_new;
-            // std::cout << "\nIM: " << im << "\n";
-            // roots[P-i*2-1] = re; // In future we can add support of complex numbers 
-            // roots[P-i*2-2] = re;
+            std::cout << "\nIM: " << im << "\n";
+            roots[P-i*2-1] = re; // In future we can add support of complex numbers 
+            roots[P-i*2-2] = re;
         }
         std::cout << "Bignum coeffs: \n";
         for (int i=0; i < P+1; ++i) {

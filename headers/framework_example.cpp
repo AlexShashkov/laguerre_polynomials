@@ -21,7 +21,7 @@ constexpr int mantissa = 32; // Mantissa for big number notation
 constexpr int exponent = 4; // Exponent for big number notation
 
 int main() {
-    int l = 5;
+    int l = 4;
     std::vector<double> roots(l, 0.0);
     std::vector<double> a(l+1, 0.0);
     generate_polynomial<double, exponent, mantissa>(l, 0, 0, 0,

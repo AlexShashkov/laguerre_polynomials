@@ -8,14 +8,14 @@ This project uses various Laguerre methods to solve polynomials.
 
 ## MakeFile Variables
 
-- `SOLVER`: The solver to use. Default is `0`. Options are:
+- `SOLVER`: The solver to use. Default is `2`. Options are:
 
   - `0`: Original Laguerre
   - `1`: 2013 modification
   - `2`: 2018 modification
 - `NUMBER`: The number type to use. Default is `double`.
 - `EXPONENT` and `MANTISSA`: Used for root generator with degree greater than 4. Default values are `4` and `32` respectively.
-- `DEGREE`: The degree of the polynomials. Default is `10`.
+- `DEGREE`: The degree of the polynomials. Default is `20`.
 - `N_TESTS`: The number of tests to run. Default is `1000`.
 - `N_PAIRS_OF_COMPLEX_ROOTS`, `N_CLUSTERED_ROOTS`, `N_MULTIPLE_ROOTS`: Parameters for the generator. If all are zero, then the generator will create only simple roots. Default values are `0`, `DEGREE`, and `0` respectively.
 - `MAX_DISTANCE_BETWEEN_CLUSTERED`: Used only for clustered roots. Default is `1e-5`.
@@ -28,4 +28,6 @@ To compile the program, run `make`.
 
 To clean up the compiled files, run `make clean`.
 
-For example, to run modified version of Laguerre with float type for polynomials degree of 15: `make SOLVER=1 NUMBER=float DEGREE=15`
+For example, to run modified version of Laguerre with float type for polynomials degree of 5: `make SOLVER=2 NUMBER=float DEGREE=5`
+
+We dont recommend to use float for polynomial generation with degree higher than 5 - resulting coefficients will loose huge amount precision during convertation from bignum to float.
