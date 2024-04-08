@@ -39,7 +39,7 @@ private:
         d = f = std::complex<T>(0.0, 0.0);
         abx = std::abs(x);
 
-        for (int j = m - 1; j >= 0; j--) {
+        for (int j = m - 1; j >= 0; --j) {
             f = fma(x, f, d);
             d = fma(x, d, b);
             b = fma(x, b, a[j]);
@@ -80,7 +80,7 @@ public:
         int m1;
 
         // Copy of coefficients for successive deflation.
-        for (int i = 0; i <= m; i++)
+        for (int i = 0; i <= m; ++i)
             ad[i] = poly[i];
         
         auto diff = Laguerre::diff(poly, 1);
@@ -123,7 +123,7 @@ public:
                 roots[j] = x;
                 conv[j] = 1;
                 _b = ad[j + 1];
-                for (int jj = j; jj >= 0; jj--) {
+                for (int jj = j; jj >= 0; --jj) {
                     _c = ad[jj];
                     ad[jj] = _b;
                     _b = fma(x, _b, _c);

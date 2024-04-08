@@ -1,4 +1,5 @@
 // Александр, Дмитрий
+// An effective implementation of a modified Laguerre method for the roots of a polynomial
 
 #ifndef LAGUERRE18
 #define LAGUERRE18
@@ -28,6 +29,9 @@ private:
     //
     static constexpr T PI    = std::numbers::pi_v<T>;
     static constexpr T pi2   = PI*static_cast<T>(2);
+
+    // for backward error
+    static constexpr T e_i   = fma(static_cast<T>(2), static_cast<T>(sqrtl(2L)), 1);
 
     /**
      * \brief Calculate the cross product between two points.
@@ -128,7 +132,6 @@ private:
             }
             k += nzeros;
         }
-        // auto num = 0;
     }
 
 
@@ -176,27 +179,14 @@ private:
         c = condition ? fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b)) : c;
         b = condition ? fms(zz, complex<T>(deg, 0) , zz2, b) : b;
 
-        cond = (!condition)*(berr / abs(fms(complex<T>(deg, 0),  a, zz, b))) + (condition)*cond;
+        // cond = (!condition)*(berr / abs(fms(complex<T>(deg, 0),  a, zz, b))) + (condition)*cond;
+        // TODO: CHECK IF ITS CORRECT
+        cond = fma(!condition, berr / std::abs(fms(std::complex<T>(deg, 0), a, zz, b)), condition * cond);
         berr = (!condition)*(abs(a) / berr) + (condition)*berr;
 
         conv = condition ? 
-            (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
+            (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv)
             : 1;
-
-        /*
-        if (fabs(a) > eps * berr) {
-            b = b / a;
-            c = fms(zz2, fma(-static_cast<T>(2)*zz, b, static_cast<T>(deg)), zz2*zz2, fms(complex<T>(2.0, 0), c / a, b, b));
-            b = fms(zz, complex<T>(deg, 0) , zz2, b);
-
-            if (complexnotfinite(b, big) || complexnotfinite(c, big))
-                conv = -1;
-        } else {
-            cond = berr / fabs(fms(complex<T>(deg, 0),  a, zz, b));
-            berr = fabs(a) / berr;
-            conv = 1;
-        }
-        */
     }
 
     /**
@@ -241,20 +231,6 @@ private:
         conv = condition ? 
             (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
             : 1;
-
-        /*
-        if (fabs(a) > eps * berr) {
-            b = b / a;
-            c = fms(b, b, std::complex<T>(2, 0), c/a);
-
-            if (complexnotfinite(b, big) || complexnotfinite(c, big))
-                conv = -1;
-        } else {
-            cond = berr / (r * fabs(b));
-            berr = fabs(a) / berr;
-            conv = 1;
-        }
-        */
     }
 
 
@@ -320,7 +296,7 @@ public:
         std::complex<T> b, c, z;
 
         // Precheck
-        for (i = 0; i <= deg; i++)
+        for (i = 0; i <= deg; ++i)
             alpha[i] = fabs(poly[i]);
 
         if (alpha[deg] < small) {
@@ -333,8 +309,10 @@ public:
         nz = 0;
         estimates(alpha, deg, roots, conv, nz);
 
+        // Motivated by the backward error analysis of the Ruffini-Horner rule in (9), we let
+        // alpha = (2√2 + 1)i + 1. Page 9 in paper
         for (i = 0; i <= deg; ++i)
-            alpha[i] *= fma(static_cast<T>(3.8), static_cast<T>(i), static_cast<T>(1));
+            alpha[i] *= fma(static_cast<T>(e_i), static_cast<T>(i), static_cast<T>(1));
         // Main loop
         
         for (i = 1; i <= itmax; ++i){
@@ -357,7 +335,7 @@ public:
                     // std::cout << "ROOT #" << j << "=" << roots[j] << "\n";
                 } 
                 else {
-                    nz++;
+                    ++nz;
                     if (nz == deg){
                         if (*std::min_element(conv.begin(), conv.end()) == 1)
                             break;
@@ -411,15 +389,10 @@ public:
         int nanpos = -1;
         for(i=0; i<deg; ++i){
             if(complexnotfinite(roots[i], big)){
-                nanpos = i;
-                break;
+                std::cout << "One of the roots had overflow at position " << i << "\n";
             }
         }
-        if(nanpos == -1) return;
-        else{
-            std::cout << "One of the roots had overflow at position " << nanpos << "\n";
-            return;
-        }
+        return;
     }
 
 };

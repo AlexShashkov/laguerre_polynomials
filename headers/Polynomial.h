@@ -153,8 +153,9 @@ public:
         std::vector<T> result(n + m - 1, 0);
 
         for (int i = 0; i < n; ++i) {
+            auto this_coeff = coeffs[i];
             for (int j = 0; j < m; ++j) {
-                result[i + j] += coeffs[i] * other.coeffs[j];
+                result[i + j] += this_coeff * other.coeffs[j];
             }
         }
         return Polynomial(result);
@@ -167,14 +168,19 @@ public:
 
         Polynomial<T> dividend = *this;
         std::vector<T> quotient_coeffs(this->degree() - divisor.degree() + 1, 0);
-        Polynomial<T> tmp(std::vector<T>(this->degree() + 1, 0));
+        // Polynomial<T> tmp(std::vector<T>(this->degree() + 1, 0));
+
+        T coeff;
+        int degree_diff;
 
         while (dividend.degree() >= divisor.degree()) {
-            int degree_diff = dividend.degree() - divisor.degree();
-            T coeff = dividend.coeffs.back() / divisor.coeffs.back();
+            degree_diff = dividend.degree() - divisor.degree();
+
+            // TODO: CHECK IF FINITE
+            coeff = dividend.coeffs.back() / divisor.coeffs.back();
 
             // Update the temporary polynomial for subtraction
-            tmp.coeffs[degree_diff] = coeff;
+            // tmp.coeffs[degree_diff] = coeff;
 
             // Subtract and update the dividend
             for (int i = 0; i <= divisor.degree(); ++i) {

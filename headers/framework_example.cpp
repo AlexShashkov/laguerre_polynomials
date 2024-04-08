@@ -2,6 +2,8 @@
 
 #include <algorithm>
 #include <iostream>
+#include <limits>
+#include <iomanip>
 #include <vector>
 #include <cmath>
 
@@ -21,10 +23,13 @@ constexpr int mantissa = 32; // Mantissa for big number notation
 constexpr int exponent = 4; // Exponent for big number notation
 
 int main() {
+    std::cout << std::numeric_limits<double>::max() << "\n";
+    std::cout << std::numeric_limits<long double>::max() << "\n";
+
     int l = 4;
-    std::vector<double> roots(l, 0.0);
-    std::vector<double> a(l+1, 0.0);
-    generate_polynomial<double, exponent, mantissa>(l, 0, 0, 0,
+    std::vector<long double> roots(l, 0.0);
+    std::vector<long double> a(l+1, 0.0);
+    generate_polynomial<long double, exponent, mantissa>(l, 2, 0, 0,
         1e-5, -1.0, 1.0, roots, a);
 
 std::cout << "\nFRAMEWORK ROOTS:\n";

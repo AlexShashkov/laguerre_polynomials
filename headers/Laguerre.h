@@ -34,13 +34,13 @@ private:
         T err, abx, abp, abm;
         int m = a.size() - 1;
 
-        for (int iter = 1; iter <= itmax; iter++) {
+        for (int iter = 1; iter <= itmax; ++iter) {
             b = std::complex<T>(1.0, 0.0);
             err = std::abs(b);
             d = f = std::complex<T>(0.0, 0.0);
             abx = std::abs(x);
 
-            for (int j = m - 1; j >= 0; j--) {
+            for (int j = m - 1; j >= 0; --j) {
                 f = fma(x, f, d);
                 d = fma(x, d, b);
                 b = fma(x, b, a[j]);
@@ -94,7 +94,7 @@ public:
         std::vector<std::complex<T>> ad(m + 1);
 
         // Copy of coefficients for successive deflation.
-        for (int i = 0; i <= m; i++)
+        for (int i = 0; i <= m; ++i)
             ad[i] = poly[i];
 
         std::vector<std::complex<T>> ad_v;
@@ -109,7 +109,7 @@ public:
             x.imag(std::fabs(imag(x)) <= std::fabs(real(x)) * eps ? static_cast<T>(0) : x.imag());
             roots[j] = x;
             _b = ad[j + 1];
-            for (int jj = j; jj >= 0; jj--) {
+            for (int jj = j; jj >= 0; --jj) {
                 _c = ad[jj];
                 ad[jj] = _b;
                 _b = fma(x, _b, _c);

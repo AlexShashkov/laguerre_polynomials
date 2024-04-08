@@ -1,6 +1,7 @@
+// Александр, Дмитрий
+
 #ifndef EXTENDEDFMA_H
 #define EXTENDEDFMA_H
-
 
 #ifndef EXPONENT
     #define EXPONENT 4 // Exponent for big NUMBER notation
@@ -31,6 +32,14 @@ namespace Laguerre{
 	inline bool anynotfinite(T && ... t)
 	{
 		return ((!std::isfinite(t)) || ...);
+	}
+
+	/** \brief Check if at least one number in vector is not finite
+	*/
+	template<typename T>
+	inline bool anynotfinite(vector<T> vec)
+	{
+		return std::any_of(vec.begin(), vec.end(), [](T t){return !std::isfinite(t);});
 	}
 
 	/** \brief Check if a complex number contains NaN or Inf values.
@@ -151,15 +160,13 @@ namespace Laguerre{
 	template <typename T>
 	inline vector<T> diff(vector<T> coeffs, int deg=1){
         std::vector ret = coeffs;
-        for(int j = 0; j < deg; ++j){
-            for (int i = 1; i < ret.size(); ++i) {
-                ret[i] *= static_cast<T>(i);
-            }
-            if (ret.size()) {
-                ret.erase(ret.begin());
-            }
-            else break;
-        }
+        for (int j = 0; j < deg && ret.size(); ++j) {
+			for (int i = 1; i < ret.size(); ++i) {
+				ret[i] *= static_cast<T>(i);
+			}
+			ret.erase(ret.begin());
+		}
+		// TODO: CHECK WHY WE HAVE LEFT OUR LOOP
         return ret;
     } 
 
@@ -173,15 +180,10 @@ namespace Laguerre{
         }
 
 		std::vector<T> quotient_coeffs(dividend.size() - divisor.size() + 1, 0);
-        std::vector<T> tmp;
 
         while (dividend.size() >= divisor.size()) {
             int degree_diff = dividend.size() - divisor.size();
             T coeff = dividend.back() / divisor.back();
-
-            // Update the temporary polynomial for subtraction
-            tmp = std::vector<T>(degree_diff + 1, 0);
-            tmp.back() = coeff;
 
             // Subtract and update the dividend
             for (int i = 0; i <= divisor.size()-1; ++i) {
@@ -205,14 +207,9 @@ namespace Laguerre{
             throw std::invalid_argument("The degree of the divisor is greater than the dividend");
         }
 
-        std::vector<T> tmp;
         while (dividend.size() >= divisor.size()) {
             int degree_diff = dividend.size() - divisor.size();
             T coeff = dividend.back() / divisor.back();
-
-            // Update the temporary polynomial for subtraction
-            tmp = std::vector<T>(degree_diff + 1, 0);
-            tmp.back() = coeff;
 
             // Subtract and update the dividend
             for (int i = 0; i <= divisor.size()-1; ++i) {
@@ -223,7 +220,7 @@ namespace Laguerre{
         remainder = dividend;
 	} 
 
-	/** \brief Divide vectors (coefficients of polynomials)
+	/** \brief Get remainder from vectors division, but with bignum precision (coefficients of polynomials)
 	*/
 	template <typename T>
 	inline void getRemainderFromBigNum(vector<T> dividend, vector<T> divisor, vector<T>& remainder) {
@@ -231,7 +228,7 @@ namespace Laguerre{
             throw std::invalid_argument("The degree of the divisor is greater than the dividend");
         }
 
-		std::vector<ttmath::Big<EXPONENT, MANTISSA>> big_dividend, big_divisor, tmp;
+		std::vector<ttmath::Big<EXPONENT, MANTISSA>> big_dividend, big_divisor;
 		for (const T num : dividend) {
             ttmath::Big<EXPONENT, MANTISSA> bignum(num);
             big_dividend.push_back(bignum);
@@ -242,16 +239,11 @@ namespace Laguerre{
         }
 
         while (big_dividend.size() >= big_divisor.size()) {
-            int degree_diff = big_dividend.size() - big_divisor.size();
             ttmath::Big<EXPONENT, MANTISSA> coeff = big_dividend.back() / big_divisor.back();
-
-            // Update the temporary polynomial for subtraction
-            tmp = std::vector<ttmath::Big<EXPONENT, MANTISSA>>(degree_diff + 1, ttmath::Big<EXPONENT, MANTISSA>(0.0));
-            tmp.back() = coeff;
 
             // Subtract and update the dividend
             for (int i = 0; i <= big_divisor.size()-1; ++i) {
-                big_dividend[i + degree_diff] -= coeff * big_divisor[i];
+                big_dividend[i + big_dividend.size() - big_divisor.size()] -= coeff * big_divisor[i];
             }
             big_dividend.pop_back();
         }
@@ -260,5 +252,21 @@ namespace Laguerre{
             remainder[i] = static_cast<T>(big_dividend[i].ToDouble());
         }
 	} 
+
+	/** \brief Multiply vectors (coefficients of polynomials)
+	*/
+	template <typename T>
+	std::vector<T> multiply(const std::vector<T>&  polynom_A, const std::vector<T>&  polynom_B, int stop_on = 0){
+		std::vector<T> polynomial(polynom_A.size() + polynom_B.size() - 1 - stop_on, T(0));
+		for(size_t i = stop_on; i < polynom_A.size(); ++i)
+		{
+			for(size_t j = 0; j < polynom_B.size(); ++j)
+			{
+				polynomial[i + j - stop_on] += polynom_A[i] * polynom_B[j];
+				// std::cout << polynom_A[i] << " " << polynom_B[j] << " " << polynomial[i + j - stop_on].ToDouble() << "\n";
+			}
+		}
+		return  polynomial;
+	}
 }
 #endif

@@ -14,7 +14,7 @@
 #define PR_2_INFINITE_ROOTS          -3
 
 #ifndef SOLVER
-    #define SOLVER 2
+    #define SOLVER 0
     // 0 - Original
     // 1 - 2013 mod
     // 2 - 2018 mod
@@ -33,25 +33,25 @@
 // mantissa = 2048 bits / 32 bits per word = 64 words
 // exponent = 256 bits / 32 bits per word = 8 words
 #ifndef EXPONENT
-    #define EXPONENT 4 // Exponent for big NUMBER notation
+    #define EXPONENT 4 // Exponent for bignum notation
 #endif
 #ifndef MANTISSA
-    #define MANTISSA 32 // Mantissa for big NUMBER notation
+    #define MANTISSA 32 // Mantissa for bignum notation
 #endif
 
 
 #ifndef DEGREE
-    #define DEGREE 20 // polynomial degree
+    #define DEGREE 100 // polynomial degree
 #endif
 #ifndef N_TESTS
-    #define N_TESTS 1000 // count of tests 
+    #define N_TESTS 100 // count of tests 
 #endif
 // Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
 #ifndef N_PAIRS_OF_COMPLEX_ROOTS
     #define N_PAIRS_OF_COMPLEX_ROOTS 0
 #endif
 #ifndef N_CLUSTERED_ROOTS
-    #define N_CLUSTERED_ROOTS DEGREE
+    #define N_CLUSTERED_ROOTS 0
 #endif
 #ifndef N_MULTIPLE_ROOTS
     #define N_MULTIPLE_ROOTS 0
@@ -61,10 +61,10 @@
     #define MAX_DISTANCE_BETWEEN_CLUSTERED 1e-5
 #endif
 #ifndef ROOT_SWEEP_LOW
-    #define ROOT_SWEEP_LOW -1.0
+    #define ROOT_SWEEP_LOW -10.0
 #endif
 #ifndef ROOT_SWEEP_HIGH
-    #define ROOT_SWEEP_HIGH 1.0
+    #define ROOT_SWEEP_HIGH 10.0
 #endif
 #ifndef TRIES
     #define TRIES 80 // For how many iterations Laguerre should try to solve polynomial
@@ -104,6 +104,7 @@ int main(){
             roots_found_this_test.clear();
             N_roots_gt_this_test = generate_polynomial<NUMBER, EXPONENT, MANTISSA>(DEGREE, N_PAIRS_OF_COMPLEX_ROOTS, N_CLUSTERED_ROOTS,
                 N_MULTIPLE_ROOTS, MAX_DISTANCE_BETWEEN_CLUSTERED, ROOT_SWEEP_LOW, ROOT_SWEEP_HIGH, roots, a);
+
             std::cout << "GENERATED POLY & ROOTS:\n";
             Laguerre::printVec(a);
             Laguerre::printVec(roots);
@@ -150,8 +151,19 @@ int main(){
                 roots_found_all_tests_re_worst=roots_found_this_test; N_roots_found_all_tests_re_worst=N_roots_found_this_test;
                 coefficients_all_tests_re_worst=a; re_all_tests_worst=re_this_test_worst;
             }
+            if(Laguerre::anynotfinite(roots_found_this_test)){
+                std::cout << "\nNOT FINITE ROOTS!!!\n";
+                delete solver;
+                return 1;
+            }
+            if(Laguerre::anynotfinite(a)){
+                std::cout << "NOT FINITE COEFFS!!!\n";
+                delete solver;
+                return 1;
+            }
             std::fill(roots.begin(), roots.end(), 0.0);
             std::fill(a.begin(), a.end(), 0.0);
+
             std::cout << "\n=======================\n";
         }
 
