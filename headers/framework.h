@@ -9,6 +9,7 @@
 #define PR_2_INFINITE_ROOTS          -3
 
 #include "ttmath/ttmath.h" // Bignum C++ library by Tomasz Sowa
+#include "ExtendedFunctions.h"
 #include <cmath>
 #include <numbers> // std::numbers::pi_v<fp_t>, requires -std=c++20
 #include <chrono> 
@@ -123,12 +124,13 @@ switch (P)
         // Calculate resulting coefficients
         std::vector<ttmath::Big<exponent,mantissa>> big_coeffs, big_coeffs_new, big_roots;
         for (const fp_t num : coefficients) {
-            ttmath::Big<exponent,mantissa> bignum(num);
+            // TODO: Change on convertion from string
+            ttmath::Big<exponent,mantissa> bignum(static_cast<double>(num));
             big_coeffs.push_back(bignum);
         }
-        // roots = {-0.594628, -0.706948, -0.743337, -0.702158, -0.608897};
         for (const auto num : roots) {
-            ttmath::Big<exponent,mantissa> bignum(num);
+          // TODO: Change on convertion from string
+            ttmath::Big<exponent,mantissa> bignum(static_cast<double>(num));
             big_roots.push_back(bignum);
         }
         big_coeffs_new = big_coeffs;
@@ -136,40 +138,43 @@ switch (P)
         for (i = 0; i < P; ++i){
           // std::cout << "\nROOT #" << i << "\n";
           for (int j = P-2; j >= 0; --j){
-              // std::cout << "j:" << j << "\n";
-              // std::cout << "-coeff[j+1]:" << -big_coeffs[j+1] << "; roots[i]:" << big_roots[i] << "; " << "coeff[j]: " << big_coeffs[j];
-              // std::cout << "; fma: " << std::fma(-big_coeffs[j+1].ToDouble(), big_roots[i].ToDouble(), big_coeffs[j].ToDouble());
-              big_coeffs_new[j] = ttmath::Big<exponent,mantissa>(std::fma(-big_coeffs[j+1].ToDouble(), big_roots[i].ToDouble(), big_coeffs[j].ToDouble()));
-              // std::cout << "\n coeff_new[j]:" << big_coeffs_new[j] << "\n";
+              // big_coeffs_new[j] = ttmath::Big<exponent,mantissa>(std::fma(-big_coeffs[j+1].ToDouble(), big_roots[i].ToDouble(), big_coeffs[j].ToDouble()));
+              // On some extreme cases even double type will overflow (on degree >= 200), as there is no direct casting from bignum to long double (the only way is to use string convertation)
+              // We will allow bignum library to calculate a*b+c with high precision
+              big_coeffs_new[j] = -big_coeffs[j+1]*big_roots[i] + big_coeffs[j];
           }
           big_coeffs_new[P-1] -= big_roots[i];
-          // std::cout << "\ncoeff_new[P-1]: " << big_coeffs_new[P-1];
-          // coefficients = coefficients_new;
           big_coeffs = big_coeffs_new;
         }
-
-        // Generate last complex roots
-        // std::cout << "\nGenerating complex roots: " <<  N_pairs_of_complex_roots << " pairs";
+        
         for (i = 0; i < N_pairs_of_complex_roots; ++i) {
-            re=rnr(rng); while ((im=rnr(rng))==static_cast<fp_t>(0.0L)) {}
-            auto c1=static_cast<fp_t>(-2.0L*re); // -2*re
-            auto c2=static_cast<fp_t>(pr_product_difference(re, re, -im, im)); // re*re+im*im
+          re = rnr(rng); while ((im = rnr(rng)) == static_cast<fp_t>(0.0L)) {}
+          std::cout << "(x-(" << re << " + " << im << "i))" << "\n";
 
-            for (int j = P-2; j >= 0; --j){
-              big_coeffs_new[j] = ttmath::Big<exponent,mantissa>(std::fma(big_coeffs[j].ToDouble(), c1,
-                                                   std::fma(big_coeffs[j+1].ToDouble(), c2, big_coeffs[j+2].ToDouble())));
-            }
-            big_coeffs_new[P] *= ttmath::Big<exponent,mantissa>(c2) ; // first not null element
-            big_coeffs = big_coeffs_new;
-            std::cout << "\nIM: " << im << "\n";
-            roots[P-i*2-1] = re; // In future we can add support of complex numbers 
-            roots[P-i*2-2] = re;
-        }
+          // TODO: Change on convertion from string
+          big_coeffs_new = {
+              ttmath::Big<exponent, mantissa>(static_cast<double>(re * re + im * im)),
+              ttmath::Big<exponent, mantissa>(static_cast<double>(-2 * re)),
+              ttmath::Big<exponent, mantissa>(static_cast<double>(1))
+          };
+
+          bool isNotFullyComplex = N_pairs_of_complex_roots*2 != P;
+          big_coeffs = isNotFullyComplex || i != 0 ? 
+            Laguerre::multiply(big_coeffs, big_coeffs_new, i == 0 && isNotFullyComplex ? N_pairs_of_complex_roots*2 : 0) 
+            : big_coeffs_new;
+
+          roots[P - i * 2 - 1] = re; 
+          roots[P - i * 2 - 2] = re;
+      }
+
+
         std::cout << "Bignum coeffs: \n";
         for (int i=0; i < P+1; ++i) {
-            // Print out coeffs to show that it fails on float
+            // Print out coeffs to show that it fails on float or double in extreme cases
             std::cout << big_coeffs[i] << " ";
-            coefficients[i] = static_cast<fp_t>(big_coeffs[i].ToDouble());
+            coefficients[i] = static_cast<fp_t>(std::strtold(big_coeffs[i].ToString().c_str(), nullptr));
+
+            // coefficients[i] = static_cast<fp_t>(big_coeffs[i].ToDouble());
         }
         std::cout << "\n";
         return P - (N_pairs_of_complex_roots*2);
@@ -207,9 +212,10 @@ fp_t &max_relative_error){
     long double abs = std::numeric_limits<long double >::max();
     long double  rel = std::numeric_limits<long double >::max();
     auto size = roots_to_check.size();
-    for(int j = 0;j<size; j++)
-    for(int i = 0;i < size; i++){
-        long double  absLoc = std::abs((long double)(roots_ground_truth[i])-(long double)(roots_to_check[(i + j) % size]));
+    long double absLoc;
+    for(int j = 0;j<size; ++j)
+    for(int i = 0;i < size; ++i){
+        absLoc = std::abs((long double)(roots_ground_truth[i])-(long double)(roots_to_check[(i + j) % size]));
         abs = std::min(absLoc,abs);
         rel = std::min(std::abs(
                 (long double)(absLoc + std::numeric_limits<fp_t>::epsilon())/
