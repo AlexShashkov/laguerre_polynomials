@@ -22,7 +22,7 @@ EXPONENT = 4
 MANTISSA = 32
 
 # Degree of polynomials
-DEGREE = 10
+DEGREE = 20
 
 #Number of tests
 N_TESTS = 1000
