@@ -41,10 +41,10 @@
 
 
 #ifndef DEGREE
-    #define DEGREE 10 // polynomial degree
+    #define DEGREE 20 // polynomial degree
 #endif
 #ifndef N_TESTS
-    #define N_TESTS 1 // count of tests 
+    #define N_TESTS 1000 // count of tests 
 #endif
 // Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
 #ifndef N_PAIRS_OF_COMPLEX_ROOTS
