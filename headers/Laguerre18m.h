@@ -1,5 +1,8 @@
 // Александр, Дмитрий
 // An effective implementation of a modified Laguerre method for the roots of a polynomial
+// https://www.thomasrcameron.com/pubs/PML.pdf
+
+// Based on original code: https://github.com/trcameron/FPML
 
 #ifndef LAGUERRE18
 #define LAGUERRE18

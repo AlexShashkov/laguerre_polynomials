@@ -1,4 +1,6 @@
 // Александр, Дмитрий
+// https://ora.ox.ac.uk/objects/uuid:a1cb2db7-b587-4a0f-a442-dc3e06797726
+// Based on original code: https://github.com/andresmmera/Laguerre-Root-Solver
 
 #ifndef LAGUERRE
 #define LAGUERRE
