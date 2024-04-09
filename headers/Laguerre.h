@@ -32,15 +32,15 @@ private:
         int m = a.size() - 1;
 
         for (int iter = 1; iter <= itmax; ++iter) {
-            b = std::complex<T>(1.0, 0.0);
+            b = std::complex<T>(1.0, 0.0); // b will be used to calculate the value of the polynomial at the point x
             err = std::abs(b);
             d = f = std::complex<T>(0.0, 0.0);
             abx = std::abs(x);
 
             for (int j = m - 1; j >= 0; --j) {
-                f = fma(x, f, d);
-                d = fma(x, d, b);
-                b = fma(x, b, a[j]);
+                f = fma(x, f, d); // Calculation of the second derivative of the polynomial at the point x
+                d = fma(x, d, b); // Calculation of the first derivative of the polynomial at the point x
+                b = fma(x, b, a[j]); // Calculating the value of the polynomial at the point x
                 err = fma(err, abx, std::abs(b));
             }
 
@@ -49,13 +49,14 @@ private:
 
             g = d / b;
             g2 = g * g;
-            h = fma(f / b, -static_cast<T>(2), g2);
+            h = fma(f / b, -static_cast<T>(2), g2); // Calculation of h, which is used in the Lagger formula
 
             if(complexnotfinite(g, BaseSolver<T>::big) || complexnotfinite(h, BaseSolver<T>::big)){
                 throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
             }
 
-            sq = std::sqrt(static_cast<T>(m - 1) * (fma(h, static_cast<T>(m), -g2)));
+            sq = std::sqrt(static_cast<T>(m - 1) * (fma(h, static_cast<T>(m), -g2))); // square root
+            // two possible denominator values
             gp = g + sq;
             gm = g - sq;
             abp = std::abs(gp);
@@ -64,12 +65,11 @@ private:
             // den (in this case gp) = max{|G + sq|, |G − sq|}
             gp = abp < abm ? gm : gp; // |G + sq| < |G - sq| ? G − sq : G + sq
             // std::cout << "!!! " << gp << "\n"; 
-            // dx = std::complex<T>(m, 0)/gp;
+            // dx - change of x on each step
             dx = (std::max(abp, abm) > static_cast<T>(0.0)) ? (static_cast<T>(m) / gp) : std::polar(static_cast<T>(1) + abx, static_cast<T>(iter));
             if(complexnotfinite(dx, BaseSolver<T>::big)){
                 throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
             }
-            // std::cout << "??? " << dx << "\n";
             x1 = x - dx;
             if (x == x1)
                 return;  // Converged.
@@ -113,7 +113,7 @@ public:
 
             x.imag(std::fabs(imag(x)) <= std::fabs(real(x)) * BaseSolver<T>::eps ? static_cast<T>(0) : x.imag());
             roots[j] = x;
-            _b = ad[j + 1];
+            _b = ad[j + 1]; 
             for (int jj = j; jj >= 0; --jj) {
                 _c = ad[jj];
                 ad[jj] = _b;

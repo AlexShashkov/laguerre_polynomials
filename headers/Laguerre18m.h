@@ -97,6 +97,7 @@ private:
             a1 = pow(alpha[h[i + 1]], one_div_nzeros);
             a2 = pow(alpha[h[i]], one_div_nzeros);
 
+            // Algorithm 3 Initial approximation, page 7
             if (a1 <= a2 * BaseSolver<T>::small){
                 // r is too small
                 r = 0.0;
@@ -107,6 +108,7 @@ private:
                 }
             }
             else{
+                // Original paper references to "Numerical computation of polynomial zeros by means of Aberth's method" where they recommend to use 0.7 as sigma, page 12
                 T sigma_thh = fma(th, h[i], static_cast<T>(0.7));
                 if (a1 >= a2 * BaseSolver<T>::big){
                     // r is too big
@@ -132,7 +134,7 @@ private:
 
 
     /**
-     * \brief Perform Laguerre correction, compute backward error, and condition.
+     * \brief Perform Laguerre correction, compute backward error, and condition on reverse polynomial.
          * \param p Polynomial object.
          * \param alpha Vector of coefficients.
          * \param b Output complex number representing root.
@@ -159,6 +161,7 @@ private:
         c = 0;
         berr = alpha[0];
 
+        // updating a, b and c for calculating the value of the polynomial and its derivatives at the point z using Gorner's rule
         for (k = 1; k <= deg; ++k) {
             c = fma(zz, c, b);
             b = fma(zz, b, a);
@@ -168,6 +171,9 @@ private:
         if(a == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
 
         // Laguerre correction/ backward error and condition
+
+        // A measure of how well the current root approximation matches the polynomial
+        // If the condition is true, then the approximation is sufficiently accurate, and we can proceed to update the values of b and c accordingly.
         bool condition = abs(a) > (BaseSolver<T>::eps * berr);
         // std::cout << "berr is " << berr << "\n";
         b = condition ? b/a : b;
@@ -185,7 +191,7 @@ private:
     }
 
     /**
-     * \brief Perform Laguerre correction, compute backward error, and condition.
+     * \brief Perform Laguerre correction, compute backward error, and condition on forwarding polynomial.
          * \param p Vector of polynomial coefficients.
          * \param alpha Vector of coefficients.
          * \param deg Degree of the polynomial.
@@ -207,6 +213,7 @@ private:
         c = 0;
         berr = alpha[deg];
 
+        // updating a, b and c for calculating the value of the polynomial and its derivatives at the point z using Gorner's rule
         for (k = deg - 1; k >= 0; --k) {
             c = fma(z, c, b);
             b = fma(z, b, a);
@@ -214,7 +221,10 @@ private:
             berr = fma(r, berr, alpha[k]);
         }
 
-        // Laguerre correction/ backward error and condition
+        // Laguerre correction, backward error and condition
+
+        // A measure of how well the current root approximation matches the polynomial
+        // If the condition is true, then the approximation is sufficiently accurate, and we can proceed to update the values of b and c accordingly.
         bool condition = abs(a) > BaseSolver<T>::eps * berr;
         b = condition ? b/a : b;
         // b^2 + (-{2,0}*c/a)+{2,0}*c/a+(-{2,0}*c/a)
@@ -242,7 +252,7 @@ private:
         std::complex<T> t;
 
         // std::cout << "Entered modify lag c=" << c << "\n";
-        // Aberth correction terms
+        // Aberth correction terms, page 4 in paper
         for (int k = 0; k < j; ++k) {
             t = static_cast<T>(1.0) / (z - roots[k]);
             b -= t;
@@ -285,10 +295,10 @@ public:
         int deg = roots.size();
         std::vector<T> berr(deg); // Vector to store the backward errors.
         std::vector<T> cond(deg); // Vector to store the condition numbers.
-        int i, j, nz;
-        T r;
-        std::vector<T> alpha(deg + 1);
-        std::complex<T> b, c, z;
+        int i, j, nz; // nz - Number of zeros
+        T r; // variable to store absolute value of root 
+        std::vector<T> alpha(deg + 1); // Vector of coefficients.
+        std::complex<T> b, c, z; // root and correction values
 
         // Precheck
         for (i = 0; i <= deg; ++i)
@@ -316,9 +326,9 @@ public:
             if (conv[j] == 0) {
                 z = roots[j];
                 r = abs(z);
-                // 
                 // std::cout << "\nr is " << r << "\n";
                 // std::cout << "z is " << z << "\n";
+                // In case ( |ξ| > 1 ), the inverse polynomial ( p_R ) is used to compute the correction term.
                 if (r > 1.0)
                     rcheck_lag(poly, alpha, deg, b, c, z, r, conv[j], berr[j], cond[j]);
                 else

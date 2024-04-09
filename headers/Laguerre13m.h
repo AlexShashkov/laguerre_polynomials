@@ -36,9 +36,9 @@ private:
         abx = std::abs(x);
 
         for (int j = m - 1; j >= 0; --j) {
-            f = fma(x, f, d);
-            d = fma(x, d, b);
-            b = fma(x, b, a[j]);
+            f = fma(x, f, d); // Calculation of the second derivative of the polynomial at the point x
+            d = fma(x, d, b); // Calculation of the first derivative of the polynomial at the point x
+            b = fma(x, b, a[j]); // Calculating the value of the polynomial at the point x
             err = fma(err, abx, std::abs(b));
         }
 
