@@ -22,6 +22,8 @@ protected:
     BaseSolver<T>* Solver;
 public:
 
+    Polynomial(){}
+
     /**
      * \brief Create polynomial object from given vectors of coefficients and roots.
          * \param _coeffs Vector of coefficients.
@@ -106,14 +108,14 @@ public:
     }
 
     /**
-     * \brief Find the roots of this polynomial.
+     * \brief Find the roots of this polynomial. NOTE: Set solver first, use function setSolver
          * \param roots Vector to store the roots.
          * \param conv Vector to store convergence status of each root.
          * \param itmax Maximum number of iterations.
      */
     void solve(std::vector<std::complex<T>>& roots, std::vector<int>& conv, int maxiter=80){
         if(Solver) {
-            (*Solver)(coeffs, roots, conv, 80);
+            (*Solver)(coeffs, roots, conv, maxiter);
             // std::cout << "solved, exiting";
         }
         else{
@@ -145,8 +147,6 @@ public:
         return Polynomial<T>(result_coeffs);
     }
 
-
-
     Polynomial operator*(const Polynomial& other){
         int n = coeffs.size();
         int m = other.coeffs.size();
@@ -168,19 +168,16 @@ public:
 
         Polynomial<T> dividend = *this;
         std::vector<T> quotient_coeffs(this->degree() - divisor.degree() + 1, 0);
-        // Polynomial<T> tmp(std::vector<T>(this->degree() + 1, 0));
 
         T coeff;
         int degree_diff;
 
         while (dividend.degree() >= divisor.degree()) {
             degree_diff = dividend.degree() - divisor.degree();
-
-            // TODO: CHECK IF FINITE
             coeff = dividend.coeffs.back() / divisor.coeffs.back();
-
-            // Update the temporary polynomial for subtraction
-            // tmp.coeffs[degree_diff] = coeff;
+            if(anynotfinite(coeff)){
+                throw std::invalid_argument("Highest degree of coefficient for divisor is probably zero: " << divisor.coeffs.back());
+            }
 
             // Subtract and update the dividend
             for (int i = 0; i <= divisor.degree(); ++i) {
@@ -214,10 +211,16 @@ public:
         Polynomial<T> dividend = *this;
         std::vector<T> quotient_coeffs(this->degree() - divisor.degree() + 1, 0);
         Polynomial<T> tmp;
+        int degree_diff;
+        T coeff;
 
         while (dividend.degree() >= divisor.degree()) {
-            int degree_diff = dividend.degree() - divisor.degree();
-            T coeff = dividend.coeffs.back() / divisor.coeffs.back();
+            degree_diff = dividend.degree() - divisor.degree();
+            coeff = dividend.coeffs.back() / divisor.coeffs.back();
+
+            if(anynotfinite(coeff)){
+                throw std::invalid_argument("Highest degree of coefficient for divisor is probably zero: " << divisor.coeffs.back());
+            }
 
             // Update the temporary polynomial for subtraction
             tmp.coeffs = std::vector<T>(degree_diff + 1, 0);
@@ -237,8 +240,9 @@ public:
         remainder = dividend;
     }
 
-    Polynomial& operator*=(const Polynomial& other){
-        *this = *this * other;
+    Polynomial& operator*=(const Polynomial& other) {
+        Polynomial temp(*this); // Temp copy so multiplying on self wont break polynomial
+        *this = temp * other;
         this->roots.clear();
         return *this;
     }

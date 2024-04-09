@@ -20,12 +20,8 @@ using std::vector;
 template<typename T>
 class ModifiedLaguerre13 : public BaseSolver<T>{
 private:
-    //
-    static constexpr T eps   = std::numeric_limits<T>::epsilon();
-    
-
     /**
-     * \brief Laguerre's method to find a root of a polynomial.
+     * \brief Laguerre's method to find a root of a polynomial, multiple roots modification.
         * \param a   Polynomial object.
         * \param x   Initial guess for the root.
      */
@@ -46,13 +42,20 @@ private:
             err = fma(err, abx, std::abs(b));
         }
 
-        if (std::abs(b) <= err * eps)
+        if (std::abs(b) <= err * BaseSolver<T>::eps)
             return;  // We are on the root.
 
         g = static_cast<T>(lam)* b / d; 
         h = static_cast<T>(2)*f / d;
+
+        if(complexnotfinite(g, BaseSolver<T>::big) || complexnotfinite(h, BaseSolver<T>::big)){
+            throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
+        }
         sq = std::sqrt(fma(-g, h, static_cast<T>(lam - 1)));
-        dx = g/std::abs(static_cast<T>(1) + sq);          
+        dx = g/std::abs(static_cast<T>(1) + sq);   
+        if(complexnotfinite(dx, BaseSolver<T>::big)){
+            throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
+        }  
         x -= dx;
         return;  
             
@@ -116,7 +119,7 @@ public:
             // Start at zero to favor convergence to the smallest remaining root.
             ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
             laguer13(ad_v, x, lambda);
-            if (std::abs(imag(x)) <= std::abs(real(x)) * eps)
+            if (std::abs(imag(x)) <= std::abs(real(x)) * BaseSolver<T>::eps)
                 x.imag(static_cast<T>(0));
 
             for (int k = 0; k < lambda/2; ++k){

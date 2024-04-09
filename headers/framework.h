@@ -84,8 +84,8 @@ switch (P)
   case 1:
     coefficients[0]=-(roots[0]=rnr(rng)); return 1;
   default:
-        int crnt_idx=0;
-        int i = 0;
+        unsigned crnt_idx=0;
+        unsigned i = 0;
 
         // current root id
         re = rnr(rng); // Generate the first root
@@ -113,23 +113,16 @@ switch (P)
         for(; i < crnt_idx + N_simple_roots; ++i){
           roots[i] = rnr(rng);
         }
-
-        /*
-        std::cout << "\n GENERATED ROOTS ";
-        for(auto &el : roots){
-            std::cout<< el << ',';
-        }
-        */
         
         // Calculate resulting coefficients
         std::vector<ttmath::Big<exponent,mantissa>> big_coeffs, big_coeffs_new, big_roots;
         for (const fp_t num : coefficients) {
-            // TODO: Change on convertion from string
+            // TODO: Change to convertion from string
             ttmath::Big<exponent,mantissa> bignum(static_cast<double>(num));
             big_coeffs.push_back(bignum);
         }
         for (const auto num : roots) {
-          // TODO: Change on convertion from string
+          // TODO: Change to convertion from string
             ttmath::Big<exponent,mantissa> bignum(static_cast<double>(num));
             big_roots.push_back(bignum);
         }
@@ -147,11 +140,12 @@ switch (P)
           big_coeffs = big_coeffs_new;
         }
         
+        // complex roots generation
         for (i = 0; i < N_pairs_of_complex_roots; ++i) {
           re = rnr(rng); while ((im = rnr(rng)) == static_cast<fp_t>(0.0L)) {}
           std::cout << "(x-(" << re << " + " << im << "i))" << "\n";
 
-          // TODO: Change on convertion from string
+          // TODO: Change to convertion from string
           big_coeffs_new = {
               ttmath::Big<exponent, mantissa>(static_cast<double>(re * re + im * im)),
               ttmath::Big<exponent, mantissa>(static_cast<double>(-2 * re)),
@@ -167,16 +161,14 @@ switch (P)
           roots[P - i * 2 - 2] = re;
       }
 
-
-        std::cout << "Bignum coeffs: \n";
         for (int i=0; i < P+1; ++i) {
             // Print out coeffs to show that it fails on float or double in extreme cases
-            std::cout << big_coeffs[i] << " ";
+            // std::cout << big_coeffs[i] << " ";
+            // bignum to string, and then casting back to fp_t from long double value (on high degrees coeffs exist that are greater than 1e+308)
             coefficients[i] = static_cast<fp_t>(std::strtold(big_coeffs[i].ToString().c_str(), nullptr));
 
             // coefficients[i] = static_cast<fp_t>(big_coeffs[i].ToDouble());
         }
-        std::cout << "\n";
         return P - (N_pairs_of_complex_roots*2);
   }
 return -1; // unreachable, means a flaw in control here
@@ -213,8 +205,8 @@ fp_t &max_relative_error){
     long double  rel = std::numeric_limits<long double >::max();
     auto size = roots_to_check.size();
     long double absLoc;
-    for(int j = 0;j<size; ++j)
-    for(int i = 0;i < size; ++i){
+    for(long unsigned int j = 0;j < size; ++j)
+    for(long unsigned int i = 0;i < size; ++i){
         absLoc = std::abs((long double)(roots_ground_truth[i])-(long double)(roots_to_check[(i + j) % size]));
         abs = std::min(absLoc,abs);
         rel = std::min(std::abs(

@@ -20,9 +20,6 @@ using std::vector;
 template<typename T>
 class Original : public BaseSolver<T>{
 private:
-    //
-    static constexpr T eps   = std::numeric_limits<T>::epsilon();
-
     /**
      * \brief Laguerre's method to find a root of a polynomial.
         * \param a   Polynomial object.
@@ -47,12 +44,17 @@ private:
                 err = fma(err, abx, std::abs(b));
             }
 
-            if (std::abs(b) <= err * eps)
+            if (std::abs(b) <= err * BaseSolver<T>::eps)
                 return;  // We are on the root.
 
             g = d / b;
             g2 = g * g;
             h = fma(f / b, -static_cast<T>(2), g2);
+
+            if(complexnotfinite(g, BaseSolver<T>::big) || complexnotfinite(h, BaseSolver<T>::big)){
+                throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
+            }
+
             sq = std::sqrt(static_cast<T>(m - 1) * (fma(h, static_cast<T>(m), -g2)));
             gp = g + sq;
             gm = g - sq;
@@ -64,6 +66,9 @@ private:
             // std::cout << "!!! " << gp << "\n"; 
             // dx = std::complex<T>(m, 0)/gp;
             dx = (std::max(abp, abm) > static_cast<T>(0.0)) ? (static_cast<T>(m) / gp) : std::polar(static_cast<T>(1) + abx, static_cast<T>(iter));
+            if(complexnotfinite(dx, BaseSolver<T>::big)){
+                throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
+            }
             // std::cout << "??? " << dx << "\n";
             x1 = x - dx;
             if (x == x1)
@@ -106,7 +111,7 @@ public:
             ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
             laguer(ad_v, x, conv[j], itmax);
 
-            x.imag(std::fabs(imag(x)) <= std::fabs(real(x)) * eps ? static_cast<T>(0) : x.imag());
+            x.imag(std::fabs(imag(x)) <= std::fabs(real(x)) * BaseSolver<T>::eps ? static_cast<T>(0) : x.imag());
             roots[j] = x;
             _b = ad[j + 1];
             for (int jj = j; jj >= 0; --jj) {

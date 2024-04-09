@@ -156,6 +156,8 @@ namespace Laguerre{
 
 	/** \brief Diff vector
      * \return new vector of template type <T>
+	 * 
+	 * 
 	*/
 	template <typename T>
 	inline vector<T> diff(vector<T> coeffs, int deg=1){
@@ -166,7 +168,6 @@ namespace Laguerre{
 			}
 			ret.erase(ret.begin());
 		}
-		// TODO: CHECK WHY WE HAVE LEFT OUR LOOP
         return ret;
     } 
 
@@ -181,9 +182,16 @@ namespace Laguerre{
 
 		std::vector<T> quotient_coeffs(dividend.size() - divisor.size() + 1, 0);
 
+		int degree_diff;
+		T coeff;
+
         while (dividend.size() >= divisor.size()) {
-            int degree_diff = dividend.size() - divisor.size();
-            T coeff = dividend.back() / divisor.back();
+            degree_diff = dividend.size() - divisor.size();
+            coeff = dividend.back() / divisor.back();
+
+			if(anynotfinite(coeff)){
+                throw std::invalid_argument("Highest degree of coefficient for divisor is probably zero: " << divisor.back());
+            }
 
             // Subtract and update the dividend
             for (int i = 0; i <= divisor.size()-1; ++i) {
@@ -199,7 +207,7 @@ namespace Laguerre{
         remainder = dividend;
 	} 
 
-	/** \brief Divide vectors (coefficients of polynomials)
+	/** \brief Get remainder from vectors division (coefficients of polynomials)
 	*/
 	template <typename T>
 	inline void getRemainder(vector<T> dividend, vector<T> divisor, vector<T>& remainder) {
@@ -207,9 +215,16 @@ namespace Laguerre{
             throw std::invalid_argument("The degree of the divisor is greater than the dividend");
         }
 
+		int degree_diff;
+		T coeff;
+
         while (dividend.size() >= divisor.size()) {
-            int degree_diff = dividend.size() - divisor.size();
-            T coeff = dividend.back() / divisor.back();
+            degree_diff = dividend.size() - divisor.size();
+            coeff = dividend.back() / divisor.back();
+
+			if(anynotfinite(coeff)){
+                throw std::invalid_argument("Highest degree of coefficient for divisor is probably zero: " << divisor.back());
+            }
 
             // Subtract and update the dividend
             for (int i = 0; i <= divisor.size()-1; ++i) {
@@ -230,16 +245,18 @@ namespace Laguerre{
 
 		std::vector<ttmath::Big<EXPONENT, MANTISSA>> big_dividend, big_divisor;
 		for (const T num : dividend) {
-            ttmath::Big<EXPONENT, MANTISSA> bignum(num);
-            big_dividend.push_back(bignum);
+            big_dividend.push_back(ttmath::Big<EXPONENT, MANTISSA>(num));
         }
 		for (const T num : divisor) {
-            ttmath::Big<EXPONENT, MANTISSA> bignum(num);
-            big_divisor.push_back(bignum);
+            big_divisor.push_back(ttmath::Big<EXPONENT, MANTISSA>(num));
         }
 
+		ttmath::Big<EXPONENT, MANTISSA> coeff;
+		if (big_divisor.back() == ttmath::Big<EXPONENT, MANTISSA>(0)) {
+			throw std::invalid_argument("Highest degree of coefficient for divisor is probably zero.");
+		}
         while (big_dividend.size() >= big_divisor.size()) {
-            ttmath::Big<EXPONENT, MANTISSA> coeff = big_dividend.back() / big_divisor.back();
+            coeff = big_dividend.back() / big_divisor.back();
 
             // Subtract and update the dividend
             for (int i = 0; i <= big_divisor.size()-1; ++i) {

@@ -23,10 +23,6 @@ template<typename T>
 class ModifiedLaguerre18 : public BaseSolver<T>{
 private:
     //
-    static constexpr T eps   = std::numeric_limits<T>::epsilon();
-    static constexpr T big   = std::numeric_limits<T>::max();
-    static constexpr T small = std::numeric_limits<T>::min();
-    //
     static constexpr T PI    = std::numbers::pi_v<T>;
     static constexpr T pi2   = PI*static_cast<T>(2);
 
@@ -60,7 +56,7 @@ private:
         c = 0;
 
         for (int i = n; i >= 0; --i) {
-            while (c >= 2 && cross(h, a, c, i) < eps)
+            while (c >= 2 && cross(h, a, c, i) < BaseSolver<T>::eps)
                 --c;
             // std::cout << "i=" << i << ", c=" << c << "\n"; 
             h[c] = i;
@@ -86,7 +82,7 @@ private:
         // Andrews starting position
         for (i = 0; i <= deg; ++i){
             a[i] = log(alpha[i]);
-            a[i] = std::isfinite(a[i]) ? a[i] : -big;
+            a[i] = std::isfinite(a[i]) ? a[i] : -BaseSolver<T>::big;
         }
         conv_hull(deg, a, h, c);
         k = 0;
@@ -101,7 +97,7 @@ private:
             a1 = pow(alpha[h[i + 1]], one_div_nzeros);
             a2 = pow(alpha[h[i]], one_div_nzeros);
 
-            if (a1 <= a2 * small){
+            if (a1 <= a2 * BaseSolver<T>::small){
                 // r is too small
                 r = 0.0;
                 nz += nzeros;
@@ -112,9 +108,9 @@ private:
             }
             else{
                 T sigma_thh = fma(th, h[i], static_cast<T>(0.7));
-                if (a1 >= a2 * big){
+                if (a1 >= a2 * BaseSolver<T>::big){
                     // r is too big
-                    r = big;
+                    r = BaseSolver<T>::big;
                     nz += nzeros;
                     for (j = k; j < k + nzeros; ++j)
                         conv[j] = -1;
@@ -172,7 +168,7 @@ private:
         if(a == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
 
         // Laguerre correction/ backward error and condition
-        bool condition = abs(a) > (eps * berr);
+        bool condition = abs(a) > (BaseSolver<T>::eps * berr);
         // std::cout << "berr is " << berr << "\n";
         b = condition ? b/a : b;
         // https://www.wolframalpha.com/input?i=z%5E2*%28-2*z*b%2Bd%29+-+%28z%5E2*z%5E2%29*%282*c%2Fa-b%5E2%29
@@ -180,12 +176,11 @@ private:
         b = condition ? fms(zz, complex<T>(deg, 0) , zz2, b) : b;
 
         // cond = (!condition)*(berr / abs(fms(complex<T>(deg, 0),  a, zz, b))) + (condition)*cond;
-        // TODO: CHECK IF ITS CORRECT
         cond = fma(!condition, berr / std::abs(fms(std::complex<T>(deg, 0), a, zz, b)), condition * cond);
         berr = (!condition)*(abs(a) / berr) + (condition)*berr;
 
         conv = condition ? 
-            (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv)
+            (complexnotfinite(b, BaseSolver<T>::big) || complexnotfinite(c, BaseSolver<T>::big) ? -1 : conv)
             : 1;
     }
 
@@ -220,7 +215,7 @@ private:
         }
 
         // Laguerre correction/ backward error and condition
-        bool condition = abs(a) > eps * berr;
+        bool condition = abs(a) > BaseSolver<T>::eps * berr;
         b = condition ? b/a : b;
         // b^2 + (-{2,0}*c/a)+{2,0}*c/a+(-{2,0}*c/a)
         c = condition ? fms(b, b, std::complex<T>(2, 0), c/a) : c;
@@ -229,7 +224,7 @@ private:
         berr = (!condition)*(abs(a) / berr) + (condition)*berr;
 
         conv = condition ? 
-            (complexnotfinite(b, big) || complexnotfinite(c, big) ? -1 : conv) 
+            (complexnotfinite(b, BaseSolver<T>::big) || complexnotfinite(c, BaseSolver<T>::big) ? -1 : conv) 
             : 1;
     }
 
@@ -264,7 +259,7 @@ private:
 
         // Laguerre correction
         complex<T> t_arg = fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  complex<T>(static_cast<T>(deg - 1), 0), b*b);
-        if(complexnotfinite(t_arg, big)) throw std::invalid_argument("Sqrt of not finite number is undefined");
+        if(complexnotfinite(t_arg, BaseSolver<T>::big)) throw std::invalid_argument("Sqrt of not finite number is undefined");
         t = sqrt(t_arg);
         c = b + t;
         // std::cout << "c = b+t c=" << c << "\n";
@@ -299,7 +294,7 @@ public:
         for (i = 0; i <= deg; ++i)
             alpha[i] = fabs(poly[i]);
 
-        if (alpha[deg] < small) {
+        if (alpha[deg] < BaseSolver<T>::small) {
             std::cout << "Warning: leading coefficient is too small." << std::endl;
             return;
         } 
@@ -388,7 +383,7 @@ public:
         }
         int nanpos = -1;
         for(i=0; i<deg; ++i){
-            if(complexnotfinite(roots[i], big)){
+            if(complexnotfinite(roots[i], BaseSolver<T>::big)){
                 std::cout << "One of the roots had overflow at position " << i << "\n";
             }
         }

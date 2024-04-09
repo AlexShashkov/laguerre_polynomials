@@ -1,20 +1,19 @@
 #include "headers/framework.h"
-
 #include "headers/Polynomial.h"
-#include "headers/PolynomialGenerator.h"
-
 #include "headers/Laguerre.h"
 #include "headers/Laguerre13m.h"
 #include "headers/Laguerre18m.h"
 // #include "headers/L18_or.h"
+
 
 #define PR_NUMBERS_OF_ROOTS_EQUAL     0
 #define PR_AT_LEAST_ONE_ROOT_LOST    -1
 #define PR_AT_LEAST_ONE_ROOT_IS_FAKE -2
 #define PR_2_INFINITE_ROOTS          -3
 
+
 #ifndef SOLVER
-    #define SOLVER 0
+    #define SOLVER 2
     // 0 - Original
     // 1 - 2013 mod
     // 2 - 2018 mod
@@ -22,6 +21,7 @@
 #ifndef NUMBER
     #define NUMBER double
 #endif
+
 
 // Exponent and mantissa for root generation
 // You can check recommended precision for ttmath on https://www.ttmath.org/online_calculator/
@@ -41,10 +41,10 @@
 
 
 #ifndef DEGREE
-    #define DEGREE 100 // polynomial degree
+    #define DEGREE 10 // polynomial degree
 #endif
 #ifndef N_TESTS
-    #define N_TESTS 100 // count of tests 
+    #define N_TESTS 1 // count of tests 
 #endif
 // Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
 #ifndef N_PAIRS_OF_COMPLEX_ROOTS
@@ -69,6 +69,7 @@
 #ifndef TRIES
     #define TRIES 80 // For how many iterations Laguerre should try to solve polynomial
 #endif
+
 
 int main(){
     using Laguerre::Polynomial;
@@ -100,6 +101,8 @@ int main(){
     NUMBER ae_this_test_worst, ae_all_tests_worst=static_cast<NUMBER>(-1.0L),   // absolute error: an impossible value that will be updated for sure
            re_this_test_worst, re_all_tests_worst=static_cast<NUMBER>(-1.0L);   // relative error: an impossible value that will be updated for sure
     try{
+        Polynomial<NUMBER> pol;
+        pol.setSolver(solver);
         for(int i=0; i < N_TESTS; ++i){
             roots_found_this_test.clear();
             N_roots_gt_this_test = generate_polynomial<NUMBER, EXPONENT, MANTISSA>(DEGREE, N_PAIRS_OF_COMPLEX_ROOTS, N_CLUSTERED_ROOTS,
@@ -108,12 +111,11 @@ int main(){
             std::cout << "GENERATED POLY & ROOTS:\n";
             Laguerre::printVec(a);
             Laguerre::printVec(roots);
-            Polynomial<NUMBER> pol(a);
+            pol.setCoeffs(a);
 
             std::vector<std::complex<NUMBER>> solved_roots(DEGREE);
             std::vector<int> conv(DEGREE);
 
-            pol.setSolver(solver);
             pol.solve(solved_roots, conv, TRIES);
 
             std::cout << "found roots: ";
