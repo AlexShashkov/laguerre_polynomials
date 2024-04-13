@@ -1,7 +1,7 @@
 # Makefile
 
 # Default solver
-SOLVER = 0
+SOLVER = 2
 # 0 - Original Laguerre
 # 1 - 2013 modification
 # 2 - 2018 modification
@@ -22,14 +22,14 @@ EXPONENT = 4
 MANTISSA = 32
 
 # Degree of polynomials
-DEGREE = 20
+DEGREE = 100
 
 #Number of tests
-N_TESTS = 1000
+N_TESTS = 10000
 
 # Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
 N_PAIRS_OF_COMPLEX_ROOTS = 0
-N_CLUSTERED_ROOTS = DEGREE
+N_CLUSTERED_ROOTS = 0
 N_MULTIPLE_ROOTS = 0
 # Used only for clustered roots
 MAX_DISTANCE_BETWEEN_CLUSTERED = 1e-5

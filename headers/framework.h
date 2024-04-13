@@ -29,6 +29,16 @@ template <typename fp_t> inline fp_t pr_product_difference(fp_t a, fp_t b, fp_t 
   return fma(a, b, -tmp) + fma(-d, c, tmp);
 }
 
+template<typename T>
+inline T min_value(T a, T b) {
+    return (a < b) ? a : b;
+}
+
+template<typename T>
+inline T max_value(T a, T b) {
+    return (a > b) ? a : b;
+}
+
 /**
  * \brief Generates a test polynomial of any given degree P.
  * 
@@ -117,14 +127,10 @@ switch (P)
         // Calculate resulting coefficients
         std::vector<ttmath::Big<exponent,mantissa>> big_coeffs, big_coeffs_new, big_roots;
         for (const fp_t num : coefficients) {
-            // TODO: Change to convertion from string
-            ttmath::Big<exponent,mantissa> bignum(static_cast<double>(num));
-            big_coeffs.push_back(bignum);
+            big_coeffs.push_back(ttmath::Big<exponent,mantissa>(std::to_string(num)));
         }
         for (const auto num : roots) {
-          // TODO: Change to convertion from string
-            ttmath::Big<exponent,mantissa> bignum(static_cast<double>(num));
-            big_roots.push_back(bignum);
+            big_roots.push_back(ttmath::Big<exponent,mantissa>(std::to_string(num)));
         }
         big_coeffs_new = big_coeffs;
 
@@ -149,7 +155,7 @@ switch (P)
           big_coeffs_new = {
               ttmath::Big<exponent, mantissa>(static_cast<double>(re * re + im * im)),
               ttmath::Big<exponent, mantissa>(static_cast<double>(-2 * re)),
-              ttmath::Big<exponent, mantissa>(static_cast<double>(1))
+              ttmath::Big<exponent, mantissa>(1)
           };
 
           bool isNotFullyComplex = N_pairs_of_complex_roots*2 != P;
@@ -191,31 +197,49 @@ return -1; // unreachable, means a flaw in control here
  * 
  * \return Negative return values may mean internal implementation error.
  */
-template<typename fp_t> 
-int compare_roots(
-unsigned N_roots_to_check,
-unsigned N_roots_ground_truth,
-std::vector<fp_t> &roots_to_check,
-std::vector<fp_t> &roots_ground_truth,
-fp_t &max_absolute_error,
-fp_t &max_relative_error){
-    int rv = (N_roots_to_check<N_roots_ground_truth) ? PR_AT_LEAST_ONE_ROOT_LOST :
-      ( (N_roots_to_check>N_roots_ground_truth) ? PR_AT_LEAST_ONE_ROOT_IS_FAKE : PR_NUMBERS_OF_ROOTS_EQUAL );
-    long double abs = std::numeric_limits<long double >::max();
-    long double  rel = std::numeric_limits<long double >::max();
-    auto size = roots_to_check.size();
+template<typename fp_t>
+int compare_roots(unsigned N_roots_to_check,
+                  unsigned N_roots_ground_truth,
+                  std::vector<fp_t> &roots_to_check,
+                  std::vector<fp_t> &roots_ground_truth,
+                  fp_t &max_absolute_error,
+                  fp_t &max_relative_error) {
+    int rv = (N_roots_to_check < N_roots_ground_truth) ? PR_AT_LEAST_ONE_ROOT_LOST :
+             ((N_roots_to_check > N_roots_ground_truth) ? PR_AT_LEAST_ONE_ROOT_IS_FAKE : PR_NUMBERS_OF_ROOTS_EQUAL);
+
+    long double global_ae = std::numeric_limits<long double>::min();
+    long double global_re = std::numeric_limits<long double>::min();
+
+    long double abs;
+    long double re;
     long double absLoc;
-    for(long unsigned int j = 0;j < size; ++j)
-    for(long unsigned int i = 0;i < size; ++i){
-        absLoc = std::abs((long double)(roots_ground_truth[i])-(long double)(roots_to_check[(i + j) % size]));
-        abs = std::min(absLoc,abs);
-        rel = std::min(std::abs(
-                (long double)(absLoc + std::numeric_limits<fp_t>::epsilon())/
-                        (long double)(std::max(roots_to_check[(i + j) % size],roots_ground_truth[i]) + std::numeric_limits<fp_t>::epsilon())),rel);
+    long double reLoc;
+
+    for (size_t i = 0; i < N_roots_ground_truth; ++i) {
+        abs = std::numeric_limits<long double>::max();
+        for (size_t j = 0; j < N_roots_to_check; ++j) {
+          // std::cout << "Comparing GT " << roots_ground_truth[i] << " against " << roots_to_check[j] << "\n";
+            absLoc = std::abs(static_cast<long double>(roots_ground_truth[i]) -
+                                    static_cast<long double>(roots_to_check[j]));
+            reLoc = std::abs((absLoc + std::numeric_limits<long double>::epsilon()) /
+                                               (static_cast<long double>(std::max(roots_ground_truth[i], roots_to_check[j])) + std::numeric_limits<long double>::epsilon()));
+            // std::cout << "Absloc: " << absLoc << ", abs: " << abs << " => abs=min(abs, absLoc)";
+            abs = std::min(absLoc, abs);
+            re = std::min(reLoc, re);
+            // std::cout << "=" << abs << "\n";
+        }
+
+        // std::cout << "Global abs=" << global_ae << ", abs=" << abs << " => ";
+        global_ae = std::max(abs, global_ae);
+        // std::cout << "global = " << global_ae << "\n";
+        global_re = std::max(re, global_re);
     }
-    max_absolute_error = abs;
-    max_relative_error = rel;
+
+    max_absolute_error = static_cast<fp_t>(global_ae);
+    max_relative_error = static_cast<fp_t>(global_re);
+
     return rv;
 }
+
 
 #endif

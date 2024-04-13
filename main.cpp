@@ -3,8 +3,8 @@
 #include "headers/Laguerre.h"
 #include "headers/Laguerre13m.h"
 #include "headers/Laguerre18m.h"
-// #include "headers/L18_or.h"
 
+#include <fstream>
 
 #define PR_NUMBERS_OF_ROOTS_EQUAL     0
 #define PR_AT_LEAST_ONE_ROOT_LOST    -1
@@ -41,15 +41,15 @@
 
 
 #ifndef DEGREE
-    #define DEGREE 20 // polynomial degree
+    #define DEGREE 100 // polynomial degree
 #endif
 #ifndef N_TESTS
-    #define N_TESTS 1000 // count of tests 
+    #define N_TESTS 10000 // count of tests 
 #endif
 // Generator params. If all N_*_ROOTS are zero, then generator will create only simple roots
 #ifndef N_PAIRS_OF_COMPLEX_ROOTS
     #define N_PAIRS_OF_COMPLEX_ROOTS 0
-#endif
+#endif 
 #ifndef N_CLUSTERED_ROOTS
     #define N_CLUSTERED_ROOTS 0
 #endif
@@ -61,10 +61,10 @@
     #define MAX_DISTANCE_BETWEEN_CLUSTERED 1e-5
 #endif
 #ifndef ROOT_SWEEP_LOW
-    #define ROOT_SWEEP_LOW -10.0
+    #define ROOT_SWEEP_LOW -1
 #endif
 #ifndef ROOT_SWEEP_HIGH
-    #define ROOT_SWEEP_HIGH 10.0
+    #define ROOT_SWEEP_HIGH 1
 #endif
 #ifndef TRIES
     #define TRIES 80 // For how many iterations Laguerre should try to solve polynomial
@@ -100,8 +100,9 @@ int main(){
 
     NUMBER ae_this_test_worst, ae_all_tests_worst=static_cast<NUMBER>(-1.0L),   // absolute error: an impossible value that will be updated for sure
            re_this_test_worst, re_all_tests_worst=static_cast<NUMBER>(-1.0L);   // relative error: an impossible value that will be updated for sure
+    
+    Polynomial<NUMBER> pol;
     try{
-        Polynomial<NUMBER> pol;
         pol.setSolver(solver);
         for(int i=0; i < N_TESTS; ++i){
             roots_found_this_test.clear();
@@ -125,6 +126,9 @@ int main(){
             });
 
             N_roots_found_this_test = roots_found_this_test.size();
+
+            std::sort(roots_found_this_test.begin(), roots_found_this_test.end());
+            std::sort(roots.begin(), roots.end());
 
             rv=compare_roots<NUMBER>(N_roots_found_this_test, N_roots_gt_this_test, roots_found_this_test, roots,
                                                                                     ae_this_test_worst, re_this_test_worst);
@@ -210,7 +214,6 @@ int main(){
         std::cout << root << ", ";
     }
 
-
     std::cout << "}\nWorst case method results re: ";
     for (auto &root : roots_found_all_tests_re_worst){
         std::cout << root << " ";
@@ -222,9 +225,9 @@ int main(){
     std::cout << "}\nCoeffs worst re: {";
     for (auto &root : coefficients_all_tests_re_worst){
         std::cout << root << ", ";
-    }
-    std::cout << "}" << std::endl;
+    }   
     std::cout << std::setprecision(fp_precision_original); // restore default precision
+
     
     delete solver;
     return 0;
