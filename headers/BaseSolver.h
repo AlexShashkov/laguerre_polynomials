@@ -17,7 +17,7 @@ public:
          * \param conv Vector to store convergence status of each root.
          * \param itmax Maximum number of iterations.
      */
-    virtual void operator()(std::vector<T>& coeff, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax) = 0;
+    virtual void operator()(const std::vector<T>& coeff, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax) = 0;
     virtual ~BaseSolver() {}
 };
 

@@ -18,9 +18,6 @@
 #include "ExtendedFunctions.h"
 
 namespace Laguerre{
-using std::complex;
-using std::vector;
-using std::fma;
 
 template<typename T>
 class ModifiedLaguerre18 : public BaseSolver<T>{
@@ -30,7 +27,7 @@ private:
     static constexpr T pi2   = PI*static_cast<T>(2);
 
     // for backward error
-    static constexpr T e_i   = fma(static_cast<T>(2), static_cast<T>(sqrtl(2L)), 1);
+    static constexpr T e_i   = fma(static_cast<T>(2L), static_cast<T>(sqrtl(2L)), static_cast<T>(1));
 
     /**
      * \brief Calculate the cross product between two points.
@@ -40,7 +37,7 @@ private:
          * \param i Index for the next point.
          * \return T cross product between two points.
      */
-    inline T cross(std::vector<int>& h, std::vector<T>& a, int c, int i) {
+    inline T cross(const vector<int>& h, const vector<T>& a, const int& c, const int& i) {
         // determinant
         int h_c = h[c];
         int h_c1 = h[c-1];
@@ -55,7 +52,7 @@ private:
          * \param h Vector to store the convex hull.
          * \param c Number of points in the convex hull.
      */
-    inline void conv_hull(int n, std::vector<T>& a, std::vector<int>& h, int& c) {
+    inline void conv_hull(const int& n, const vector<T>& a, vector<int>& h, int& c) {
         c = 0;
 
         for (int i = n; i >= 0; --i) {
@@ -70,33 +67,29 @@ private:
 
     /**
      * \brief Estimate roots of a polynomial.
-         * \param alpha Polynomial object.
+         * \param alpha Polynomial array.
          * \param deg Degree of the polynomial.
          * \param roots Vector to store the estimated roots.
          * \param conv Vector to store convergence status of each root.
          * \param nz Number of zeros.
      */
-    inline void estimates(vector<T>& alpha, int deg, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int& nz) {
-        int c, i, j, k, nzeros;
+    inline void estimates(const vector<T>& alpha, const int& deg, vector<complex<T>>& roots, vector<int>& conv, int& nz) {
+        int c, i, j, k=0, nzeros;
         T a1, a2, ang, r, th;
-        std::vector<int> h(deg + 1);
-        std::vector<T> a(deg + 1);
+        vector<int> h(deg + 1);
+        vector<T> a(deg + 1);
 
         // Andrews starting position
         for (i = 0; i <= deg; ++i){
             a[i] = log(alpha[i]);
-            a[i] = std::isfinite(a[i]) ? a[i] : -BaseSolver<T>::big;
+            a[i] = isfinite(a[i]) ? a[i] : -BaseSolver<T>::big;
         }
         conv_hull(deg, a, h, c);
-        k = 0;
         th = pi2/static_cast<T>(deg);
-
+        T one_div_nzeros, sigma_thh;
         // Initial Estimates
-        for (i = c - 2; i >= 0; --i) {
-            nzeros = h[i] - h[i + 1];
-            if(nzeros == static_cast<T>(0)) throw std::invalid_argument("Convex hull values cant be zero.");
-            if(alpha[h[i]] == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
-            T one_div_nzeros = static_cast<T>(1.0 / nzeros);
+        for (i = c - 2; i >= 0 && (nzeros = h[i] - h[i + 1]) != static_cast<T>(0) && alpha[h[i]] != static_cast<T>(0); --i) {
+            one_div_nzeros = static_cast<T>(1.0 / nzeros);
             a1 = pow(alpha[h[i + 1]], one_div_nzeros);
             a2 = pow(alpha[h[i]], one_div_nzeros);
 
@@ -112,7 +105,7 @@ private:
             }
             else{
                 // Original paper references to "Numerical computation of polynomial zeros by means of Aberth's method" where they recommend to use 0.7 as sigma, page 12
-                T sigma_thh = fma(th, h[i], static_cast<T>(0.7));
+                sigma_thh = fma(th, h[i], static_cast<T>(0.7L));
                 if (a1 >= a2 * BaseSolver<T>::big){
                     // r is too big
                     r = BaseSolver<T>::big;
@@ -122,17 +115,19 @@ private:
                 } 
                 else{
                     // r is ok :big-finger-emoji:
-                    if (a2 == static_cast<T>(0)) throw std::invalid_argument("Both correction values equal to zero.");
+                    if (a2 == static_cast<T>(0)) throw invalid_argument("Both correction values equal to zero.");
                     r = a1 / a2;
                 }
                 ang = pi2*one_div_nzeros;
                 for (j = 0; j < nzeros; ++j){
                     T arg = fma(ang, j, sigma_thh);
-                    roots[k + j] = r * std::complex<T>(cos(arg), sin(arg));
+                    roots[k + j] = r * complex<T>(cos(arg), sin(arg));
                 }
             }
             k += nzeros;
         }
+        if(nzeros == static_cast<T>(0)) throw invalid_argument("Convex hull values cant be zero.");
+        if(alpha[h[i = i < 0 ? 0: i]] == static_cast<T>(0)) throw invalid_argument("Alpha value cant be zero");
     }
 
 
@@ -148,9 +143,10 @@ private:
          * \param berr Output backward error.
          * \param cond Output condition number.
      */
-    inline void rcheck_lag(std::vector<T>& p, vector<T>& alpha, int deg, complex<T>& b, complex<T>& c, complex<T> z, T r, int& conv, T& berr, T& cond) {
-        if (z == complex<T>(0, 0)) throw std::invalid_argument("correction absolute value cannot be zero!");
-        if (r == static_cast<T>(0)) throw std::invalid_argument("correction value cannot be zero!");
+    inline void rcheck_lag(const vector<T>& p, const vector<T>& alpha, const int& deg, complex<T>& b, 
+        complex<T>& c, const complex<T>& z, const T& r, int& conv, T& berr, T& cond) {
+        if (z == complex<T>(0, 0)) throw invalid_argument("correction absolute value cannot be zero!");
+        if (r == static_cast<T>(0)) throw invalid_argument("correction value cannot be zero!");
         int k;
         T rr;
         complex<T> a, zz, zz2;
@@ -171,7 +167,7 @@ private:
             a = fma(zz, a, p[k]);
             berr = fma(rr, berr, alpha[k]);
         }
-        if(a == static_cast<T>(0)) throw std::invalid_argument("Alpha value cant be zero");
+        if(a == static_cast<T>(0)) throw invalid_argument("Alpha value cant be zero");
 
         // Laguerre correction/ backward error and condition
 
@@ -185,7 +181,7 @@ private:
         b = condition ? fms(zz, complex<T>(deg, 0) , zz2, b) : b;
 
         // cond = (!condition)*(berr / abs(fms(complex<T>(deg, 0),  a, zz, b))) + (condition)*cond;
-        cond = fma(!condition, berr / std::abs(fms(std::complex<T>(deg, 0), a, zz, b)), condition * cond);
+        cond = fma(!condition, berr / std::abs(fms(complex<T>(deg, 0), a, zz, b)), condition * cond);
         berr = (!condition)*(abs(a) / berr) + (condition)*berr;
 
         conv = condition ? 
@@ -206,9 +202,10 @@ private:
          * \param berr Output backward error.
          * \param cond Output condition number.
      */
-    inline void check_lag(std::vector<T>& p, std::vector<T>& alpha, int deg, std::complex<T>& b, std::complex<T>& c, std::complex<T> z, T r, int& conv, T& berr, T& cond) {
+    inline void check_lag(const vector<T>& p, const vector<T>& alpha, const int& deg, complex<T>& b, 
+        complex<T>& c, const complex<T>& z, const T& r, int& conv, T& berr, T& cond) {
         int k;
-        std::complex<T> a;
+        complex<T> a;
 
         // Evaluate polynomial and derivatives
         a = p[deg];
@@ -231,7 +228,7 @@ private:
         bool condition = abs(a) > BaseSolver<T>::eps * berr;
         b = condition ? b/a : b;
         // b^2 + (-{2,0}*c/a)+{2,0}*c/a+(-{2,0}*c/a)
-        c = condition ? fms(b, b, std::complex<T>(2, 0), c/a) : c;
+        c = condition ? fms(b, b, complex<T>(2, 0), c/a) : c;
 
         cond = (!condition)*(berr / (r * abs(b))) + (condition)*cond;
         berr = (!condition)*(abs(a) / berr) + (condition)*berr;
@@ -251,8 +248,8 @@ private:
          * \param j Index of the root to modify.
          * \param roots Vector of estimated roots.
      */
-    void modify_lag(int deg, std::complex<T>& b, std::complex<T>& c, std::complex<T> z, int j, std::vector<std::complex<T>>& roots) {
-        std::complex<T> t;
+    void modify_lag(const int& deg, complex<T>& b, complex<T>& c, complex<T> z, const int& j, vector<complex<T>>& roots) {
+        complex<T> t;
 
         // std::cout << "Entered modify lag c=" << c << "\n";
         // Aberth correction terms, page 4 in paper
@@ -272,20 +269,18 @@ private:
 
         // Laguerre correction
         complex<T> t_arg = fms(complex<T>(static_cast<T>(deg - 1), 0), (static_cast<T>(deg) * c),  complex<T>(static_cast<T>(deg - 1), 0), b*b);
-        if(complexnotfinite(t_arg, BaseSolver<T>::big)) throw std::invalid_argument("Sqrt of not finite number is undefined");
+        if(complexnotfinite(t_arg, BaseSolver<T>::big)) throw invalid_argument("Sqrt of not finite number is undefined");
         t = sqrt(t_arg);
         c = b + t;
         // std::cout << "c = b+t c=" << c << "\n";
         b -= t;
-        // std::complex<T> degc(deg, 0);
+        // complex<T> degc(deg, 0);
         c = abs(b) > abs(c) ? static_cast<T>(deg) / b : static_cast<T>(deg) / c;
         // std::cout << "Exiting c=" << c << "\n";
     }
 
 public:
-    ModifiedLaguerre18(){
-        // 
-    }
+    ModifiedLaguerre18(){}
 
     /**
      * \brief Find the roots of a polynomial using Laguerre's method.
@@ -294,21 +289,22 @@ public:
          * \param conv Vector to store convergence status of each root.
          * \param itmax Maximum number of iterations.
      */
-    void operator()(std::vector<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax) override{
+    void operator()(const vector<T>& poly, vector<complex<T>>& roots, vector<int>& conv, int itmax) override{
         int deg = roots.size();
-        std::vector<T> berr(deg); // Vector to store the backward errors.
-        std::vector<T> cond(deg); // Vector to store the condition numbers.
+        vector<T> berr(deg); // Vector to store the backward errors.
+        vector<T> cond(deg); // Vector to store the condition numbers.
         int i, j, nz; // nz - Number of zeros
         T r; // variable to store absolute value of root 
-        std::vector<T> alpha(deg + 1); // Vector of coefficients.
-        std::complex<T> b, c, z; // root and correction values
+        vector<T> alpha(deg + 1); // Vector of coefficients.
+        complex<T> b, c, z; // root and correction values
 
         // Precheck
-        for (i = 0; i <= deg; ++i)
+        for (i = 0; i <= deg; ++i){
             alpha[i] = fabs(poly[i]);
+        }
 
         if (alpha[deg] < BaseSolver<T>::small) {
-            std::cout << "Warning: leading coefficient is too small." << std::endl;
+            std::cout << "Warning: leading coefficient is too small.\n";
             return;
         } 
 
@@ -348,10 +344,10 @@ public:
                         if (*std::min_element(conv.begin(), conv.end()) == 1)
                             break;
                         // Display a warning
-                        std::cout << "Some root approximations did not converge or experienced overflow/underflow.\n";
+                        // std::cout << "Some root approximations did not converge or experienced overflow/underflow.\n";
 
                         // Compute backward error and condition number for roots that did not converge.
-                        for (j = 0; j < deg; ++j){
+                        for (j = 0; j < deg && !anynotfinite(cond[j], berr[j], r) && !complexnotfinite(z, BaseSolver<T>::big); ++j){
                             if (conv[j] != 1) {
                                 z = roots[j];
                                 r = abs(z);
@@ -388,6 +384,11 @@ public:
                                 }
                             }
                         }
+                        j = j >= deg ? deg-1 : j;
+                        if(anynotfinite(cond[j], berr[j], r))
+                            throw invalid_argument("One or all of error values are not finite.");
+                        if(complexnotfinite(z, BaseSolver<T>::big))
+                            throw invalid_argument("Correction value is not finite.");
                         break;
                     }
                 }

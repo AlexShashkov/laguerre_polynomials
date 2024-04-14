@@ -16,8 +16,6 @@
 #include "ExtendedFunctions.h"
 
 namespace Laguerre{
-using std::complex;
-using std::vector;
 
 template<typename T>
 class Original : public BaseSolver<T>{
@@ -27,51 +25,51 @@ private:
         * \param a   Polynomial object.
         * \param x   Initial guess for the root.
      */
-    inline void laguer(const std::vector<std::complex<T>>& a, std::complex<T>& x, int& converged, int itmax){        
+    inline void laguer(const vector<complex<T>>& a, complex<T>& x, int& converged, int itmax){        
         converged = 1;
-        std::complex<T> dx, x1, b, d, f, g, h, sq, gp, gm, g2;
+        complex<T> dx, x1, b, d, f, g, h, sq, gp, gm, g2;
         T err, abx, abp, abm;
         int m = a.size() - 1;
 
         for (int iter = 1; iter <= itmax; ++iter) {
-            b = std::complex<T>(1.0, 0.0); // b will be used to calculate the value of the polynomial at the point x
-            err = std::abs(b);
-            d = f = std::complex<T>(0.0, 0.0);
-            abx = std::abs(x);
+            b = complex<T>(1.0, 0.0); // b will be used to calculate the value of the polynomial at the point x
+            err = abs(b);
+            d = f = complex<T>(0.0, 0.0);
+            abx = abs(x);
 
             for (int j = m - 1; j >= 0; --j) {
                 f = fma(x, f, d); // Calculation of the second derivative of the polynomial at the point x
                 d = fma(x, d, b); // Calculation of the first derivative of the polynomial at the point x
                 b = fma(x, b, a[j]); // Calculating the value of the polynomial at the point x
-                err = fma(err, abx, std::abs(b));
+                err = fma(err, abx, abs(b));
             }
 
-            if (std::abs(b) <= err * BaseSolver<T>::eps)
+            if (abs(b) <= err * BaseSolver<T>::eps)
                 return;  // We are on the root.
 
             g = d / b;
             g2 = g * g;
             h = fma(f / b, -static_cast<T>(2), g2); // Calculation of h, which is used in the Lagger formula
 
-            if(complexnotfinite(g, BaseSolver<T>::big) || complexnotfinite(h, BaseSolver<T>::big)){
-                throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
-            }
+            // if(complexnotfinite(g, BaseSolver<T>::big) || complexnotfinite(h, BaseSolver<T>::big)){
+            //     throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
+            //}
 
             sq = std::sqrt(static_cast<T>(m - 1) * (fma(h, static_cast<T>(m), -g2))); // square root
             // two possible denominator values
             gp = g + sq;
             gm = g - sq;
-            abp = std::abs(gp);
-            abm = std::abs(gm);
+            abp = abs(gp);
+            abm = abs(gm);
 
             // den (in this case gp) = max{|G + sq|, |G − sq|}
             gp = abp < abm ? gm : gp; // |G + sq| < |G - sq| ? G − sq : G + sq
             // std::cout << "!!! " << gp << "\n"; 
             // dx - change of x on each step
             dx = (std::max(abp, abm) > static_cast<T>(0.0)) ? (static_cast<T>(m) / gp) : std::polar(static_cast<T>(1) + abx, static_cast<T>(iter));
-            if(complexnotfinite(dx, BaseSolver<T>::big)){
-                throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
-            }
+            // if(complexnotfinite(dx, BaseSolver<T>::big)){
+            //    throw std::invalid_argument("During error calculation in Laguerre some numbers converged to NaN.");
+            //}
             x1 = x - dx;
             if (x == x1)
                 return;  // Converged.
@@ -94,23 +92,24 @@ public:
          * \param conv Vector to store convergence status of each root.
          * \param itmax Maximum number of iterations.
      */
-    void operator()(std::vector<T>& poly, std::vector<std::complex<T>>& roots, std::vector<int>& conv, int itmax=80) override{
-        std::complex<T> x, _b, _c;
+    void operator()(const vector<T>& poly, vector<complex<T>>& roots, vector<int>& conv, int itmax=80) override{
+        complex<T> x, _b, _c;
         int m = roots.size();
         // std::cout << "M SIZE " << m << "\n";
-        std::vector<std::complex<T>> ad(m + 1);
+        vector<complex<T>> ad(m + 1);
 
         // Copy of coefficients for successive deflation.
+        // ad = poly; no match operator between complex vector and double vector
         for (int i = 0; i <= m; ++i)
-            ad[i] = poly[i];
+             ad[i] = complex<T>(poly[i], static_cast<T>(0));
 
-        std::vector<std::complex<T>> ad_v;
+        vector<complex<T>> ad_v;
         for (int j = m - 1; j > 0; --j) {
             // std::cout << "j:" << j << "\n";
-            x = std::complex<T>(0.0, 0.0);
+            x = complex<T>(0.0, 0.0);
 
             // Start at zero to favor convergence to the smallest remaining root.
-            ad_v = std::vector<std::complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
+            ad_v = vector<complex<T>>(ad.cbegin(), ad.cbegin() + j + 2);
             laguer(ad_v, x, conv[j], itmax);
 
             x.imag(std::fabs(imag(x)) <= std::fabs(real(x)) * BaseSolver<T>::eps ? static_cast<T>(0) : x.imag());
@@ -126,8 +125,7 @@ public:
         conv[0] = conv[1];
         
         // Polishing
-        if (anycomplex(roots)) {
-            std::cout << "has complex!\n";
+        if (anycomplex<T>(roots)) {
             // return;
             int i;
             for (int j = 1; j < m; ++j) {
@@ -140,7 +138,6 @@ public:
                 roots[i + 1] = x;
             }
         }
-        // std::cout << "SOLVED EVERYTHING\n";
     }
 
 };

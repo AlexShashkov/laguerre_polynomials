@@ -20,22 +20,25 @@
 #include <iomanip>
 #include <complex>
 
+using std::vector;
+using std::complex;
+
 /* computes (a*b - c*d) with precision not worse than 1.5*(unit of least precision) suggested in Claude-Pierre Jeannerod,
 Nicolas Louvet, and Jean-Michel Muller, "Further Analysis of Kahan's Algorithm for the Accurate Computation of 2x2 Determinants".
 Mathematics of Computation, Vol. 82, No. 284, Oct. 2013, pp. 2245-2264 */
-template <typename fp_t> inline fp_t pr_product_difference(fp_t a, fp_t b, fp_t c, fp_t d)
+template <typename fp_t> inline fp_t pr_product_difference(const fp_t& a, const fp_t& b, const fp_t& c, const fp_t& d)
 {
   auto tmp = d * c;
   return fma(a, b, -tmp) + fma(-d, c, tmp);
 }
 
 template<typename T>
-inline T min_value(T a, T b) {
+inline T min_value(const T& a, const T& b) {
     return (a < b) ? a : b;
 }
 
 template<typename T>
-inline T max_value(T a, T b) {
+inline T max_value(const T& a, const T& b) {
     return (a > b) ? a : b;
 }
 
@@ -65,14 +68,14 @@ inline T max_value(T a, T b) {
  */
 template<typename fp_t, int exponent, int mantissa> 
 int generate_polynomial(
-unsigned P,
-unsigned N_pairs_of_complex_roots,
-unsigned N_clustered_roots,
-unsigned N_multiple_roots,
-fp_t max_distance_between_clustered_roots,
-fp_t root_sweep_low, fp_t root_sweep_high,
-std::vector<fp_t> &roots,
-std::vector<fp_t> &coefficients)
+const unsigned& P,
+const unsigned& N_pairs_of_complex_roots,
+const unsigned& N_clustered_roots,
+const unsigned& N_multiple_roots,
+const fp_t& max_distance_between_clustered_roots,
+const fp_t& root_sweep_low, fp_t root_sweep_high,
+vector<fp_t>& roots,
+vector<fp_t>& coefficients)
 {
 int N_simple_roots=P-2*N_pairs_of_complex_roots-N_clustered_roots-N_multiple_roots;
 assert(N_clustered_roots!=1); assert(N_multiple_roots!=1); assert(N_simple_roots>=0); assert(P>0);
@@ -125,7 +128,7 @@ switch (P)
         }
         
         // Calculate resulting coefficients
-        std::vector<ttmath::Big<exponent,mantissa>> big_coeffs, big_coeffs_new, big_roots;
+        vector<ttmath::Big<exponent,mantissa>> big_coeffs, big_coeffs_new, big_roots;
         for (const fp_t num : coefficients) {
             big_coeffs.push_back(ttmath::Big<exponent,mantissa>(std::to_string(num)));
         }
@@ -160,14 +163,14 @@ switch (P)
 
           bool isNotFullyComplex = N_pairs_of_complex_roots*2 != P;
           big_coeffs = isNotFullyComplex || i != 0 ? 
-            Laguerre::multiply(big_coeffs, big_coeffs_new, i == 0 && isNotFullyComplex ? N_pairs_of_complex_roots*2 : 0) 
+            Laguerre::multiply_bn(big_coeffs, big_coeffs_new, i == 0 && isNotFullyComplex ? N_pairs_of_complex_roots*2 : 0) 
             : big_coeffs_new;
 
           roots[P - i * 2 - 1] = re; 
           roots[P - i * 2 - 2] = re;
       }
 
-        for (int i=0; i < P+1; ++i) {
+        for (i=0; i < P+1; ++i) {
             // Print out coeffs to show that it fails on float or double in extreme cases
             // std::cout << big_coeffs[i] << " ";
             // bignum to string, and then casting back to fp_t from long double value (on high degrees coeffs exist that are greater than 1e+308)
@@ -198,12 +201,13 @@ return -1; // unreachable, means a flaw in control here
  * \return Negative return values may mean internal implementation error.
  */
 template<typename fp_t>
-int compare_roots(unsigned N_roots_to_check,
-                  unsigned N_roots_ground_truth,
-                  std::vector<fp_t> &roots_to_check,
-                  std::vector<fp_t> &roots_ground_truth,
-                  fp_t &max_absolute_error,
-                  fp_t &max_relative_error) {
+int compare_roots(
+                  const unsigned& N_roots_to_check,
+                  const unsigned& N_roots_ground_truth,
+                  const vector<fp_t>& roots_to_check,
+                  const vector<fp_t>& roots_ground_truth,
+                  fp_t& max_absolute_error,
+                  fp_t& max_relative_error) {
     int rv = (N_roots_to_check < N_roots_ground_truth) ? PR_AT_LEAST_ONE_ROOT_LOST :
              ((N_roots_to_check > N_roots_ground_truth) ? PR_AT_LEAST_ONE_ROOT_IS_FAKE : PR_NUMBERS_OF_ROOTS_EQUAL);
 
@@ -215,14 +219,15 @@ int compare_roots(unsigned N_roots_to_check,
     long double absLoc;
     long double reLoc;
 
-    for (size_t i = 0; i < N_roots_ground_truth; ++i) {
+    for (unsigned i = 0; i < N_roots_ground_truth; ++i) {
         abs = std::numeric_limits<long double>::max();
-        for (size_t j = 0; j < N_roots_to_check; ++j) {
+        for (unsigned j = 0; j < N_roots_to_check; ++j) {
           // std::cout << "Comparing GT " << roots_ground_truth[i] << " against " << roots_to_check[j] << "\n";
             absLoc = std::abs(static_cast<long double>(roots_ground_truth[i]) -
                                     static_cast<long double>(roots_to_check[j]));
             reLoc = std::abs((absLoc + std::numeric_limits<long double>::epsilon()) /
                                                (static_cast<long double>(std::max(roots_ground_truth[i], roots_to_check[j])) + std::numeric_limits<long double>::epsilon()));
+            reLoc = Laguerre::anynotfinite(reLoc) ? std::numeric_limits<long double>::max() : reLoc;
             // std::cout << "Absloc: " << absLoc << ", abs: " << abs << " => abs=min(abs, absLoc)";
             abs = std::min(absLoc, abs);
             re = std::min(reLoc, re);
