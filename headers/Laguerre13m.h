@@ -1,4 +1,6 @@
-// Александр, Дмитрий
+// Александр Шашков cracecrunch@gmail.com
+// Дмитрий Балашов dimabalash0v@yandex.ru
+
 // On a family of Laguerre methods to find multiple roots of nonlinear equations
 // https://www.academia.edu/29512423/On_a_family_of_Laguerre_methods_to_find_multiple_roots_of_nonlinear_equations
 

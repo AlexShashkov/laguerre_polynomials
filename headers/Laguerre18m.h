@@ -1,4 +1,6 @@
-// Александр, Дмитрий
+// Александр Шашков cracecrunch@gmail.com
+// Дмитрий Балашов dimabalash0v@yandex.ru
+
 // An effective implementation of a modified Laguerre method for the roots of a polynomial
 // https://www.thomasrcameron.com/pubs/PML.pdf
 

@@ -1,4 +1,5 @@
-// Александр, Дмитрий
+// Александр Шашков cracecrunch@gmail.com
+// Дмитрий Балашов dimabalash0v@yandex.ru
 
 #ifndef EXTENDEDFMA_H
 #define EXTENDEDFMA_H

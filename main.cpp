@@ -1,3 +1,6 @@
+// Александр Шашков cracecrunch@gmail.com
+// Дмитрий Балашов dimabalash0v@yandex.ru
+
 #include "headers/framework.h"
 #include "headers/Polynomial.h"
 #include "headers/Laguerre.h"

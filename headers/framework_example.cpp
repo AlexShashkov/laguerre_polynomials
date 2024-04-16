@@ -1,3 +1,6 @@
+// Александр Шашков cracecrunch@gmail.com
+// Дмитрий Балашов dimabalash0v@yandex.ru
+
 // Example of how to use framework
 
 #include <algorithm>
@@ -26,11 +29,11 @@ int main() {
     std::cout << std::numeric_limits<double>::max() << "\n";
     std::cout << std::numeric_limits<long double>::max() << "\n";
 
-    int l = 4;
+    int l = 10;
     std::vector<long double> roots(l, 0.0);
     std::vector<long double> a(l+1, 0.0);
-    generate_polynomial<long double, exponent, mantissa>(l, 2, 0, 0,
-        1e-5, -1.0, 1.0, roots, a);
+    generate_polynomial<long double, exponent, mantissa>(l, 0, 0, 0,
+        1e-5, -10.0, 10.0, roots, a);
 
 std::cout << "\nFRAMEWORK ROOTS:\n";
     for(auto &el : roots){

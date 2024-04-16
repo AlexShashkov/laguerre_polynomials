@@ -1,3 +1,7 @@
+// Александр Шашков cracecrunch@gmail.com
+// Дмитрий Балашов dimabalash0v@yandex.ru
+
+
 #ifndef BASESOLVER_H
 #define BASESOLVER_H
 
