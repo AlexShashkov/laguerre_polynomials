@@ -4,7 +4,7 @@ This project uses various Laguerre methods to solve polynomials.
 
 Научный руководитель: Парфенов Денис Васильевич (promasterden@yandex.ru)
 
-КМБО-03-20: Александр Шашков (cracecrunch@gmail.com), Вячеслав Иванов (noviacheslav1@gmail.com), Глеб Дорошенко (dgleb02@mail.ru), Дмитрий Балашов (dimabalash0v@yandex.ru), Роман Охотников (roma.ohotnikov@gmail.com), Шахин Гаджиев (shakhingadzhiev@yandex.ru)
+КМБО-03-20: Александр Шашков (alexandershashkov0@yandex.ru), Вячеслав Иванов (noviacheslav1@gmail.com), Глеб Дорошенко (dgleb02@mail.ru), Дмитрий Балашов (dimabalash0v@yandex.ru), Роман Охотников (roma.ohotnikov@gmail.com), Шахин Гаджиев (shakhingadzhiev@yandex.ru)
 
 [Documentation](https://alexshashkov.github.io/laguerre_polynomials/html/md_README.html)
 
